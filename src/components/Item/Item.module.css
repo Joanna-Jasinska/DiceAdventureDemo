@@ -25,6 +25,22 @@
   text-align: left;
   z-index: 2;
 }
+.iconBag {
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  height: 3.6em;
+  padding: 4px;
+  /* background-color: rgba(255, 228, 196, 0.671); */
+  display: flex;
+  z-index: 10;
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-flow: row-reverse;
+  justify-content: flex-end;
+  gap: 3px;
+}
 .button {
   position: absolute;
   top: 0px;

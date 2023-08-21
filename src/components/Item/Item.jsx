@@ -1,6 +1,7 @@
 // import { PropTypes } from 'prop-types';
 import { Miniature } from "components/Miniature/Miniature";
 import css from "./Item.module.css";
+import { DiceIcon } from "components/DiceIcon/DiceIcon";
 
 export const Item = ({
   name,
@@ -9,9 +10,11 @@ export const Item = ({
   icon,
   alt,
   tags,
-  lvl = 1,
+  lv = 1,
   selected = false,
   toggleSelect,
+  dices,
+  stats = [],
 }) => {
   return (
     <div className={css.item} id={id}>
@@ -25,12 +28,24 @@ export const Item = ({
           type="button"
           onClick={toggleSelect}
         >
-          +{/* +✔️ */}
+          {selected ? "✔️" : "+"}
         </button>
         <span className={css.text}>
-          <span className={css.level}>{`Lv${lvl} `}</span>
+          <span className={css.level}>{`Lv${lv} `}</span>
           <span className={css.name}>{name + " "}</span>
         </span>
+      </div>
+      <div className={css.iconBag}>
+        {(dices ? dices : stats).map((el, index) => {
+          return (
+            <DiceIcon
+              diceMax={el.diceMax}
+              value={el.value}
+              icon={el.type}
+              key={`${name}|${el.type}|${index}`}
+            />
+          );
+        })}
       </div>
     </div>
   );

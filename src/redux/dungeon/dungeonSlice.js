@@ -1,11 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { resetItems, updateItem, deselectAllItems } from "./operations";
+import { clearDungeon, beginDungeon, packEquipment } from "./operations";
 
 const initialState = {
-  items: [{ name: "No items" }],
+  quests: [],
+  items: [],
+  enemy: {
+    name: "Enemy",
+  },
   isLoading: false,
   error: null,
-  filters: {},
+  inDungeon: false,
+  endTurn: false,
 };
 const handleRejected = (state, action) => {
   state.isLoading = false;
@@ -17,41 +22,34 @@ const handlePending = (state) => {
 // const deleteContactByIdPending = state => {
 //   state.isLoading = true;
 // };
-const gameSlice = createSlice({
-  name: "game",
+const dungeonSlice = createSlice({
+  name: "dungeon",
   initialState,
   extraReducers: {
-    [resetItems.pending]: handlePending,
-    [resetItems.rejected]: handleRejected,
-    [resetItems.fulfilled](state, action) {
+    [clearDungeon.pending]: handlePending,
+    [clearDungeon.rejected]: handleRejected,
+    [clearDungeon.fulfilled](state, action) {
+      state = initialState;
+    },
+
+    [beginDungeon.pending]: handlePending,
+    [beginDungeon.rejected]: handleRejected,
+    [beginDungeon.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.items = action.payload.items;
+      state.quests = action.payload.quests;
+      // state.dices= action.payload.dices;
+      state.enemy = action.payload.enemy;
+      state.endTurn = false;
+    },
+
+    [packEquipment.pending]: handlePending,
+    [packEquipment.rejected]: handleRejected,
+    [packEquipment.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
-    },
-
-    [deselectAllItems.pending]: handlePending,
-    [deselectAllItems.rejected]: handleRejected,
-    [deselectAllItems.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.items.all = [
-        ...state.items.all.map((i) => {
-          return { ...i, stats: { ...i.stats, selected: false } };
-        }),
-      ];
-    },
-
-    [updateItem.pending]: handlePending,
-    [updateItem.rejected]: handleRejected,
-    [updateItem.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.items.all[action.payload.stats.index] = {
-        ...state.items.all.filter(
-          (i) => i.stats.id === action.payload.stats.id
-        ),
-        ...action.payload,
-      };
     },
 
     // [deleteContactById.pending]: deleteContactByIdPending,
@@ -72,4 +70,4 @@ const gameSlice = createSlice({
     // },
   },
 });
-export const gameReducer = gameSlice.reducer;
+export const dungeonReducer = dungeonSlice.reducer;

@@ -13,7 +13,8 @@ import { refreshUser } from "redux/auth/operations";
 const TownPage = lazy(() => import("../pages/TownPage"));
 const EQPage = lazy(() => import("../pages/EQPage"));
 const CombatPage = lazy(() => import("../pages/CombatPage"));
-// const RegisterPage = lazy(() => import("../pages/RegisterPage"));
+const QuickBattlePage = lazy(() => import("../pages/QuickBattlePage"));
+const ResetPage = lazy(() => import("../pages/ResetPage"));
 // const LoginPage = lazy(() => import("../pages/LoginPage"));
 // const LogoutPage = lazy(() => import("../pages/LogoutPage"));
 // const PhonebookPage = lazy(() => import("../pages/PhonebookPage"));
@@ -53,8 +54,29 @@ export const App = () => {
             element={<RouteTown redirectTo="/combat" component={<EQPage />} />}
           />
           <Route
+            path="/reset"
+            element={
+              <RouteTown redirectTo="/combat" component={<ResetPage />} />
+            }
+          />
+          <Route
             path="/combat"
             element={<RouteBattle redirectTo="/" component={<CombatPage />} />}
+          />
+          <Route
+            path="/return"
+            element={
+              <RouteBattle
+                redirectTo="/quickBattle"
+                component={<CombatPage />}
+              />
+            }
+          />
+          <Route
+            path="/quickBattle"
+            element={
+              <RouteTown redirectTo="/combat" component={<QuickBattlePage />} />
+            }
           />
           {/* <Route
             path="/login"

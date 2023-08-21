@@ -1,27 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectLoading, selectEq, selectFilter } from "redux/eq/selectors";
-import { selectItems, selectFilters } from "redux/game/selectors";
+// import { game } from "api/game";
+import { selectLoading, selectEq, selectFilters } from "redux/eq/selectors";
+// import { selectItems, selectFilters } from "redux/game/selectors";
 import { Item } from "components/Item/Item";
-import { fetchEquipment } from "redux/eq/operations";
-import { resetItems, updateItem } from "redux/game/operations";
+import {
+  fetchEquipment,
+  deselectAllItems,
+  updateItem,
+  refreshEq,
+} from "redux/eq/operations";
+// import { resetItems,  } from "redux/game/operations";
 import { setFilter } from "redux/filter/filterSlice";
 
 // import css from './../Phonebook.module.css';
 import css from "./ItemList.module.css";
 
 export const ItemList = () => {
-  // const [name, setName] = useState('');
-  // const [number, setNumber] = useState('');
   const filters = useSelector(selectFilters);
 
   const dispatch = useDispatch();
-  const equipment = useSelector(selectEq);
-  const items = useSelector(selectItems);
+  // const equipment = useSelector(selectEq);
+  // const items = useSelector(selectItems);
+  const items = useSelector(selectEq);
+  // const items = game.selectItems;
 
   useEffect(() => {
     // dispatch(fetchEquipment());
-    dispatch(resetItems());
+    dispatch(refreshEq());
+    // dispatch(resetItems());
   }, [dispatch]);
 
   //   useEffect(() => {
@@ -29,6 +36,7 @@ export const ItemList = () => {
   //   }, [equipment]);
 
   const filterItems = (filters, items) => {
+    return items;
     const filteredItems = items
       ? items.all
         ? Array.isArray(items.all)
@@ -91,34 +99,35 @@ export const ItemList = () => {
 
       {/* <Item {...items.all[0]} /> */}
       {items
-        ? items.all
-          ? Array.isArray(items.all)
-            ? filterItems(filters, items).all.map((element, index) => {
-                const el = element.stats;
-                return (
-                  <Item
-                    name={el.name}
-                    number={el.number}
-                    alt={el.alt}
-                    id={`${el.id}`}
-                    key={`${el.name}|${index}|${el.id}`}
-                    selected={el.selected}
-                    toggleSelect={() =>
-                      dispatch(
-                        updateItem({
-                          element,
-                          stats: {
-                            ...element.stats,
-                            selected: !element.stats.selected,
-                          },
-                        })
-                      )
-                    }
-                    // toggleSelect={element.toggleSelection}
-                  />
-                );
-              })
-            : ""
+        ? Array.isArray(items)
+          ? filterItems(filters, items).map((element, index) => {
+              const el = element.stats;
+              return (
+                <Item
+                  name={`${el.name}`}
+                  number={`${el.number}`}
+                  alt={`${el.alt}`}
+                  id={`${el.id}`}
+                  key={`${el.name}|${index}|${el.id}`}
+                  selected={el.selected ? el.selected : false}
+                  toggleSelect={() =>
+                    dispatch(
+                      updateItem({
+                        element,
+                        stats: {
+                          ...element.stats,
+                          selected: !element.stats.selected,
+                        },
+                      })
+                    )
+                  }
+                  stats={el.stats}
+                  dices={el.dices}
+                  lv={el.lv}
+                  // toggleSelect={element.toggleSelection}
+                />
+              );
+            })
           : ""
         : ""}
     </div>

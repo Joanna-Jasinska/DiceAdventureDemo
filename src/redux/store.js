@@ -1,9 +1,10 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-import { contactsReducer } from "./contacts/contactsSlice";
+// import { contactsReducer } from "./contacts/contactsSlice";
 import { equipmentReducer } from "./eq/equipmentSlice";
-import { gameReducer } from "./game/gameSlice";
-import { filterReducer } from "./filter/filterSlice";
+import { combatReducer } from "./combat/combatSlice";
+// import { filterReducer } from "./filter/filterSlice";
+import { dungeonReducer } from "./dungeon/dungeonSlice";
 import { authReducer } from "./auth/slice";
 import {
   persistStore,
@@ -38,13 +39,32 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
+const eqPersistConfig = {
+  key: "equipment",
+  storage,
+  whitelist: ["all"],
+};
+
+const dungeonPersistConfig = {
+  key: "dungeon",
+  storage,
+  whitelist: ["all"],
+};
+
+const combatPersistConfig = {
+  key: "combat",
+  storage,
+  whitelist: ["all"],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    contacts: contactsReducer,
-    equipment: equipmentReducer,
-    game: gameReducer,
-    filter: filterReducer,
+    // contacts: contactsReducer,
+    equipment: persistReducer(eqPersistConfig, equipmentReducer),
+    combat: persistReducer(combatPersistConfig, combatReducer),
+    dungeon: persistReducer(dungeonPersistConfig, dungeonReducer),
+    // filter: filterReducer,
     // auth: authReducer,
   },
   middleware,

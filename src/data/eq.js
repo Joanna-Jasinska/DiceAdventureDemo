@@ -20,12 +20,12 @@ export const BASE_EQUIPMENT = [
     skillName: "COMBO SLASH",
     skillTxT: "Change speed/strength/dexterity dice into slashed+1",
     stats: [
-      { type: "dice", diceMax: 8, value: undefined, type: "slashed" },
-      { type: "dice", diceMax: 4, value: undefined, type: "speed" },
+      { item: "dice", diceMax: 8, value: undefined, type: "slashed" },
+      { item: "dice", diceMax: 4, value: undefined, type: "speed" },
     ],
     statGrow: [
       {
-        type: "dice",
+        item: "dice",
         existSinceLv: 1,
         diceMax: 6,
         value: 0,
@@ -35,7 +35,7 @@ export const BASE_EQUIPMENT = [
       },
     ],
     statsTxT: "EACH level: [ +1 speed ] of k6 ",
-    lv: 1,
+    lv: 8,
     selected: true,
   },
 
@@ -44,10 +44,10 @@ export const BASE_EQUIPMENT = [
     alt: "🔱",
     skillName: "CHARGE",
     skillTxT: "combine STR/NEEDLE 2 dices to gain their combined value and max",
-    stats: [{ type: "dice", diceMax: 20, value: undefined, type: "needle" }],
+    stats: [{ item: "dice", diceMax: 20, value: undefined, type: "needle" }],
     statGrow: [
       {
-        type: "dice",
+        item: "dice",
         existSinceLv: 1,
         diceMax: 20,
         value: 0,
@@ -57,7 +57,7 @@ export const BASE_EQUIPMENT = [
       },
     ],
     statsTxT: "EACH level: [ +1 needle ] of k20 ",
-    lv: 1,
+    lv: 10,
   },
 
   {
@@ -66,12 +66,12 @@ export const BASE_EQUIPMENT = [
     skillName: "SNACK",
     skillTxT: "spend speed dice to recover mana equal to its value and 1hp",
     stats: [
-      { type: "stats", maxHp: 20 },
-      { type: "dice", diceMax: 4, value: undefined, type: "stamina" },
+      { item: "stats", type: "life", maxHp: 20 },
+      { item: "dice", diceMax: 4, value: undefined, type: "stamina" },
     ],
     statGrow: [
       {
-        type: "dice",
+        item: "dice",
         existSinceLv: 5,
         diceMax: 4,
         value: undefined,
@@ -92,12 +92,12 @@ export const BASE_EQUIPMENT = [
     skillTxT:
       "2x mana/magic slots (any value) gain shield equal to lower value of one dice",
     stats: [
-      { type: "dice", diceMax: 6, value: undefined, type: "mana" },
-      { type: "dice", diceMax: 6, value: undefined, type: "mana" },
+      { item: "dice", diceMax: 6, value: undefined, type: "mana" },
+      { item: "dice", diceMax: 6, value: undefined, type: "mana" },
     ],
     statGrow: [
       {
-        type: "dice",
+        item: "dice",
         existSinceLv: 5,
         diceMax: 6,
         value: undefined,
@@ -117,10 +117,10 @@ export const BASE_EQUIPMENT = [
     skillName: "HASTE",
     skillTxT:
       "[speed =/= 1][non speed] reroll the nonspeed dice, change speed dice to 1",
-    stats: [{ type: "dice", diceMax: 10, value: 3, type: "speed" }],
+    stats: [{ item: "dice", diceMax: 10, value: 3, type: "speed" }],
     statGrow: [
       {
-        type: "dice",
+        item: "dice",
         existSinceLv: 2,
         diceMax: 10,
         value: 0,
@@ -134,5 +134,27 @@ export const BASE_EQUIPMENT = [
     lv: 1,
   },
 
-  {},
+  {
+    stats: [
+      { item: "stats", type: "life", maxHp: 20 },
+      {
+        item: "dice",
+        diceMax: 20,
+        value: 20,
+        type: "stamina",
+      },
+      {
+        item: "dice",
+        diceMax: 20,
+        value: 12,
+        type: "stamina",
+      },
+      {
+        item: "dice",
+        diceMax: 20,
+        value: 1,
+        type: "stamina",
+      },
+    ],
+  },
 ];

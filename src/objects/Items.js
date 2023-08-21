@@ -1,10 +1,10 @@
 import { Item } from "./Item";
-
-let itemTemplate = { ...Item };
+import { LeveledItem } from "./LeveledItem";
 
 export const Items = {
   all: [],
   initiate(data) {
+    let itemTemplate = { ...Item };
     this.all = [
       ...data.map((i, index) => {
         itemTemplate.initiate({ ...i, index: index });
@@ -14,6 +14,24 @@ export const Items = {
   },
   edit(data) {
     this.stats = { ...this.stats, ...data };
+  },
+  serialise() {
+    console.log("Serialising leveled items");
+    // console.table(this);
+    return [...this.all.map((item) => item.serialise())];
+    // ----------------------------------------
+    let leveledItems = this.all.map((item) => {
+      let leveledTemplate = { ...LeveledItem };
+      leveledTemplate.initiate(item);
+      console.log(`leveledTemplate= ${leveledTemplate.serialise()}`);
+      // console.table(leveledTemplate.serialise());
+      return leveledTemplate.serialise();
+    });
+    console.log(`leveledItems= ${leveledItems}`);
+    // console.table(leveledItems);
+
+    return [...this.all.map((item) => item.serialise())];
+    return [...leveledItems];
   },
   findById: function (id) {
     const found = this.all.filter((item) => item.stats.id === id);
@@ -34,5 +52,8 @@ export const Items = {
       return true;
     }
     return false;
+  },
+  deselectAllItems() {
+    this.all.forEach((i) => i.deselect());
   },
 };
