@@ -1,0 +1,88 @@
+/* @import-normalize;  */
+:root {
+  --box-shadow: -1px -1px 1px 0px lightgray, 1px 1px 3px 1px gray;
+  --box-shadow-inset: inset 1px 1px 0px 1px lightgray,
+    inset -1px -1px 0px 1px #f1f1f1, inset -70px -30px 40px 0px #f7f7f788;
+  --box-shadow-inset-small: inset 1px 1px 0px 1px lightgray,
+    inset -1px -1px 0px 1px #f1f1f177, inset -70px -30px 40px 0px #ffffff18;
+  --border-radius: 16px;
+  --border-inset: 2px solid white;
+  --border: 0px solid lightgray;
+  --border-medium: 1px solid red;
+  --bg-highlighted: #c6ffea6d;
+  --bg-highlighted-solid: #d5f7ec;
+  /* --bg-outline: #d5f4ff; */
+  --bg-outline: #00344c78;
+  --bg-regular: white;
+  --bg-gentle: whitesmoke;
+  --bg-milky: #e4fbff2e;
+  --bg-murky: #16002118;
+  --margin-component: 2px;
+  --txt-disabled: dimgray;
+  --online: rgb(138, 230, 0);
+  --offline: dimgray;
+  --color-variant1: rgba(233, 251, 255, 0.3);
+  --color-variant2: rgba(168, 239, 255, 0.3);
+  --color-variant3: rgba(106, 228, 255, 0.3);
+  --color-variant4: rgba(45, 216, 255, 0.3);
+  --color-variant5: rgba(0, 198, 243, 0.3);
+  --color-variant6: rgba(0, 177, 217, 0.3);
+  --duration-short: 100ms;
+  --scale-medium: scale(1.1);
+  --scale-small: scale(1.04);
+  --scale-shrink: scale(0.82);
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: '100vh';
+  display: 'flex';
+  justify-content: 'center';
+  align-items: 'center';
+  font-size: 40;
+  color: '#010101';
+  background-color: #ededed;
+  /* background-color: #000000; */
+  background: linear-gradient(#0000000d #010101);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+ul {
+  padding-inline-start: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+#root {
+  min-height: 100vh;
+}
+.app {
+  flex-wrap: wrap;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40;
+  color: #010101;
+}

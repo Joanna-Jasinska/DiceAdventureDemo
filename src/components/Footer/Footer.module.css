@@ -1,0 +1,16 @@
+.footer {
+  box-sizing: border-box;
+  z-index: 1100;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 48px;
+  max-height: 2em;
+  padding-right: 1em;
+  padding-left: 1em;
+  padding-top: 0;
+  padding-bottom: 0.3rem;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}

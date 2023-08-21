@@ -1,0 +1,83 @@
+.item {
+  /* background-color: #5c784c; */
+  position: relative;
+  min-width: 120px;
+  height: 120px;
+  /* overflow: hidden; */
+  border-radius: 20px;
+  margin: 3px;
+  width: max-content;
+  width: 8.5rem;
+}
+
+.bar {
+  border-radius: 20px 20px 0 0;
+  /* overflow: hidden; */
+  position: absolute;
+  height: 4.2em;
+  /* min-height: 4em; */
+  /* height: min-content; */
+  top: 0;
+  left: 0;
+  width: 120px;
+  /* background-color: #ffffff42; */
+  background-color: #ffffffbb;
+  text-align: left;
+  z-index: 2;
+}
+.button {
+  position: absolute;
+  top: 0px;
+  right: -4px;
+  /* right: 0.8rem; */
+  margin: 0px 4px 1px 0px;
+  width: 3rem;
+  height: 2.4rem;
+  /* display: inline; */
+  justify-content: center;
+  border: transparent;
+  border-radius: 0 20px;
+  font-size: 2.4rem;
+  line-height: 2rem;
+  /* overflow: hidden; */
+  z-index: 4;
+  cursor: pointer;
+  transition: 250ms;
+}
+
+.selected {
+  background-color: #c3ff91;
+  box-shadow: -1px 0px 14px 6px #7ae621;
+  /* box-shadow: 1px 1px 1px red; */
+}
+.text {
+  margin: 2px 4px;
+  display: inline;
+}
+.level {
+  position: absolute;
+  top: 2px;
+  /* margin: 10px 0px; */
+  /* display: inline; */
+  /* background-color: aqua; */
+  font-size: 1.6em;
+  text-align: right;
+  /* width: 100%; */
+  height: 1rem;
+  display: block;
+  margin: 0px 0.5rem;
+  z-index: 3;
+  /* background-color: red; */
+}
+.name {
+  position: relative;
+  display: block;
+  margin-top: 1rem;
+  min-height: 1em;
+  max-height: 2em;
+  /* background-color: aqua; */
+  text-align: center;
+  /* padding-bottom: 6px; */
+  font-weight: bold;
+  z-index: 3;
+}

@@ -1,0 +1,68 @@
+.backLight {
+  position: relative;
+  animation: textColor 10s ease infinite;
+}
+.backLight:after {
+  position: absolute;
+  position: fixed;
+  content: '';
+  /* top: -32%;
+  left: -32%; */
+  top: 0;
+  left: 0;
+  z-index: -2000;
+  width: 100vw;
+  height: 100vh;
+  /* margin: 0 auto; */
+  /* transform: scale(0.75); */
+  transform: scale(0.93);
+  -webkit-filter: blur(5vw);
+  -moz-filter: blur(5vw);
+  -ms-filter: blur(5vw);
+  filter: blur(5vw);
+  border-radius: 25%;
+
+  background: #c5e3da; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #c7e4dd,
+    #e1d4f0,
+    #c7e4dd
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: radial-gradient(
+      farthest-corner at 40% 0%,
+      #eaffd8bf,
+      #c4ff9000 40%
+    ),
+    radial-gradient(farthest-corner at 90% 110%, #f3d1ff, #c4ff9000 50%),
+    radial-gradient(farthest-corner at 0% 120%, #c5fff5, #c4ff9000 50%),
+    linear-gradient(270deg, #c7e4dd, #e1d4f0);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  animation: animateGlow 10s ease infinite;
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes textColor {
+  0% {
+    /* color: #7e0fff; */
+    color: #32006b;
+  }
+  50% {
+    /* color: #0fffc1; */
+    color: #003e2f;
+  }
+  100% {
+    /* color: #7e0fff; */
+    color: #2a005a;
+  }
+}
