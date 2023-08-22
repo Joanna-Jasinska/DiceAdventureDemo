@@ -17,8 +17,11 @@ export const BASE_EQUIPMENT = [
   {
     name: "Legacy Sword",
     alt: "🗡️",
-    skillName: "COMBO SLASH",
-    skillTxT: "Change speed/strength/dexterity dice into slashed+1",
+    skill: {
+      name: "COMBO SLASH",
+      txt: "Change speed/strength/dexterity dice into slashed+1",
+      id: "Boots of Speed|HASTE|skill|ID",
+    },
     stats: [
       { item: "dice", diceMax: 8, value: undefined, type: "slashed" },
       { item: "dice", diceMax: 4, value: undefined, type: "speed" },
@@ -35,15 +38,18 @@ export const BASE_EQUIPMENT = [
       },
     ],
     statsTxT: "EACH level: [ +1 speed ] of k6 ",
-    lv: 8,
+    lv: 1,
     selected: true,
   },
 
   {
     name: "Utiki Spear",
     alt: "🔱",
-    skillName: "CHARGE",
-    skillTxT: "combine STR/NEEDLE 2 dices to gain their combined value and max",
+    skill: {
+      name: "CHARGE",
+      txt: "combine STR/NEEDLE 2 dices to gain their combined value and max",
+      id: "Boots of Speed|HASTE|skill|ID",
+    },
     stats: [{ item: "dice", diceMax: 20, value: undefined, type: "needle" }],
     statGrow: [
       {
@@ -57,14 +63,17 @@ export const BASE_EQUIPMENT = [
       },
     ],
     statsTxT: "EACH level: [ +1 needle ] of k20 ",
-    lv: 10,
+    lv: 1,
   },
 
   {
     name: "Provisions Bag",
     alt: "👜",
-    skillName: "SNACK",
-    skillTxT: "spend speed dice to recover mana equal to its value and 1hp",
+    skill: {
+      name: "SNACK",
+      txt: "spend speed dice to recover mana equal to its value and 1hp",
+      id: "Provisions Bag|SNACK|skill|ID",
+    },
     stats: [
       { item: "stats", type: "life", maxHp: 20 },
       { item: "dice", diceMax: 4, value: undefined, type: "stamina" },
@@ -78,22 +87,25 @@ export const BASE_EQUIPMENT = [
         type: "stamina",
         // valueGrowPerLevel: 1,
         // valueMakesExtraDice: true,
+        levelMakesExtraDice: true,
         amountOfLevelsForExtraDice: 5,
       },
     ],
     statsTxT: "Per 5 levels: [ +1d4 stamina ] ",
-    lv: 1,
+    lv: 22,
   },
 
   {
     name: "Wizard Hat",
     alt: "🎩",
-    skillName: "MANA ARMOR",
-    skillTxT:
-      "2x mana/magic slots (any value) gain shield equal to lower value of one dice",
+    skill: {
+      name: "MANA ARMOR",
+      txt: "2x mana/magic slots (any value) gain shield equal to lower value of one dice",
+      id: "Wizard Hat|MANA ARMOR|skill|ID",
+    },
     stats: [
       { item: "dice", diceMax: 6, value: undefined, type: "mana" },
-      { item: "dice", diceMax: 6, value: undefined, type: "mana" },
+      // { item: "dice", diceMax: 6, value: undefined, type: "mana" },
     ],
     statGrow: [
       {
@@ -105,18 +117,21 @@ export const BASE_EQUIPMENT = [
         // valueGrowPerLevel: 1,
         // valueMakesExtraDice: true,
         amountOfLevelsForExtraDice: 5,
+        levelMakesExtraDice: true,
       },
     ],
     statsTxT: "Per 5 levels: [ +1d6 mana ] ",
-    lv: 1,
+    lv: 22,
   },
 
   {
     name: "Boots of Speed",
     alt: "👢",
-    skillName: "HASTE",
-    skillTxT:
-      "[speed =/= 1][non speed] reroll the nonspeed dice, change speed dice to 1",
+    skill: {
+      name: "HASTE",
+      txt: "[speed =/= 1][non speed] reroll the nonspeed dice, change speed dice to 1",
+      id: "Boots of Speed|HASTE|skill|ID",
+    },
     stats: [{ item: "dice", diceMax: 10, value: 3, type: "speed" }],
     statGrow: [
       {
@@ -135,6 +150,7 @@ export const BASE_EQUIPMENT = [
   },
 
   {
+    name: "Test Bag of nothing and nothingness",
     stats: [
       { item: "stats", type: "life", maxHp: 20 },
       {
@@ -156,5 +172,6 @@ export const BASE_EQUIPMENT = [
         type: "stamina",
       },
     ],
+    lv: 1,
   },
 ];

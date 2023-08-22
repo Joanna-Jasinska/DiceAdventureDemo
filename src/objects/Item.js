@@ -3,27 +3,46 @@ export const Item = {
     selected: false,
   },
   serialise() {
-    return { stats: this.stats };
+    return {
+      selected: this.selected,
+      id: this.id,
+      // this.id= data.id;
+      // const dices = extractDices(data);
+      dices: this.dices,
+      name: this.name,
+      alt: this.alt,
+      skill: this.skill,
+      statsTxT: this.statsTxT,
+      lv: this.lv,
+      selected: this.selected,
+      index: this.index,
+    };
   },
   initiate(data) {
-    this.stats = { selected: false, ...data };
-    // console.log(
-    //   `Initiating item --- ${this.stats.name} Lv${this.stats.lv} ${
-    //     this.stats.selected ? "[SELECTED]" : "[unequipped]"
-    //   }`
-    // );
-    // console.table({ ...this, selected: false, ...data });
+    this.selected = false;
+    this.id = `${data.stats.name}|${data.stats.lv}|${data.stats.skillName}`;
+    // this.id= data.id;
+    // const dices = extractDices(data);
+    this.dices = [...data.stats, ...data.statGrow];
+    this.name = data.name;
+    this.alt = data.alt;
+    this.skill = {
+      skillName: data.skill.name,
+      skillTxT: data.skill.txt,
+      id: data.skill.id,
+    };
+    this.statsTxT = data.statsTxT;
+    this.lv = data.lv;
+    this.selected = data.selected;
+    this.index = data.index;
   },
   edit(data) {
-    this.stats = { ...this.stats, ...data };
+    Object.keys(data).forEach((key) => {
+      this[key] = data[key];
+    });
   },
   toggleSelection() {
-    console.log(
-      `Toggling ${this.stats.name} to ${
-        !this.stats.selected ? "[SELECTED]" : "[unequipped]"
-      }`
-    );
-    this.stats.selected = !this.stats.selected;
+    this.selected = !this.selected;
   },
   deselect() {
     this.stats.selected = false;

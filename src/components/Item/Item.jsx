@@ -31,7 +31,7 @@ export const Item = ({
           {selected ? "✔️" : "+"}
         </button>
         <span className={css.text}>
-          <span className={css.level}>{`Lv${lv} `}</span>
+          <span className={css.level}>{`${lv} `}</span>
           <span className={css.name}>{name + " "}</span>
         </span>
       </div>

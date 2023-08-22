@@ -4,37 +4,42 @@ import { LeveledItem } from "./LeveledItem";
 export const Items = {
   all: [],
   initiate(data) {
-    let itemTemplate = { ...Item };
+    console.log("items-initiating------1");
+    // let itemTemplate = { ...Item };
+    let itemTemplate = { ...LeveledItem };
     this.all = [
       ...data.map((i, index) => {
         itemTemplate.initiate({ ...i, index: index });
-        return { ...itemTemplate };
+        return { ...itemTemplate.serialise() };
       }),
     ];
-  },
-  edit(data) {
-    this.stats = { ...this.stats, ...data };
+    console.log("items-initiating------FINISHED");
   },
   serialise() {
+    return this.all;
+    let itemTemplate = { ...LeveledItem };
+    this.all = [
+      ...this.all.map((i, index) => {
+        itemTemplate.initiate({ ...i, index: index });
+        return { ...itemTemplate.serialise() };
+      }),
+    ];
+    // ----------------------------------------
     console.log("Serialising leveled items");
     // console.table(this);
-    return [...this.all.map((item) => item.serialise())];
+    // return [...this.all.map((item) => item.serialise())];
     // ----------------------------------------
     let leveledItems = this.all.map((item) => {
       let leveledTemplate = { ...LeveledItem };
       leveledTemplate.initiate(item);
-      console.log(`leveledTemplate= ${leveledTemplate.serialise()}`);
-      // console.table(leveledTemplate.serialise());
       return leveledTemplate.serialise();
     });
-    console.log(`leveledItems= ${leveledItems}`);
-    // console.table(leveledItems);
 
-    return [...this.all.map((item) => item.serialise())];
     return [...leveledItems];
+    return [...this.all.map((item) => item.serialise())];
   },
   findById: function (id) {
-    const found = this.all.filter((item) => item.stats.id === id);
+    const found = this.all.filter((item) => item.id === id);
     console.log(`this:`);
     console.log(this);
     console.log(`Found item:`);

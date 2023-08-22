@@ -35,28 +35,28 @@ const equipmentSlice = createSlice({
       state.all = action.payload;
     },
 
-    [deselectAllItems.pending]: handlePending,
-    [deselectAllItems.rejected]: handleRejected,
-    [deselectAllItems.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      // state.all = action.payload(state.all);
-      // state.all = action.payload;
-      // state.all[1].stats.selected = true;
-      // state.all[0].stats.selected = false;
-      state.items.all = [
-        ...state.all.map((i) => {
-          return { ...i, stats: { ...i.stats, selected: false } };
-        }),
-      ];
-    },
+    // [deselectAllItems.pending]: handlePending,
+    // [deselectAllItems.rejected]: handleRejected,
+    // [deselectAllItems.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   // state.all = action.payload(state.all);
+    //   // state.all = action.payload;
+    //   // state.all[1].stats.selected = true;
+    //   // state.all[0].stats.selected = false;
+    //   state.items.all = [
+    //     ...state.all.map((i) => {
+    //       return { ...i, selected: false };
+    //     }),
+    //   ];
+    // },
 
     [setItems.pending]: handlePending,
     [setItems.rejected]: handleRejected,
     [setItems.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items.all = action.payload;
+      state.all = action.payload;
     },
 
     [deselectItem.pending]: handlePending,
@@ -64,8 +64,8 @@ const equipmentSlice = createSlice({
     [deselectItem.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.all[action.payload.stats.index] = {
-        ...state.all[action.payload.stats.index],
+      state.all[action.payload.index] = {
+        ...state.all[action.payload.index],
         ...action.payload,
       };
     },
@@ -75,28 +75,11 @@ const equipmentSlice = createSlice({
     [updateItem.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.all[action.payload.stats.index] = {
-        ...state.all[action.payload.stats.index],
+      state.all[action.payload.index] = {
+        ...state.all[action.payload.index],
         ...action.payload,
       };
     },
-
-    // [deleteContactById.pending]: deleteContactByIdPending,
-    // [deleteContactById.rejected]: handleRejected,
-    // [deleteContactById.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.contacts = state.contacts.filter(
-    //     item => item.id !== action.payload.id
-    //   );
-    // },
-    // [addContact.pending]: handlePending,
-    // [addContact.rejected]: handleRejected,
-    // [addContact.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.items = [...state.equipment, action.payload];
-    // },
   },
 });
 export const equipmentReducer = equipmentSlice.reducer;

@@ -56,35 +56,6 @@ export const ItemList = () => {
       : items;
     return filteredItems;
   };
-  //   const filterContacts = (filter, contacts) => {
-  //     return contacts.filter(
-  //       (el) =>
-  //         el.name.toLowerCase().includes(filter.toLowerCase()) ||
-  //         el.number
-  //           .toLowerCase()
-  //           .trim()
-  //           .replace(/ |-/g, "")
-  //           .includes(filter.toLowerCase().trim().replace(/ |-/g, ""))
-  //     );
-  //   };
-  //   const Entry = ({ name, number, id }) => {
-  //     return (
-  //       <li className={css.entry} id={id}>
-  //         <span className={css.entryText}>
-  //           <span className={css.name}>{name + " "}</span>
-  //           <span className={css.number}>{` ${number}`}</span>
-  //         </span>
-  //         <button
-  //           key={`${name}${number}btn${id}`}
-  //           className={`${css.button} ${css.delete}`}
-  //           type="button"
-  //           onClick={(e) => deleteContactHandle(e, { name, number, id })}
-  //         >
-  //           Delete
-  //         </button>
-  //       </li>
-  //     );
-  //   };
 
   return (
     <div className={css.list}>
@@ -100,31 +71,27 @@ export const ItemList = () => {
       {/* <Item {...items.all[0]} /> */}
       {items
         ? Array.isArray(items)
-          ? filterItems(filters, items).map((element, index) => {
-              const el = element.stats;
+          ? filterItems(filters, items).map((el, index) => {
               return (
                 <Item
                   name={`${el.name}`}
-                  number={`${el.number}`}
                   alt={`${el.alt}`}
                   id={`${el.id}`}
-                  key={`${el.name}|${index}|${el.id}`}
-                  selected={el.selected ? el.selected : false}
+                  key={`${el.name}|${el.index}|${el.id}`}
+                  // key={`key|${index}`}
+                  index={index}
+                  selected={el.selected}
                   toggleSelect={() =>
                     dispatch(
                       updateItem({
-                        element,
-                        stats: {
-                          ...element.stats,
-                          selected: !element.stats.selected,
-                        },
+                        ...el,
+                        selected: !el.selected,
                       })
                     )
                   }
-                  stats={el.stats}
+                  // stats={el ? (el.stats ? el.stats : el) : []}
                   dices={el.dices}
                   lv={el.lv}
-                  // toggleSelect={element.toggleSelection}
                 />
               );
             })

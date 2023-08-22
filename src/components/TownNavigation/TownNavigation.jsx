@@ -15,9 +15,8 @@ export const TownNavigation = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectEq);
   const selectedItems = [...items].filter((item) => {
-    if (item.stats.selected)
-      console.log(`filtered ${item.stats.name} nr ${item.stats.index}`);
-    return item.stats.selected;
+    if (item.selected)
+      return item.selected;
   });
   const selectFav = () => {};
   const resetGame = () => {
@@ -28,14 +27,11 @@ export const TownNavigation = () => {
     // dispatch(deselectAllItems());
 
     selectedItems.forEach((el) => {
-      if (el.stats.selected)
+      if (el.selected)
         dispatch(
           updateItem({
             ...el,
-            stats: {
-              ...el.stats,
-              selected: false,
-            },
+            selected: false,
           })
         );
 

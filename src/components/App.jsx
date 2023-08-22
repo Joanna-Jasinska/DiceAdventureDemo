@@ -48,7 +48,7 @@ export const App = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<TownPage />} />
+          <Route index element={<resetPage />} />
           <Route
             path="/eq"
             element={<RouteTown redirectTo="/combat" component={<EQPage />} />}
