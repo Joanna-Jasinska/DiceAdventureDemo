@@ -8,6 +8,7 @@ import { Title } from "components/Phonebook/Title/Title";
 import { resetEquipment } from "redux/eq/operations";
 import { clearDungeon } from "redux/dungeon/operations";
 import { Navigate } from "react-router-dom";
+import { clearCombat } from "redux/combat/operations";
 // import { selectLoading } from "redux/eq/selectors";
 export const ResetPage = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export const ResetPage = () => {
     console.log("Reseting game.");
     dispatch(resetEquipment());
     dispatch(clearDungeon());
+    dispatch(clearCombat());
     console.log("dispatched reseting dungeon");
   }, [dispatch]);
 

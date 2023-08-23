@@ -10,7 +10,7 @@ import {
 } from "./operations";
 
 const initialState = {
-  quests: [],
+  rolledDices: [],
   dices: [],
   enemy: {
     name: "Enemy",
@@ -18,6 +18,7 @@ const initialState = {
   isLoading: false,
   error: null,
   inCombat: false,
+  // enteringCombat: false,
   endTurn: false,
 };
 const handleRejected = (state, action) => {
@@ -27,9 +28,7 @@ const handleRejected = (state, action) => {
 const handlePending = (state) => {
   state.isLoading = true;
 };
-// const deleteContactByIdPending = state => {
-//   state.isLoading = true;
-// };
+
 const combatSlice = createSlice({
   name: "combat",
   initialState,
@@ -37,7 +36,15 @@ const combatSlice = createSlice({
     [clearCombat.pending]: handlePending,
     [clearCombat.rejected]: handleRejected,
     [clearCombat.fulfilled](state, action) {
-      state = initialState;
+      state.isLoading = false;
+      state.error = null;
+      state.items = initialState.items;
+      state.dices = initialState.dices;
+      state.rolledDices = initialState.rolledDices;
+      state.enemy = initialState.enemy;
+      state.endTurn = false;
+      state.inCombat = false;
+      // state.enteringCombat = false;
     },
 
     [beginCombat.pending]: handlePending,
@@ -46,17 +53,18 @@ const combatSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.items = action.payload.items;
-      state.quests = action.payload.quests;
-      // state.dices= action.payload.dices;
+      state.dices = action.payload.dices;
+      state.rolledDices = action.payload.rolledDices;
       state.enemy = action.payload.enemy;
       state.endTurn = false;
+      state.inCombat = true;
     },
 
     [rollAllDices.pending]: handlePending,
     [rollAllDices.rejected]: handleRejected,
     [rollAllDices.fulfilled](state, action) {
       state.isLoading = false;
-      state.dices = action.payload;
+      state.rolledDices = action.payload;
     },
 
     [endTurn.pending]: handlePending,
@@ -71,8 +79,8 @@ const combatSlice = createSlice({
     [updateDice.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.dices.all[action.payload.stats.index] = {
-        ...state.dices.all[action.payload.stats.index],
+      state.rolledDices.all[action.payload.stats.index] = {
+        ...state.rolledDices.all[action.payload.stats.index],
         ...action.payload,
       };
     },
@@ -82,7 +90,7 @@ const combatSlice = createSlice({
     [addDice.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.dices.all.push(action.payload);
+      state.rolledDices.all.push(action.payload);
     },
 
     [deleteDice.pending]: handlePending,
@@ -90,7 +98,7 @@ const combatSlice = createSlice({
     [deleteDice.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.dices.all = state.dices.all.filter((dice) => {
+      state.rolledDices.all = state.rolledDices.all.filter((dice) => {
         return !(
           dice.stats.id === action.payload.stats.id ||
           dice.stats.index === action.payload.stats.index

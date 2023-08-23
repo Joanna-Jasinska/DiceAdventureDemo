@@ -7,9 +7,11 @@ import { startRandomDungeon, packEquipment } from "redux/dungeon/operations";
 import { ItemList } from "components/ItemList/ItemList";
 import { Title } from "components/Phonebook/Title/Title";
 import css from "./../components/Phonebook/Phonebook.module.css";
+import { useCombat } from "hooks";
 
 export const CombatPage = () => {
   //   const dispatch = useDispatch();
+  const { inCombat } = useCombat();
   const error = useSelector(selectError);
 
   return (
@@ -19,7 +21,7 @@ export const CombatPage = () => {
       {error ? <span className={css.error}>{error}</span> : ""}
 
       <Title title={"Combat"} />
-      <Navigate to="/Dungeon" />
+      {inCombat ? "In combat." : <Navigate to="/Dungeon" />}
       {/* <span>
         Life {"12"}/{"30"}
       </span>

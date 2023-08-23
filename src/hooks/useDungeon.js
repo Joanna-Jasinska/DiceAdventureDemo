@@ -8,8 +8,8 @@ import {
   selectError,
   selectLoading,
   selectInDungeon,
-  selectEndingTurn,
   selectDungeon,
+  // selectEndingTurn,
 } from "redux/dungeon/selectors";
 
 export const useDungeon = () => {
@@ -21,7 +21,7 @@ export const useDungeon = () => {
   const ally = useSelector(selectAlly);
   const loading = useSelector(selectLoading);
   const inDungeon = useSelector(selectInDungeon);
-  const endTurn = useSelector(selectEndingTurn);
+  // const endTurn = useSelector(selectEndingTurn);
   const dungeon = useSelector(selectDungeon);
   const name = dungeon.name;
   const eventName = dungeon.eventName;
@@ -35,9 +35,9 @@ export const useDungeon = () => {
     ally,
     loading,
     inDungeon,
-    endTurn,
     dungeon,
     name,
     eventName,
+    // endTurn,
   };
 };

@@ -51,8 +51,8 @@ export const QuickBattlePage = () => {
         display="Enter Dungeon"
         onClick={enterDungeon}
       />
-      <ItemList filters={{ selected: true }} />
       <DungeonList />
+      <ItemList filters={{ selected: true }} />
     </main>
   );
 };

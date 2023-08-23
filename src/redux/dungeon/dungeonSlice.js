@@ -15,7 +15,7 @@ const initialState = {
   isLoading: false,
   inDungeon: false,
   readyToEnter: false,
-  endTurn: false,
+  // endTurn: false,
   items: [],
   bosses: [],
   ally: {},
@@ -40,7 +40,7 @@ const dungeonSlice = createSlice({
     [clearDungeon.fulfilled](state, action) {
       state.isLoading = initialState.isLoading;
       state.error = initialState.error;
-      state.endTurn = initialState.endTurn;
+      // state.endTurn = initialState.endTurn;
       state.name = initialState.name;
       state.eventName = initialState.eventName;
       state.items = initialState.items;
@@ -64,7 +64,7 @@ const dungeonSlice = createSlice({
     [beginDungeon.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.endTurn = false;
+      // state.endTurn = false;
       state.name = action.payload.name;
       state.eventName = action.payload.eventName;
       state.items = action.payload.items;
@@ -80,7 +80,7 @@ const dungeonSlice = createSlice({
     [startRandomDungeon.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.endTurn = false;
+      // state.endTurn = false;
       state.name = action.payload.name;
       state.eventName = action.payload.eventName;
       state.items = action.payload.items;

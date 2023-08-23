@@ -1,5 +1,8 @@
-export const selectFilters = (state) => state.combat.filters;
-export const selectcombat = (state) => state.combat;
-export const selectItems = (state) => state.combat.items;
-export const selectCombat = (state) => state.combat.inCombat;
-export const selectLoading = (state) => state.equipment.isLoading;
+export const selectLoading = (state) => state.combat.isLoading;
+export const selectError = (state) => state.combat.error;
+export const selectCombat = (state) => state.combat;
+export const selectInCombat = (state) => state.combat.inCombat;
+export const selectDices = (state) => state.combat.dices;
+export const selectRolledDices = (state) => state.rolledDices;
+export const selectEnemy = (state) => state.combat.enemy;
+export const selectEndingTurn = (state) => state.combat.endTurn;

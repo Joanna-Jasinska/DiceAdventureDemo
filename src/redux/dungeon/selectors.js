@@ -7,6 +7,6 @@ export const selectAlly = (state) => state.dungeon.ally;
 export const selectError = (state) => state.dungeon.error;
 export const selectLoading = (state) => state.dungeon.isLoading;
 export const selectInDungeon = (state) => state.dungeon.inDungeon;
-export const selectEndingTurn = (state) => state.dungeon.endTurn;
+// export const selectEndingTurn = (state) => state.dungeon.endTurn;
 
 // id: "dungeon|1|",

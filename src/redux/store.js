@@ -58,7 +58,7 @@ const dungeonPersistConfig = {
     "name",
     "eventName",
     "ally",
-    "readyToEnter",
+    // "readyToEnter",
   ],
   // blacklist: ["inDungeon"],
 };
