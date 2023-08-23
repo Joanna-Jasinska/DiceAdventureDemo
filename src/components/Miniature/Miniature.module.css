@@ -14,19 +14,36 @@
   width: max-content;
   height: 120px;
   margin: 0;
-  background-color: #52315214;
+  /* background-color: #52315214; */
 }
 .padding {
   padding: 0.8rem;
 }
-.textBox {
+.textBoxContainer {
+  opacity: 0.5;
+}
+.textBoxFront {
   z-index: 2;
-  position: relative;
-  left: -1rem;
-  bottom: 2rem;
+  position: absolute;
+  left: -0.2rem;
+  left: 0.7rem;
+  /* bottom: 2rem; */
+  top: -2rem;
+  top: -1.8rem;
   font-size: 8rem;
   color: #000;
-  opacity: 0.5;
+  /* opacity: 0.95; */
+}
+
+.textBoxBack {
+  z-index: 2;
+  position: absolute;
+  left: -3rem;
+  /* bottom: 2rem; */
+  top: -4rem;
+  font-size: 11rem;
+  color: #000;
+  opacity: 0.6;
 }
 
 /* .textBox:hover,
@@ -45,13 +62,13 @@
   display: inline-block;
   object-fit: cover;
   aspect-ratio: 1/1;
-  background-color: #aa9eae41;
+  /* background-color: #aa9eae41; */
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12),
     inset 0px -2px 4px -1px #ad8fb93e, inset 0px -4px 5px 0px #ad8fb926,
     inset 0px -1px 10px 0px #ad8fb918, 0px 0px 4px 1px #000;
 
-  background: radial-gradient(
+  /* background: radial-gradient(
       ellipse closest-side at 25% 76%,
       #3500463a 8%,
       #c300ff00 130%
@@ -91,9 +108,9 @@
       #9a27c023 2%,
       #ffffff00 20%
     ),
-    conic-gradient(#1a1a1a27, #8400ff3c, #1a1a1a27, #8400ff3c, #1a1a1a27);
+    conic-gradient(#1a1a1a27, #8400ff3c, #1a1a1a27, #8400ff3c, #1a1a1a27); */
 
-  background-color: #aa9eae;
+  /* background-color: #aa9eae; */
 }
 .figcaption {
   z-index: 20;
@@ -104,6 +121,7 @@
   right: 0;
   top: 0;
   width: 1.5rem;
+  height: 120px;
   color: transparent;
   min-height: 120px;
   display: inline;
@@ -115,7 +133,15 @@
   transition: ease-out 200ms 250ms;
   box-shadow: none;
   cursor: pointer;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Hide standard scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide standard scrollbar for IE/Edge */
 }
+.figcaption::-webkit-scrollbar {
+  display: none; /* Hide standard scrollbar for Chrome/Safari/Opera */
+}
+
 .figcaption:hover,
 .figcaption:focus,
 .figcaption:active {
@@ -145,19 +171,4 @@
   font-size: 1.4em;
   border-radius: 6px;
   overflow: hidden;
-}
-.themeDark::before {
-  content: "";
-  aspect-ratio: 1/1;
-  border-radius: 6px;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  background-color: #0000005d;
-  z-index: 100;
-  position: absolute;
-}
-.tmdb {
-  background: #0d253f;
-  object-fit: contain;
 }

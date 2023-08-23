@@ -15,9 +15,10 @@ import { setFilter } from "redux/filter/filterSlice";
 
 // import css from './../Phonebook.module.css';
 import css from "./ItemList.module.css";
+import { Loader } from "components/Loader/Loader";
 
-export const ItemList = () => {
-  const filters = useSelector(selectFilters);
+export const ItemList = ({ filters }) => {
+  const extraFilters = useSelector(selectFilters);
 
   const dispatch = useDispatch();
   // const equipment = useSelector(selectEq);
@@ -36,22 +37,15 @@ export const ItemList = () => {
   //   }, [equipment]);
 
   const filterItems = (filters, items) => {
-    return items;
+    // return items;
     const filteredItems = items
-      ? items.all
-        ? Array.isArray(items.all)
-          ? {
-              ...items,
-              all: [
-                ...items.all.filter((i) => {
-                  return (
-                    // i.stats.selected === true
-                    !filters.selected || i.stats.selected === filters.selected
-                  );
-                }),
-              ],
-            }
-          : items
+      ? Array.isArray(items)
+        ? [
+            ...items.filter((i) => {
+              // i.selected === true
+              return !filters.selected || i.selected === filters.selected;
+            }),
+          ]
         : items
       : items;
     return filteredItems;
@@ -62,16 +56,18 @@ export const ItemList = () => {
       {useSelector(selectLoading) ? (
         <>
           <br />
-          Loading changes...
+          {/* Loading changes... */}
+          <Loader />
         </>
       ) : (
         ""
       )}
 
       {/* <Item {...items.all[0]} /> */}
+      {/* filters || extraFilters */}
       {items
         ? Array.isArray(items)
-          ? filterItems(filters, items).map((el, index) => {
+          ? filterItems(filters || extraFilters, items).map((el, index) => {
               return (
                 <Item
                   name={`${el.name}`}

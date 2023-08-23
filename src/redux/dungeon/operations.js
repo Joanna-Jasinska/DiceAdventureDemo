@@ -1,36 +1,45 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Dungeon } from "objects/Dungeon";
 // import { BASE_EQUIPMENT } from "../../data/eq";
 
 export const clearDungeon = createAsyncThunk(
-  "dungeon/cleardungeon",
+  "dungeon/clear",
   async (_, thunkAPI) => {
+    // const myDungeon = { ...Dungeon }.getRandom();
     return true;
+    // return thunkAPI.fulfillWithValue(null);
   }
 );
 
 export const beginDungeon = createAsyncThunk(
-  "dungeon/begindungeon",
+  "dungeon/begin",
   async (init, thunkAPI) => {
     return init;
   }
 );
 
+export const startRandomDungeon = createAsyncThunk(
+  "dungeon/random",
+  async (_, thunkAPI) => {
+    const myDungeon = { ...Dungeon }.getRandom();
+    return myDungeon;
+  }
+);
+export const readyToEnter = createAsyncThunk(
+  "dungeon/ready",
+  async (_, thunkAPI) => {
+    console.log("dungeon/ready - ready to enter dungeon.");
+    return true;
+  }
+);
+
 export const packEquipment = createAsyncThunk(
-  "dungeon/rollAllDices",
+  "dungeon/packEquipment",
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const eqTaken = state.equipment.items.all.filter(
-      (item) => item.stats.selected
-    );
-    // const packed = eqTaken.map((i) => {
-    //   const unpacked = {
-    //     dices: [],
-    //     name: i.name,
-    //     // icon
-    //   };
-
-    //   return unpacked;
-    // });
+    const eqTaken = state.equipment.all.filter((item) => item.selected);
+    if (eqTaken.length > 5)
+      return thunkAPI.rejectWithValue("Too many items equipped");
     return eqTaken;
   }
 );

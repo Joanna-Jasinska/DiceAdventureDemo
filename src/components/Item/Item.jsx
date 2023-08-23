@@ -2,14 +2,15 @@
 import { Miniature } from "components/Miniature/Miniature";
 import css from "./Item.module.css";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
+import { Title } from "components/Phonebook/Title/Title";
 
 export const Item = ({
   name,
   id,
-  desc,
+  desc = "No skill description, but there is skill.",
   icon,
   alt,
-  tags,
+  tags = [""],
   lv = 1,
   selected = false,
   toggleSelect,
@@ -18,7 +19,18 @@ export const Item = ({
 }) => {
   return (
     <div className={css.item} id={id}>
-      <Miniature url={icon} alt={alt || name} />
+      <Miniature
+        url={icon}
+        alt={alt || name}
+        bgTxtFront={alt}
+        bgTxtBack={tags[0]}
+        children={
+          <>
+            {desc}
+            <Title title={`${alt} ${name}`} />
+          </>
+        }
+      />
       <div className={css.bar}>
         <button
           key={`${name}btn${id}`}

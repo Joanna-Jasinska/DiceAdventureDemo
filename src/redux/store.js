@@ -48,7 +48,19 @@ const eqPersistConfig = {
 const dungeonPersistConfig = {
   key: "dungeon",
   storage,
-  whitelist: ["all"],
+  whitelist: [
+    "inDungeon",
+    "quests",
+    "items",
+    "enemies",
+    "bosses",
+    "id",
+    "name",
+    "eventName",
+    "ally",
+    "readyToEnter",
+  ],
+  // blacklist: ["inDungeon"],
 };
 
 const combatPersistConfig = {

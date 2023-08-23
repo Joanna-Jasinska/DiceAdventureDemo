@@ -8,14 +8,13 @@ import { RouteTown } from "./RouteTown/RouteTown";
 import { setError } from "redux/auth/slice";
 import { useAuth } from "hooks";
 import { refreshUser } from "redux/auth/operations";
-// import jj from './../images/jj_favicon.ico';
 
 const TownPage = lazy(() => import("../pages/TownPage"));
 const EQPage = lazy(() => import("../pages/EQPage"));
 const CombatPage = lazy(() => import("../pages/CombatPage"));
 const QuickBattlePage = lazy(() => import("../pages/QuickBattlePage"));
 const ResetPage = lazy(() => import("../pages/ResetPage"));
-// const LoginPage = lazy(() => import("../pages/LoginPage"));
+const DungeonPage = lazy(() => import("../pages/DungeonPage"));
 // const LogoutPage = lazy(() => import("../pages/LogoutPage"));
 // const PhonebookPage = lazy(() => import("../pages/PhonebookPage"));
 
@@ -48,20 +47,35 @@ export const App = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<resetPage />} />
+          <Route index element={<ResetPage />} />
+          <Route path="/reset" element={<ResetPage />} />
+          <Route
+            path="/town"
+            element={
+              <RouteTown redirectTo="/combat" component={<TownPage />} />
+            }
+          />
           <Route
             path="/eq"
             element={<RouteTown redirectTo="/combat" component={<EQPage />} />}
           />
           <Route
-            path="/reset"
+            path="/dungeon"
             element={
-              <RouteTown redirectTo="/combat" component={<ResetPage />} />
+              <RouteBattle
+                redirectTo="/quickBattle"
+                component={<DungeonPage />}
+              />
             }
           />
           <Route
             path="/combat"
-            element={<RouteBattle redirectTo="/" component={<CombatPage />} />}
+            element={
+              <RouteBattle
+                redirectTo="/quickBattle"
+                component={<CombatPage />}
+              />
+            }
           />
           <Route
             path="/return"

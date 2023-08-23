@@ -72,7 +72,9 @@
 
 .selected {
   background-color: #c3ff91;
+  background-color: #ffeb91;
   box-shadow: -1px 0px 14px 6px #7ae621;
+  box-shadow: -1px 0px 14px 6px #e6a821;
   /* box-shadow: 1px 1px 1px red; */
 }
 .text {

@@ -92,7 +92,7 @@ export const BASE_EQUIPMENT = [
       },
     ],
     statsTxT: "Per 5 levels: [ +1d4 stamina ] ",
-    lv: 22,
+    lv: 1,
   },
 
   {
@@ -121,7 +121,7 @@ export const BASE_EQUIPMENT = [
       },
     ],
     statsTxT: "Per 5 levels: [ +1d6 mana ] ",
-    lv: 22,
+    lv: 1,
   },
 
   {

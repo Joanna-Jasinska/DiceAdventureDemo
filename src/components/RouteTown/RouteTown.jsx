@@ -1,8 +1,9 @@
-import { useAuth } from "hooks";
 import { Navigate } from "react-router-dom";
+import { useDungeon } from "hooks";
 
 export const RouteTown = ({ component: Component, redirectTo = "/" }) => {
-  const { isLoggedIn } = useAuth();
+  const { inDungeon } = useDungeon();
+  // const shouldRedirect = !inDungeon;
 
-  return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
+  return inDungeon ? <Navigate to={redirectTo} /> : Component;
 };

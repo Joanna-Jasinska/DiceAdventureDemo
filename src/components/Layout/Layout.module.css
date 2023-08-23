@@ -5,7 +5,7 @@
 .backLight:after {
   position: absolute;
   position: fixed;
-  content: '';
+  content: "";
   /* top: -32%;
   left: -32%; */
   top: 0;

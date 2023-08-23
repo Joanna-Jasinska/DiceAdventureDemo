@@ -15,8 +15,7 @@ export const TownNavigation = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectEq);
   const selectedItems = [...items].filter((item) => {
-    if (item.selected)
-      return item.selected;
+    if (item.selected) return item.selected;
   });
   const selectFav = () => {};
   const resetGame = () => {
@@ -58,7 +57,7 @@ export const TownNavigation = () => {
           {/* <HeaderNavBtn to="/eq" display="❤️" onClick={selectFav} /> */}
         </div>
         <div className={css.rightNav}>
-          <HeaderNavBtn to="/" display="Town" />
+          <HeaderNavBtn to="/town" display="Town" />
           <HeaderNavBtn to="/return" display="Battle" />
           {/* <HeaderNavBtn to="/eq" display="EQ" /> */}
         </div>

@@ -4,7 +4,6 @@ import { LeveledItem } from "./LeveledItem";
 export const Items = {
   all: [],
   initiate(data) {
-    console.log("items-initiating------1");
     // let itemTemplate = { ...Item };
     let itemTemplate = { ...LeveledItem };
     this.all = [
@@ -40,11 +39,6 @@ export const Items = {
   },
   findById: function (id) {
     const found = this.all.filter((item) => item.id === id);
-    console.log(`this:`);
-    console.log(this);
-    console.log(`Found item:`);
-    console.table(found);
-    console.log(`------------`);
     return found ? (Array.isArray(found) ? found[0] : found) : {};
   },
   updateItem(item) {

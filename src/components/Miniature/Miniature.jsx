@@ -3,26 +3,34 @@ import css from "./Miniature.module.css";
 
 export const Miniature = ({
   url,
-  alt = "😎\nIncognito",
+  alt = "😎",
   title,
   padding = false,
-  bg,
+  bgTxtFront = "",
+  bgTxtBack = "",
+  children,
+  bgColor = "#d7ca92",
 }) => {
-  // Image not found 😢
   return (
     <figure className={`${css.miniature}`}>
       <div
-        className={`${css.imgFrame} ${padding ? css.padding : ""} ${
-          bg ? css[bg] : ""
-        }`}
+        className={`${css.imgFrame} ${padding ? css.padding : ""} `}
+        style={{ backgroundColor: `${bgColor}` }}
       >
         {url && url !== "" ? (
           <img className={css.img} src={url} alt={`\n${alt}`} />
         ) : (
-          <div className={css.textBox}>{alt}</div>
+          <div className={css.textBoxContainer}>
+            <div className={css.textBoxBack}>{bgTxtBack}</div>
+            <div className={css.textBoxFront}>{bgTxtFront}</div>
+          </div>
         )}
       </div>
-      <figcaption className={css.figcaption}>{title || alt}</figcaption>
+      {children ? (
+        <figcaption className={css.figcaption}>{children}</figcaption>
+      ) : (
+        ""
+      )}
     </figure>
   );
 };
