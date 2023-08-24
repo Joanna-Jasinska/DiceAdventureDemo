@@ -11,11 +11,12 @@ import { useCombat, useDungeon } from "hooks";
 import css from "./../components/Phonebook/Phonebook.module.css";
 import { beginCombat } from "redux/combat/operations";
 import { selectInCombat } from "redux/combat/selectors";
+import { Background } from "components/Background/Background";
 
 export const DungeonPage = () => {
   const dispatch = useDispatch();
   const error = useSelector(selectError);
-  const { name, eventName, inDungeon } = useDungeon();
+  const { name, eventName, inDungeon} = useDungeon();
   const { inCombat } = useCombat();
   // const enteringCombat = useSelector(selectReadyToEnterCombat);
   const enteringCombat = false;
@@ -49,10 +50,11 @@ export const DungeonPage = () => {
             width: "100%",
             boxSizing: "border-box",
             padding: "0.4em 0px",
+            minHeight: "76vh",
           }}
         >
           {error ? <span className={css.error}>{error}</span> : ""}
-
+          <Background />
           <Title
             title={`${name} ${eventName}${
               inDungeon ? " entered." : " illegal breach. Go back!"

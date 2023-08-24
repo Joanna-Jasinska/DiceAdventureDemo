@@ -34,9 +34,7 @@ export const EnemyBody = (enemyGiven) => {
   };
   const enemy = { ...enemyTemplate, ...enemyGiven };
   return (
-    <div className={css.body}>
-      {/* <Title title={`${enemy.name}`} /> */}
-      {`[${Object.values(enemy).join("  ")}]`}
+    <div className={css.body}>     
       {/* {...enemy.pieces[0]} */}
       <EnemyPiece p={enemy.pieces[0]} />
       <EnemyPiece p={enemy.pieces[0]} />

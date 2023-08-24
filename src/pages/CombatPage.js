@@ -10,6 +10,8 @@ import css from "./../components/Phonebook/Phonebook.module.css";
 import { useCombat } from "hooks";
 import { EnemyBody } from "components/EnemyBody/EnemyBody";
 import { SkillList } from "components/SkillList/SkillList";
+import { EnemyPortrait } from "components/EnemyPortrait/EnemyPortrait";
+import { Background } from "components/Background/Background";
 
 export const CombatPage = () => {
   //   const dispatch = useDispatch();
@@ -26,7 +28,9 @@ export const CombatPage = () => {
           <Navigate to="/Dungeon" />
         ) : (
           <>
+            <Background />
             <Title title={"Combat"} />
+            <EnemyPortrait />
 
             <EnemyBody />
             <SkillList />

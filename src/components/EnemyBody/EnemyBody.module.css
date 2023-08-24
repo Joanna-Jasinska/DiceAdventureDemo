@@ -1,10 +1,13 @@
 .body {
   width: 100%;
   box-sizing: border-box;
-  background-color: #b5ff547b;
+  /* background-color: #b5ff547b; */
   display: flex;
   flex-wrap: wrap;
   gap: 3px;
+  padding: 12px;
+  /* box-shadow: var(--box-shadow-inset-dark); */
+  border-radius: 20px;
 }
 .piece {
   /* background-color: #eecef7; */

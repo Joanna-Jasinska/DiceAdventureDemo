@@ -18,6 +18,10 @@ export const beginDungeon = createAsyncThunk(
   }
 );
 
+export const setLv = createAsyncThunk("dungeon/setLv", async (lv, thunkAPI) => {
+  return lv;
+});
+
 export const startRandomDungeon = createAsyncThunk(
   "dungeon/random",
   async (_, thunkAPI) => {

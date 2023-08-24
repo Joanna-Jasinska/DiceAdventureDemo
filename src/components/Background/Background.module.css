@@ -1,0 +1,141 @@
+.background {
+  position: static;
+  top: 0;
+  left: 0;
+  opacity: 0.26;
+  overflow: hidden;
+  height: 0;
+}
+.background:after {
+  position: absolute;
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1999;
+  width: 100vw;
+  height: 100vh;
+  transform: scale(0.93);
+  -webkit-filter: blur(5vw);
+  -moz-filter: blur(5vw);
+  -ms-filter: blur(5vw);
+  filter: blur(5vw);
+  border-radius: 25%;
+  background-color: inherit;
+}
+.mainIcon {
+  z-index: -1000;
+  position: absolute;
+  line-height: 1px;
+}
+.mainIcon:after {
+  content: attr(data-text);
+  position: absolute;
+  transform: scale(1.1) translate(0, 1vh);
+}
+.mainIcon::before {
+  content: attr(data-text);
+  position: absolute;
+  transform: scale(0.97) translate(17vw, -4vh);
+}
+
+.eventIcon {
+  z-index: -1000;
+  position: absolute;
+  line-height: 1px;
+}
+.eventIcon:after {
+  content: attr(data-text);
+  position: absolute;
+  transform: scale(1) translate(2vw, -0vh);
+}
+.eventIcon::before {
+  content: attr(data-text);
+  position: absolute;
+  transform: scale(0.97) translate(-12vw, -5vh);
+}
+.flavorIcon {
+  z-index: -1000;
+  position: absolute;
+  line-height: 1px;
+}
+.flavorIcon::after {
+  content: attr(data-text);
+  position: absolute;
+  transform: scale(0.7) translate(17vw, 8vh);
+}
+.flavorIcon:before {
+  content: attr(data-text);
+  position: absolute;
+  transform: scale(0.8) translate(0, -0vh);
+}
+.front1 {
+  font-size: 10rem;
+  z-index: 3;
+  top: 70%;
+  left: 33%;
+  line-height: 1px;
+}
+.front2 {
+  font-size: 10rem;
+  z-index: 3;
+  top: 70%;
+  left: 13%;
+  line-height: 1px;
+}
+.front3 {
+  font-size: 10rem;
+  z-index: 3;
+  top: 70%;
+  left: 63%;
+  line-height: 1px;
+}
+.mid1 {
+  font-size: 9rem;
+  z-index: 2;
+  top: 40%;
+  left: 29%;
+  line-height: 1px;
+}
+.mid2 {
+  font-size: 9rem;
+  z-index: 2;
+  top: 36%;
+  left: 0%;
+  line-height: 1px;
+}
+.mid3 {
+  font-size: 9rem;
+  z-index: 2;
+  top: 36%;
+  left: 57%;
+  line-height: 1px;
+}
+.mid4 {
+  font-size: 9rem;
+  z-index: 2;
+  top: 41%;
+  left: 63%;
+  line-height: 1px;
+}
+.back1 {
+  font-size: 8rem;
+  z-index: 1;
+  top: 10%;
+  left: 47%;
+  line-height: 1px;
+}
+.back2 {
+  font-size: 8rem;
+  z-index: 1;
+  top: 10%;
+  left: 8%;
+  line-height: 1px;
+}
+.back3 {
+  font-size: 8rem;
+  z-index: 1;
+  top: 17%;
+  left: 66%;
+  line-height: 1px;
+}

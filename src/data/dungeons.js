@@ -1,5 +1,6 @@
 export const getDungeon = (id) => {
-  return DUNGEONS.find(id);
+  const found = DUNGEONS.find((d) => d.eventId === id);
+  return found ? found : DUNGEONS[0];
 };
 
 export const getBasicDungeons = () => {
@@ -8,6 +9,37 @@ export const getBasicDungeons = () => {
 
 export const DUNGEONS = [
   {
+    selected: true,
+    background: {
+      icon: "🌲",
+      eventIcon: "🌲",
+      flavorIcon: "🌳",
+      bgColor: "#3ea413",
+    },
+    name: "Wild Forests",
+    eventName: "",
+    enemies: [
+      [
+        "ELEMENTALS|green|Dryad",
+        "ANIMALS|green|Giant Spider",
+        "GOBLINS|green|Surprised Goblin",
+      ],
+      [
+        "ANIMALS|green|Elder Badger",
+        "GOBLINS|green|Angry Goblin",
+        "ELEMENTALS|green|Treant",
+      ],
+      [
+        "GOBLINS|green|Goblin Shaman",
+        "ANIMALS|green|Fat Boar",
+        "ANIMALS|green|Old Wolf",
+      ],
+    ],
+    bosses: [],
+    id: "dungeon|2|",
+    eventId: "dungeon|2|2",
+  },
+  {
     // selected: true,
     icon: "🗻",
     eventIcon: "🌋",
@@ -15,7 +47,7 @@ export const DUNGEONS = [
     name: "Black Mountain",
     eventName: "",
     // items: [],
-    enemies: [[], [], []],
+    enemies: [[""], [], []],
     bosses: [],
     // ally: {},
     id: "dungeon|1|",
@@ -23,18 +55,6 @@ export const DUNGEONS = [
     // lvStarted: 1,
     // lvReached: 2,
     // gold: 100,
-  },
-  {
-    selected: true,
-    icon: "🌲",
-    eventIcon: "🌲",
-    bgColor: "#3ea413",
-    name: "Wild Forests",
-    eventName: "",
-    enemies: [[], [], []],
-    bosses: [],
-    id: "dungeon|2|",
-    eventId: "dungeon|2|2",
   },
   {
     icon: "🗾",

@@ -5,12 +5,14 @@ import {
   packEquipment,
   startRandomDungeon,
   readyToEnter,
+  setLv,
 } from "./operations";
 
 const initialState = {
   name: "Dungeon",
   eventName: "",
   id: "dungeon|1|",
+  lv: 1,
   error: null,
   isLoading: false,
   inDungeon: false,
@@ -20,6 +22,12 @@ const initialState = {
   bosses: [],
   ally: {},
   enemies: [[{}], [], []],
+  background: {
+    icon: "🌲",
+    eventIcon: "🌲",
+    flavorIcon: "🌳",
+    bgColor: "#3ea413",
+  },
 };
 const handleRejected = (state, action) => {
   state.isLoading = false;
@@ -49,6 +57,14 @@ const dungeonSlice = createSlice({
       state.ally = initialState.ally;
       state.inDungeon = initialState.inDungeon;
       state.readyToEnter = initialState.readyToEnter;
+    },
+
+    [setLv.pending]: handlePending,
+    [setLv.rejected]: handleRejected,
+    [setLv.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.lv = action.payload;
     },
 
     [readyToEnter.pending]: handlePending,

@@ -1,0 +1,165 @@
+.miniature h1,
+.miniature h2,
+.miniature h3,
+.miniature h4 {
+  margin-top: 0px;
+}
+.miniature {
+  position: relative;
+  display: flex;
+  display: block;
+  border-radius: 20px;
+  min-width: 120px;
+  width: 200px;
+  width: max-content;
+  height: 120px;
+  margin: 0;
+  /* background-color: #52315214; */
+}
+.padding {
+  padding: 0.8rem;
+}
+.textBoxContainer {
+  opacity: 0.5;
+  opacity: 1;
+}
+.textBoxSide {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 5rem;
+  color: #000;
+  padding: 3.8rem 4rem;
+  /* background-color: #005a124a !important; */
+}
+.textBoxSide::before {
+  background-color: inherit;
+  content: "";
+  width: 8rem;
+  height: 8rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.textBoxFront {
+  z-index: 2;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.2rem;
+  font-size: 5rem;
+  color: #000;
+  /* opacity: 0.95; */
+}
+
+.textBoxBack {
+  z-index: 2;
+  position: absolute;
+  left: -0.64rem;
+  /* bottom: 2rem; */
+  top: -1rem;
+  font-size: 6.6rem;
+  color: #000;
+  /* opacity: 0.6; */
+}
+.textBoxBg {
+  z-index: 2;
+  position: absolute;
+  left: 0rem;
+  bottom: -2rem;
+  font-size: 6.4rem;
+  color: #000;
+  /* opacity: 0.6; */
+}
+.textBoxBgSide {
+  z-index: 2;
+  position: absolute;
+  left: -6rem;
+  bottom: -0.3rem;
+  font-size: 6rem;
+  padding: 0 4rem;
+  color: #000;
+  /* opacity: 0.6; */
+}
+
+/* .textBox:hover,
+.textBox:focus,
+.textBox:active {
+  opacity: 1;
+} */
+
+.imgFrame {
+  position: relative;
+  z-index: 2;
+  width: 120px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  display: inline-block;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+    inset 0px -2px 4px -1px #ad8fb93e, inset 0px -4px 5px 0px #ad8fb926,
+    inset 0px -1px 10px 0px #ad8fb918, 0px 0px 4px 1px #000;
+}
+.figcaption {
+  z-index: 20;
+  z-index: 1;
+  position: absolute;
+  left: 7.6rem;
+  left: 6.6rem;
+  right: 0;
+  top: 0;
+  width: 1.5rem;
+  height: 120px;
+  color: transparent;
+  min-height: 120px;
+  display: inline;
+  background-color: #5f5f5f36;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 0 20px 20px 0;
+  padding: 10px 0;
+  transition: ease-out 200ms 250ms;
+  box-shadow: none;
+  cursor: pointer;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Hide standard scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide standard scrollbar for IE/Edge */
+}
+.figcaption::-webkit-scrollbar {
+  display: none; /* Hide standard scrollbar for Chrome/Safari/Opera */
+}
+
+.figcaption:hover,
+.figcaption:focus,
+.figcaption:active {
+  left: 7.65rem;
+  z-index: 40;
+  width: 16.5rem;
+  padding: 10px 1rem 10px 1.5rem;
+  color: #000;
+  border-radius: 20px;
+  background-color: #e3e3e3f0;
+  transition: ease-out 200ms 250ms;
+  box-shadow: 0px 0px 4px 1px #000;
+}
+.img {
+  aspect-ratio: 1/1;
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  white-space: pre;
+  min-width: 100px;
+  max-width: 160px;
+  object-fit: inherit;
+  min-height: 100px;
+  text-align: center;
+  justify-content: center;
+  line-height: 1.2em;
+  font-size: 1.4em;
+  border-radius: 6px;
+  overflow: hidden;
+}

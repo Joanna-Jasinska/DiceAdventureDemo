@@ -1,6 +1,5 @@
 // import { PropTypes } from 'prop-types';
 import { Miniature } from "components/Miniature/Miniature";
-import { getColor, getIcon } from "objects/Dungeon";
 import css from "./DungeonSquare.module.css";
 
 export const DungeonSquare = ({

@@ -1,7 +1,5 @@
 // import { PropTypes } from 'prop-types';
 import { Miniature } from "components/Miniature/Miniature";
-import { getIcon } from "objects/Dungeon";
-import { getColor } from "objects/Dungeon";
 import css from "./AllySquare.module.css";
 
 export const AllySquare = ({
