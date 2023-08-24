@@ -3,6 +3,6 @@ export const Dungeon = {
   getDungeonById: getDungeon,
 
   getRandom() {
-    return DUNGEONS[0];
+    return DUNGEONS[1];
   },
 };

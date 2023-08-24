@@ -13,17 +13,16 @@ export const DungeonSquare = ({
   ally,
   selected = false,
   toggleSelect,
-  bgColor,
-  bgTxtFront,
-  bgTxtBack,
+  background,
 }) => {
+  const { bgColor, icon, eventIcon } = background;
   return (
     <div className={css.item} id={id}>
       <Miniature
         // url={icon}
         alt={name}
-        bgTxtFront={bgTxtFront}
-        bgTxtBack={bgTxtBack}
+        bgTxtFront={icon}
+        bgTxtBack={eventIcon}
         bgColor={bgColor}
         lv={lvReached}
       />
