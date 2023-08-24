@@ -1,4 +1,6 @@
 .dice {
+  z-index: 4;
+  position: relative;
   /* line-height: 4px; */
   display: block;
   /* width: 1rem; */
@@ -11,11 +13,11 @@
   color: black;
   font-weight: bold;
   border-radius: 4px;
-  z-index: 3;
   display: flex;
-  position: relative;
   padding: 2px 3px 0px 6px;
   padding: 2px 1px 0px 7px;
+  line-height: 1.3rem;
+  font-size: 1rem;
   /* box-sizing: content-box; */
 
   /* line-height: 0.4rem; */

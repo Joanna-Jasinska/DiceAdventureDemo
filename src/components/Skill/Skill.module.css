@@ -1,0 +1,109 @@
+.item {
+  /* background-color: #5c784c; */
+  position: relative;
+  min-width: 120px;
+  height: 120px;
+  overflow: visible;
+  border-radius: 20px;
+  margin: 3px;
+  width: max-content;
+  width: 8.5rem;
+  display: inline-block;
+}
+
+.bar {
+  border-radius: 20px 20px 0 0;
+  /* overflow: hidden; */
+  position: absolute;
+  /* height: 4.2em; */
+  height: 2.2rem;
+  box-shadow: #ffffffbb 0 2px 1px 0px;
+  /* min-height: 4em; */
+  /* height: min-content; */
+  top: 0;
+  left: 0;
+  width: 120px;
+  /* background-color: #ffffff42; */
+  background-color: #ffffffbb;
+  text-align: left;
+  z-index: 2;
+  /* overflow: hidden; */
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconBag {
+  bottom: 2px;
+  left: 2px;
+  width: 116px;
+  height: 3.16em;
+  padding: 4px;
+  display: flex;
+  z-index: 10;
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-flow: row-reverse;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  column-gap: 3px;
+  border-radius: 0 0 20px 20px;
+  /* background-color: red; */
+}
+.button {
+  overflow: visible;
+  position: absolute;
+  top: 0px;
+  /* right: -4px; */
+  left: -11px;
+  /* right: 0.8rem; */
+  margin: 0px 4px 1px 0px;
+  width: 3rem;
+  height: 2.4rem;
+  /* display: inline; */
+  justify-content: center;
+  border: transparent;
+  border-radius: 0 20px;
+  font-size: 2.4rem;
+  font-size: 2.6rem;
+  line-height: 2rem;
+  /* overflow: hidden; */
+  z-index: 4;
+  cursor: pointer;
+  transition: 250ms;
+}
+
+.selected {
+  background-color: #c3ff91;
+  box-shadow: -1px 0px 14px 6px #7ae621;
+  /* box-shadow: 1px 1px 1px red; */
+}
+.text {
+  margin: 2px 4px;
+  display: inline;
+  color: #000000a0;
+  /* height: 1.73rem; */
+  max-height: 2rem;
+  font-weight: bold;
+  z-index: 3;
+  line-height: 0.84rem;
+  text-align: center;
+}
+
+/* .name {
+  min-width: 120px;
+  position: absolute;
+  bottom: -0.06rem;
+  bottom: 0.1rem;
+  display: block;
+  overflow: hidden;
+
+  color: #000000a0;
+  height: 1.73rem;
+  font-weight: bold;
+  z-index: 3;
+  line-height: 0.84rem;
+  text-align: center;
+} */

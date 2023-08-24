@@ -1,0 +1,127 @@
+.body {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #b5ff547b;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.piece {
+  /* background-color: #eecef7; */
+  position: relative;
+  display: block;
+  display: flex;
+  border-radius: 20px;
+  /* overflow: hidden; */
+  height: 2.4rem;
+  height: 2.8rem;
+  line-height: 2.5rem;
+  font-size: 1.5rem;
+  box-shadow: var(--box-shadow-detailed);
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  padding: 5px 2px;
+  padding: 0 2px;
+  font-size: 1rem;
+  background-color: #ffffff2f;
+}
+.displayedBodyPart {
+  z-index: 4;
+  z-index: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 20px 0 0 20px;
+  border-radius: 0 20px;
+  border: transparent;
+  margin: 0px 4px 1px 0px;
+  padding-right: 3px;
+  /* box-shadow: var(--box-shadow); */
+  justify-content: center;
+
+  position: absolute;
+  top: 0rem;
+  left: -0.1rem;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1rem;
+}
+.displayedBodyPart::after {
+  border-radius: 0 0 20px 0;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000004c;
+}
+.modifierHolder {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px 0 0 20px;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  padding: 2px 2px 2px 1px;
+  box-sizing: border-box;
+}
+.modifier {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 30%;
+  /* width: 0.88rem; */
+  max-width: 0.88rem;
+  /* letter-spacing: -1px; */
+  height: 0.94rem;
+  line-height: 0.8rem;
+  font-size: 0.86rem;
+  white-space: nowrap;
+  overflow: visible;
+  overflow: hidden;
+  /* margin-right: 2px; */
+  /* background-color: red; */
+}
+.diceHolder {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 100%;
+  padding: 2px 5px;
+  padding: 1px 5px 7px 5px;
+  box-shadow: var(--box-shadow-inset-dark-detailed);
+  border-radius: var(--border-radius);
+  /* border: var(--border-inset); */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 2rem;
+}
+.damageHolder {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 20px 20px 0;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  padding: 2px 1px 2px 2px;
+  box-sizing: border-box;
+  color: #ddd900;
+}

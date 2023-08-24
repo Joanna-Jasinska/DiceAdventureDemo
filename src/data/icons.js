@@ -1,3 +1,7 @@
+export const getDiceTypeIcon = (type) => {
+  const found = ICONS.find((i) => i.type === type);
+  return found ? found.icon : "❔";
+};
 export const ICONS = [
   { type: "default", icon: "❔", color: "#4d472d", id: "default" },
   { type: "slashed", icon: "⚔️", color: "#fff", id: "" },
@@ -14,7 +18,6 @@ export const ICONS = [
   { type: "mana", icon: "🌀", color: "#fff", id: "" },
   { type: "life", icon: "❤️", color: "#fff", id: "" },
   { type: "defense", icon: "🛡️", color: "#fff", id: "" },
-
 
   // { type: "ally", icon: "🧙", color: "#275674", id: "ally|1|" },
   // { type: "ally", icon: "🧝‍♀️", color: "#745c27", id: "ally|2|" },
