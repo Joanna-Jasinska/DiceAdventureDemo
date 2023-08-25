@@ -11,7 +11,7 @@ const getCollection = (
   defaultCollectionID = "GOBLINS",
   stop = false
 ) => {
-  if (stop) return "GOBLINS";
+  if (stop) return GOBLINS;
   switch (collectionID) {
     case "ANIMALS":
       return ANIMALS;
@@ -25,6 +25,8 @@ const getCollection = (
   }
 };
 export const getEnemy = (id, defaultCollectionID) => {
+  console.log(`getObjFromCollection(id=[${id}], ENEMIES): `);
+  console.table(getObjFromCollection(id, ENEMIES));
   const collectionID = getObjFromCollection(id, ENEMIES).collection;
   const chosenCollection = getCollection(collectionID, defaultCollectionID);
   const found = getObjFromCollection(id, chosenCollection);

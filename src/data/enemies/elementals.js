@@ -2,17 +2,19 @@
 export const ELEMENTALS = [
   {
     name: "Mysterious Enemy",
-    frontIcon: "👀",
-    sideIcon: "🌳",
-    bgSideIcon: "🌲",
-    backIcon: "🏺",
-    bgIcon: "🌳",
-    filterColor: "#005a124a",
-    bgColor: "#ddd900",
+    portrait: {
+      frontIcon: "👀",
+      sideIcon: "🌳",
+      bgSideIcon: "🌲",
+      backIcon: "🏺",
+      bgIcon: "🌳",
+      filterColor: "#005a124a",
+      bgColor: "#ddd900",
+    },
     life: 9,
     maxLife: 10,
     id: "ELEMENTALS|green|Mysterious Enemy",
-    pieces: [
+    body: [
       {
         bodyPartIcon: "👁‍🗨",
         bodyPartTypes: ["eye", "head"],
@@ -32,24 +34,27 @@ export const ELEMENTALS = [
         priority: true,
         id: "testpiece|Enemy|eye|1",
         key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal pieces are filled
+        bonus: false, //dice unlocks after all priority and normal body are filled
         keep: false, //player keeps its dices as extra dices for next turn
       },
     ],
-  },  
+    status: [],
+  },
   {
     name: "Treant",
-    frontIcon: "👀",
-    sideIcon: "🌳",
-    bgSideIcon: "🌲",
-    backIcon: "🌳",
-    bgIcon: "🌲",
-    filterColor: "#005a124a",
-    bgColor: "#ddd900",
+    portrait: {
+      frontIcon: "👀",
+      sideIcon: "🌳",
+      bgSideIcon: "🌲",
+      backIcon: "🌳",
+      bgIcon: "🌲",
+      filterColor: "#005a124a",
+      bgColor: "#ddd900",
+    },
     life: 9,
     maxLife: 10,
     id: "ELEMENTALS|green|Treant",
-    pieces: [
+    body: [
       {
         bodyPartIcon: "👁‍🗨",
         bodyPartTypes: ["eye", "head"],
@@ -69,24 +74,27 @@ export const ELEMENTALS = [
         priority: true,
         id: "testpiece|Enemy|eye|1",
         key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal pieces are filled
+        bonus: false, //dice unlocks after all priority and normal body are filled
         keep: false, //player keeps its dices as extra dices for next turn
       },
     ],
+    status: [],
   },
   {
     name: "Dryad",
-    frontIcon: "👩🏻‍🦰",
-    sideIcon: "🌳",
-    bgSideIcon: "🌳",
-    backIcon: "🦒",
-    bgIcon: "🌲",
-    filterColor: "#005a124a",
-    bgColor: "#ddd900",
+    id: "ELEMENTALS|green|Dryad",
+    portrait: {
+      frontIcon: "👩🏻‍🦰",
+      sideIcon: "🌳",
+      bgSideIcon: "🌳",
+      backIcon: "🦒",
+      bgIcon: "🌲",
+      filterColor: "#005a124a",
+      bgColor: "#ddd900",
+    },
     life: 9,
     maxLife: 10,
-    id: "ELEMENTALS|green|Dryad",
-    pieces: [
+    body: [
       {
         bodyPartIcon: "👁‍🗨",
         bodyPartTypes: ["eye", "head"],
@@ -106,9 +114,10 @@ export const ELEMENTALS = [
         priority: true,
         id: "testpiece|Enemy|eye|1",
         key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal pieces are filled
+        bonus: false, //dice unlocks after all priority and normal body are filled
         keep: false, //player keeps its dices as extra dices for next turn
       },
     ],
+    status: [],
   },
 ];

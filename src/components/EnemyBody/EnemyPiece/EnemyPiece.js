@@ -3,27 +3,21 @@ import { DiceIcon } from "components/DiceIcon/DiceIcon";
 import css from "./../EnemyBody.module.css";
 export const EnemyPiece = ({ p }) => {
   return (
-    <div className={css.piece}>
+    <div
+      className={`${css.piece} ${
+        p.fulfilled ? css.fulfilled : p.disabled ? css.disabled : css.waiting
+      }`}
+    >
       <div className={css.modifierHolder}>
         {/* <div className={css.modifier}>{`${p.multipliedBy}x `}</div>
         {p.multipliedTypes.map((t) => (
           <div className={css.modifier}>{getDiceTypeIcon(t)}</div>
         ))} */}
-        {/* <div className={css.modifier}>{`🔨`}</div>
-        <div className={css.modifier}>{`☣️`}</div>
-        <div className={css.modifier}>{`🔨`}</div>
-        <div className={css.modifier}>{`☣️`}</div>
-        <div className={css.modifier}>{`🔨`}</div>
-        <div className={css.modifier}>{`☣️`}</div> */}
       </div>
       <div className={css.diceHolder}>
         <div className={css.displayedBodyPart}>{p.bodyPartIcon}</div>
-        <DiceIcon />
-        {/* <DiceIcon />
-        <DiceIcon /> */}
-        {/* <DiceIcon />
-        <DiceIcon /> */}
         {/* <DiceIcon /> */}
+        {p.dices ? p.dices.map((dice) => <DiceIcon {...dice} />) : ""}
       </div>
       <div className={css.damageHolder}></div>
     </div>

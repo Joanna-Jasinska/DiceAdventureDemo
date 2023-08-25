@@ -15,6 +15,7 @@ const CombatPage = lazy(() => import("../pages/CombatPage"));
 const QuickBattlePage = lazy(() => import("../pages/QuickBattlePage"));
 const ResetPage = lazy(() => import("../pages/ResetPage"));
 const DungeonPage = lazy(() => import("../pages/DungeonPage"));
+const ByePage = lazy(() => import("../pages/ByePage"));
 // const LogoutPage = lazy(() => import("../pages/LogoutPage"));
 // const PhonebookPage = lazy(() => import("../pages/PhonebookPage"));
 
@@ -49,6 +50,7 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<ResetPage />} />
           <Route path="/reset" element={<ResetPage />} />
+          <Route path="/bye" element={<ByePage />} />
           <Route
             path="/town"
             element={

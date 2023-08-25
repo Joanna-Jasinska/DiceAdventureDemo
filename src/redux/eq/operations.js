@@ -12,18 +12,9 @@ const baseURL = "https://connections-api.herokuapp.com/";
 export const resetEquipment = createAsyncThunk(
   "equipment/resetAll",
   (_, thunkAPI) => {
-    console.log(
-      "Reseting equipment--------------------------------loading from blueprint"
-    );
     console.table(BASE_EQUIPMENT);
     let eq = { ...Items };
-    console.log(
-      "Reseting equipment--------------------------------begin initiating"
-    );
     eq.initiate(BASE_EQUIPMENT);
-    console.log(
-      "Reseting equipment--------------------------------begin serialising"
-    );
     console.table(eq.serialise());
     return [...eq.serialise()];
   }

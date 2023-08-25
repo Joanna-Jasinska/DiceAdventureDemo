@@ -29,10 +29,18 @@ export const startRandomDungeon = createAsyncThunk(
     return myDungeon;
   }
 );
+
+export const engageRandomEnemy = createAsyncThunk(
+  "dungeon/engameRandomEnemy",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const randomEnemyId = await state.dungeon.enemies[0][2];
+    return randomEnemyId;
+  }
+);
 export const readyToEnter = createAsyncThunk(
   "dungeon/ready",
   async (_, thunkAPI) => {
-    console.log("dungeon/ready - ready to enter dungeon.");
     return true;
   }
 );

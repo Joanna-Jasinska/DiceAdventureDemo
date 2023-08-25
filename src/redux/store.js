@@ -16,6 +16,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { enemyReducer } from "./enemy/enemySlice";
 
 // export const store = configureStore({
 //   reducer: {
@@ -76,6 +77,7 @@ export const store = configureStore({
     equipment: persistReducer(eqPersistConfig, equipmentReducer),
     combat: persistReducer(combatPersistConfig, combatReducer),
     dungeon: persistReducer(dungeonPersistConfig, dungeonReducer),
+    enemy: enemyReducer,
     // filter: filterReducer,
     // auth: authReducer,
   },

@@ -1,43 +1,20 @@
 import { EnemyPiece } from "./EnemyPiece/EnemyPiece";
 import css from "./EnemyBody.module.css";
 import { Title } from "components/Phonebook/Title/Title";
+import { useEnemy } from "hooks/useEnemy";
 
 export const EnemyBody = (enemyGiven) => {
-  const enemyTemplate = {
-    name: "Enemy",
-    pieces: [
-      {
-        bodyPartIcon: "👁‍🗨",
-        bodyPartTypes: ["eye", "head"],
-        allowMinValue: 4,
-        allowMaxValue: -1,
-        allowExactValues: [],
-        reqExactValues: [],
-        maxAmountOfDices: 2,
-        reqAmountOfDices: 1,
-        allowTypes: ["speed", "mana"],
-        multipliedTypes: ["mana"],
-        multipliedBy: 2,
-        damageToPlayer: 1,
-        effectsToPlayer: [],
-        damageToEnemy: 1,
-        effectsToEnemy: [],
-        priority: true,
-        id: "testpiece|Enemy|eye|1",
-        key: "testpiece|Enemy|eye|1",
-
-        // bonus: false, - unlocks after all priority and normal pieces are filled
-        // keep: false, //player keeps its dices as extra dices for next turn
-      },
-    ],
-    icon: "😈",
-  };
-  const enemy = { ...enemyTemplate, ...enemyGiven };
+  const { body } = useEnemy();
+  const bodyTemplate = [];
+  const myBody = body ? body : bodyTemplate;
   return (
-    <div className={css.body}>     
-      {/* {...enemy.pieces[0]} */}
-      <EnemyPiece p={enemy.pieces[0]} />
-      <EnemyPiece p={enemy.pieces[0]} />
+    <div className={css.body}>
+      {myBody.map((piece, index) => (
+        <EnemyPiece p={{ ...piece }} key={`piece|${index}|${piece.id}`} />
+      ))}
+      <EnemyPiece p={{ disabled: true }} key={`piece|xxx|ppp`} />
+      <EnemyPiece p={{ fulfilled: true }} key={`piece|yyy|ddd`} />
+      <EnemyPiece p={{}} key={`piece|zzz|bbb`} />
     </div>
   );
 };

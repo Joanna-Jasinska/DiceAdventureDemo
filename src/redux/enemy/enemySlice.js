@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   damageEnemy,
   loadEnemy,
-  withdrawDice,
-  placeDice,
-  deleteAllDices,
-  withdrawAllDices,
+  // withdrawDice,
+  // placeDice,
+  // deleteAllDices,
+  // withdrawAllDices,
   die,
   // autoPlaceAllDices,
   // changeStatus,
@@ -84,42 +84,42 @@ const enemySlice = createSlice({
       state.maxLife = action.payload.maxLife;
       state.isBoss = action.payload.isBoss;
       state.gold = action.payload.gold;
-      state.portrait = [...action.payload.portrait];
+      state.portrait = { ...action.payload.portrait };
       state.status = [...action.payload.status];
       state.body = [...action.payload.body];
     },
 
-    [withdrawDice.pending]: handlePending,
-    [withdrawDice.rejected]: handleRejected,
-    [withdrawDice.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.body = [...action.payload];
-    },
+    // [withdrawDice.pending]: handlePending,
+    // [withdrawDice.rejected]: handleRejected,
+    // [withdrawDice.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.body = [...action.payload];
+    // },
 
-    [placeDice.pending]: handlePending,
-    [placeDice.rejected]: handleRejected,
-    [placeDice.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.body = [...action.payload];
-    },
+    // [placeDice.pending]: handlePending,
+    // [placeDice.rejected]: handleRejected,
+    // [placeDice.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.body = [...action.payload];
+    // },
 
-    [deleteAllDices.rejected]: handleRejected,
-    [deleteAllDices.pending]: handlePending,
-    [deleteAllDices.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.body = [...action.payload];
-    },
+    // [deleteAllDices.rejected]: handleRejected,
+    // [deleteAllDices.pending]: handlePending,
+    // [deleteAllDices.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.body = [...action.payload];
+    // },
 
-    [withdrawAllDices.rejected]: handleRejected,
-    [withdrawAllDices.pending]: handlePending,
-    [withdrawAllDices.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.body = [...action.payload];
-    },
+    // [withdrawAllDices.rejected]: handleRejected,
+    // [withdrawAllDices.pending]: handlePending,
+    // [withdrawAllDices.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.body = [...action.payload];
+    // },
 
     // [deleteContactById.pending]: deleteContactByIdPending,
     // [deleteContactById.rejected]: handleRejected,

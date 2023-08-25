@@ -3,42 +3,24 @@ import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { selectError } from "redux/auth/selectors";
 import { HeaderNavBtn } from "components/HeaderNavBtn/HeaderNavBtn";
-import { startRandomDungeon, packEquipment } from "redux/dungeon/operations";
-// import { Item } from "components/Item/Item";
-import { ItemList } from "components/ItemList/ItemList";
+import {
+  startRandomDungeon,
+  packEquipment,
+  engageRandomEnemy,
+} from "redux/dungeon/operations";
 import { Title } from "components/Phonebook/Title/Title";
 import { useCombat, useDungeon } from "hooks";
 import css from "./../components/Phonebook/Phonebook.module.css";
 import { beginCombat } from "redux/combat/operations";
-import { selectInCombat } from "redux/combat/selectors";
+import { loadEnemy } from "redux/enemy/operations";
 import { Background } from "components/Background/Background";
 
 export const DungeonPage = () => {
   const dispatch = useDispatch();
   const error = useSelector(selectError);
-  const { name, eventName, inDungeon} = useDungeon();
+  const { name, eventName, inDungeon } = useDungeon();
   const { inCombat } = useCombat();
-  // const enteringCombat = useSelector(selectReadyToEnterCombat);
-  const enteringCombat = false;
-
-  // const enterDungeon = (e) => {
-  //   e.preventDefault();
-  //   dispatch(readyToEnter());
-  // };
-
-  // useEffect(() => {
-  //   if (enteringDungeon) {
-  //     dispatch(startRandomDungeon());
-  //     dispatch(packEquipment());
-  //   }
-  // }, [dispatch, enteringDungeon]);
-
-  // useEffect(() => {
-  //   if (enteringCombat) {
-  //     const newBattle={};
-  //      dispatch(initiateCombat(newBattle));
-  //   }
-  // }, [dispatch, enteringCombat]);
+  const { bg } = useDungeon();
 
   return (
     <>
@@ -69,14 +51,44 @@ export const DungeonPage = () => {
             display="🏃 Leave dung. 💩"
             onClick={() => {}}
           />
-          <HeaderNavBtn to="/combat" display="🚪" onClick={() => {}} />
-          <HeaderNavBtn to="/combat" display="🚪" onClick={() => {}} />
-          <HeaderNavBtn to="/combat" display="🚪" onClick={() => {}} />
+          <HeaderNavBtn
+            to="/combat"
+            display={`${bg.icon}`}
+            onClick={() => {}}
+          />
+          <HeaderNavBtn
+            to="/combat"
+            display={`${bg.eventIcon}`}
+            onClick={() => {}}
+          />
+          <HeaderNavBtn
+            to="/combat"
+            display={`${bg.flavorIcon}`}
+            onClick={() => {}}
+          />
           <HeaderNavBtn
             to="/combat"
             display="⚔️"
             onClick={() => {
-              dispatch(beginCombat({}));
+              dispatch(engageRandomEnemy())
+                .then(() => {
+                  dispatch(loadEnemy())
+                    .then(() => {
+                      dispatch(beginCombat({}))
+                        .then(() => {
+                          // began combat successfully
+                        })
+                        .catch((error) => {
+                          // did not begin combat
+                        });
+                    })
+                    .catch((error) => {
+                      // not loaded enemy
+                    });
+                })
+                .catch((error) => {
+                  // not engaged enemy
+                });
             }}
           />
         </main>

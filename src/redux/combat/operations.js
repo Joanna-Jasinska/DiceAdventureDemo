@@ -3,7 +3,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 // import { useSelector } from "react-redux";
 import { selectItems } from "redux/combat/selectors";
 import { Items } from "objects/Items";
+import { Dice } from "objects/Dice";
 import { BASE_EQUIPMENT } from "../../data/eq";
+import { getEnemy } from "data/enemies";
 
 // const baseURL = "https://connections-api.herokuapp.com/";
 // axios.defaults.baseURL = baseURL;
@@ -34,8 +36,21 @@ export const clearCombat = createAsyncThunk(
 
 export const beginCombat = createAsyncThunk(
   "combat/beginCombat",
-  async (init, thunkAPI) => {
-    return init;
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    let myDices = [];
+    state.dungeon.items.forEach((item) => {
+      item.dices.forEach((dice, index) => {
+        const id = `dice|d${dice.diceMax}|${dice.type}|${item.name}|${index}/${item.dices.length}`;
+        return myDices.push({ ...dice, id: id });
+      });
+    });
+    const combat = {
+      dices: [...myDices],
+      rolledDices: myDices.map((d) => Dice.roll(d)),
+      // enemy: getEnemy(state.dungeon.selectedEnemyID),
+    };
+    return combat;
   }
 );
 
@@ -44,8 +59,8 @@ export const rollAllDices = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const myDices = [
-      ...state.dungeon.items.map((item) => {
-        return item.stats;
+      ...state.combat.dices.map((item) => {
+        return item;
       }),
     ];
     const rolled = myDices;
@@ -62,30 +77,43 @@ export const endTurn = createAsyncThunk(
   }
 );
 
+export const selectDice = createAsyncThunk(
+  "combat/selectDice",
+  async (id, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const dices = Dice.select(id, state.combat.rolledDices);
+    return dices;
+  }
+);
+
 export const updateDice = createAsyncThunk(
   "combat/updateDice",
-  async (item, thunkAPI) => {
+  async (dice, thunkAPI) => {
+    // const state = thunkAPI.getState();
     // console.log(`Updating item.`);
     // console.table(item);
-    return false;
+    // return state.combat.dices;
+    return dice;
   }
 );
 
 export const addDice = createAsyncThunk(
   "combat/addDice",
   async (item, thunkAPI) => {
+    const state = thunkAPI.getState();
     // console.log(`Updating item.`);
     // console.table(item);
-    return false;
+    return state.combat.dices;
   }
 );
 
 export const deleteDice = createAsyncThunk(
   "combat/deleteDice",
   async (item, thunkAPI) => {
+    const state = thunkAPI.getState();
     // console.log(`Updating item.`);
     // console.table(item);
-    return false;
+    return state.combat.dices;
   }
 );
 

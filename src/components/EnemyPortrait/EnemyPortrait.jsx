@@ -1,19 +1,31 @@
 import { PropTypes } from "prop-types";
 import css from "./EnemyPortrait.module.css";
+import { useEnemy } from "hooks/useEnemy";
 
-export const EnemyPortrait = ({
-  //😬😠
-  //🦴🌳📿🌲
-  // 👹🟤🦂🐒🧸🦒
-  frontIcon = "🐺",
-  sideIcon = "🌿",
-  bgSideIcon = "🌲",
-  backIcon = "⚫️",
-  bgIcon = "🌳",
+export const EnemyPortrait = () => {
+  const { portrait } = useEnemy();
+  const {
+    frontIcon,
+    sideIcon,
+    bgSideIcon,
+    backIcon,
+    bgIcon,
+    filterColor,
+    bgColor,
+  } = portrait;
+  // {
+  //   //😬😠
+  //   //🦴🌳📿🌲
+  //   // 👹🟤🦂🐒🧸🦒
+  //   frontIcon = "🐺",
+  //   sideIcon = "🌿",
+  //   bgSideIcon = "🌲",
+  //   backIcon = "⚫️",
+  //   bgIcon = "🌳",
 
-  filterColor = "#005a124a",
-  bgColor = "#ddd900",
-}) => {
+  //   filterColor = "#005a124a",
+  //   bgColor = "#ddd900",
+  // }
   return (
     <figure className={`${css.miniature}`}>
       <div

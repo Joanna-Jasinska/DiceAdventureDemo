@@ -27,6 +27,7 @@
   padding: 0 2px;
   font-size: 1rem;
   background-color: #ffffff2f;
+  transition: ease-in-out 300ms;
 }
 .displayedBodyPart {
   z-index: 4;
@@ -127,4 +128,54 @@
   padding: 2px 1px 2px 2px;
   box-sizing: border-box;
   color: #ddd900;
+}
+.disabled {
+  background-color: #ffffff2f;
+  opacity: 90%;
+}
+.disabled .diceHolder {
+  min-width: 0;
+  width: 1.5rem;
+  /* hide whole div but it still takes space */
+  /* visibility: hidden; */
+}
+.disabled .diceHolder > div {
+  opacity: 20%;
+}
+.disabled::after {
+  z-index: 150;
+  /* disabled piece */
+  border-radius: 20px;
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #434343;
+  background-color: #441111;
+  opacity: 40%;
+  box-shadow: var(--box-shadow);
+}
+/* .piece { */
+.fulfilled {
+  /* fulfilled piece */
+  background-color: #fcfbdb5d;
+  background-color: #fcfbdbc2;
+  background-color: #d0ff92c2;
+  background-color: #85ce25e2;
+  background-color: #62a807c6;
+  opacity: 80%;
+  opacity: 70%;
+}
+.fulfilled:hover,
+.fulfilled:active,
+.fulfilled:focus {
+  opacity: 100%;
+  background-color: #b9ff5ed5;
+}
+/* .piece { */
+.waiting {
+  /* piece waiting to be fulfilled */
+  background-color: #fffed6df;
 }

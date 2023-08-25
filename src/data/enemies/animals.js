@@ -2,17 +2,19 @@
 export const ANIMALS = [
   {
     name: "Old Wolf",
-    frontIcon: "🐺",
-    sideIcon: "🌿",
-    bgSideIcon: "🌲",
-    backIcon: "⚫️",
-    bgIcon: "🌳",
-    filterColor: "#005a124a",
-    bgColor: "#ddd900",
+    portrait: {
+      frontIcon: "🐺",
+      sideIcon: "🌿",
+      bgSideIcon: "🌲",
+      backIcon: "⚫️",
+      bgIcon: "🌳",
+      filterColor: "#005a124a",
+      bgColor: "#ddd900",
+    },
     life: 9,
     maxLife: 10,
     id: "ANIMALS|green|Old Wolf",
-    pieces: [
+    body: [
       {
         bodyPartIcon: "👁‍🗨",
         bodyPartTypes: ["eye", "head"],
@@ -32,24 +34,27 @@ export const ANIMALS = [
         priority: true,
         id: "testpiece|Enemy|eye|1",
         key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal pieces are filled
+        bonus: false, //dice unlocks after all priority and normal body are filled
         keep: false, //player keeps its dices as extra dices for next turn
       },
     ],
+    status: [],
   },
   {
     name: "Vyvernling",
-    frontIcon: "",
-    sideIcon: "🌿",
-    bgSideIcon: "🌲",
-    backIcon: "🦎",
-    bgIcon: "🌳",
-    filterColor: "#005a124a",
-    bgColor: "#ddd900",
+    portrait: {
+      frontIcon: "",
+      sideIcon: "🌿",
+      bgSideIcon: "🌲",
+      backIcon: "🦎",
+      bgIcon: "🌳",
+      filterColor: "#005a124a",
+      bgColor: "#ddd900",
+    },
     life: 9,
     maxLife: 10,
     id: "ANIMALS|green|Vyvernling",
-    pieces: [
+    body: [
       {
         bodyPartIcon: "👁‍🗨",
         bodyPartTypes: ["eye", "head"],
@@ -69,24 +74,27 @@ export const ANIMALS = [
         priority: true,
         id: "testpiece|Enemy|eye|1",
         key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal pieces are filled
+        bonus: false, //dice unlocks after all priority and normal body are filled
         keep: false, //player keeps its dices as extra dices for next turn
       },
     ],
+    status: [],
   },
   {
     name: "Elder Badger",
-    frontIcon: "",
-    sideIcon: "🌿",
-    bgSideIcon: "🌲",
-    backIcon: "🦡",
-    bgIcon: "🌳",
-    filterColor: "#005a124a",
-    bgColor: "#ddd900",
+    portrait: {
+      frontIcon: "",
+      sideIcon: "🌿",
+      bgSideIcon: "🌲",
+      backIcon: "🦡",
+      bgIcon: "🌳",
+      filterColor: "#005a124a",
+      bgColor: "#ddd900",
+    },
     life: 9,
     maxLife: 10,
     id: "ANIMALS|green|Elder Badger",
-    pieces: [
+    body: [
       {
         bodyPartIcon: "👁‍🗨",
         bodyPartTypes: ["eye", "head"],
@@ -106,24 +114,27 @@ export const ANIMALS = [
         priority: true,
         id: "testpiece|Enemy|eye|1",
         key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal pieces are filled
+        bonus: false, //dice unlocks after all priority and normal body are filled
         keep: false, //player keeps its dices as extra dices for next turn
       },
     ],
+    status: [],
   },
   {
     name: "Giant Spider",
-    frontIcon: "",
-    sideIcon: "🌳",
-    bgSideIcon: "🕸",
-    backIcon: "🕷",
-    bgIcon: "🌳",
-    filterColor: "#005a124a",
-    bgColor: "#ddd900",
+    portrait: {
+      frontIcon: "",
+      sideIcon: "🌳",
+      bgSideIcon: "🕸",
+      backIcon: "🕷",
+      bgIcon: "🌳",
+      filterColor: "#005a124a",
+      bgColor: "#ddd900",
+    },
     life: 9,
     maxLife: 10,
     id: "ANIMALS|green|Giant Spider",
-    pieces: [
+    body: [
       {
         bodyPartIcon: "👁‍🗨",
         bodyPartTypes: ["eye", "head"],
@@ -143,24 +154,27 @@ export const ANIMALS = [
         priority: true,
         id: "testpiece|Enemy|eye|1",
         key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal pieces are filled
+        bonus: false, //dice unlocks after all priority and normal body are filled
         keep: false, //player keeps its dices as extra dices for next turn
       },
     ],
+    status: [],
   },
   {
     name: "Fat Boar",
-    frontIcon: "🐗",
-    sideIcon: "🌳",
-    bgSideIcon: "🌳",
-    backIcon: "🟤",
-    bgIcon: "🟤",
-    filterColor: "#005a124a",
-    bgColor: "#ddd900",
+    portrait: {
+      frontIcon: "🐗",
+      sideIcon: "🌳",
+      bgSideIcon: "🌳",
+      backIcon: "🟤",
+      bgIcon: "🟤",
+      filterColor: "#005a124a",
+      bgColor: "#ddd900",
+    },
     life: 9,
     maxLife: 10,
     id: "ANIMALS|green|Fat Boar",
-    pieces: [
+    body: [
       {
         bodyPartIcon: "👁‍🗨",
         bodyPartTypes: ["eye", "head"],
@@ -180,9 +194,10 @@ export const ANIMALS = [
         priority: true,
         id: "testpiece|Enemy|eye|1",
         key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal pieces are filled
+        bonus: false, //dice unlocks after all priority and normal body are filled
         keep: false, //player keeps its dices as extra dices for next turn
       },
     ],
+    status: [],
   },
 ];

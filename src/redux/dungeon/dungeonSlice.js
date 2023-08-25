@@ -6,6 +6,7 @@ import {
   startRandomDungeon,
   readyToEnter,
   setLv,
+  engageRandomEnemy,
 } from "./operations";
 
 const initialState = {
@@ -28,6 +29,7 @@ const initialState = {
     flavorIcon: "🌳",
     bgColor: "#3ea413",
   },
+  selectedEnemyID: "ELEMENTALS|green|Mysterious Enemy",
 };
 const handleRejected = (state, action) => {
   state.isLoading = false;
@@ -58,6 +60,7 @@ const dungeonSlice = createSlice({
       state.ally = initialState.ally;
       state.inDungeon = initialState.inDungeon;
       state.readyToEnter = initialState.readyToEnter;
+      state.selectedEnemyID = initialState.selectedEnemyID;
     },
 
     [setLv.pending]: handlePending,
@@ -66,6 +69,14 @@ const dungeonSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.lv = action.payload;
+    },
+
+    [engageRandomEnemy.pending]: handlePending,
+    [engageRandomEnemy.rejected]: handleRejected,
+    [engageRandomEnemy.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.selectedEnemyID = action.payload;
     },
 
     [readyToEnter.pending]: handlePending,

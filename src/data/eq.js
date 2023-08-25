@@ -15,6 +15,7 @@
 
 export const BASE_EQUIPMENT = [
   {
+    selected: true,
     name: "Legacy Sword",
     alt: "🗡️",
     skill: {
@@ -39,10 +40,10 @@ export const BASE_EQUIPMENT = [
     ],
     statsTxT: "EACH level: [ +1 speed ] of k6 ",
     lv: 1,
-    selected: true,
   },
 
   {
+    selected: true,
     name: "Utiki Spear",
     alt: "🔱",
     skill: {
@@ -125,6 +126,7 @@ export const BASE_EQUIPMENT = [
   },
 
   {
+    selected: true,
     name: "Boots of Speed",
     alt: "👢",
     skill: {

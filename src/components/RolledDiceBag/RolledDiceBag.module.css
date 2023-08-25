@@ -1,0 +1,28 @@
+.diceBag {
+  position: relative;
+  width: 64%;
+  height: 3.16em;
+  padding: 7px;
+  display: flex;
+  z-index: 10;
+  box-sizing: border-box;
+  flex-flow: row-reverse;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  column-gap: 3px;
+  transform: scale(1.6);
+  margin: 0 auto;
+  /* background-color: red; */
+
+  /* overflow: scroll; */
+  /* Hide standard scrollbar for Firefox */
+  /* scrollbar-width: none;  */
+  /* Hide standard scrollbar for IE/Edge */
+  /* -ms-overflow-style: none;  */
+}
+
+/* .diceBag::-webkit-scrollbar {
+  Hide standard scrollbar for Chrome/Safari/Opera
+  display: none; 
+} */

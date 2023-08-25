@@ -47,8 +47,6 @@ export const DungeonList = ({ id, list = getBasicDungeons() }) => {
               <DungeonSquare
                 {...{
                   ...el,
-                  bgTxtFront: el.eventIcon,
-                  bgTxtBack: el.icon,
                   key: `dungeon|${index}|${el.id}|${el.eventId}`,
                 }}
               />

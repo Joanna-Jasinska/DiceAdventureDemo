@@ -21,8 +21,8 @@ export const DungeonSquare = ({
       <Miniature
         // url={icon}
         alt={name}
-        bgTxtFront={icon}
-        bgTxtBack={eventIcon}
+        bgTxtFront={eventIcon}
+        bgTxtBack={icon}
         bgColor={bgColor}
         lv={lvReached}
       />

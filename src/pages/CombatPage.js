@@ -12,6 +12,7 @@ import { EnemyBody } from "components/EnemyBody/EnemyBody";
 import { SkillList } from "components/SkillList/SkillList";
 import { EnemyPortrait } from "components/EnemyPortrait/EnemyPortrait";
 import { Background } from "components/Background/Background";
+import { RolledDiceBag } from "components/RolledDiceBag/RolledDiceBag";
 
 export const CombatPage = () => {
   //   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ export const CombatPage = () => {
             <EnemyPortrait />
 
             <EnemyBody />
+            <RolledDiceBag />
             <SkillList />
           </>
         ) // end of combat page
