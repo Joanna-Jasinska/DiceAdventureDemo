@@ -113,6 +113,7 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 2rem;
+  cursor: pointer;
 }
 .damageHolder {
   display: flex;
@@ -138,6 +139,7 @@
   width: 1.5rem;
   /* hide whole div but it still takes space */
   /* visibility: hidden; */
+  cursor: not-allowed;
 }
 .disabled .diceHolder > div {
   opacity: 20%;
@@ -156,6 +158,7 @@
   background-color: #441111;
   opacity: 40%;
   box-shadow: var(--box-shadow);
+  cursor: not-allowed;
 }
 /* .piece { */
 .fulfilled {

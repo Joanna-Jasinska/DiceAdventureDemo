@@ -12,7 +12,7 @@ const getColor = ({ value, diceMax = 6 }) => {
   return css.empty;
 };
 
-export const RolledDice = ({ value, diceMax, icon, selected, id }) => {
+export const RolledDice = ({ value, diceMax, type, selected, id }) => {
   const dispatch = useDispatch();
   const onClick = () => {
     dispatch(selectDice(id));
@@ -25,7 +25,7 @@ export const RolledDice = ({ value, diceMax, icon, selected, id }) => {
       onClick={onClick}
     >
       {value || diceMax || "?"}{" "}
-      <span className={css.icon}>{getIcon(icon).icon}</span>
+      <span className={css.icon}>{getIcon(type).icon}</span>
     </div>
   );
 };
