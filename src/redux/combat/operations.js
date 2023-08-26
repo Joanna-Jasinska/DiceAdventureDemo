@@ -68,6 +68,19 @@ export const rollAllDices = createAsyncThunk(
   }
 );
 
+export const deselectAllDices = createAsyncThunk(
+  "combat/deselectAllDices",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const myDices = [
+      ...state.combat.rolledDices.map((item) => {
+        return {...item, selected: false};
+      }),
+    ];
+    return myDices;
+  }
+);
+
 export const endTurn = createAsyncThunk(
   "combat/endTurn",
   async (item, thunkAPI) => {

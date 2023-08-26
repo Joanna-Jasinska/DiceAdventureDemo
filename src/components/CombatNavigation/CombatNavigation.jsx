@@ -8,7 +8,7 @@ import {
   updateItem,
   deselectItem,
 } from "redux/eq/operations";
-// import deselectAllDices
+import { deselectAllDices } from "redux/combat/operations";
 import { selectEq } from "redux/eq/selectors";
 import css from "./CombatNavigation.module.css";
 
@@ -18,8 +18,9 @@ export const CombatNavigation = () => {
   // const selectedItems = [...items].filter((item) => {
   //   if (item.selected) return item.selected;
   // });
-  const deselectAllDices = (e) => {
+  const deselectAll = (e) => {
     e.preventDefault();
+    dispatch(deselectAllDices());
   };
   const nothing = (e) => {
     e.preventDefault();
@@ -33,19 +34,22 @@ export const CombatNavigation = () => {
       <nav className={css.header}>
         <div className={css.leftNav}>
           <HeaderNavBtn to="/reset" display={"♻️"} />
-          <HeaderNavBtn to="/combat" display={`11❤️45`} onClick={nothing} />
-          {/* <HeaderNavBtn to="/combat" display={""} /> */}
+          <HeaderNavBtn to="/-" display={`11❤️45`} onClick={nothing} />
           <HeaderNavBtn
             to="/eq"
             display="🎲"
             crossed={true}
-            onClick={deselectAllDices}
+            onClick={deselectAll}
           />
           {/* <HeaderNavBtn to="/eq" display="❤️" onClick={selectFav} /> */}
         </div>
         <div className={css.rightNav}>
           <HeaderNavBtn to="/return" display="🏃 Town" />
-          <HeaderNavBtn to="/combat" display={`${endTurnIcon} End Turn`} />
+          <HeaderNavBtn
+            to="/-"
+            display={`${endTurnIcon} End Turn`}
+            onClick={nothing}
+          />
         </div>
       </nav>
     </header>
