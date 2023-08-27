@@ -9,6 +9,6 @@ export const selectLoading = (state) => state.dungeon.isLoading;
 export const selectInDungeon = (state) => state.dungeon.inDungeon;
 export const selectDungeonLv = (state) => state.dungeon.lv;
 export const selectDungeonBg = (state) => state.dungeon.background;
-// export const selectEndingTurn = (state) => state.dungeon.endTurn;
+export const selectPlayer = (state) => state.dungeon.player;
 
 // id: "dungeon|1|",

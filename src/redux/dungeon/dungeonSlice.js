@@ -125,6 +125,7 @@ const dungeonSlice = createSlice({
       state.ally = action.payload.ally;
       state.inDungeon = true;
       state.readyToEnter = false;
+      state.player = action.payload.player;
     },
 
     [packEquipment.pending]: handlePending,
