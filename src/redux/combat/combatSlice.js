@@ -8,6 +8,7 @@ import {
   addDice,
   deleteDice,
   selectDice,
+  deselectAllDices,
 } from "./operations";
 
 const initialState = {
@@ -72,6 +73,13 @@ const combatSlice = createSlice({
     [rollAllDices.pending]: handlePending,
     [rollAllDices.rejected]: handleRejected,
     [rollAllDices.fulfilled](state, action) {
+      state.isLoading = false;
+      state.rolledDices = action.payload;
+    },
+
+    [deselectAllDices.pending]: handlePending,
+    [deselectAllDices.rejected]: handleRejected,
+    [deselectAllDices.fulfilled](state, action) {
       state.isLoading = false;
       state.rolledDices = action.payload;
     },

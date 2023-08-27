@@ -14,7 +14,13 @@ export const clearDungeon = createAsyncThunk(
 export const beginDungeon = createAsyncThunk(
   "dungeon/begin",
   async (init, thunkAPI) => {
-    return init;
+    const myDungeon = init;
+    const myPlayer = {
+      life: 12,
+      maxLife: 12,
+      status: {},
+    };
+    return { ...myDungeon, player: myPlayer };
   }
 );
 
@@ -26,7 +32,12 @@ export const startRandomDungeon = createAsyncThunk(
   "dungeon/random",
   async (_, thunkAPI) => {
     const myDungeon = { ...Dungeon }.getRandom();
-    return myDungeon;
+    const myPlayer = {
+      life: 10,
+      maxLife: 16,
+      status: {},
+    };
+    return { ...myDungeon, player: myPlayer };
   }
 );
 

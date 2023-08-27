@@ -14,6 +14,11 @@ const initialState = {
   eventName: "",
   id: "dungeon|1|",
   lv: 1,
+  player: {
+    life: 15,
+    maxLife: 15,
+    status: {},
+  },
   error: null,
   isLoading: false,
   inDungeon: false,
@@ -102,6 +107,7 @@ const dungeonSlice = createSlice({
       state.ally = action.payload.ally;
       state.inDungeon = true;
       state.readyToEnter = false;
+      state.player = action.payload.player;
     },
 
     [startRandomDungeon.pending]: handlePending,
@@ -119,6 +125,7 @@ const dungeonSlice = createSlice({
       state.ally = action.payload.ally;
       state.inDungeon = true;
       state.readyToEnter = false;
+      state.player = action.payload.player;
     },
 
     [packEquipment.pending]: handlePending,

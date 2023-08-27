@@ -14,6 +14,7 @@ import css from "./../components/Phonebook/Phonebook.module.css";
 import { beginCombat } from "redux/combat/operations";
 import { loadEnemy } from "redux/enemy/operations";
 import { Background } from "components/Background/Background";
+import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 
 export const DungeonPage = () => {
   const dispatch = useDispatch();
@@ -46,11 +47,7 @@ export const DungeonPage = () => {
             Life {"12"}/{"30"}
           </span>
           <span>Gold earned {"120"}</span>
-          <HeaderNavBtn
-            to="/town"
-            display="🏃 Leave dung. 💩"
-            onClick={() => {}}
-          />
+
           <HeaderNavBtn
             to="/combat"
             display={`${bg.icon}`}
@@ -91,6 +88,8 @@ export const DungeonPage = () => {
                 });
             }}
           />
+
+          <PlayerAvatar />
         </main>
       )}
     </>

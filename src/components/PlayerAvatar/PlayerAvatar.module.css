@@ -1,0 +1,92 @@
+.miniature h1,
+.miniature h2,
+.miniature h3,
+.miniature h4 {
+  margin-top: 0px;
+}
+.miniature {
+  position: relative;
+  display: flex;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 20px;
+  min-width: 120px;
+  width: 200px;
+  width: max-content;
+  height: 120px;
+  margin: 0;
+}
+.miniature::after {
+  content: "";
+  z-index: 100;
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  top: -124px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+
+  opacity: 0.3;
+}
+.padding {
+  padding: 0.8rem;
+}
+/* .textBoxContainer {
+  opacity: 0.5;
+} */
+.textBoxFront {
+  z-index: 2;
+  position: absolute;
+  left: -0.2rem;
+  left: 0.7rem;
+  top: -2rem;
+  top: -1.8rem;
+  font-size: 8rem;
+  color: #000;
+}
+
+.textBoxBack {
+  z-index: 2;
+  position: absolute;
+  left: -3rem;
+  top: -4rem;
+  font-size: 11rem;
+  color: #000;
+  opacity: 0.6;
+}
+
+.imgFrame {
+  position: relative;
+  z-index: 2;
+  width: 120px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  display: inline-block;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+    inset 0px -2px 4px -1px #ad8fb93e, inset 0px -4px 5px 0px #ad8fb926,
+    inset 0px -1px 10px 0px #ad8fb918, 0px 0px 4px 1px #000;
+}
+.img {
+  aspect-ratio: 1/1;
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  white-space: pre;
+  min-width: 100px;
+  max-width: 160px;
+  object-fit: inherit;
+  min-height: 100px;
+  text-align: center;
+  justify-content: center;
+  line-height: 1.2em;
+  font-size: 1.4em;
+  border-radius: 6px;
+  overflow: hidden;
+}
