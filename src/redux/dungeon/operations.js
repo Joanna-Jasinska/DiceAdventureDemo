@@ -16,8 +16,8 @@ export const beginDungeon = createAsyncThunk(
   async (init, thunkAPI) => {
     const myDungeon = init;
     const myPlayer = {
-      life: 15,
-      maxLife: 15,
+      life: 12,
+      maxLife: 12,
       status: {},
     };
     return { ...myDungeon, player: myPlayer };
@@ -33,8 +33,8 @@ export const startRandomDungeon = createAsyncThunk(
   async (_, thunkAPI) => {
     const myDungeon = { ...Dungeon }.getRandom();
     const myPlayer = {
-      life: 15,
-      maxLife: 15,
+      life: 10,
+      maxLife: 16,
       status: {},
     };
     return { ...myDungeon, player: myPlayer };

@@ -10,9 +10,12 @@ import {
 } from "redux/eq/operations";
 import { selectEq } from "redux/eq/selectors";
 import css from "./DungeonNavigation.module.css";
+import { useDungeon } from "hooks";
 
 export const DungeonNavigation = () => {
   const dispatch = useDispatch();
+  const { player } = useDungeon();
+  const { life, maxLife } = player;
   const items = useSelector(selectEq);
   const selectedItems = [...items].filter((item) => {
     if (item.selected) return item.selected;
@@ -20,6 +23,9 @@ export const DungeonNavigation = () => {
   const selectFav = () => {};
   const resetGame = () => {
     dispatch(resetEquipment());
+  };
+  const nothing = (e) => {
+    e.preventDefault();
   };
   const deselectEQ = () => {
     // console.log(`Unequipping all.`);
@@ -46,7 +52,11 @@ export const DungeonNavigation = () => {
         <div className={css.leftNav}>
           {/* <HeaderNavBtn to="/eq" display={`EQ 3/5`} inactive={true} /> */}
           <HeaderNavBtn to="/reset" display={"♻️"} />
-          <HeaderNavBtn to="/eq" display={`EQ ${selectedItems.length}/5`} />
+          <HeaderNavBtn
+            to="/-"
+            display={`${life}❤️${maxLife}`}
+            onClick={nothing}
+          />
           {/* <HeaderNavBtn to="/eq" display="Unequip" /> */}
           <HeaderNavBtn
             to="/eq"
@@ -57,8 +67,11 @@ export const DungeonNavigation = () => {
           {/* <HeaderNavBtn to="/eq" display="❤️" onClick={selectFav} /> */}
         </div>
         <div className={css.rightNav}>
-          <HeaderNavBtn to="/town" display="Town" />
-          <HeaderNavBtn to="/return" display="Battle" />
+          <HeaderNavBtn
+            to="/town"
+            display="🏃 Leave dung. 💩"
+            onClick={() => {}}
+          />
           {/* <HeaderNavBtn to="/eq" display="EQ" /> */}
         </div>
       </nav>

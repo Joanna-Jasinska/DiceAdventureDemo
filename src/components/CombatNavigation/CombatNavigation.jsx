@@ -2,14 +2,7 @@ import { HeaderNavBtn } from "../HeaderNavBtn/HeaderNavBtn";
 import { useSelector, useDispatch } from "react-redux";
 // import { selectItems } from "redux/game/selectors";
 // import { updateItem } from "redux/game/operations";
-import {
-  resetEquipment,
-  deselectAllItems,
-  updateItem,
-  deselectItem,
-} from "redux/eq/operations";
 import { deselectAllDices } from "redux/combat/operations";
-import { selectEq } from "redux/eq/selectors";
 import css from "./CombatNavigation.module.css";
 import { useDungeon } from "hooks";
 
@@ -17,10 +10,6 @@ export const CombatNavigation = () => {
   const dispatch = useDispatch();
   const { player } = useDungeon();
   const { life, maxLife } = player;
-  // const items = useSelector(selectEq);
-  // const selectedItems = [...items].filter((item) => {
-  //   if (item.selected) return item.selected;
-  // });
   const deselectAll = (e) => {
     e.preventDefault();
     dispatch(deselectAllDices());
