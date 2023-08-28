@@ -1,41 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  clearDungeon,
-  beginDungeon,
-  packEquipment,
-  startRandomDungeon,
-  readyToEnter,
-  setLv,
-  engageRandomEnemy,
-  engageEnemyBySlot,
+  resetGame,
+  // clearDungeon,
+  // beginDungeon,
+  // packEquipment,
+  // startRandomDungeon,
+  // readyToEnter,
+  // setLv,
+  // engageRandomEnemy,
+  // engageEnemyBySlot,
 } from "./operations";
 
 const initialState = {
-  name: "Dungeon",
-  eventName: "",
-  id: "dungeon|1|",
-  lv: 1,
-  player: {
-    life: 15,
-    maxLife: 15,
-    status: {},
+  currentDungeons: [],
+  possibleDungeons: [],
+  dungeonLevels: {
+    "dungeon|1|": 1,
+    "dungeon|2|": 1,
+    "dungeon|3|": 1,
+    "dungeon|4|": 1,
+    "dungeon|5|": 1,
   },
-  error: null,
-  isLoading: false,
-  inDungeon: false,
-  readyToEnter: false,
-  // endTurn: false,
-  items: [],
-  bosses: [],
-  ally: {},
-  enemies: [[{}], [], []],
-  background: {
-    icon: "🌲",
-    eventIcon: "🌲",
-    flavorIcon: "🌳",
-    bgColor: "#3ea413",
-  },
-  selectedEnemyID: "ELEMENTALS|green|Mysterious Enemy",
+  playerLv: 5,
+  maxEqLv: 2,
+  spareLvUps: 0,
+  gold: 200,
 };
 const handleRejected = (state, action) => {
   state.isLoading = false;
@@ -47,25 +36,18 @@ const handlePending = (state) => {
 // const deleteContactByIdPending = state => {
 //   state.isLoading = true;
 // };
-const dungeonSlice = createSlice({
-  name: "dungeon",
+const gameSlice = createSlice({
+  name: "game",
   initialState,
   extraReducers: {
-    [clearDungeon.pending]: handlePending,
-    [clearDungeon.rejected]: handleRejected,
-    [clearDungeon.fulfilled](state, action) {
+    [resetGame.pending]: handlePending,
+    [resetGame.rejected]: handleRejected,
+    [resetGame.fulfilled](state, action) {
       state.isLoading = initialState.isLoading;
       state.error = initialState.error;
-      // state.endTurn = initialState.endTurn;
-      state.name = initialState.name;
-      state.eventName = initialState.eventName;
-      state.background = initialState.background;
-      state.items = initialState.items;
-      state.enemies = initialState.enemies;
-      state.bosses = initialState.bosses;
-      state.ally = initialState.ally;
-      state.inDungeon = initialState.inDungeon;
-      state.readyToEnter = initialState.readyToEnter;
+
+      state.currentDungeons = initialState.currentDungeons;
+      state.possibleDungeons = initialState.possibleDungeons;
       state.selectedEnemyID = initialState.selectedEnemyID;
     },
 
@@ -163,4 +145,4 @@ const dungeonSlice = createSlice({
     // },
   },
 });
-export const dungeonReducer = dungeonSlice.reducer;
+export const gameReducer = gameSlice.reducer;

@@ -44,7 +44,7 @@ export const QuickBattlePage = () => {
       <Title title={"Quick Battle"} />
       <HeaderNavBtn
         to="/dungeon"
-        display="Equip 5 & Enter"
+        display="Equip & Enter Random"
         disabled={true}
         onClick={enterDungeon}
       />

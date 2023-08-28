@@ -3,9 +3,8 @@ import { DiceIcon } from "components/DiceIcon/DiceIcon";
 import css from "./../EnemyBody.module.css";
 import { Dice } from "objects/Dice";
 export const EnemyPiece = ({ p }) => {
-  const onClick=()=>{
-  //  Dice.clickOnBodyPiece
-
+  const onClick = () => {
+    //  Dice.clickOnBodyPiece
   };
   return (
     <div
@@ -18,7 +17,9 @@ export const EnemyPiece = ({ p }) => {
           <>
             <div className={css.modifier}>{`${p.multipliedBy}x `}</div>
             {p.multipliedTypes.map((t) => (
-              <div className={css.modifier}>{getDiceTypeIcon(t)}</div>
+              <div className={css.modifier} key={`modifier|${t.id}`}>
+                {getDiceTypeIcon(t)}
+              </div>
             ))}{" "}
           </>
         ) : (
