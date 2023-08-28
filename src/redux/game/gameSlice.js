@@ -1,18 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   resetGame,
-  // clearDungeon,
-  // beginDungeon,
-  // packEquipment,
-  // startRandomDungeon,
-  // readyToEnter,
-  // setLv,
-  // engageRandomEnemy,
-  // engageEnemyBySlot,
+  playerLvUp,
+  LvUpDungeonById,
+  moveCaravan,
+  addGold,
+  setSelectDungeon,
 } from "./operations";
 
 const initialState = {
-  currentDungeons: [],
+  selectedDungeonId: "dungeon|3|",
+  currentDungeons: [
+    "dungeon|1|1",
+    "dungeon|2|2",
+    "dungeon|3|3",
+    "dungeon|4|4",
+    "dungeon|5|5",
+  ],
   possibleDungeons: [],
   dungeonLevels: {
     "dungeon|1|": 1,
@@ -33,9 +37,6 @@ const handleRejected = (state, action) => {
 const handlePending = (state) => {
   state.isLoading = true;
 };
-// const deleteContactByIdPending = state => {
-//   state.isLoading = true;
-// };
 const gameSlice = createSlice({
   name: "game",
   initialState,
@@ -45,86 +46,59 @@ const gameSlice = createSlice({
     [resetGame.fulfilled](state, action) {
       state.isLoading = initialState.isLoading;
       state.error = initialState.error;
-
       state.currentDungeons = initialState.currentDungeons;
+      // needs to be fixed to generate all possible dungeon list
       state.possibleDungeons = initialState.possibleDungeons;
+      // state.possibleDungeons = action.payload.possibleDungeons;
+      state.selectedDungeonId = initialState.selectedDungeonId;
       state.selectedEnemyID = initialState.selectedEnemyID;
+      state.dungeonLevels = initialState.dungeonLevels;
+      state.playerLv = initialState.playerLv;
+      state.maxEqLv = initialState.maxEqLv;
+      state.spareLvUps = initialState.spareLvUps;
+      state.gold = initialState.gold;
     },
 
-    [setLv.pending]: handlePending,
-    [setLv.rejected]: handleRejected,
-    [setLv.fulfilled](state, action) {
+    [playerLvUp.pending]: handlePending,
+    [playerLvUp.rejected]: handleRejected,
+    [playerLvUp.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.lv = action.payload;
+      state.playerLv = action.payload.playerLv;
+      state.spareLvUps = action.payload.spareLvUps;
+      state.maxEqLv = action.payload.maxEqLv;
     },
 
-    [engageRandomEnemy.pending]: handlePending,
-    [engageRandomEnemy.rejected]: handleRejected,
-    [engageRandomEnemy.fulfilled](state, action) {
+    [LvUpDungeonById.pending]: handlePending,
+    [LvUpDungeonById.rejected]: handleRejected,
+    [LvUpDungeonById.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.selectedEnemyID = action.payload;
+      state.dungeonLevels = action.payload;
+    },
+    [setSelectDungeon.pending]: handlePending,
+    [setSelectDungeon.rejected]: handleRejected,
+    [setSelectDungeon.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.selectedDungeonId = action.payload;
     },
 
-    [engageEnemyBySlot.pending]: handlePending,
-    [engageEnemyBySlot.rejected]: handleRejected,
-    [engageEnemyBySlot.fulfilled](state, action) {
+    [addGold.pending]: handlePending,
+    [addGold.rejected]: handleRejected,
+    [addGold.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.selectedEnemyID = action.payload;
+      state.gold = action.payload;
     },
 
-    [readyToEnter.pending]: handlePending,
-    [readyToEnter.rejected]: handleRejected,
-    [readyToEnter.fulfilled](state, action) {
+    [moveCaravan.pending]: handlePending,
+    [moveCaravan.rejected]: handleRejected,
+    [moveCaravan.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.readyToEnter = true;
-    },
-
-    [beginDungeon.pending]: handlePending,
-    [beginDungeon.rejected]: handleRejected,
-    [beginDungeon.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      // state.endTurn = false;
-      state.name = action.payload.name;
-      state.eventName = action.payload.eventName;
-      state.background = action.payload.background;
-      state.items = action.payload.items;
-      state.enemies = action.payload.enemies;
-      state.bosses = action.payload.bosses;
-      state.ally = action.payload.ally;
-      state.inDungeon = true;
-      state.readyToEnter = false;
-      state.player = action.payload.player;
-    },
-
-    [startRandomDungeon.pending]: handlePending,
-    [startRandomDungeon.rejected]: handleRejected,
-    [startRandomDungeon.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      // state.endTurn = false;
-      state.name = action.payload.name;
-      state.eventName = action.payload.eventName;
-      state.background = action.payload.background;
-      state.items = action.payload.items;
-      state.enemies = action.payload.enemies;
-      state.bosses = action.payload.bosses;
-      state.ally = action.payload.ally;
-      state.inDungeon = true;
-      state.readyToEnter = false;
-      state.player = action.payload.player;
-    },
-
-    [packEquipment.pending]: handlePending,
-    [packEquipment.rejected]: handleRejected,
-    [packEquipment.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.items = action.payload;
+      state.currentDungeons = action.payload.currentDungeons;
+      state.possibleDungeons = action.payload.possibleDungeons;
     },
 
     // [deleteContactById.pending]: deleteContactByIdPending,

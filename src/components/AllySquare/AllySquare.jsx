@@ -4,7 +4,7 @@ import css from "./AllySquare.module.css";
 
 export const AllySquare = ({
   name = "Ally",
-  specialName = "",
+  title = "",
   id,
   eventId,
   bgTxtFront,
@@ -20,8 +20,11 @@ export const AllySquare = ({
         bgColor={bgColor}
       />
       <div className={css.bar}>
+        <div className={css.title}>
+          <span>{title}</span>
+        </div>
         <span className={css.text}>
-          <span className={css.name}>{`${name} ${specialName}`}</span>
+          <span className={css.name}>{`${name}`}</span>
         </span>
       </div>
     </div>

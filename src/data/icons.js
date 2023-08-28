@@ -51,12 +51,6 @@ export const ICONS = [
   // { type: "ally", icon: "🦹‍♀️", color: "#fff", id: "ally|5|rogue" },
 ];
 
-// rogue 🦹‍♀️ weapons, poisons
-// barbarian🧞‍♀️ weapons, fighting styles
-// wizard🧙 spells, familiars, potions
-// elf 🧝‍♀️ artifacts, armor, medicine
-// hunter🧝🏻 weapons, utility, beasts, food
-//---deleted-----hermit👩🏾‍🌾 medicine
 
 //🥣🧉🍯🥧🌿🦌🦡🐎🦅🐕
 //👨‍🌾👩🏻‍🌾👩‍🌾👩🏼‍🌾👩🏽‍🌾👩🏾‍🌾🧙‍♀️🧙🏼‍♀️👩🏾‍🌾

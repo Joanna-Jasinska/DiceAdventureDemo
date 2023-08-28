@@ -57,7 +57,7 @@ export const TownNavigation = () => {
           {/* <HeaderNavBtn to="/eq" display="❤️" onClick={selectFav} /> */}
         </div>
         <div className={css.rightNav}>
-          <HeaderNavBtn to="/town" display="Town" />
+          <HeaderNavBtn to="/town" display="Caravan" />
           <HeaderNavBtn to="/return" display="Battle" />
           {/* <HeaderNavBtn to="/eq" display="EQ" /> */}
         </div>

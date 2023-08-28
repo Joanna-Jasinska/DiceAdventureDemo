@@ -1,5 +1,5 @@
-export const getDungeon = (id) => {
-  const found = DUNGEONS.find((d) => d.eventId === id);
+export const getDungeon = (eid) => {
+  const found = DUNGEONS.find((d) => d.eventId === eid);
   return found ? found : DUNGEONS[0];
 };
 

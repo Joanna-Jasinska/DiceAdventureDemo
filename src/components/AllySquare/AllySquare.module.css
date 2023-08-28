@@ -140,3 +140,33 @@
   text-align: center;
   overflow: hidden;
 }
+
+.title {
+  /* bottom: 2px; */
+  left: 2px;
+  width: 116px;
+  height: 3.16em;
+  padding: 4px;
+  display: flex;
+  z-index: 10;
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-flow: row-reverse;
+  flex-wrap: wrap;
+  /* justify-content: flex-end; */
+  justify-content: center;
+  align-items: center;
+  align-items: flex-end;
+  align-items: flex-start;
+  column-gap: 3px;
+  border-radius: 0 0 20px 20px;
+  color: #000000b1;
+  /* background-color: red; */
+}
+.title > span {
+  width: min-content;
+  text-align: center;
+  line-height: 0.9rem;
+  font-size: 0.8rem;
+}

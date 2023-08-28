@@ -1,4 +1,6 @@
-// import React, { useEffect, useState } from "react";
+// import { useEffect } from "react";
+// import {  useDispatch } from "react-redux";
+// import { useEffect, useState } from "react";
 // import { useSelector, useDispatch } from "react-redux";
 // import { selectLoading, selectEq, selectFilters } from "redux/eq/selectors";
 // import { selectItems, selectFilters } from "redux/game/selectors";
@@ -11,43 +13,37 @@
 // import { setFilter } from "redux/filter/filterSlice";
 import { DungeonSquare } from "components/DungeonSquare/DungeonSquare";
 // import { DUNGEONS } from "data/dungeons";
-import { getDungeon, getBasicDungeons } from "data/dungeons";
+import { getDungeon } from "data/dungeons";
+import { useGame } from "hooks/useGame";
 // import { Loader } from "components/Loader/Loader";
 
 import css from "./DungeonList.module.css";
 
-export const DungeonList = ({ id, list = getBasicDungeons() }) => {
-  // const extraFilters = useSelector(selectFilters);
+export const DungeonList = () => {
+  const { currentDungeons, selectedDungeonId } = useGame();
+  // const list = givenList ? givenList : currentDungeons;
+  const list = currentDungeons;
   // const dispatch = useDispatch();
-  // const equipment = useSelector(selectEq);
-  // const items = useSelector(selectEq);
 
   // useEffect(() => {
-  //   dispatch(refreshEq());
-  // }, [dispatch]);
-
-  const displayed = id ? [getDungeon(id)] : [...list];
+  //   console.log(`selectedDungeonId: [${selectedDungeonId}]`);
+  //   // console.log(`game.currentDungeons: [${game.currentDungeons}]`);
+  //   // console.table(game);
+  // }, []);
 
   return (
     <div className={css.list}>
-      {/* {useSelector(selectLoading) ? (
-        <>
-          <br />
-          <Loader />
-        </>
-      ) : (
-        ""
-      )} */}
-
-      {/* filterItems(filters || extraFilters, items) */}
-      {displayed.length < 1
+      {!Array.isArray(list) || list.length < 1
         ? ""
-        : displayed.map((el, index) => {
+        : list.map((id, index) => {
+            const dungeon = getDungeon(id);
+            const isSelected = dungeon.id === selectedDungeonId ? true : false;
             return (
               <DungeonSquare
                 {...{
-                  ...el,
-                  key: `dungeon|${index}|${el.id}|${el.eventId}`,
+                  ...dungeon,
+                  selected: isSelected,
+                  key: `dungeon|${index}|${dungeon.id}|${dungeon.eventId}`,
                 }}
               />
             );

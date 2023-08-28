@@ -9,6 +9,7 @@ import { resetEquipment } from "redux/eq/operations";
 import { clearDungeon } from "redux/dungeon/operations";
 import { Navigate } from "react-router-dom";
 import { clearCombat } from "redux/combat/operations";
+import { resetGame } from "redux/game/operations";
 // import { selectLoading } from "redux/eq/selectors";
 export const ResetPage = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export const ResetPage = () => {
     dispatch(resetEquipment());
     dispatch(clearDungeon());
     dispatch(clearCombat());
-    console.log("dispatched reseting dungeon");
+    dispatch(resetGame());
   }, [dispatch]);
 
   return (
@@ -30,7 +31,6 @@ export const ResetPage = () => {
     >
       {/* {error ? <span className={css.error}>{error}</span> : ""} */}
       <Navigate to="/town" />
-      {/* {!loading ? <Navigate to="/eq" /> : <Loader txt={"Reseting data."} />} */}
       <Title title="Resetting game." />
     </main>
   );

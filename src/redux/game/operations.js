@@ -3,82 +3,49 @@ import { getRandomNum } from "objects/Dice";
 import { Dungeon } from "objects/Dungeon";
 // import { BASE_EQUIPMENT } from "../../data/eq";
 
-export const clearDungeon = createAsyncThunk(
-  "dungeon/clear",
-  async (_, thunkAPI) => {
-    // const myDungeon = { ...Dungeon }.getRandom();
-    return true;
-    // return thunkAPI.fulfillWithValue(null);
-  }
-);
+//   moveCaravan,
 
-export const beginDungeon = createAsyncThunk(
-  "dungeon/begin",
-  async (init, thunkAPI) => {
-    const myDungeon = init;
-    const myPlayer = {
-      life: 12,
-      maxLife: 12,
-      status: {},
-    };
-    return { ...myDungeon, player: myPlayer };
-  }
-);
-
-export const setLv = createAsyncThunk("dungeon/setLv", async (lv, thunkAPI) => {
-  return lv;
+export const resetGame = createAsyncThunk("game/reset", async (_, thunkAPI) => {
+  return true;
 });
 
-export const startRandomDungeon = createAsyncThunk(
-  "dungeon/random",
+export const playerLvUp = createAsyncThunk(
+  "game/playerLvUp",
   async (_, thunkAPI) => {
-    const myDungeon = { ...Dungeon }.getRandom();
-    const myPlayer = {
-      life: 10,
-      maxLife: 16,
-      status: {},
-    };
-    return { ...myDungeon, player: myPlayer };
+    const state = thunkAPI.getState();
+    const playerLv = state.game.playerLv + 1;
+    const spareLvUps = state.game.spareLvUps + 1;
+    const maxEqLv = Math.floor(playerLv / 5) + 1;
+    return { playerLv, spareLvUps, maxEqLv };
   }
 );
 
-export const engageRandomEnemy = createAsyncThunk(
-  "dungeon/engameRandomEnemy",
-  async (_, thunkAPI) => {
-    const n = getRandomNum(0, (await state.dungeon.enemies.length) - 1);
-    const state = thunkAPI.getState();
-    const randomEnemyId = await state.dungeon.enemies[n][
-      getRandomNum(0, state.dungeon.enemies[n].length - 1)
-    ];
-    return randomEnemyId;
+export const LvUpDungeonById = createAsyncThunk(
+  "game/LvUpDungeonById",
+  async (id, thunkAPI) => {
+    const state = thunkAPI.getState().game;
+    const { dungeonLevels } = state;
+    return { ...dungeonLevels, [id]: dungeonLevels[id] + 1 };
   }
 );
-
-export const engageEnemyBySlot = createAsyncThunk(
-  "dungeon/engameEnemyBySlot",
-  async (slot, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const dungeons = state.dungeon.enemies[slot];
-    const rn = getRandomNum(0, state.dungeon.enemies[slot].length - 1);
-    const enemyId = await dungeons[rn];
-    console.log(`Engaging ${enemyId} from dungeon[${slot}][${rn}]`);
-    return enemyId;
+export const moveCaravan = createAsyncThunk(
+  "game/moveCaravan",
+  async (_, thunkAPI) => {
+    // not working yet
+    const state = thunkAPI.getState().game;
+    const { currentDungeons, possibleDungeons } = state;
+    return { currentDungeons, possibleDungeons };
   }
 );
-export const readyToEnter = createAsyncThunk(
-  "dungeon/ready",
-  async (_, thunkAPI) => {
-    return true;
-  }
-);
-
-export const packEquipment = createAsyncThunk(
-  "dungeon/packEquipment",
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const eqTaken = state.equipment.all.filter((item) => item.selected);
-    if (eqTaken.length > 5)
-      return thunkAPI.rejectWithValue("Too many items equipped");
-    return eqTaken;
+export const addGold = createAsyncThunk("game/addGold", async (g, thunkAPI) => {
+  const state = thunkAPI.getState().game;
+  const { gold } = state;
+  if (gold + g < 0) thunkAPI.rejectWithValue("Not enough gold.");
+  return gold + g;
+});
+export const setSelectDungeon = createAsyncThunk(
+  "game/setSelectDungeon",
+  async (id, thunkAPI) => {
+    return id;
   }
 );

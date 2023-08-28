@@ -17,6 +17,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import { enemyReducer } from "./enemy/enemySlice";
+import { gameReducer } from "./game/gameSlice";
 
 // export const store = configureStore({
 //   reducer: {
@@ -38,6 +39,21 @@ const authPersistConfig = {
   key: "auth",
   storage,
   whitelist: ["token"],
+};
+
+const gamePersistConfig = {
+  key: "game",
+  storage,
+  whitelist: [
+    "currentDungeons",
+    "possibleDungeons",
+    "selectedDungeonId",
+    "dungeonLevels",
+    "playerLv",
+    "maxEqLv",
+    "spareLvUps",
+    "gold",
+  ],
 };
 
 const eqPersistConfig = {
@@ -77,6 +93,7 @@ export const store = configureStore({
     equipment: persistReducer(eqPersistConfig, equipmentReducer),
     combat: persistReducer(combatPersistConfig, combatReducer),
     dungeon: persistReducer(dungeonPersistConfig, dungeonReducer),
+    game: persistReducer(gamePersistConfig, gameReducer),
     enemy: enemyReducer,
     // filter: filterReducer,
     // auth: authReducer,

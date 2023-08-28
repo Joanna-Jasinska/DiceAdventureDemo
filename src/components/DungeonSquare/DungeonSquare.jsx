@@ -1,6 +1,9 @@
 // import { PropTypes } from 'prop-types';
 import { Miniature } from "components/Miniature/Miniature";
 import css from "./DungeonSquare.module.css";
+import { useGame } from "hooks/useGame";
+import { useDispatch } from "react-redux";
+import { setSelectDungeon } from "redux/game/operations";
 
 export const DungeonSquare = ({
   name,
@@ -12,10 +15,15 @@ export const DungeonSquare = ({
   gold,
   ally,
   selected = false,
-  toggleSelect,
   background,
 }) => {
+  const dispatch = useDispatch();
   const { bgColor, icon, eventIcon } = background;
+  const selectSelf = () => {
+    if (!selected) {
+      dispatch(setSelectDungeon(id));
+    }
+  };
   return (
     <div className={css.item} id={id}>
       <Miniature
@@ -33,7 +41,7 @@ export const DungeonSquare = ({
             css.delete
           }`}
           type="button"
-          onClick={toggleSelect}
+          onClick={selectSelf}
         >
           {selected ? "⚔️" : "🠘"}
         </button>
