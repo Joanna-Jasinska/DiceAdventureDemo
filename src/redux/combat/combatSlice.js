@@ -8,6 +8,7 @@ import {
   addDice,
   deleteDice,
   selectDice,
+  toggleDiceSelection,
   deselectAllDices,
 } from "./operations";
 
@@ -60,6 +61,14 @@ const combatSlice = createSlice({
       // state.enemy = action.payload.enemy;
       state.endTurn = false;
       state.inCombat = true;
+    },
+
+    [toggleDiceSelection.pending]: handlePending,
+    [toggleDiceSelection.rejected]: handleRejected,
+    [toggleDiceSelection.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.rolledDices = action.payload;
     },
 
     [selectDice.pending]: handlePending,

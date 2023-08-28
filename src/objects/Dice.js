@@ -7,11 +7,17 @@ export const Dice = {
     const rolledDice = { ...dice, value: getRandomNum(1, dice.diceMax) };
     return rolledDice;
   },
+  toggleSelect(id, dices) {
+    return [
+      ...dices.map((d) => {
+        if (d.id !== id) {
+          return d;
+        }
+        return { ...d, selected: !d.selected };
+      }),
+    ];
+  },
   select(id, dices) {
-    // returns all dices with the chosen dice selected
-    // const found = dices.find((d) => d.id === id);
-    // const selectedDice=found? {...found, selected: true} : {...dices[0], selected: true} ;
-    // return [...dices.filter((dice)=>dice.id!==id), selectedDice];
     return [
       ...dices.map((d) => {
         if (d.id !== id) {

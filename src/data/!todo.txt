@@ -1,0 +1,62 @@
+- place dice into body piece
+
+- end turn
+- end turn - damage enemy calculation
+
+
+- intiating player life from eq when entering dungeon
+- tracking player life in combat and dungeon
+- end turn - damage player
+
+- make leaving dungeon battle possible
+- make DungeonSumary page - left or died / gold gained / levels gained
+
+- CombatPage - show consequences of ending turn
+
+- combat can end - win/loss
+- level up
+
+- add stats to DungeonPage -  levels gained / gold gained
+
+- fix CombatPage layout
+- fix DungeonPage layout
+
+- make enemies with working body pieces in data/enemies/ + enemies.js
+- make enemies scale properly with dungeon levels
+
+- make working equipment in equipment.js
+- make equipment scale properly with lv
+
+- fill dungeons.js with enemies
+
+- info page with storyline
+- tutorial page
+- settings page
+
+- equipment list with filters
+- equipment leveling
+
+- boss
+
+- allies working at all
+- AllyPage
+- allies can help in normal battle
+- allies can help in boss battle
+- allies can sell items
+- allies give missions to unlock items
+
+- enchants can be added to weapons
+- enchants list with filters
+- endchants leveling
+- allies can sell enchantments
+- allies give missions to unlock enchantments
+
+
+
+-------------------------------
+cleaning, remove:
+
+- phonebook related stuff - components, redux, pages, hooks
+- redux combat selectDice
+- objects Dice select, deselect
+

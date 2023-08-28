@@ -1,7 +1,7 @@
 import { getIcon } from "data/icons";
 import css from "./RolledDice.module.css";
 import { useDispatch } from "react-redux";
-import { selectDice } from "redux/combat/operations";
+import { toggleDiceSelection } from "redux/combat/operations";
 
 const getColor = ({ value, diceMax = 6 }) => {
   //   console.log(`getting color ${value} / ${diceMax}`);
@@ -15,7 +15,7 @@ const getColor = ({ value, diceMax = 6 }) => {
 export const RolledDice = ({ value, diceMax, type, selected, id }) => {
   const dispatch = useDispatch();
   const onClick = () => {
-    dispatch(selectDice(id));
+    dispatch(toggleDiceSelection(id));
   };
   return (
     <div
