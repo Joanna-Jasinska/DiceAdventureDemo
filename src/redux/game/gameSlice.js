@@ -9,7 +9,7 @@ import {
 } from "./operations";
 
 const initialState = {
-  selectedDungeonId: "dungeon|3|",
+  selectedDungeonId: "dungeon|2|",
   currentDungeons: [
     "dungeon|1|1",
     "dungeon|2|2",
@@ -76,6 +76,7 @@ const gameSlice = createSlice({
       state.error = null;
       state.dungeonLevels = action.payload;
     },
+
     [setSelectDungeon.pending]: handlePending,
     [setSelectDungeon.rejected]: handleRejected,
     [setSelectDungeon.fulfilled](state, action) {

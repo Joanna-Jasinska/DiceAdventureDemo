@@ -13,16 +13,24 @@ import {
   startRandomDungeon,
   packEquipment,
   readyToEnter,
+  startDungeonById,
 } from "redux/dungeon/operations";
 import { selectReadyToEnter } from "redux/dungeon/selectors";
 import { beginCombat, rollAllDices } from "redux/combat/operations";
 import { loadEnemy } from "redux/enemy/operations";
+import { useGame } from "hooks/useGame";
+import { Dungeon } from "objects/Dungeon";
 
 export const QuickBattlePage = () => {
   const dispatch = useDispatch();
+  const { selectedDungeonId, currentDungeons } = useGame();
   const error = useSelector(selectError);
   const enteringDungeon = useSelector(selectReadyToEnter);
 
+  const enterRandomDungeon = (e) => {
+    e.preventDefault();
+    dispatch(readyToEnter());
+  };
   const enterDungeon = (e) => {
     e.preventDefault();
     dispatch(readyToEnter());
@@ -30,7 +38,15 @@ export const QuickBattlePage = () => {
 
   useEffect(() => {
     if (enteringDungeon) {
-      dispatch(startRandomDungeon());
+      dispatch(
+        startDungeonById(
+          Dungeon.getEventIdFromSelectedCurrentDungeon(
+            selectedDungeonId,
+            currentDungeons
+          )
+        )
+      );
+      // dispatch(startRandomDungeon());
       dispatch(packEquipment());
     }
   }, [dispatch, enteringDungeon]);
@@ -42,12 +58,12 @@ export const QuickBattlePage = () => {
       {error ? <span className={css.error}>{error}</span> : ""}
 
       <Title title={"Quick Battle"} />
-      <HeaderNavBtn
+      {/* <HeaderNavBtn
         to="/dungeon"
         display="Equip & Enter Random"
         disabled={true}
-        onClick={enterDungeon}
-      />
+        onClick={enterRandomDungeon}
+      /> */}
       <HeaderNavBtn
         to="/dungeon"
         display="Enter Dungeon"

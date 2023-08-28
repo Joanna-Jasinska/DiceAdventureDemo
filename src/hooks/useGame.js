@@ -10,7 +10,7 @@ import {
   selectPlayerLv,
   selectPossibleDungeons,
   selectSpareLvUps,
-  selectSelectedDungeon,
+  selectSelectedDungeonId,
 } from "redux/game/selectors";
 
 export const useGame = () => {
@@ -24,7 +24,7 @@ export const useGame = () => {
   const maxEqLv = useSelector(selectMaxEqLv);
   const spareLvUps = useSelector(selectSpareLvUps);
   const gold = useSelector(selectGold);
-  const selectedDungeonId = useSelector(selectSelectedDungeon);
+  const selectedDungeonId = useSelector(selectSelectedDungeonId);
 
   return {
     error,

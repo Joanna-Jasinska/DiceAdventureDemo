@@ -1,4 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { getDungeon } from "data/dungeons";
+import { useGame } from "hooks/useGame";
 import { getRandomNum } from "objects/Dice";
 import { Dungeon } from "objects/Dungeon";
 // import { BASE_EQUIPMENT } from "../../data/eq";
@@ -28,6 +30,22 @@ export const beginDungeon = createAsyncThunk(
 export const setLv = createAsyncThunk("dungeon/setLv", async (lv, thunkAPI) => {
   return lv;
 });
+
+export const startDungeonById = createAsyncThunk(
+  "dungeon/startSelected",
+  async (id, thunkAPI) => {
+    const myDungeon = getDungeon(id);
+    console.log(
+      `dungeon/startSelected requested [${id}] gained [${myDungeon.id}]`
+    );
+    const myPlayer = {
+      life: 10,
+      maxLife: 16,
+      status: {},
+    };
+    return { ...myDungeon, player: myPlayer };
+  }
+);
 
 export const startRandomDungeon = createAsyncThunk(
   "dungeon/random",
