@@ -9,7 +9,6 @@ export const getBasicDungeons = () => {
 
 export const DUNGEONS = [
   {
-    // selected: true,
     background: {
       icon: "🗻",
       eventIcon: "🌋",
@@ -29,7 +28,6 @@ export const DUNGEONS = [
     // gold: 100,
   },
   {
-    selected: true,
     background: {
       icon: "🌲",
       eventIcon: "🌲",

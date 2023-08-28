@@ -6,7 +6,7 @@ export const ALLIES = [
     name: "Ihlaoxeus",
     // name: "Xinaleus",
     id: "ally|1|",
-    title: "Rajavi Mage",
+    title: "Rajavi Mage & Pathforcer",
     icon: "🧙",
     eventIcon: "✨",
     bgColor: "#275674",
@@ -14,7 +14,7 @@ export const ALLIES = [
   {
     name: "Valathar",
     id: "ally|2|",
-    title: "Rajavi Aristocrat",
+    title: "Rajavi Aristocrat & Pathforcer",
     icon: "🧝‍♀️",
     eventIcon: "🦌",
     bgColor: "#745c27",
@@ -22,7 +22,7 @@ export const ALLIES = [
   {
     name: "Zern",
     id: "ally|3|",
-    title: "Rajavi Hunter",
+    title: "Rajavi Hunter & Pathforcer",
     icon: "🧝🏻",
     eventIcon: "🌾",
     bgColor: "#4a7427",
@@ -30,7 +30,7 @@ export const ALLIES = [
   {
     name: "Tashka",
     id: "ally|4|",
-    title: "Rajavi Pathforcer",
+    title: "Elite Rajavi Pathforcer",
     icon: "🧞‍♀️",
     eventIcon: "🪓",
     bgColor: "#742727",
@@ -38,7 +38,7 @@ export const ALLIES = [
   {
     name: "Mir",
     id: "ally|5|",
-    title: "Rajavi Pathforcer",
+    title: "Elite Rajavi Pathforcer",
     icon: "🦹‍♀️",
     eventIcon: "🔪",
     bgColor: "#4b2774",

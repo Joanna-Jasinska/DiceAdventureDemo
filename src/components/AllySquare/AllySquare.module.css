@@ -165,7 +165,7 @@
   /* background-color: red; */
 }
 .title > span {
-  width: min-content;
+  height: min-content;
   text-align: center;
   line-height: 0.9rem;
   font-size: 0.8rem;

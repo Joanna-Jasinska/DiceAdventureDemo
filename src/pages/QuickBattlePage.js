@@ -20,12 +20,17 @@ import { beginCombat, rollAllDices } from "redux/combat/operations";
 import { loadEnemy } from "redux/enemy/operations";
 import { useGame } from "hooks/useGame";
 import { Dungeon } from "objects/Dungeon";
+import { selectEq } from "redux/eq/selectors";
 
 export const QuickBattlePage = () => {
   const dispatch = useDispatch();
   const { selectedDungeonId, currentDungeons } = useGame();
   const error = useSelector(selectError);
   const enteringDungeon = useSelector(selectReadyToEnter);
+  const items = useSelector(selectEq);
+  const selectedItemsAmount = [...items].filter((item) => {
+    if (item.selected) return item.selected;
+  }).length;
 
   const enterRandomDungeon = (e) => {
     e.preventDefault();
@@ -56,19 +61,23 @@ export const QuickBattlePage = () => {
       style={{ width: "100%", boxSizing: "border-box", padding: "0.4em 0px" }}
     >
       {error ? <span className={css.error}>{error}</span> : ""}
-
       <Title title={"Quick Battle"} />
+      {(selectedItemsAmount > 0) & (selectedItemsAmount < 6) ? (
+        <HeaderNavBtn
+          to="/dungeon"
+          display="Enter Dungeon"
+          onClick={enterDungeon}
+        />
+      ) : (
+        <HeaderNavBtn to="/eq" display={`Adjust Equipment`} />
+      )}
       {/* <HeaderNavBtn
         to="/dungeon"
         display="Equip & Enter Random"
         disabled={true}
         onClick={enterRandomDungeon}
       /> */}
-      <HeaderNavBtn
-        to="/dungeon"
-        display="Enter Dungeon"
-        onClick={enterDungeon}
-      />
+
       <DungeonList />
       <ItemList filters={{ selected: true }} />
     </main>

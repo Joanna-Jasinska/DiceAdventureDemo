@@ -9,8 +9,9 @@ import {
   deselectItem,
 } from "redux/eq/operations";
 import { selectEq } from "redux/eq/selectors";
-import css from "./DungeonNavigation.module.css";
 import { useDungeon } from "hooks";
+// import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
+import css from "./DungeonNavigation.module.css";
 
 export const DungeonNavigation = () => {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ export const DungeonNavigation = () => {
         <div className={css.leftNav}>
           {/* <HeaderNavBtn to="/eq" display={`EQ 3/5`} inactive={true} /> */}
           <HeaderNavBtn to="/reset" display={"♻️"} />
+          {/* <PlayerAvatar /> */}
           <HeaderNavBtn
             to="/-"
             display={`${life}❤️${maxLife}`}
