@@ -2,7 +2,10 @@ import { HeaderNavBtn } from "../HeaderNavBtn/HeaderNavBtn";
 import { useSelector, useDispatch } from "react-redux";
 // import { selectItems } from "redux/game/selectors";
 // import { updateItem } from "redux/game/operations";
-import { deselectAllDices } from "redux/combat/operations";
+import {
+  copyAllEnemyDicesToBag,
+  deselectAllDices,
+} from "redux/combat/operations";
 import css from "./CombatNavigation.module.css";
 import { useDungeon } from "hooks";
 import { deleteAllBodyDices } from "redux/enemy/operations";
@@ -18,7 +21,7 @@ export const CombatNavigation = () => {
   };
   const retrieveAllDices = (e) => {
     e.preventDefault();
-    // dispatch(retrieveAllToRolledBag());
+    dispatch(copyAllEnemyDicesToBag());
     dispatch(deleteAllBodyDices());
   };
   const nothing = (e) => {

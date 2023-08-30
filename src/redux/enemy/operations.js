@@ -67,6 +67,13 @@ export const deleteAllBodyDices = createAsyncThunk(
   }
 );
 
+export const deleteAllPieceDices = createAsyncThunk(
+  "enemy/deleteAllPieceDices",
+  async (pieceId, thunkAPI) => {
+    return pieceId;
+  }
+);
+
 // export const startRandomEnemy = createAsyncThunk(
 //   "enemy/random",
 //   async (_, thunkAPI) => {

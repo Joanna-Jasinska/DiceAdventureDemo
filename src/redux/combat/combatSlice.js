@@ -6,7 +6,10 @@ import {
   endTurn,
   updateDice,
   addDice,
-  deleteDice,
+  addRolledDice,
+  addMultipleRolledDice,
+  copyAllEnemyDicesToBag,
+  deleteRolledDice,
   selectDice,
   toggleDiceSelection,
   deselectAllDices,
@@ -15,13 +18,9 @@ import {
 const initialState = {
   rolledDices: [],
   dices: [],
-  // enemy: {
-  //   name: "Enemy",
-  // },
   isLoading: false,
   error: null,
   inCombat: false,
-  // enteringCombat: false,
   endTurn: false,
 };
 const handleRejected = (state, action) => {
@@ -105,8 +104,8 @@ const combatSlice = createSlice({
     [updateDice.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.rolledDices.all[action.payload.stats.index] = {
-        ...state.rolledDices.all[action.payload.stats.index],
+      state.rolledDices[action.payload.stats.index] = {
+        ...state.rolledDices[action.payload.stats.index],
         ...action.payload,
       };
     },
@@ -116,19 +115,40 @@ const combatSlice = createSlice({
     [addDice.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.rolledDices.all.push(action.payload);
+      state.dices.push(action.payload);
     },
 
-    [deleteDice.pending]: handlePending,
-    [deleteDice.rejected]: handleRejected,
-    [deleteDice.fulfilled](state, action) {
+    [addRolledDice.pending]: handlePending,
+    [addRolledDice.rejected]: handleRejected,
+    [addRolledDice.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.rolledDices.all = state.rolledDices.all.filter((dice) => {
-        return !(
-          dice.stats.id === action.payload.stats.id ||
-          dice.stats.index === action.payload.stats.index
-        );
+      state.rolledDices.push(action.payload);
+    },
+
+    [addMultipleRolledDice.pending]: handlePending,
+    [addMultipleRolledDice.rejected]: handleRejected,
+    [addMultipleRolledDice.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.rolledDices = action.payload;
+    },
+
+    [copyAllEnemyDicesToBag.pending]: handlePending,
+    [copyAllEnemyDicesToBag.rejected]: handleRejected,
+    [copyAllEnemyDicesToBag.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.rolledDices = action.payload;
+    },
+
+    [deleteRolledDice.pending]: handlePending,
+    [deleteRolledDice.rejected]: handleRejected,
+    [deleteRolledDice.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.rolledDices = state.rolledDices.filter((dice) => {
+        return !(dice.id === action.payload.id);
       });
     },
 

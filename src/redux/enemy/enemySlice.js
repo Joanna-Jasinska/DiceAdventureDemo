@@ -4,6 +4,7 @@ import {
   loadEnemy,
   placeBodyPieceDice,
   deleteAllBodyDices,
+  deleteAllPieceDices,
   // withdrawDice,
   // placeDice,
   // deleteAllDices,
@@ -73,6 +74,16 @@ const enemySlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.body = action.payload;
+    },
+
+    [deleteAllPieceDices.pending]: handlePending,
+    [deleteAllPieceDices.rejected]: handleRejected,
+    [deleteAllPieceDices.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.body = state.body.map((p) =>
+        p.id !== action.payload ? p : { ...p, dices: [] }
+      );
     },
 
     // [clearEnemy.pending]: handlePending,

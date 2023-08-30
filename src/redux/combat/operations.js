@@ -124,17 +124,49 @@ export const addDice = createAsyncThunk(
     const state = thunkAPI.getState();
     // console.log(`Updating item.`);
     // console.table(item);
-    return state.combat.dices;
+    return item;
+    // return state.combat.dices;
   }
 );
 
-export const deleteDice = createAsyncThunk(
-  "combat/deleteDice",
+export const addRolledDice = createAsyncThunk(
+  "combat/addRolledDice",
   async (item, thunkAPI) => {
     const state = thunkAPI.getState();
     // console.log(`Updating item.`);
     // console.table(item);
-    return state.combat.dices;
+    return item;
+    // return state.combat.rolledDices;
+  }
+);
+
+export const addMultipleRolledDice = createAsyncThunk(
+  "combat/addMultipleRolledDice",
+  async (diceArray, thunkAPI) => {
+    const state = thunkAPI.getState();
+    // console.log(`Updating item.`);
+    // console.table(item);
+    return state.combat.rolledDices.concat(diceArray);
+  }
+);
+
+export const copyAllEnemyDicesToBag = createAsyncThunk(
+  "combat/copyAllEnemyDicesToBag",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    let diceArray=[]
+    if(state.enemy.body)state.enemy.body.forEach((piece)=>{
+      if(piece.dices)piece.dices.forEach(dice=>diceArray.push(dice));
+    });
+    return state.combat.rolledDices.concat(diceArray);
+  }
+);
+
+export const deleteRolledDice = createAsyncThunk(
+  "combat/deleteRolledDice",
+  async (dice, thunkAPI) => {
+    // const state = thunkAPI.getState();
+    return dice;
   }
 );
 

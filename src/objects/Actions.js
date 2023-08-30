@@ -1,5 +1,13 @@
 import { useCombat } from "hooks";
-import { placeBodyPieceDice } from "redux/enemy/operations";
+import {
+  deleteAllPieceDices,
+  placeBodyPieceDice,
+} from "redux/enemy/operations";
+import { Piece } from "./Piece";
+import {
+  addMultipleRolledDice,
+  deleteRolledDice,
+} from "redux/combat/operations";
 
 export const Actions = {
   clickOnBodyPiece(piece, rolledDices) {
@@ -24,6 +32,16 @@ export const Actions = {
     // console.log(`clickOnBodyPiece have pieceDices [${pieceDices}]`);
 
     const returnAllPieceDicesToBag = () => {
+      console.log(`Returning all piece dices to bag`);
+      let diceArray = [];
+      piece.dices.forEach((d) => {
+        diceArray.push(d);
+      });
+      if (diceArray.length > 0) {
+        toDispatch.push(() => addMultipleRolledDice(diceArray));
+        toDispatch.push(() => deleteAllPieceDices(piece.id));
+        return toDispatch;
+      }
       // -> foreach piece.dice -> combat toDispatch.push(()=>addRolledDice(dice))
       // -> enemy toDispatch.push(()=>clearBodyPieceDices(piece.id))
       //   must change piece statuses - remove piece.disabled || piece.completed || piece.full
@@ -33,7 +51,6 @@ export const Actions = {
       if (pieceDices && (piece.disabled || piece.completed || piece.full)) {
         ////// piece has dices ////// piece is full / completed / disabled
         returnAllPieceDicesToBag();
-        console.log(`Returning all piece dices to bag`);
         return toDispatch;
       }
       if (selectedDices) {
@@ -42,21 +59,26 @@ export const Actions = {
         const pieceIsWaiting = true;
         if (pieceIsWaiting) {
           // ---  --- place first allowed dice from selected
-          // !!!!AAA!!! calculate firstAllowedDice
-          // -> by checking -> obects Piece.diceIsAllowed(piece,dice)
-          // -> let i = bag. filter selected dice .length till 0 -> foreach dice -> Dice.checkAllowed(dice, piece) ->
-          const firstAllowedDice = selectedDices[0];
+          let firstAllowedDice = false;
+          for (let i = selectedDices.length; i > 0; i--) {
+            const thisDice = selectedDices[i - 1];
+            if (Piece.diceIsAllowed(piece, thisDice)) {
+              firstAllowedDice = { ...thisDice };
+              i = 0;
+            }
+          }
           if (firstAllowedDice) {
             // !!!AAA!!!HERE!!!
             // enemy
             toDispatch.push(() =>
               placeBodyPieceDice({ pieceId: piece.id, dice: firstAllowedDice })
             );
-            //  toDispatch.push(()=>placeBodyPieceDice(piece.id, dice))
-            // combat
-            // toDispatch.push(()=>withdrawRolledDice(dice.id))
+            toDispatch.push(() => deleteRolledDice(firstAllowedDice));
             console.log(`Added ${firstAllowedDice.id} to ${piece.id}`);
+            return toDispatch;
             finished = true;
+          } else {
+            // have selected dices but none of them can be placed in
           }
         }
       }
@@ -75,6 +97,8 @@ export const Actions = {
       // automatically cause nothing returned yet
       //////===auto============ bag [NO] have dices  OR   if no dice was placed
       // -> remove all dices
+      returnAllPieceDicesToBag();
+      return toDispatch;
     } ////// piece has dices
     return toDispatch;
   },

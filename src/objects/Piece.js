@@ -26,11 +26,13 @@ export const Piece = {
         if (required)
           return `[${
             !piece.requires.exactValues
-              ? "R"
+              ? !piece.allows.exactValues
+                ? "R"
+                : piece.allows.exactValues.join("/")
               : piece.requires.exactValues[i - 1]
           }]`;
         return `[${
-          !piece.allows.exactValues ? "..." : piece.allows.exactValues.join("/")
+          !piece.allows.exactValues ? "_" : piece.allows.exactValues.join("/")
         }]`;
       };
       if (i <= reqAmount) {
@@ -74,7 +76,45 @@ export const Piece = {
   },
 
   diceIsAllowed(piece, dice) {
-    // if(piece.disabled)return false;
+    console.log(`--------------Dice not allowed----piece disabled`);
+    if (piece.disabled) return false;
+    if (!piece.allows) return true;
+    console.log(`--------------Dice not allowed----too many dices`);
+    if (
+      piece.dices &&
+      piece.allows.maxDices &&
+      piece.dices.length >= piece.allows.maxDices
+    )
+      return false;
+    console.log(`--------------Dice not allowed----value too low`);
+    if (piece.allows.minValue && dice.value < piece.allows.minValue)
+      return false;
+    console.log(`--------------Dice not allowed----value too high`);
+    if (
+      piece.allows.maxValue &&
+      piece.allows.maxValue > 0 &&
+      dice.value > piece.allows.maxValue
+    )
+      return false;
+    if (
+      piece.allows.exactValues &&
+      piece.allows.exactValues.find((r) => r === "even") &&
+      dice.value % 2 === 0
+    )
+      return true;
+    if (
+      piece.allows.exactValues &&
+      piece.allows.exactValues.find((r) => r === "odd") &&
+      dice.value % 2 === 1
+    )
+      return true;
+    console.log(`--------------Dice not allowed----not exact value`);
+    if (
+      piece.allows.exactValues &&
+      !piece.allows.exactValues.find((r) => r === dice.value)
+    ) {
+      return false;
+    }
     // !!!AAA!!! check piece
     // allows: {
     //     types: ["physical", "magic", "elemental", "speed"],

@@ -24,7 +24,8 @@ export const EnemyPiece = ({ p }) => {
 
   useEffect(() => {
     if (toDispatch.length > 0) {
-      dispatch(toDispatch.pop()());
+      dispatch(toDispatch[0]());
+      editToDispatch(toDispatch.slice(1));
     }
   }, [dispatch, toDispatch]);
 

@@ -30,7 +30,7 @@ export const GOBLINS = [
           maxDices: false,
         },
         requires: {
-          exactValues: [3, 4, 5, 6],
+          exactValues: false,
           minDices: 1,
           minDicesGrowthScale: false,
           minSum: 4,

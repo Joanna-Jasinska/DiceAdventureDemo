@@ -18,7 +18,7 @@ export const Enemy = {
     if (!priorityFulfilled) {
       console.log(`body evaluation ended at priority failure`);
       return evaluatedPriority.map((p) =>
-        p.priority ? p : { ...p, disabled: true }
+        p.priority ? p : { ...p, disabled: true, fulfilled: false }
       );
     }
     let normalFulfilled = true;
@@ -31,7 +31,7 @@ export const Enemy = {
     if (!normalFulfilled) {
       console.log(`body evaluation ended at normal failure`);
       return evaluatedNormal.map((p) =>
-        !p.extra ? p : { ...p, disabled: true }
+        !p.extra ? p : { ...p, disabled: true, fulfilled: false }
       );
     }
     const evaluatedBody = evaluatedNormal.map((p) =>
