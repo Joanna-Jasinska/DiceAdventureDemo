@@ -38,8 +38,10 @@ export const DUNGEONS = [
     eventName: "",
     enemies: [
       [
-        "ELEMENTALS|green|Dryad",
-        "ANIMALS|green|Giant Spider",
+        // "ELEMENTALS|green|Dryad",
+        // "ANIMALS|green|Giant Spider",
+        "GOBLINS|green|Surprised Goblin",
+        "GOBLINS|green|Surprised Goblin",
         "GOBLINS|green|Surprised Goblin",
       ],
       [

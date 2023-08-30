@@ -12,9 +12,9 @@ export const EnemyBody = (enemyGiven) => {
       {myBody.map((piece, index) => (
         <EnemyPiece p={{ ...piece }} key={`piece|${index}|${piece.id}`} />
       ))}
-      <EnemyPiece p={{ disabled: true }} key={`piece|xxx|ppp`} />
+      {/* <EnemyPiece p={{ disabled: true }} key={`piece|xxx|ppp`} />
       <EnemyPiece p={{ fulfilled: true }} key={`piece|yyy|ddd`} />
-      <EnemyPiece p={{}} key={`piece|zzz|bbb`} />
+      <EnemyPiece p={{}} key={`piece|zzz|bbb`} /> */}
     </div>
   );
 };

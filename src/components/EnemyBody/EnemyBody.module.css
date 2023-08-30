@@ -82,21 +82,48 @@
   display: block;
   box-sizing: border-box;
   border-radius: 30%;
-  /* width: 0.88rem; */
   max-width: 0.88rem;
-  /* letter-spacing: -1px; */
   height: 0.94rem;
   line-height: 0.8rem;
   font-size: 0.86rem;
   white-space: nowrap;
   overflow: visible;
   overflow: hidden;
-  /* margin-right: 2px; */
+}
+.requiredHolder {
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1px;
   /* background-color: red; */
+}
+.req {
+  position: relative;
+  top: 0;
+  left: -1px;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 30%;
+  min-width: 0.88rem;
+  width: min-content;
+  /* max-width: 1.2rem; */
+  height: 0.94rem;
+  line-height: 0.8rem;
+  font-size: 0.86rem;
+  white-space: nowrap;
+  overflow: visible;
+  /* background-color: burlywood; */
 }
 .diceHolder {
   position: relative;
-  display: inline-block;
   box-sizing: border-box;
   overflow: hidden;
   height: 100%;
@@ -121,19 +148,40 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 0 20px 20px 0;
+  border-radius: 20px 0 0 20px;
   overflow: hidden;
   height: 100%;
   max-width: 100%;
   display: flex;
-  padding: 2px 1px 2px 2px;
+  padding: 2px 2px 2px 1px;
   box-sizing: border-box;
-  color: #ddd900;
+}
+.dmg {
+  position: relative;
+  top: 0;
+  left: -1px;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 30%;
+  max-width: 0.88rem;
+  height: 0.94rem;
+  line-height: 0.8rem;
+  font-size: 0.86rem;
+  white-space: nowrap;
+  overflow: visible;
 }
 .disabled {
   background-color: #ffffff2f;
   opacity: 90%;
 }
+.disabled .damageHolder {
+  /* visibility: hidden; */
+  /* width: 0.4rem; */
+}
+.disabled .dmg {
+  /* display: none; */
+}
+
 .disabled .diceHolder {
   min-width: 0;
   width: 1.5rem;
@@ -171,6 +219,29 @@
   opacity: 80%;
   opacity: 70%;
 }
+.fulfilled .diceHolder > div {
+  opacity: 60%;
+}
+
+.fulfilled .dmg,
+.fulfilled .modifier {
+  display: none;
+}
+
+.fulfilled:hover .dmg,
+.fulfilled:active .dmg,
+.fulfilled:focus .dmg,
+.fulfilled:hover .modifier,
+.fulfilled:active .modifier,
+.fulfilled:focus .modifier,
+.fulfilled:hover .diceHolder > div,
+.fulfilled:active .diceHolder > div,
+.fulfilled:focus .diceHolder > div {
+  /* width: fit-content; */
+  display: block;
+  opacity: 100%;
+}
+
 .fulfilled:hover,
 .fulfilled:active,
 .fulfilled:focus {

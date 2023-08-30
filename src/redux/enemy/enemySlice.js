@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   damageEnemy,
   loadEnemy,
+  placeBodyPieceDice,
+  deleteAllBodyDices,
   // withdrawDice,
   // placeDice,
   // deleteAllDices,
@@ -57,6 +59,21 @@ const enemySlice = createSlice({
       state.error = null;
       state.hp = 0;
     },
+    // placeBodyPieceDice{ pieceId, dice }
+    [placeBodyPieceDice.pending]: handlePending,
+    [placeBodyPieceDice.rejected]: handleRejected,
+    [placeBodyPieceDice.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.body = action.payload;
+    },
+    [deleteAllBodyDices.pending]: handlePending,
+    [deleteAllBodyDices.rejected]: handleRejected,
+    [deleteAllBodyDices.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.body = action.payload;
+    },
 
     // [clearEnemy.pending]: handlePending,
     // [clearEnemy.rejected]: handleRejected,
@@ -85,8 +102,8 @@ const enemySlice = createSlice({
       state.isBoss = action.payload.isBoss;
       state.gold = action.payload.gold;
       state.portrait = { ...action.payload.portrait };
-      state.status = [...action.payload.status];
-      state.body = [...action.payload.body];
+      state.status = action.payload.status;
+      state.body = action.payload.body;
     },
 
     // [withdrawDice.pending]: handlePending,

@@ -5,14 +5,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { deselectAllDices } from "redux/combat/operations";
 import css from "./CombatNavigation.module.css";
 import { useDungeon } from "hooks";
+import { deleteAllBodyDices } from "redux/enemy/operations";
 
 export const CombatNavigation = () => {
   const dispatch = useDispatch();
   const { player } = useDungeon();
   const { life, maxLife } = player;
+
   const deselectAll = (e) => {
     e.preventDefault();
     dispatch(deselectAllDices());
+  };
+  const retrieveAllDices = (e) => {
+    e.preventDefault();
+    // dispatch(retrieveAllToRolledBag());
+    dispatch(deleteAllBodyDices());
   };
   const nothing = (e) => {
     e.preventDefault();
@@ -37,6 +44,7 @@ export const CombatNavigation = () => {
             crossed={true}
             onClick={deselectAll}
           />
+          <HeaderNavBtn to="/eq" display="🎲⭯" onClick={retrieveAllDices} />
         </div>
         <div className={css.rightNav}>
           <HeaderNavBtn to="/return" display="🏃 Town" />

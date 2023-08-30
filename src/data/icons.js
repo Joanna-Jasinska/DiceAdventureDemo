@@ -4,53 +4,40 @@ export const getDiceTypeIcon = (type) => {
 };
 export const ICONS = [
   { type: "default", icon: "❔", color: "#4d472d", id: "default" },
-  { type: "slashed", icon: "⚔️", color: "#fff", id: "" },
-  { type: "needle", icon: "📌", color: "#fff", id: "" },
-  { type: "smashed", icon: "🔨", color: "#fff", id: "" },
-  { type: "magic", icon: "✨", color: "#fff", id: "" },
-  { type: "toxic", icon: "☣️", color: "#fff", id: "" },
-  { type: "heat", icon: "🔥", color: "#fff", id: "" },
-  { type: "void", icon: "🕳", color: "#fff", id: "" },
-  { type: "strength", icon: "💪", color: "#fff", id: "" },
-  { type: "dexterity", icon: "🤸‍♂️", color: "#fff", id: "" },
-  { type: "speed", icon: "🕒", color: "#fff", id: "" },
-  { type: "stamina", icon: "🥧", color: "#fff", id: "" },
-  { type: "mana", icon: "🌀", color: "#fff", id: "" },
+
+  { type: "physical", mainType: "physical", icon: "🤛", color: "#fff", id: "" },
+  { type: "slashed", mainType: "physical", icon: "⚔️", color: "#fff", id: "" },
+  { type: "needle", mainType: "physical", icon: "📌", color: "#fff", id: "" },
+  { type: "smashed", mainType: "physical", icon: "🔨", color: "#fff", id: "" },
+
+  { type: "mana", mainType: "mana", icon: "🌀", color: "#fff", id: "" },
+  { type: "magic", mainType: "mana", icon: "✨", color: "#fff", id: "" },
+  { type: "toxic", mainType: "magic", icon: "☣️", color: "#fff", id: "" },
+  { type: "void", mainType: "magic", icon: "🖤", color: "#fff", id: "" },
+  { type: "rainbow", mainType: "magic", icon: "🌈", color: "#fff", id: "" },
+
+  {
+    type: "elemental",
+    mainType: "elemental",
+    icon: "💥",
+    color: "#fff",
+    id: "",
+  },
+  { type: "heat", mainType: "elemental", icon: "🔥", color: "#fff", id: "" },
+  { type: "ice", mainType: "elemental", icon: "❄️", color: "#fff", id: "" },
+  { type: "shock", mainType: "elemental", icon: "⚡️", color: "#fff", id: "" },
+  { type: "poison", mainType: "elemental", icon: "💚", color: "#fff", id: "" },
+
+  { type: "speed", mainType: "trait", icon: "🕒", color: "#fff", id: "" },
+  { type: "strength", mainType: "trait", icon: "💪", color: "#fff", id: "" },
+  { type: "dexterity", mainType: "trait", icon: "🤸‍♂️", color: "#fff", id: "" },
+  { type: "perception", mainType: "trait", icon: "👁‍🗨", color: "#fff", id: "" },
+  { type: "wits", mainType: "trait", icon: "🧠", color: "#fff", id: "" },
+  { type: "stamina", mainType: "trait", icon: "🥧", color: "#fff", id: "" },
+
   { type: "life", icon: "❤️", color: "#fff", id: "" },
   { type: "defense", icon: "🛡️", color: "#fff", id: "" },
-
-  // { type: "ally", icon: "🧙", color: "#275674", id: "ally|1|" },
-  // { type: "ally", icon: "🧝‍♀️", color: "#745c27", id: "ally|2|" },
-  // { type: "ally", icon: "🧝🏻", color: "#4a7427", id: "ally|3|" },
-  // { type: "ally", icon: "🧞‍♀️", color: "#742727", id: "ally|4|" },
-  // { type: "ally", icon: "🦹‍♀️", color: "#4b2774", id: "ally|5|" },
-
-  // { type: "ally", icon: "✨", color: "#fff", id: "ally|1|1" },
-  // { type: "ally", icon: "✨", color: "#fff", id: "ally|1|magic" },
-  // { type: "ally", icon: "🍭", color: "#fff", id: "ally|1|rainbow" },
-  // { type: "ally", icon: "🧙", color: "#fff", id: "ally|1|wizard" },
-
-  // { type: "ally", icon: "🦌", color: "#fff", id: "ally|2|2" },
-  // { type: "ally", icon: "🦌", color: "#fff", id: "ally|2|stag" },
-  // { type: "ally", icon: "🐕", color: "#fff", id: "ally|2|dog" },
-  // { type: "ally", icon: "🧝", color: "#fff", id: "ally|2|elf" },
-
-  // { type: "ally", icon: "🌾", color: "#fff", id: "ally|3|3" },
-  // { type: "ally", icon: "🌾", color: "#fff", id: "ally|3|grass" },
-  // { type: "ally", icon: "🐍", color: "#fff", id: "ally|3|snake" },
-  // { type: "ally", icon: "👩🏾‍🌾", color: "#fff", id: "ally|3|hermit" },
-
-  // { type: "ally", icon: "🪓", color: "#fff", id: "ally|4|4" },
-  // { type: "ally", icon: "🪓", color: "#fff", id: "ally|4|axe" },
-  // { type: "ally", icon: "🐎", color: "#fff", id: "ally|4|horse" },
-  // { type: "ally", icon: "🧞‍♀️", color: "#fff", id: "ally|4|barbarian" },
-
-  // { type: "ally", icon: "🔪", color: "#fff", id: "ally|5|5" },
-  // { type: "ally", icon: "🔪", color: "#fff", id: "ally|5|dagger" },
-  // { type: "ally", icon: "⛆", color: "#fff", id: "ally|5|fog" },
-  // { type: "ally", icon: "🦹‍♀️", color: "#fff", id: "ally|5|rogue" },
 ];
-
 
 //🥣🧉🍯🥧🌿🦌🦡🐎🦅🐕
 //👨‍🌾👩🏻‍🌾👩‍🌾👩🏼‍🌾👩🏽‍🌾👩🏾‍🌾🧙‍♀️🧙🏼‍♀️👩🏾‍🌾

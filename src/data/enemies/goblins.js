@@ -16,70 +16,109 @@ export const GOBLINS = [
     id: "GOBLINS|green|Surprised Goblin",
     body: [
       {
-        bodyPartIcon: "👁‍🗨",
-        bodyPartTypes: ["eye", "head"],
-        allowMinValue: 4,
-        allowMaxValue: -1,
-        allowExactValues: [],
-        reqExactValues: [],
-        maxAmountOfDices: 2,
-        reqAmountOfDices: 1,
-        allowTypes: ["speed", "mana"],
-        multipliedTypes: ["mana"],
-        multipliedBy: 2,
-        damageToPlayer: 1,
-        effectsToPlayer: [],
-        damageToEnemy: 1,
-        effectsToEnemy: [],
         priority: true,
-        id: "testpiece|Enemy|eye|1",
-        key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal body are filled
-        keep: false, //player keeps its dices as extra dices for next turn
+        // extra: false, //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
+        bodyPartIcon: "😬",
+        bodyPartTypes: ["eye", "head"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: 4,
+          maxValue: -1,
+          exactValues: ["even"],
+          maxDices: false,
+        },
+        requires: {
+          exactValues: [3, 4, 5, 6],
+          minDices: 1,
+          minDicesGrowthScale: false,
+          minSum: 4,
+          minSumGrowth: 1,
+        },
+        multiplies: {
+          multipliedTypes: ["elemental"],
+          multipliedBy: 2,
+        },
+        damages: {
+          damageToPlayer: 0,
+          effectsToPlayer: false,
+          damageToEnemy: 0,
+          effectsToEnemy: false,
+        },
+
+        id: "piece|GOBLINS|green|Surprised Goblin|eye|1",
+        key: "piece|GOBLINS|green|Surprised Goblin|eye|1",
       },
       {
-        bodyPartIcon: "👁‍🗨",
-        bodyPartTypes: ["eye", "head"],
-        allowMinValue: 4,
-        allowMaxValue: -1,
-        allowExactValues: [],
-        reqExactValues: [],
-        maxAmountOfDices: 2,
-        reqAmountOfDices: 1,
-        allowTypes: ["speed", "mana"],
-        multipliedTypes: ["mana"],
-        multipliedBy: 2,
-        damageToPlayer: 1,
-        effectsToPlayer: [],
-        damageToEnemy: 1,
-        effectsToEnemy: [],
-        priority: true,
-        id: "testpiece|Enemy|eye|1",
-        key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal body are filled
-        keep: false, //player keeps its dices as extra dices for next turn
+        // priority: false,
+        // extra: false,  //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
+        bodyPartIcon: "🥩",
+        bodyPartTypes: ["torso", "body"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: false,
+          maxValue: false,
+          exactValues: [1, 2],
+          maxDices: false,
+        },
+        requires: {
+          exactValues: false,
+          minDices: 3,
+          minDicesGrowthScale: 4,
+          minSum: false,
+          minSumGrowth: false,
+        },
+        multiplies: {
+          multipliedTypes: ["physical"],
+          multipliedBy: 2,
+        },
+        damages: {
+          damageToPlayer: 0,
+          effectsToPlayer: false,
+          damageToEnemy: 2,
+          effectsToEnemy: false,
+        },
+
+        id: "piece|GOBLINS|green|Surprised Goblin|eye|2",
+        key: "piece|GOBLINS|green|Surprised Goblin|eye|2",
       },
       {
+        // priority: false,
+        extra: true, //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
         bodyPartIcon: "🦴",
-        bodyPartTypes: ["eye", "head"],
-        allowMinValue: 4,
-        allowMaxValue: -1,
-        allowExactValues: [],
-        reqExactValues: [],
-        maxAmountOfDices: 2,
-        reqAmountOfDices: 1,
-        allowTypes: ["speed", "mana"],
-        multipliedTypes: ["mana"],
-        multipliedBy: 2,
-        damageToPlayer: 1,
-        effectsToPlayer: [],
-        damageToEnemy: 1,
-        effectsToEnemy: [],
-        priority: true,
-        id: "testpiece|Enemy|eye|1",
-        key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal body are filled
-        keep: false, //player keeps its dices as extra dices for next turn
+        bodyPartTypes: ["weapon"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: false,
+          maxValue: false,
+          exactValues: false,
+          maxDices: false,
+        },
+        requires: {
+          exactValues: false,
+          minDices: 1,
+          minDicesGrowthScale: false,
+          minSum: 3,
+          minSumGrowth: 1,
+        },
+        multiplies: {
+          multipliedTypes: ["smashed"],
+          multipliedBy: 2,
+        },
+        damages: {
+          damageToPlayer: 3,
+          effectsToPlayer: false,
+          damageToEnemy: 0,
+          effectsToEnemy: false,
+        },
+
+        id: "piece|GOBLINS|green|Surprised Goblin|bones|3",
+        key: "piece|GOBLINS|green|Surprised Goblin|bones|3",
       },
     ],
     status: [],
@@ -108,7 +147,7 @@ export const GOBLINS = [
         reqExactValues: [],
         maxAmountOfDices: 2,
         reqAmountOfDices: 1,
-        allowTypes: ["speed", "mana"],
+        types: ["speed", "mana"],
         multipliedTypes: ["mana"],
         multipliedBy: 2,
         damageToPlayer: 1,
@@ -118,7 +157,6 @@ export const GOBLINS = [
         priority: true,
         id: "testpiece|Enemy|eye|1",
         key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal body are filled
         keep: false, //player keeps its dices as extra dices for next turn
       },
     ],
@@ -148,7 +186,7 @@ export const GOBLINS = [
         reqExactValues: [],
         maxAmountOfDices: 2,
         reqAmountOfDices: 1,
-        allowTypes: ["speed", "mana"],
+        types: ["speed", "mana"],
         multipliedTypes: ["mana"],
         multipliedBy: 2,
         damageToPlayer: 1,

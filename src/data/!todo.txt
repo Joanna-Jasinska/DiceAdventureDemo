@@ -1,4 +1,21 @@
-- place dice into body piece
+-/later/- objects Enemy, objects Piece -- finishing evaluation
+
+- make piece requirements visible in game
+
+- check if dice can be placed in body piece
+
+- check if piece is fulfiled
+
+- after placing/removing dice from piece - evalate and update its disabled/fulfilled status
+
+- check if piece is disabled 
+- check if piece is disabled -> non-prioriority <- another non-fulfilled priority piece
+- check if piece is disabled -> extra <- another non-fulfilled normal/priority piece
+
+- remove dices from body piece
+
+- return dices to rolledbag when removing from enemy body piece
+- remove dice from rolledbag when placing in enemy piece
 
 - end turn
 - end turn - damage enemy calculation
@@ -23,6 +40,8 @@
 
 - make enemies with working body pieces in data/enemies/ + enemies.js
 - make enemies scale properly with dungeon levels
+
+- combat state is saved in persist store
 
 - make working equipment in equipment.js
 - make equipment scale properly with lv

@@ -2,6 +2,10 @@ import { ANIMALS } from "./enemies/animals";
 import { ELEMENTALS } from "./enemies/elementals";
 import { GOBLINS } from "./enemies/goblins";
 
+const template = {
+  status: [],
+};
+
 const getObjFromCollection = (id, collection) => {
   const found = collection.find((i) => i.id === id);
   return found ? found : collection.find((i) => i.id === "default");
@@ -30,7 +34,9 @@ export const getEnemy = (id, defaultCollectionID) => {
   const collectionID = getObjFromCollection(id, ENEMIES).collection;
   const chosenCollection = getCollection(collectionID, defaultCollectionID);
   const found = getObjFromCollection(id, chosenCollection);
-  return found ? found : chosenCollection[0];
+  return found
+    ? { ...template, ...found }
+    : { ...template, ...chosenCollection[0] };
 };
 
 const ENEMIES = [

@@ -1,11 +1,33 @@
 import { getDiceTypeIcon } from "data/icons";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
 import css from "./../EnemyBody.module.css";
-import { Dice } from "objects/Dice";
+import { Actions } from "objects/Actions";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useCombat } from "hooks";
+import { Piece } from "objects/Piece";
+
 export const EnemyPiece = ({ p }) => {
-  const onClick = () => {
-    //  Dice.clickOnBodyPiece
+  const dispatch = useDispatch();
+  const { rolledDices } = useCombat();
+  const [toDispatch, editToDispatch] = useState([]);
+  const damageIcons = Piece.getDmgIcons(p);
+  const requiredIcons = Piece.getReqIcons(p);
+
+  const onDiceHolderClick = () => {
+    editToDispatch([
+      ...toDispatch,
+      ...Actions.clickOnBodyPiece(p, rolledDices),
+    ]);
+    // ;
   };
+
+  useEffect(() => {
+    if (toDispatch.length > 0) {
+      dispatch(toDispatch.pop()());
+    }
+  }, [dispatch, toDispatch]);
+
   return (
     <div
       className={`${css.piece} ${
@@ -13,10 +35,12 @@ export const EnemyPiece = ({ p }) => {
       }`}
     >
       <div className={css.modifierHolder}>
-        {p.multipliedBy ? (
+        {p.multiplies && p.multiplies.multipliedBy ? (
           <>
-            <div className={css.modifier}>{`${p.multipliedBy}x `}</div>
-            {p.multipliedTypes.map((t) => (
+            <div
+              className={css.modifier}
+            >{`${p.multiplies.multipliedBy}x `}</div>
+            {p.multiplies.multipliedTypes.map((t) => (
               <div className={css.modifier} key={`modifier|${t.id}`}>
                 {getDiceTypeIcon(t)}
               </div>
@@ -27,12 +51,30 @@ export const EnemyPiece = ({ p }) => {
         )}{" "}
       </div>
 
-      <div className={css.diceHolder}>
+      <div className={css.diceHolder} onClick={onDiceHolderClick}>
         <div className={css.displayedBodyPart}>{p.bodyPartIcon}</div>
-        {/* <DiceIcon /> */}
+
         {p.dices ? p.dices.map((dice) => <DiceIcon {...dice} />) : ""}
+        <div className={css.requiredHolder}>
+          <div className={css.req}></div>
+          {requiredIcons
+            ? requiredIcons.map((i, index) => (
+                <div className={css.req} key={`${p.id}|reqIcon|${index}`}>
+                  {i}
+                </div>
+              ))
+            : ""}
+        </div>
       </div>
-      <div className={css.damageHolder}></div>
+      <div className={css.damageHolder}>
+        {damageIcons
+          ? damageIcons.map((i, index) => (
+              <div className={css.dmg} key={`${p.id}|dmgIcon|${index}`}>
+                {i}
+              </div>
+            ))
+          : ""}
+      </div>
     </div>
   );
 };

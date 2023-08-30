@@ -33,6 +33,40 @@ export const loadEnemy = createAsyncThunk("enemy/load", async (_, thunkAPI) => {
   return leveledEnemy;
 });
 
+export const placeBodyPieceDice = createAsyncThunk(
+  "enemy/placeBodyPieceDice",
+  async ({ pieceId, dice }, thunkAPI) => {
+    const state = thunkAPI.getState().enemy;
+    const { body } = state;
+    const myBody = state.body.map((piece) => {
+      if (piece.id === pieceId) {
+        if (!piece.dices) return { ...piece, dices: [dice] };
+        return { ...piece, dices: [...piece.dices, dice] };
+      }
+      return piece;
+    });
+    console.log(`-----start-----body------evaluation--------------------`);
+    console.table(myBody);
+    const changedPiece = myBody.find((p) => p.id === pieceId);
+    const myBodyEvaluated = Enemy.evaluatePieceThanBody(changedPiece, myBody);
+    console.table(myBodyEvaluated);
+    console.log(`-----stop-----body------evaluation--------------------`);
+    return myBodyEvaluated;
+  }
+);
+
+export const deleteAllBodyDices = createAsyncThunk(
+  "enemy/deleteAllBodyDices",
+  async (_, thunkAPI) => {
+    const body = thunkAPI.getState().enemy.body;
+    return Enemy.evaluateBody(
+      body.map((p) => {
+        return { ...p, dices: [] };
+      })
+    );
+  }
+);
+
 // export const startRandomEnemy = createAsyncThunk(
 //   "enemy/random",
 //   async (_, thunkAPI) => {
