@@ -1,6 +1,7 @@
 -/later/- objects Enemy, objects Piece -- finishing evaluation
+-/later/- make piece requirements visible in game --in a better way
 
-- make piece requirements visible in game
+- Actions.js make part when no dice selected
 
 - check if dice can be placed in body piece
 
