@@ -10,11 +10,11 @@ const getColor = ({ value, diceMax = 6 }) => {
   return css.empty;
 };
 
-export const DiceIcon = ({ value, diceMax, icon }) => {
+export const DiceIcon = ({ value, diceMax, type }) => {
   return (
     <div className={`${css.dice} ${getColor({ value, diceMax })}`}>
       {value || diceMax || "?"}{" "}
-      <span className={css.icon}>{getIcon(icon).icon}</span>
+      <span className={css.icon}>{getIcon(type).icon}</span>
     </div>
   );
 };

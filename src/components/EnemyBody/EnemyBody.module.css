@@ -189,9 +189,9 @@
   /* visibility: hidden; */
   cursor: not-allowed;
 }
-.disabled .diceHolder > div {
-  opacity: 20%;
-}
+/* .disabled .diceHolder > div {
+  opacity: 90%;
+} */
 .disabled::after {
   z-index: 150;
   /* disabled piece */

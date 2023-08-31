@@ -1,7 +1,8 @@
 -/later/- objects Enemy, objects Piece -- finishing evaluation
 -/later/- make piece requirements visible in game --in a better way
 
-- Actions.js make part when no dice selected
+
+- Actions.js  when no dice selected but piece is fulfilled - return dices
 
 - check if dice can be placed in body piece
 
@@ -46,6 +47,9 @@
 
 - make working equipment in equipment.js
 - make equipment scale properly with lv
+
+- make skill descrition display in SkillList component during combat
+- make working skills from equipment
 
 - fill dungeons.js with enemies
 

@@ -176,4 +176,25 @@ export const BASE_EQUIPMENT = [
     ],
     lv: 1,
   },
+
+  {
+    selected: true,
+    name: "Fairy Advisor",
+    alt: "🧚‍♀️",
+    skill: {
+      name: "ADVISE",
+      txt: "Automatically arrange your dices.. but not always in a best way.",
+      id: "Fairy Advisor|ADVISE|skill|ID",
+    },
+    stats: [
+      { item: "stats", type: "life", maxHp: 10 },
+      {
+        item: "dice",
+        diceMax: 6,
+        value: 0,
+        type: "magic",
+      },
+    ],
+    lv: 1,
+  },
 ];

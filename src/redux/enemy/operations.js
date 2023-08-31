@@ -70,7 +70,25 @@ export const deleteAllBodyDices = createAsyncThunk(
 export const deleteAllPieceDices = createAsyncThunk(
   "enemy/deleteAllPieceDices",
   async (pieceId, thunkAPI) => {
-    return pieceId;
+    // return pieceId;
+
+    const state = thunkAPI.getState().enemy;
+    const { body } = state;
+    const myBody = state.body.map((piece) => {
+      if (piece.id === pieceId) {
+       return { ...piece, dices: [] };        
+      }
+      return piece;
+    });
+    console.log(`-----start-----body------evaluation--------------------`);
+    console.table(myBody);
+    const changedPiece = myBody.find((p) => p.id === pieceId);
+    const myBodyEvaluated = Enemy.evaluatePieceThanBody(changedPiece, myBody);
+    console.table(myBodyEvaluated);
+    console.log(`-----stop-----body------evaluation--------------------`);
+    return myBodyEvaluated;
+
+
   }
 );
 

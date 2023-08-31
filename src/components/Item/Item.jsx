@@ -50,10 +50,11 @@ export const Item = ({
       <div className={css.iconBag}>
         {(dices ? dices : stats).map((el, index) => {
           return (
-            <DiceIcon
-              diceMax={el.diceMax}
-              value={el.value}
-              icon={el.type}
+            <DiceIcon 
+            {...el}
+              // diceMax={el.diceMax}
+              // value={el.value}
+              // icon={el.type}
               key={`${name}|${el.type}|${index}`}
             />
           );

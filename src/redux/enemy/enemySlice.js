@@ -81,9 +81,10 @@ const enemySlice = createSlice({
     [deleteAllPieceDices.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.body = state.body.map((p) =>
-        p.id !== action.payload ? p : { ...p, dices: [] }
-      );
+      state.body = action.payload;
+      // state.body = state.body.map((p) =>
+      //   p.id !== action.payload ? p : { ...p, dices: [] }
+      // );
     },
 
     // [clearEnemy.pending]: handlePending,

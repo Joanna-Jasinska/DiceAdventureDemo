@@ -1,4 +1,4 @@
-import { getDiceTypeIcon } from "data/icons";
+import { getDiceTypeIcon, getIcon } from "data/icons";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
 import css from "./../EnemyBody.module.css";
 import { Actions } from "objects/Actions";
@@ -55,7 +55,17 @@ export const EnemyPiece = ({ p }) => {
       <div className={css.diceHolder} onClick={onDiceHolderClick}>
         <div className={css.displayedBodyPart}>{p.bodyPartIcon}</div>
 
-        {p.dices ? p.dices.map((dice) => <DiceIcon {...dice} />) : ""}
+        {p.dices
+          ? p.dices.map((dice, index) => (
+              <DiceIcon
+                {...dice}
+                // value={dice.value}
+                // diceMax={dice.diceMax}
+                // icon={getIcon(dice.type).icon}
+                key={`pieceDice|${dice.type}|${index}`}
+              />
+            ))
+          : ""}
         <div className={css.requiredHolder}>
           <div className={css.req}></div>
           {requiredIcons

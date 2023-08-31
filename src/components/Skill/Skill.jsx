@@ -51,9 +51,10 @@ export const Skill = ({
         {(dices ? dices : stats).map((el, index) => {
           return (
             <DiceIcon
-              diceMax={el.diceMax}
-              value={el.value}
-              icon={el.type}
+            {...el}
+              // diceMax={el.diceMax}
+              // value={el.value}
+              // icon={el.type}
               key={`${name}|${el.type}|${index}`}
             />
           );
