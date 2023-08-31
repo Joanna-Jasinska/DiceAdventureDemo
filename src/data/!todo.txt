@@ -1,27 +1,15 @@
 -/later/- objects Enemy, objects Piece -- finishing evaluation
 -/later/- make piece requirements visible in game --in a better way
 
-
-- Actions.js  when no dice selected but piece is fulfilled - return dices
-
-- check if dice can be placed in body piece
-
-- check if piece is fulfiled
-
-- after placing/removing dice from piece - evalate and update its disabled/fulfilled status
-
-- check if piece is disabled 
-- check if piece is disabled -> non-prioriority <- another non-fulfilled priority piece
-- check if piece is disabled -> extra <- another non-fulfilled normal/priority piece
-
-- remove dices from body piece
-
-- return dices to rolledbag when removing from enemy body piece
-- remove dice from rolledbag when placing in enemy piece
+- display allowed dice types on enemy piece
+- Piece.diceIsAllowed  - (check if working properly) check if type matches 
 
 - end turn
-- end turn - damage enemy calculation
+- end turn - damage to enemy calculation
 
+- Piece.diceIsAllowed - check if fulfilled when requiring exact values
+
+- display and track enemy life
 
 - intiating player life from eq when entering dungeon
 - tracking player life in combat and dungeon

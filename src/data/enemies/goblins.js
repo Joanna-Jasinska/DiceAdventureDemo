@@ -52,7 +52,7 @@ export const GOBLINS = [
       },
       {
         // priority: false,
-        // extra: false,  //dice unlocks after all priority and normal body are filled
+        extra: true, //dice unlocks after all priority and normal body are filled
         // keep: false, //player keeps its dices as extra dices for next turn
         bodyPartIcon: "🥩",
         bodyPartTypes: ["torso", "body"],
@@ -66,7 +66,7 @@ export const GOBLINS = [
         },
         requires: {
           exactValues: false,
-          minDices: 3,
+          minDices: 1,
           minDicesGrowthScale: 4,
           minSum: false,
           minSumGrowth: false,
@@ -87,7 +87,7 @@ export const GOBLINS = [
       },
       {
         // priority: false,
-        extra: true, //dice unlocks after all priority and normal body are filled
+        // extra: true, //dice unlocks after all priority and normal body are filled
         // keep: false, //player keeps its dices as extra dices for next turn
         bodyPartIcon: "🦴",
         bodyPartTypes: ["weapon"],

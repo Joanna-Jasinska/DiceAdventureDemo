@@ -1,3 +1,5 @@
+import { diceTypeMatches } from "data/icons";
+
 export const Piece = {
   getDmgIcons(piece) {
     const generateIcons = (attrName) => {
@@ -86,6 +88,17 @@ export const Piece = {
       piece.dices.length >= piece.allows.maxDices
     )
       return false;
+    console.log(`--------------Dice not allowed----type doesnt match`);
+    // !!!AAA!!! check if dice type matches
+    let typeMatches = false;
+    if (piece.allows.types && piece.allows.types.length > 0) {
+      typeMatches = piece.allows.types.some((type) => {
+        if (diceTypeMatches(dice.type, type)) {
+          return true;
+        }
+      });
+    }
+    if (!typeMatches) return false;
     console.log(`--------------Dice not allowed----value too low`);
     if (piece.allows.minValue && dice.value < piece.allows.minValue)
       return false;
@@ -115,14 +128,7 @@ export const Piece = {
     ) {
       return false;
     }
-    // !!!AAA!!! check piece
-    // allows: {
-    //     types: ["physical", "magic", "elemental", "speed"],
-    //     minValue: 4,
-    //     maxValue: -1,
-    //     exactValues: ["even"],
-    //     maxDices: false,
-    //   },
+    console.log(`--------------Dice ALLOWED-----------`);
     return true;
   },
 };

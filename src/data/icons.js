@@ -2,6 +2,13 @@ export const getDiceTypeIcon = (type) => {
   const found = ICONS.find((i) => i.type === type);
   return found ? found.icon : "❔";
 };
+export const diceTypeMatches = (diceType, mustMatchType) => {
+  const found = ICONS.find((i) => i.type === diceType);
+  const diceFamily = found ? found.mainType : diceType;
+  if (diceType === mustMatchType || diceFamily === mustMatchType) return true;
+  return false;
+};
+
 export const ICONS = [
   { type: "default", icon: "❔", color: "#4d472d", id: "default" },
 

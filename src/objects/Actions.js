@@ -37,6 +37,11 @@ export const Actions = {
         return toDispatch;
       }
     };
+    // !!!AAA!!! find out if piece can fill any more dices by piece.allows.maxDices
+    if (pieceDices && (piece.disabled || piece.fulfilled)) {
+      returnAllPieceDicesToBag();
+      return toDispatch;
+    }
     const findFirstAllowedDice = (piece, diceArray) => {
       let firstAllowedDice = false;
       for (let i = diceArray.length; i > 0; i--) {
@@ -48,14 +53,8 @@ export const Actions = {
       }
       return firstAllowedDice;
     };
-
     if (bag) {
-      if (pieceDices && (piece.disabled || piece.completed || piece.full)) {
-        returnAllPieceDicesToBag();
-        return toDispatch;
-      }
       if (selectedDices) {
-        ////// piece is [NOT] full / completed / disabled = is waiting
         const firstAllowedDice = findFirstAllowedDice(piece, selectedDices);
         if (firstAllowedDice) {
           toDispatch.push(() =>
@@ -87,14 +86,11 @@ export const Actions = {
     }
 
     if (pieceDices) {
-      ////// piece has dices
-      // automatically cause nothing returned yet
-      //////===auto============ bag [NO] have dices  OR   if no dice was placed
-      // -> remove all dices
       returnAllPieceDicesToBag();
       return toDispatch;
     }
-    return toDispatch; //not needed
+
+    return [];
   },
   // -----------------------------------------------------------------------------
 };

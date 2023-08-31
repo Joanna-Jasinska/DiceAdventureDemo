@@ -191,10 +191,11 @@ export const BASE_EQUIPMENT = [
       {
         item: "dice",
         diceMax: 6,
-        value: 0,
+        value: undefined,
         type: "magic",
       },
     ],
+    statGrow: [],
     lv: 1,
   },
 ];
