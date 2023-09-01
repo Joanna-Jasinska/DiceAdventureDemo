@@ -1,28 +1,14 @@
 .list {
-  /* width: 100%; */
-  /* height: 100%; */
   padding: 1rem 16rem 20px 20px;
-  padding: 20px;
-  /* overflow-x: hidden; */
+  padding: 1rem 0;
+  width: fit-content;
+  margin: 0 auto;
   box-sizing: border-box;
   /* background-color: purple; */
 
-  /* display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex; */
-  /* -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row; */
-
   display: flex;
   flex-direction: row; /* or column */
-  justify-content: flex-start; /* or other alignment values like flex-start, flex-end, space-between, space-around, etc. */
+  justify-content: flex-start;
   align-items: flex-start; /* or other alignment values like flex-start, flex-end, center, baseline, stretch */
   flex-wrap: wrap; /* optional, allows items to wrap to the next line */
 }

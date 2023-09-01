@@ -13,6 +13,11 @@
   column-gap: 3px;
   transform: scale(1.6);
   margin: 0 auto;
+
+  padding: 0.5rem 0;
+  width: fit-content;
+  margin: 0 auto;
+
   /* background-color: red; */
 
   /* overflow: scroll; */

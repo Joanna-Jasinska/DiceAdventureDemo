@@ -51,7 +51,6 @@ export const DungeonNavigation = () => {
     <header className={`header ${css.header}`}>
       <nav className={css.header}>
         <div className={css.leftNav}>
-          {/* <HeaderNavBtn to="/eq" display={`EQ 3/5`} inactive={true} /> */}
           <HeaderNavBtn to="/reset" display={"♻️"} />
           {/* <PlayerAvatar /> */}
           <HeaderNavBtn
@@ -59,14 +58,6 @@ export const DungeonNavigation = () => {
             display={`${life}❤️${maxLife}`}
             onClick={nothing}
           />
-          {/* <HeaderNavBtn to="/eq" display="Unequip" /> */}
-          <HeaderNavBtn
-            to="/eq"
-            display="✔️"
-            crossed={true}
-            onClick={deselectEQ}
-          />
-          {/* <HeaderNavBtn to="/eq" display="❤️" onClick={selectFav} /> */}
         </div>
         <div className={css.rightNav}>
           <HeaderNavBtn
@@ -74,7 +65,6 @@ export const DungeonNavigation = () => {
             display="🏃 Leave dung. 💩"
             onClick={() => {}}
           />
-          {/* <HeaderNavBtn to="/eq" display="EQ" /> */}
         </div>
       </nav>
     </header>

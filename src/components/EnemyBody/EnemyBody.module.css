@@ -8,6 +8,10 @@
   padding: 12px;
   /* box-shadow: var(--box-shadow-inset-dark); */
   border-radius: 20px;
+
+  padding: 0.5rem 0;
+  width: fit-content;
+  margin: 0 auto;
 }
 .piece {
   /* background-color: #eecef7; */
