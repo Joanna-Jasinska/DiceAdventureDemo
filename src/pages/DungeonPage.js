@@ -49,6 +49,7 @@ export const DungeonPage = () => {
     // fight boss
   };
 
+  <Navigate to="/combat" />;
   return (
     <>
       {inCombat ? (

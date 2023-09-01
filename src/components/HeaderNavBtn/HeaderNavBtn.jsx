@@ -26,16 +26,10 @@ export const HeaderNavBtn = ({
       to={to}
       // state={(prev) => prev}
       state={{ from: location.state.from }}
-      onClick={
-        disabled || inactive
-          ? (e) => {
-              e.preventDefault();
-            }
-          : (e) => {
-              e.preventDefault();
-              onClick();
-            }
-      }
+      onClick={(e) => {
+        e.preventDefault();
+        if (!disabled) onClick(e);
+      }}
     >
       {display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
     </NavLink>
@@ -50,21 +44,15 @@ export const HeaderNavBtn = ({
       }
       to={to}
       state={{ from: location.pathname }}
-      onClick={
-        disabled || inactive
-          ? (e) => {
-              e.preventDefault();
-            }
-          : (e) => {
-              onClick();
-            }
-      }
+      onClick={(e) => {
+        if (!disabled) onClick(e);
+      }}
     >
       {display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
     </NavLink>
   );
 };
-HeaderNavBtn.propTypes = {
-  to: PropTypes.string,
-  display: PropTypes.string,
-};
+// HeaderNavBtn.propTypes = {
+//   to: PropTypes.string,
+//   display: PropTypes.string,
+// };

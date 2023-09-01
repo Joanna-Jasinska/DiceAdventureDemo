@@ -73,6 +73,7 @@ export const TownNavigation = () => {
               to="/dungeon"
               display="Fight"
               onClick={enterDungeon}
+              // inactive={true}
             />
           ) : (
             <HeaderNavBtn to="/eq" display={`PackEQ`} warning={true} />
