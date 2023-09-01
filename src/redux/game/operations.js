@@ -37,12 +37,25 @@ export const moveCaravan = createAsyncThunk(
     return { currentDungeons, possibleDungeons };
   }
 );
-export const addGold = createAsyncThunk("game/addGold", async (g, thunkAPI) => {
-  const state = thunkAPI.getState().game;
-  const { gold } = state;
-  if (gold + g < 0) thunkAPI.rejectWithValue("Not enough gold.");
-  return gold + g;
-});
+export const gainFromDungeonSummary = createAsyncThunk(
+  "game/gainFromDungeonSummary",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const { gold } = state.game;
+    const { goldEarned } = state.dungeon;
+    // const { lv, startedLv, goldEarned } = state.dungeon;
+    // const levelsEarned = startedLv && lv ? Math.max(0, startedLv - lv) : 0;
+    // dungeonLevels{}
+    // selectedDungeonId
+    return {gold: gold+goldEarned};
+  }
+);
+// export const addGold = createAsyncThunk("game/addGold", async (g, thunkAPI) => {
+//   const state = thunkAPI.getState().game;
+//   const { gold } = state;
+//   if (gold + g < 0) thunkAPI.rejectWithValue("Not enough gold.");
+//   return gold + g;
+// });
 export const setSelectDungeon = createAsyncThunk(
   "game/setSelectDungeon",
   async (id, thunkAPI) => {

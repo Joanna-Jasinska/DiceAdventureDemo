@@ -20,9 +20,14 @@
   -ms-flex-direction: row;
   flex-direction: row; */
 
+  padding: 1rem 0;
+  width: fit-content;
+  margin: 0 auto;
+  gap: 0.2rem;
+
   display: flex;
   flex-direction: row; /* or column */
-  justify-content: flex-start; /* or other alignment values like flex-start, flex-end, space-between, space-around, etc. */
+  justify-content: space-around; /* or other alignment values like flex-start, flex-end, space-between, space-around, etc. */
   align-items: flex-start; /* or other alignment values like flex-start, flex-end, center, baseline, stretch */
   flex-wrap: wrap; /* optional, allows items to wrap to the next line */
 }

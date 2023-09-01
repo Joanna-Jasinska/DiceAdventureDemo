@@ -1,18 +1,4 @@
-// import { useEffect } from "react";
-// import {  useDispatch } from "react-redux";
-// import { useEffect, useState } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { selectLoading, selectEq, selectFilters } from "redux/eq/selectors";
-// import { selectItems, selectFilters } from "redux/game/selectors";
-// import {
-//   fetchEquipment,
-//   deselectAllItems,
-//   updateItem,
-//   refreshEq,
-// } from "redux/eq/operations";
-// import { setFilter } from "redux/filter/filterSlice";
 import { DungeonSquare } from "components/DungeonSquare/DungeonSquare";
-// import { DUNGEONS } from "data/dungeons";
 import { getDungeon } from "data/dungeons";
 import { useGame } from "hooks/useGame";
 // import { Loader } from "components/Loader/Loader";
@@ -20,8 +6,7 @@ import { useGame } from "hooks/useGame";
 import css from "./DungeonList.module.css";
 
 export const DungeonList = () => {
-  const { currentDungeons, selectedDungeonId } = useGame();
-  // const list = givenList ? givenList : currentDungeons;
+  const { currentDungeons, selectedDungeonId, dungeonLevels } = useGame();
   const list = currentDungeons;
   // const dispatch = useDispatch();
 
@@ -43,6 +28,7 @@ export const DungeonList = () => {
                 {...{
                   ...dungeon,
                   selected: isSelected,
+                  lv: dungeonLevels[dungeon.id],
                   key: `dungeon|${index}|${dungeon.id}|${dungeon.eventId}`,
                 }}
               />

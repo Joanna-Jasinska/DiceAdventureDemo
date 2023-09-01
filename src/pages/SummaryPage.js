@@ -10,6 +10,7 @@ import { Background } from "components/Background/Background";
 import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
 import { DungeonLevelUps } from "components/DungeonLevelUps/DungeonLevelUps";
+import { enterSummary } from "redux/combat/operations";
 
 export const SummaryPage = () => {
   const dispatch = useDispatch();
@@ -28,8 +29,12 @@ export const SummaryPage = () => {
   } = useDungeon();
 
   useEffect(() => {
-    // dispatch(resetGame());
-  }, [dispatch]);
+    if(inCombat!=='summary')dispatch(enterSummary());
+  }, [dispatch,inCombat]);
+
+  // useEffect(() => {
+  //   dispatch(resetGame());
+  // }, [dispatch]);
 
   // const n = getRandomNum(0,4);
   // const beginBattleBySlot = (n) => {

@@ -154,10 +154,11 @@ export const copyAllEnemyDicesToBag = createAsyncThunk(
   "combat/copyAllEnemyDicesToBag",
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    let diceArray=[]
-    if(state.enemy.body)state.enemy.body.forEach((piece)=>{
-      if(piece.dices)piece.dices.forEach(dice=>diceArray.push(dice));
-    });
+    let diceArray = [];
+    if (state.enemy.body)
+      state.enemy.body.forEach((piece) => {
+        if (piece.dices) piece.dices.forEach((dice) => diceArray.push(dice));
+      });
     return state.combat.rolledDices.concat(diceArray);
   }
 );
@@ -167,6 +168,14 @@ export const deleteRolledDice = createAsyncThunk(
   async (dice, thunkAPI) => {
     // const state = thunkAPI.getState();
     return dice;
+  }
+);
+
+export const enterSummary = createAsyncThunk(
+  "combat/enterSummary",
+  async (_, thunkAPI) => {
+    // const state = thunkAPI.getState();
+    return true;
   }
 );
 

@@ -4,7 +4,8 @@ import {
   playerLvUp,
   LvUpDungeonById,
   moveCaravan,
-  addGold,
+  gainFromDungeonSummary,
+  // addGold,
   setSelectDungeon,
 } from "./operations";
 
@@ -85,13 +86,22 @@ const gameSlice = createSlice({
       state.selectedDungeonId = action.payload;
     },
 
-    [addGold.pending]: handlePending,
-    [addGold.rejected]: handleRejected,
-    [addGold.fulfilled](state, action) {
+    [gainFromDungeonSummary.pending]: handlePending,
+    [gainFromDungeonSummary.rejected]: handleRejected,
+    [gainFromDungeonSummary.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.gold = action.payload;
+      state.gold = action.payload.gold;
+      // state.dungeonLevels = action.payload.dungeonLevels;
     },
+
+    // [addGold.pending]: handlePending,
+    // [addGold.rejected]: handleRejected,
+    // [addGold.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.gold = action.payload;
+    // },
 
     [moveCaravan.pending]: handlePending,
     [moveCaravan.rejected]: handleRejected,

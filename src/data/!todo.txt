@@ -1,11 +1,12 @@
 -/later/- objects Enemy, objects Piece -- finishing evaluation
 -/later/- make piece requirements visible in game --in a better way
 
-- dungeon page - summary of gold and level
+- dungeon slice - save which dungeon slots were defeated
+- after winning a fight disable that dungeon slot button
 
-!- summary page after ending dungeon to go back to quick battle
-
-- return page after successfull fight to go back to dungeon
+- Return from combat page -check dungeon levelup then go back to dungeon
+--- if enemy alive -> go back to combat
+--- if enemy life < 1 -> get gold, check dungeon levelup then go back to dungeon
 
 - dungeon slice operations startDungeonById - should load player life and statuses depending on eq
 

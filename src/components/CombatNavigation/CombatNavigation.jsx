@@ -3,29 +3,41 @@ import { useSelector, useDispatch } from "react-redux";
 // import { selectItems } from "redux/game/selectors";
 // import { updateItem } from "redux/game/operations";
 import {
+  clearCombat,
   copyAllEnemyDicesToBag,
   deselectAllDices,
 } from "redux/combat/operations";
 import css from "./CombatNavigation.module.css";
-import { useDungeon } from "hooks";
+import { useCombat, useDungeon } from "hooks";
 import { deleteAllBodyDices } from "redux/enemy/operations";
 import { useEnemy } from "hooks/useEnemy";
 import { EnemyPortrait } from "components/EnemyPortrait/EnemyPortrait";
+import { gainFromDungeonSummary } from "redux/game/operations";
+import { clearDungeon } from "redux/dungeon/operations";
 
 export const CombatNavigation = () => {
   const dispatch = useDispatch();
   const { player } = useDungeon();
   const { life, maxLife } = player;
-  const { body } = useEnemy();
+  const { body, gold } = useEnemy();
+  const { inCombat } = useCombat();
 
-  const deselectAll = (e) => {
-    e.preventDefault();
-    dispatch(deselectAllDices());
-  };
+  // const deselectAll = (e) => {
+  //   e.preventDefault();
+  //   dispatch(deselectAllDices());
+  // };
+
   const retrieveAllDices = (e) => {
     e.preventDefault();
     dispatch(copyAllEnemyDicesToBag());
     dispatch(deleteAllBodyDices());
+  };
+  const exitDungeon = (e) => {
+    e.preventDefault();
+    dispatch(gainFromDungeonSummary()).then(() => {
+      dispatch(clearDungeon());
+      dispatch(clearCombat());
+    });
   };
   const nothing = (e) => {
     e.preventDefault();
@@ -69,32 +81,49 @@ export const CombatNavigation = () => {
   return (
     <header className={`header ${css.header}`}>
       <EnemyPortrait />
-      <nav className={css.header}>
-        <div className={css.leftNav}>
-          <HeaderNavBtn to="/reset" display={"♻️"} />
-          <HeaderNavBtn
-            to="/-"
-            display={`${life}❤️${maxLife}`}
-            onClick={nothing}
-          />
-          <HeaderNavBtn
-            to="/eq"
-            display="🎲"
-            crossed={true}
-            onClick={deselectAll}
-          />
-          <HeaderNavBtn to="/eq" display="🎲⭯" onClick={retrieveAllDices} />
-        </div>
-        <div className={css.rightNav}>
-          {/* <HeaderNavBtn to="/return" display="🏃 Town" /> */}
-          <HeaderNavBtn to="/summary" display="🏃 Town" />
-          <HeaderNavBtn
-            to="/-"
-            display={`${endTurnIcon} End Turn ${endTurnDmg}`}
-            onClick={nothing}
-          />
-        </div>
-      </nav>
+      {inCombat === "summary" ? (
+        <nav className={css.header}>
+          <div className={css.leftNav}>
+            <HeaderNavBtn to="/reset" display={"♻️"} />
+            <HeaderNavBtn
+              to="/-"
+              display={`${life}❤️${maxLife}`}
+              onClick={nothing}
+            />
+          </div>
+          <div className={css.rightNav}>
+            <HeaderNavBtn to="/-" display="🏃 Town" onClick={exitDungeon} />
+          </div>
+        </nav>
+      ) : (
+        <nav className={css.header}>
+          <div className={css.leftNav}>
+            <HeaderNavBtn to="/reset" display={"♻️"} />
+            <HeaderNavBtn
+              to="/-"
+              display={`${life}❤️${maxLife}`}
+              onClick={nothing}
+            />
+            <HeaderNavBtn to="/-" display={`💰${gold}`} onClick={nothing} />
+            {/* <HeaderNavBtn
+              to="/-"
+              display="🎲"
+              crossed={true}
+              onClick={deselectAll}
+            /> */}
+            <HeaderNavBtn to="/-" display="🎲⭯" onClick={retrieveAllDices} />
+          </div>
+          <div className={css.rightNav}>
+            <HeaderNavBtn to="/return" display="Win Fight" />
+            <HeaderNavBtn to="/summary" display="🏃 Town" />
+            <HeaderNavBtn
+              to="/-"
+              display={`${endTurnIcon} End Turn ${endTurnDmg}`}
+              onClick={nothing}
+            />
+          </div>
+        </nav>
+      )}
     </header>
   );
 };

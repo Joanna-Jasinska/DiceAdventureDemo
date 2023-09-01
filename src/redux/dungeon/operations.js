@@ -85,6 +85,16 @@ export const startDungeonById = createAsyncThunk(
 //   }
 // );
 
+export const getEnemyGold = createAsyncThunk(
+  "dungeon/getEnemyGold",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const eGold = state.enemy.gold;
+    const dGold = state.dungeon.goldEarned;
+    return dGold + eGold;
+  }
+);
+
 export const engageEnemyBySlot = createAsyncThunk(
   "dungeon/engameEnemyBySlot",
   async (slot, thunkAPI) => {
@@ -96,7 +106,7 @@ export const engageEnemyBySlot = createAsyncThunk(
     return enemyId;
   }
 );
-export const readyToEnter = createAsyncThunk(
+export const getReadyToEnter = createAsyncThunk(
   "dungeon/ready",
   async (_, thunkAPI) => {
     return true;

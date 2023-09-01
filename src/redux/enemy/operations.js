@@ -29,7 +29,8 @@ export const loadEnemy = createAsyncThunk("enemy/load", async (_, thunkAPI) => {
   const state = thunkAPI.getState();
   const id = state.dungeon.selectedEnemyID;
   const lv = state.dungeon.lv;
-  const leveledEnemy = await Enemy.levelUp(getEnemy(id), lv);
+  const startedLv = state.dungeon.startedLv;
+  const leveledEnemy = await Enemy.levelUp(getEnemy(id), lv, startedLv);
   return leveledEnemy;
 });
 
@@ -76,7 +77,7 @@ export const deleteAllPieceDices = createAsyncThunk(
     const { body } = state;
     const myBody = state.body.map((piece) => {
       if (piece.id === pieceId) {
-       return { ...piece, dices: [] };        
+        return { ...piece, dices: [] };
       }
       return piece;
     });
@@ -87,8 +88,6 @@ export const deleteAllPieceDices = createAsyncThunk(
     console.table(myBodyEvaluated);
     console.log(`-----stop-----body------evaluation--------------------`);
     return myBodyEvaluated;
-
-
   }
 );
 

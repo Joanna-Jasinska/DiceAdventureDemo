@@ -12,7 +12,7 @@ export const TownPage = () => {
       style={{ width: "100%", boxSizing: "border-box", padding: "0.4em 0px" }}
     >
       {error ? <span className={css.error}>{error}</span> : ""}
-      <Title title="Caravan" />
+      {/* <Title title="Caravan" /> */}
       <AllyList />
     </main>
   );

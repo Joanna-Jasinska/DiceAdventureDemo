@@ -9,13 +9,14 @@ export const DungeonSquare = ({
   name,
   eventName,
   id,
-  eventId,
-  lvStarted,
-  lvReached,
-  gold,
-  ally,
   selected = false,
   background,
+  lv = -1,
+  // eventId,
+  // lvStarted,
+  // lvReached,
+  // gold,
+  // ally,
 }) => {
   const dispatch = useDispatch();
   const { bgColor, icon, eventIcon } = background;
@@ -32,21 +33,25 @@ export const DungeonSquare = ({
         bgTxtFront={eventIcon}
         bgTxtBack={icon}
         bgColor={bgColor}
-        lv={lvReached}
+        // lv={lvReached}
       />
       <div className={css.bar}>
-        <button
-          key={`${name}btn${id}`}
-          className={`${css.button} ${selected ? css.selected : ""} ${
-            css.delete
-          }`}
-          type="button"
-          onClick={selectSelf}
-        >
-          {selected ? "⚔️" : "🠘"}
-        </button>
+        {selected === "hide" ? (
+          ""
+        ) : (
+          <button
+            key={`${name}btn${id}`}
+            className={`${css.button} ${selected ? css.selected : ""} ${
+              css.delete
+            }`}
+            type="button"
+            onClick={selectSelf}
+          >
+            {selected ? "⚔️" : "🠘"}
+          </button>
+        )}
         <span className={css.text}>
-          {/* <span className={css.level}>{`${lvReached} `}</span> */}
+          <span className={css.level}>{`${lv} `}</span>
           <span className={css.name}>{`${name} ${eventName}`}</span>
         </span>
       </div>

@@ -5,8 +5,9 @@ import {
   packEquipment,
   // startRandomDungeon,
   startDungeonById,
-  readyToEnter,
+  getReadyToEnter,
   setLv,
+  getEnemyGold,
   // engageRandomEnemy,
   engageEnemyBySlot,
 } from "./operations";
@@ -69,6 +70,7 @@ const dungeonSlice = createSlice({
       state.inDungeon = initialState.inDungeon;
       state.readyToEnter = initialState.readyToEnter;
       state.selectedEnemyID = initialState.selectedEnemyID;
+      state.goldEarned = initialState.goldEarned;
     },
 
     [setLv.pending]: handlePending,
@@ -87,6 +89,13 @@ const dungeonSlice = createSlice({
     //   state.selectedEnemyID = action.payload;
     // },
 
+    [getEnemyGold.pending]: handlePending,
+    [getEnemyGold.rejected]: handleRejected,
+    [getEnemyGold.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.goldEarned = action.payload;
+    },
     [engageEnemyBySlot.pending]: handlePending,
     [engageEnemyBySlot.rejected]: handleRejected,
     [engageEnemyBySlot.fulfilled](state, action) {
@@ -95,9 +104,9 @@ const dungeonSlice = createSlice({
       state.selectedEnemyID = action.payload;
     },
 
-    [readyToEnter.pending]: handlePending,
-    [readyToEnter.rejected]: handleRejected,
-    [readyToEnter.fulfilled](state, action) {
+    [getReadyToEnter.pending]: handlePending,
+    [getReadyToEnter.rejected]: handleRejected,
+    [getReadyToEnter.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.readyToEnter = true;

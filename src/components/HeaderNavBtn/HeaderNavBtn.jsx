@@ -5,9 +5,12 @@ import css from "./HeaderNavBtn.module.css";
 export const HeaderNavBtn = ({
   to = "/",
   display,
-  inactive = false,
   onClick,
-  crossed,
+  inactive = false,
+  crossed = false,
+  completed = false,
+  warning = false,
+  disabled = false,
 }) => {
   const location = useLocation();
   const isHereAlready = !inactive && location.state && location.pathname === to;
@@ -16,15 +19,23 @@ export const HeaderNavBtn = ({
       className={(nav) =>
         `${css.navLink} ${nav.isActive ? css.active : ""} ${
           crossed ? css.crossed : ""
-        }`
+        } ${disabled ? css.disabled : ""} ${
+          warning ? css.warning : completed ? css.completed : ""
+        } `
       }
       to={to}
       // state={(prev) => prev}
       state={{ from: location.state.from }}
-      onClick={(e) => {
-        e.preventDefault();
-        onClick();
-      }}
+      onClick={
+        disabled || inactive
+          ? (e) => {
+              e.preventDefault();
+            }
+          : (e) => {
+              e.preventDefault();
+              onClick();
+            }
+      }
     >
       {display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
     </NavLink>
@@ -33,11 +44,21 @@ export const HeaderNavBtn = ({
       className={(nav) =>
         `${css.navLink}  ${nav.isActive ? css.active : ""}  ${
           inactive ? css.inactive : ""
-        } ${crossed ? css.crossed : ""}`
+        } ${crossed ? css.crossed : ""} ${disabled ? css.disabled : ""} ${
+          warning ? css.warning : completed ? css.completed : ""
+        } `
       }
       to={to}
       state={{ from: location.pathname }}
-      onClick={onClick}
+      onClick={
+        disabled || inactive
+          ? (e) => {
+              e.preventDefault();
+            }
+          : (e) => {
+              onClick();
+            }
+      }
     >
       {display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
     </NavLink>

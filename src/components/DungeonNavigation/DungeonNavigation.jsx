@@ -12,6 +12,9 @@ import { selectEq } from "redux/eq/selectors";
 import { useDungeon } from "hooks";
 // import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 import css from "./DungeonNavigation.module.css";
+import { gainFromDungeonSummary } from "redux/game/operations";
+import { clearDungeon } from "redux/dungeon/operations";
+import { clearCombat } from "redux/combat/operations";
 
 export const DungeonNavigation = () => {
   const dispatch = useDispatch();
@@ -47,6 +50,15 @@ export const DungeonNavigation = () => {
       //     // console.log(`should deselect`);
     });
   };
+
+  const exitDungeon = (e) => {
+    e.preventDefault();
+    dispatch(gainFromDungeonSummary()).then(() => {
+      dispatch(clearDungeon());
+      dispatch(clearCombat());
+    });
+  };
+
   return (
     <header className={`header ${css.header}`}>
       <nav className={css.header}>
@@ -61,9 +73,9 @@ export const DungeonNavigation = () => {
         </div>
         <div className={css.rightNav}>
           <HeaderNavBtn
-            to="/town"
+            to="/-"
             display="🏃 Leave dung. 💩"
-            onClick={() => {}}
+            onClick={exitDungeon}
           />
         </div>
       </nav>

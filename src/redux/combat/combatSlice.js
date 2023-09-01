@@ -13,6 +13,7 @@ import {
   selectDice,
   toggleDiceSelection,
   deselectAllDices,
+  enterSummary,
 } from "./operations";
 
 const initialState = {
@@ -46,6 +47,14 @@ const combatSlice = createSlice({
       state.endTurn = false;
       // state.enemy = initialState.enemy;
       // state.enteringCombat = false;
+    },
+
+    [enterSummary.pending]: handlePending,
+    [enterSummary.rejected]: handleRejected,
+    [enterSummary.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.inCombat = 'summary';
     },
 
     [beginCombat.pending]: handlePending,
