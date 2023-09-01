@@ -32,10 +32,10 @@ export const QuickBattlePage = () => {
     if (item.selected) return item.selected;
   }).length;
 
-  const enterRandomDungeon = (e) => {
-    e.preventDefault();
-    dispatch(readyToEnter());
-  };
+  // const enterRandomDungeon = (e) => {
+  //   e.preventDefault();
+  //   dispatch(readyToEnter());
+  // };
   const enterDungeon = (e) => {
     e.preventDefault();
     dispatch(readyToEnter());

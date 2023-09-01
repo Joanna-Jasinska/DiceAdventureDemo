@@ -90,6 +90,16 @@
   overflow: visible;
   overflow: hidden;
 }
+.x2 {
+  background-color: #ffbe3ba4;
+  box-sizing: border-box;
+  /* border: 1px solid #ff0000; */
+  position: relative;
+  left: 1px;
+  width: min-content;
+  border-radius: 0.4rem;
+  box-shadow: var(--box-shadow-inset-dark), 0px 0px 2px 0px #8e6f00;
+}
 .requiredHolder {
   z-index: 1;
   height: 100%;

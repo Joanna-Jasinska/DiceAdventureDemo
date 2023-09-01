@@ -10,6 +10,10 @@ import {
 
 const initialState = {
   selectedDungeonId: "dungeon|2|",
+  playerLv: 5,
+  maxEqLv: 2,
+  spareLvUps: 0,
+  gold: 200,
   currentDungeons: [
     "dungeon|1|1",
     "dungeon|2|2",
@@ -25,10 +29,6 @@ const initialState = {
     "dungeon|4|": 1,
     "dungeon|5|": 1,
   },
-  playerLv: 5,
-  maxEqLv: 2,
-  spareLvUps: 0,
-  gold: 200,
 };
 const handleRejected = (state, action) => {
   state.isLoading = false;

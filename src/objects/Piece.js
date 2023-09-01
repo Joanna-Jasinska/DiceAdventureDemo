@@ -1,4 +1,4 @@
-import { diceTypeMatches } from "data/icons";
+import { diceTypeMatches, getDiceTypeIcon } from "data/icons";
 
 export const Piece = {
   getDmgIcons(piece) {
@@ -15,9 +15,14 @@ export const Piece = {
     const dIcons = [...(piece.priority ? ["🛡️", ...pDmg] : [...pDmg]), ...eDmg];
     return dIcons.length > 0 ? dIcons : false;
   },
-
+  getAllowedTypes(piece) {
+    if (!piece || !piece.allows || !piece.allows.types) return false;
+    const typesArray = piece.allows.types.map((type) => getDiceTypeIcon(type));
+    // !!!AAA!!! show what types of dice can be placed
+    return typesArray.length > 0 ? typesArray : false;
+  },
   getReqIcons(piece) {
-    // !!!AAA!!! show what is required to fulfill
+    // !!!AAA!!! needs to be changed to something that looks better
     const req = [];
     if (!piece.requires) return false;
     if (piece.requires.minSum) req.push(`${piece.requires.minSum}+`);

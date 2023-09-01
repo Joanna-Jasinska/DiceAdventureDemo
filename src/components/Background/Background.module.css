@@ -80,7 +80,7 @@
   font-size: 10rem;
   z-index: 3;
   top: 70%;
-  left: 13%;
+  left: 11%;
   line-height: 1px;
 }
 .front3 {
@@ -101,7 +101,7 @@
   font-size: 9rem;
   z-index: 2;
   top: 36%;
-  left: 0%;
+  left: -5%;
   line-height: 1px;
 }
 .mid3 {
@@ -114,8 +114,8 @@
 .mid4 {
   font-size: 9rem;
   z-index: 2;
-  top: 41%;
-  left: 63%;
+  top: 42%;
+  left: 74%;
   line-height: 1px;
 }
 .back1 {

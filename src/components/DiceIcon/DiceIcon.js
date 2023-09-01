@@ -1,4 +1,4 @@
-import { getIcon } from "data/icons";
+import { getDiceTypeIcon } from "data/icons";
 import css from "./DiceIcon.module.css";
 
 const getColor = ({ value, diceMax = 6 }) => {
@@ -14,7 +14,7 @@ export const DiceIcon = ({ value, diceMax, type }) => {
   return (
     <div className={`${css.dice} ${getColor({ value, diceMax })}`}>
       {value || diceMax || "?"}{" "}
-      <span className={css.icon}>{getIcon(type).icon}</span>
+      <span className={css.icon}>{getDiceTypeIcon(type)}</span>
     </div>
   );
 };

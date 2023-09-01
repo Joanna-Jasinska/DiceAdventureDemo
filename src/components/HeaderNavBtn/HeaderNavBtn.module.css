@@ -29,6 +29,8 @@
   background-color: #0000000d;
   background-color: var(--bg-gentle);
   cursor: default;
+  line-break: strict;
+  word-break: keep-all;
 }
 .navLink:hover:not(.inactive) {
   cursor: pointer;

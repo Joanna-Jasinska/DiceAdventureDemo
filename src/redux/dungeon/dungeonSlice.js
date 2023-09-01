@@ -1,21 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   clearDungeon,
-  beginDungeon,
+  // beginDungeon,
   packEquipment,
-  startRandomDungeon,
+  // startRandomDungeon,
   startDungeonById,
   readyToEnter,
   setLv,
-  engageRandomEnemy,
+  // engageRandomEnemy,
   engageEnemyBySlot,
 } from "./operations";
 
 const initialState = {
-  name: "Dungeon",
+  name: "Lost Path",
   eventName: "",
   id: "dungeon|1|",
   lv: 1,
+  startedLv: 1,
+  goldEarned: 0,
   player: {
     life: 15,
     maxLife: 15,
@@ -25,7 +27,6 @@ const initialState = {
   isLoading: false,
   inDungeon: false,
   readyToEnter: false,
-  // endTurn: false,
   items: [],
   bosses: [],
   ally: {},
@@ -78,13 +79,13 @@ const dungeonSlice = createSlice({
       state.lv = action.payload;
     },
 
-    [engageRandomEnemy.pending]: handlePending,
-    [engageRandomEnemy.rejected]: handleRejected,
-    [engageRandomEnemy.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.selectedEnemyID = action.payload;
-    },
+    // [engageRandomEnemy.pending]: handlePending,
+    // [engageRandomEnemy.rejected]: handleRejected,
+    // [engageRandomEnemy.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.selectedEnemyID = action.payload;
+    // },
 
     [engageEnemyBySlot.pending]: handlePending,
     [engageEnemyBySlot.rejected]: handleRejected,
@@ -102,41 +103,41 @@ const dungeonSlice = createSlice({
       state.readyToEnter = true;
     },
 
-    [beginDungeon.pending]: handlePending,
-    [beginDungeon.rejected]: handleRejected,
-    [beginDungeon.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      // state.endTurn = false;
-      state.name = action.payload.name;
-      state.eventName = action.payload.eventName;
-      state.background = action.payload.background;
-      state.items = action.payload.items;
-      state.enemies = action.payload.enemies;
-      state.bosses = action.payload.bosses;
-      state.ally = action.payload.ally;
-      state.inDungeon = true;
-      state.readyToEnter = false;
-      state.player = action.payload.player;
-    },
+    // [beginDungeon.pending]: handlePending,
+    // [beginDungeon.rejected]: handleRejected,
+    // [beginDungeon.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   // state.endTurn = false;
+    //   state.name = action.payload.name;
+    //   state.eventName = action.payload.eventName;
+    //   state.background = action.payload.background;
+    //   state.items = action.payload.items;
+    //   state.enemies = action.payload.enemies;
+    //   state.bosses = action.payload.bosses;
+    //   state.ally = action.payload.ally;
+    //   state.inDungeon = true;
+    //   state.readyToEnter = false;
+    //   state.player = action.payload.player;
+    // },
 
-    [startRandomDungeon.pending]: handlePending,
-    [startRandomDungeon.rejected]: handleRejected,
-    [startRandomDungeon.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      // state.endTurn = false;
-      state.name = action.payload.name;
-      state.eventName = action.payload.eventName;
-      state.background = action.payload.background;
-      state.items = action.payload.items;
-      state.enemies = action.payload.enemies;
-      state.bosses = action.payload.bosses;
-      state.ally = action.payload.ally;
-      state.inDungeon = true;
-      state.readyToEnter = false;
-      state.player = action.payload.player;
-    },
+    // [startRandomDungeon.pending]: handlePending,
+    // [startRandomDungeon.rejected]: handleRejected,
+    // [startRandomDungeon.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   // state.endTurn = false;
+    //   state.name = action.payload.name;
+    //   state.eventName = action.payload.eventName;
+    //   state.background = action.payload.background;
+    //   state.items = action.payload.items;
+    //   state.enemies = action.payload.enemies;
+    //   state.bosses = action.payload.bosses;
+    //   state.ally = action.payload.ally;
+    //   state.inDungeon = true;
+    //   state.readyToEnter = false;
+    //   state.player = action.payload.player;
+    // },
 
     [startDungeonById.pending]: handlePending,
     [startDungeonById.rejected]: handleRejected,

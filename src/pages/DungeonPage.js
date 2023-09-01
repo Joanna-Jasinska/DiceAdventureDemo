@@ -3,15 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { selectError } from "redux/auth/selectors";
 import { HeaderNavBtn } from "components/HeaderNavBtn/HeaderNavBtn";
-import { engageEnemyBySlot, engageRandomEnemy } from "redux/dungeon/operations";
+import { engageEnemyBySlot } from "redux/dungeon/operations";
 import { Title } from "components/Phonebook/Title/Title";
 import { useCombat, useDungeon } from "hooks";
-import css from "./../components/Phonebook/Phonebook.module.css";
 import { beginCombat } from "redux/combat/operations";
 import { loadEnemy } from "redux/enemy/operations";
 import { Background } from "components/Background/Background";
 import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 import { SkillList } from "components/SkillList/SkillList";
+import { BagOfGold } from "components/BagOfGold/BagOfGold";
+import { DungeonLevelUps } from "components/DungeonLevelUps/DungeonLevelUps";
+import css from "./../components/Phonebook/Phonebook.module.css";
 
 export const DungeonPage = () => {
   const dispatch = useDispatch();
@@ -43,25 +45,25 @@ export const DungeonPage = () => {
       });
   };
   const beginBattle = () => {
-    dispatch(engageRandomEnemy())
-      .then(() => {
-        dispatch(loadEnemy())
-          .then(() => {
-            dispatch(beginCombat({}))
-              .then(() => {
-                // began combat successfully
-              })
-              .catch((error) => {
-                // did not begin combat
-              });
-          })
-          .catch((error) => {
-            // not loaded enemy
-          });
-      })
-      .catch((error) => {
-        // not engaged enemy
-      });
+    // dispatch(engageRandomEnemy())
+    //   .then(() => {
+    //     dispatch(loadEnemy())
+    //       .then(() => {
+    //         dispatch(beginCombat({}))
+    //           .then(() => {
+    //             // began combat successfully
+    //           })
+    //           .catch((error) => {
+    //             // did not begin combat
+    //           });
+    //       })
+    //       .catch((error) => {
+    //         // not loaded enemy
+    //       });
+    //   })
+    //   .catch((error) => {
+    //     // not engaged enemy
+    //   });
   };
 
   return (
@@ -75,6 +77,9 @@ export const DungeonPage = () => {
             boxSizing: "border-box",
             padding: "0.4em 0px",
             minHeight: "76vh",
+            // display: "flex",
+            // flexWrap: "wrap",
+            // gap: "0.4rem",
           }}
         >
           {error ? <span className={css.error}>{error}</span> : ""}
@@ -84,10 +89,6 @@ export const DungeonPage = () => {
               inDungeon ? " entered." : " illegal breach. Go back!"
             }`}
           />
-          <span>
-            Life {"12"}/{"30"}
-          </span>
-          <span>Gold earned {"120"}</span>
 
           <HeaderNavBtn
             to="/combat"
@@ -106,7 +107,17 @@ export const DungeonPage = () => {
           />
           <HeaderNavBtn to="/combat" display="⚔️" onClick={beginBattle} />
 
-          <PlayerAvatar />
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.4rem",
+            }}
+          >
+            <PlayerAvatar />
+            <BagOfGold />
+            <DungeonLevelUps />
+          </div>
           <SkillList />
         </main>
       )}

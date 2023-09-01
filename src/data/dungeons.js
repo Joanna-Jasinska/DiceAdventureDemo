@@ -9,33 +9,36 @@ export const getBasicDungeons = () => {
 
 export const DUNGEONS = [
   {
+    name: "Black Mountain",
+    eventName: "",
+    id: "dungeon|1|",
+    eventId: "dungeon|1|1",
     background: {
       icon: "🗻",
       eventIcon: "🌋",
       bgColor: "#413e20",
       flavorIcon: "🗻",
     },
-    name: "Black Mountain",
-    eventName: "",
     // items: [],
-    enemies: [[""], [], []],
     bosses: [],
+    enemies: [[""], [], []],
     // ally: {},
-    id: "dungeon|1|",
-    eventId: "dungeon|1|1",
     // lvStarted: 1,
     // lvReached: 2,
     // gold: 100,
   },
   {
+    name: "Wild Forests",
+    eventName: "",
+    id: "dungeon|2|",
+    eventId: "dungeon|2|2",
     background: {
       icon: "🌲",
       eventIcon: "🌲",
       flavorIcon: "🌳",
       bgColor: "#3ea413",
     },
-    name: "Wild Forests",
-    eventName: "",
+    bosses: [],
     enemies: [
       [
         // "ELEMENTALS|green|Dryad",
@@ -55,9 +58,6 @@ export const DUNGEONS = [
         "ANIMALS|green|Old Wolf",
       ],
     ],
-    bosses: [],
-    id: "dungeon|2|",
-    eventId: "dungeon|2|2",
   },
   {
     background: {

@@ -1,4 +1,4 @@
-import { getIcon } from "data/icons";
+import { getDiceTypeIcon } from "data/icons";
 import css from "./RolledDice.module.css";
 import { useDispatch } from "react-redux";
 import { toggleDiceSelection } from "redux/combat/operations";
@@ -25,7 +25,7 @@ export const RolledDice = ({ value, diceMax, type, selected, id }) => {
       onClick={onClick}
     >
       {value || diceMax || "?"}{" "}
-      <span className={css.icon}>{getIcon(type).icon}</span>
+      <span className={css.icon}>{getDiceTypeIcon(type)}</span>
     </div>
   );
 };

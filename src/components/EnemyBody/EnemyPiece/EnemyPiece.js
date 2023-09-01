@@ -13,6 +13,7 @@ export const EnemyPiece = ({ p }) => {
   const [toDispatch, editToDispatch] = useState([]);
   const damageIcons = Piece.getDmgIcons(p);
   const requiredIcons = Piece.getReqIcons(p);
+  const allowedTypes = Piece.getAllowedTypes(p);
 
   const onDiceHolderClick = () => {
     editToDispatch([
@@ -36,8 +37,18 @@ export const EnemyPiece = ({ p }) => {
       }`}
     >
       <div className={css.modifierHolder}>
+        {!allowedTypes
+          ? ""
+          : allowedTypes.map((type, index) => (
+              <div
+                className={css.modifier}
+                key={`allowedDiceType|${type}|${p.id}|${index}`}
+              >
+                {type}
+              </div>
+            ))}
         {p.multiplies && p.multiplies.multipliedBy ? (
-          <>
+          <div className={css.x2}>
             <div
               className={css.modifier}
             >{`${p.multiplies.multipliedBy}x `}</div>
@@ -46,7 +57,7 @@ export const EnemyPiece = ({ p }) => {
                 {getDiceTypeIcon(t)}
               </div>
             ))}{" "}
-          </>
+          </div>
         ) : (
           ""
         )}{" "}

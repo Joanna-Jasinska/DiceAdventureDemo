@@ -10,6 +10,7 @@ import css from "./CombatNavigation.module.css";
 import { useDungeon } from "hooks";
 import { deleteAllBodyDices } from "redux/enemy/operations";
 import { useEnemy } from "hooks/useEnemy";
+import { EnemyPortrait } from "components/EnemyPortrait/EnemyPortrait";
 
 export const CombatNavigation = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,7 @@ export const CombatNavigation = () => {
 
   return (
     <header className={`header ${css.header}`}>
+      <EnemyPortrait />
       <nav className={css.header}>
         <div className={css.leftNav}>
           <HeaderNavBtn to="/reset" display={"♻️"} />
@@ -84,7 +86,8 @@ export const CombatNavigation = () => {
           <HeaderNavBtn to="/eq" display="🎲⭯" onClick={retrieveAllDices} />
         </div>
         <div className={css.rightNav}>
-          <HeaderNavBtn to="/return" display="🏃 Town" />
+          {/* <HeaderNavBtn to="/return" display="🏃 Town" /> */}
+          <HeaderNavBtn to="/summary" display="🏃 Town" />
           <HeaderNavBtn
             to="/-"
             display={`${endTurnIcon} End Turn ${endTurnDmg}`}

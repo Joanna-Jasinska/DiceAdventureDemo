@@ -57,6 +57,7 @@ body {
   background-color: #ededed;
   /* background-color: #000000; */
   background: linear-gradient(#0000000d #010101);
+  overflow-x: hidden;
 }
 
 code {

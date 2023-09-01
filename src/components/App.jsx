@@ -16,8 +16,10 @@ const QuickBattlePage = lazy(() => import("../pages/QuickBattlePage"));
 const ResetPage = lazy(() => import("../pages/ResetPage"));
 const DungeonPage = lazy(() => import("../pages/DungeonPage"));
 const ByePage = lazy(() => import("../pages/ByePage"));
-// const LogoutPage = lazy(() => import("../pages/LogoutPage"));
-// const PhonebookPage = lazy(() => import("../pages/PhonebookPage"));
+const SummaryPage = lazy(() => import("../pages/SummaryPage"));
+const ReturnFromCombatPage = lazy(() =>
+  import("../pages/ReturnFromCombatPage")
+);
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -84,7 +86,16 @@ export const App = () => {
             element={
               <RouteBattle
                 redirectTo="/quickBattle"
-                component={<CombatPage />}
+                component={<ReturnFromCombatPage />}
+              />
+            }
+          />
+          <Route
+            path="/summary"
+            element={
+              <RouteBattle
+                redirectTo="/quickBattle"
+                component={<SummaryPage />}
               />
             }
           />

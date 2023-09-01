@@ -30,6 +30,7 @@ export const useGame = () => {
     error,
     loading,
     game,
+    selectedDungeonId,
     currentDungeons,
     possibleDungeons,
     dungeonLevels,
@@ -37,6 +38,5 @@ export const useGame = () => {
     maxEqLv,
     spareLvUps,
     gold,
-    selectedDungeonId,
   };
 };

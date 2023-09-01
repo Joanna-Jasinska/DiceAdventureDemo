@@ -11,7 +11,9 @@ import {
   selectDungeon,
   selectDungeonBg,
   selectPlayer,
-  // selectEndingTurn,
+  selectLv,
+  selectStartedLv,
+  selectGoldEarned,
 } from "redux/dungeon/selectors";
 
 export const useDungeon = () => {
@@ -23,12 +25,14 @@ export const useDungeon = () => {
   const ally = useSelector(selectAlly);
   const loading = useSelector(selectLoading);
   const inDungeon = useSelector(selectInDungeon);
-  // const endTurn = useSelector(selectEndingTurn);
   const dungeon = useSelector(selectDungeon);
   const name = dungeon.name;
   const eventName = dungeon.eventName;
   const bg = useSelector(selectDungeonBg);
   const player = useSelector(selectPlayer);
+  const lv = useSelector(selectLv);
+  const startedLv = useSelector(selectStartedLv);
+  const goldEarned = useSelector(selectGoldEarned);
 
   return {
     error,
@@ -44,6 +48,8 @@ export const useDungeon = () => {
     eventName,
     bg,
     player,
-    // endTurn,
+    lv,
+    startedLv,
+    goldEarned,
   };
 };

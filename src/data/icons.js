@@ -1,7 +1,20 @@
 export const getDiceTypeIcon = (type) => {
-  const found = ICONS.find((i) => i.type === type);
+  const found = ICONS.find(
+    (i) => i && typeof i === "object" && i.type === type && i.icon
+  );
   return found ? found.icon : "❔";
 };
+// export const getIcon = (type = "default") => {
+//   const found = ICONS.filter((i) => {
+//     return i.type === type;
+//   });
+//   return found
+//     ? Array.isArray(found)
+//       ? found[0]
+//       : found
+//     : { type: "default", icon: "", color: "#fff" };
+// };
+
 export const diceTypeMatches = (diceType, mustMatchType) => {
   const found = ICONS.find((i) => i.type === diceType);
   const diceFamily = found ? found.mainType : diceType;
@@ -58,14 +71,3 @@ export const ICONS = [
 // 🛡️🔰 🎻🎺🥁
 // ⚡️ ☄️ 💥 🔥💦🌊💨⭐️💧🕸❄️🌫🌪 🌈 ☀️🎯🩸🙏👊✊❤️☣️💯 💢 ♨️❗️❔ ‼️ ⁉️🌀➰🧠🌌
 // 🎵 🎶✔️ ☑️🔵🔷🔹♠️ ♣️ ♥️ ♦️🕒👁‍🗨 💬🏴‍☠️💀 ☠️✊ 👊 🤛💪
-
-export const getIcon = (type = "default") => {
-  const found = ICONS.filter((i) => {
-    return i.type === type;
-  });
-  return found
-    ? Array.isArray(found)
-      ? found[0]
-      : found
-    : { type: "default", icon: "", color: "#fff" };
-};
