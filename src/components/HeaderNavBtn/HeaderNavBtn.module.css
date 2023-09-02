@@ -45,14 +45,17 @@
   top: 0;
   left: 0;
   background-color: #00000052;
+  background-color: #0000001e;
 }
 .crossed {
   text-decoration: line-through;
 }
 .completed {
   /* color: chartreuse; */
-  background-color: #60a837;
-  opacity: 0.7;
+  /* background-color: #60a837; */
+  background-color: #d5ffb3;
+  box-shadow: var(--box-shadow), var(--box-shadow-inset-dark);
+  opacity: 0.5;
 }
 .completed::before {
   z-index: 2;

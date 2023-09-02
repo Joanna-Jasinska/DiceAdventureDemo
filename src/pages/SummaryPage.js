@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { selectError } from "redux/auth/selectors";
+import { selectGameError } from "redux/game/selectors"; 
 import { HeaderNavBtn } from "components/HeaderNavBtn/HeaderNavBtn";
 import { Title } from "components/Phonebook/Title/Title";
 import { useCombat, useDungeon } from "hooks";
@@ -14,7 +14,7 @@ import { enterSummary } from "redux/combat/operations";
 
 export const SummaryPage = () => {
   const dispatch = useDispatch();
-  // const error = useSelector(selectError);
+  // const error = useSelector(selectGameError);
   // const loading = useSelector(selectLoading);
   const { inCombat } = useCombat();
   const {

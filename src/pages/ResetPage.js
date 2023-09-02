@@ -10,10 +10,13 @@ import { clearDungeon } from "redux/dungeon/operations";
 import { Navigate } from "react-router-dom";
 import { clearCombat } from "redux/combat/operations";
 import { resetGame } from "redux/game/operations";
+import { Loader } from "components/Loader/Loader";
+import { useGame } from "hooks/useGame";
+import css from "./../components/Phonebook/Phonebook.module.css";
 // import { selectLoading } from "redux/eq/selectors";
 export const ResetPage = () => {
   const dispatch = useDispatch();
-  // const error = useSelector(selectError);
+  const { error } = useGame();
   // const loading = useSelector(selectLoading);
   // let redirect = true;
 
@@ -29,7 +32,7 @@ export const ResetPage = () => {
     <main
       style={{ width: "100%", boxSizing: "border-box", padding: "0.4em 0px" }}
     >
-      {/* {error ? <span className={css.error}>{error}</span> : ""} */}
+      {error ? <span className={css.error}>{error}</span> : ""}
       <Navigate to="/town" />
       <Title title="Resetting game." />
     </main>

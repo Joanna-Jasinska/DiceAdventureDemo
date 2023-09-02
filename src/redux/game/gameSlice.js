@@ -7,9 +7,12 @@ import {
   gainFromDungeonSummary,
   // addGold,
   setSelectDungeon,
+  setGameError,
 } from "./operations";
 
 const initialState = {
+  error: null,
+  isLoading: false,
   selectedDungeonId: "dungeon|2|",
   playerLv: 5,
   maxEqLv: 2,
@@ -42,22 +45,29 @@ const gameSlice = createSlice({
   name: "game",
   initialState,
   extraReducers: {
-    [resetGame.pending]: handlePending,
+    // !!!AAA!!! handlePending with loading=true  loops this reducer
+    [resetGame.pending]: () => {},
     [resetGame.rejected]: handleRejected,
     [resetGame.fulfilled](state, action) {
-      state.isLoading = initialState.isLoading;
-      state.error = initialState.error;
       state.currentDungeons = initialState.currentDungeons;
       // needs to be fixed to generate all possible dungeon list
       state.possibleDungeons = initialState.possibleDungeons;
       // state.possibleDungeons = action.payload.possibleDungeons;
       state.selectedDungeonId = initialState.selectedDungeonId;
-      state.selectedEnemyID = initialState.selectedEnemyID;
       state.dungeonLevels = initialState.dungeonLevels;
       state.playerLv = initialState.playerLv;
       state.maxEqLv = initialState.maxEqLv;
       state.spareLvUps = initialState.spareLvUps;
       state.gold = initialState.gold;
+      state.error = null;
+      state.isLoading = false;
+    },
+
+    [setGameError.pending]: handlePending,
+    [setGameError.rejected]: handleRejected,
+    [setGameError.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
     },
 
     [playerLvUp.pending]: handlePending,

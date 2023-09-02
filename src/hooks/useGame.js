@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import {
   selectCurrentDungeons,
   selectDungeonLevels,
-  selectError,
+  selectGameError,
   selectGame,
   selectGold,
   selectLoading,
@@ -14,7 +14,7 @@ import {
 } from "redux/game/selectors";
 
 export const useGame = () => {
-  const error = useSelector(selectError);
+  const error = useSelector(selectGameError);
   const loading = useSelector(selectLoading);
   const game = useSelector(selectGame);
   const currentDungeons = useSelector(selectCurrentDungeons);

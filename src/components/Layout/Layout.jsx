@@ -1,9 +1,8 @@
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { TownNavigation } from "components/TownNavigation/TownNavigation";
 import { Footer } from "components/Footer/Footer";
-import { UserMenu } from "components/UserMenu/UserMenu";
 import { Suspense } from "react";
-import { useAuth, useCombat, useDungeon } from "hooks";
+import { useCombat, useDungeon } from "hooks";
 import css from "./Layout.module.css";
 import { Loader } from "components/Loader/Loader";
 import { CombatNavigation } from "components/CombatNavigation/CombatNavigation";

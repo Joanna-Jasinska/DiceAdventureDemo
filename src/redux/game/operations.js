@@ -9,6 +9,14 @@ export const resetGame = createAsyncThunk("game/reset", async (_, thunkAPI) => {
   return true;
 });
 
+
+export const setGameError = createAsyncThunk(
+  "game/setError",
+  async (err, thunkAPI) => {
+    return err;
+  }
+);
+
 export const playerLvUp = createAsyncThunk(
   "game/playerLvUp",
   async (_, thunkAPI) => {

@@ -1,4 +1,4 @@
-export const selectError = (state) => state.game.error;
+export const selectGameError = (state) => state.game.error;
 export const selectLoading = (state) => state.game.isLoading;
 
 export const selectGame = (state) => state.game;

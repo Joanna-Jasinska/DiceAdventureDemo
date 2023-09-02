@@ -8,7 +8,7 @@ import {
   fetchEquipment,
   deselectAllItems,
   updateItem,
-  refreshEq,
+  // refreshEq,
 } from "redux/eq/operations";
 // import { resetItems,  } from "redux/game/operations";
 import { setFilter } from "redux/filter/filterSlice";
@@ -27,11 +27,9 @@ export const SkillList = ({ filters }) => {
   const items = useSelector(selectPackedItems);
   // const items = game.selectItems;
 
-  useEffect(() => {
-    // dispatch(fetchEquipment());
-    dispatch(refreshEq());
-    // dispatch(resetItems());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshEq());
+  // }, [dispatch]);
 
   //   useEffect(() => {
   //     console.table(equipment);

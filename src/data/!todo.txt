@@ -1,5 +1,6 @@
 -/later/- objects Enemy, objects Piece -- finishing evaluation
 -/later/- make piece requirements visible in game --in a better way
+-/later/- do something about game slice resetGame not having isLoading=true at pending
 
 - dungeon slice - save which dungeon slots were defeated
 - after winning a fight disable that dungeon slot button

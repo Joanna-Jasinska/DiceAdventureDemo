@@ -5,9 +5,11 @@ import { Layout } from "./Layout/Layout";
 import { Loader } from "./Loader/Loader";
 import { RouteBattle } from "./RouteBattle/RouteBattle";
 import { RouteTown } from "./RouteTown/RouteTown";
-import { setError } from "redux/auth/slice";
-import { useAuth } from "hooks";
-import { refreshUser } from "redux/auth/operations";
+import { useGame } from "hooks/useGame";
+import { setGameError } from "redux/game/operations";
+// import { setError } from "redux/auth/slice";
+// import { useAuth } from "hooks";
+// import { refreshUser } from "redux/auth/operations";
 
 const TownPage = lazy(() => import("../pages/TownPage"));
 const EQPage = lazy(() => import("../pages/EQPage"));
@@ -23,26 +25,26 @@ const ReturnFromCombatPage = lazy(() =>
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
-  const { error } = useAuth();
+  // const { isRefreshing } = useAuth();
+  const { error, loading } = useGame();
 
   useEffect(() => {
     document.title = "DiceAdventure Demo";
   }, []);
 
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
 
   useEffect(() => {
     if (error) {
       setTimeout(() => {
-        dispatch(setError(null));
+        dispatch(setGameError(null));
       }, 2000);
     }
   }, [error, dispatch]);
 
-  return isRefreshing ? (
+  return loading ? (
     <b>
       <Loader txt="refreshingUser" />
     </b>

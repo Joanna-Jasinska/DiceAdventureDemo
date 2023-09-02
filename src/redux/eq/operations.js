@@ -59,58 +59,18 @@ export const updateItem = createAsyncThunk(
   }
 );
 
-export const refreshEq = createAsyncThunk(
-  "equipment/refresh",
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedEq = state.equipment.all;
-
-    if (persistedEq === null) {
-      // If there is no token, exit without performing any request
-      return thunkAPI.rejectWithValue("Unable to fetch eq");
-    }
-
-    try {
-      // If there is a token, add it to the HTTP header and perform the request
-      setItems(persistedEq);
-      // const res = await axios.get("/users/current");
-      // return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-// export const fetchContacts = createAsyncThunk(
-//   'contacts/fetchAll',
-
+// export const refreshEq = createAsyncThunk(
+//   "equipment/refresh",
 //   async (_, thunkAPI) => {
-//     try {
-//       const response = await axios.get('/contacts');
-//       return response.data;
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
+//     const state = thunkAPI.getState();
+//     const persistedEq = state.equipment.all;
 
-// export const addContact = createAsyncThunk(
-//   'contacts/addContact',
-//   async (contact, thunkAPI) => {
-//     try {
-//       const response = await axios.post('/contacts', contact);
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
+//     if (persistedEq === null) {
+//       return thunkAPI.rejectWithValue("Unable to fetch eq");
 //     }
-//   }
-// );
 
-// export const deleteContactById = createAsyncThunk(
-//   'contacts/deleteContactById',
-//   async (id, thunkAPI) => {
 //     try {
-//       const response = await axios.delete(`/contacts/${id}`);
-//       return response.data;
+//       setItems(persistedEq);
 //     } catch (error) {
 //       return thunkAPI.rejectWithValue(error.message);
 //     }

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { selectError } from "redux/auth/selectors";
+import { selectGameError } from "redux/game/selectors";
 import { HeaderNavBtn } from "components/HeaderNavBtn/HeaderNavBtn";
 import { engageEnemyBySlot } from "redux/dungeon/operations";
 import { useCombat, useDungeon } from "hooks";
@@ -18,8 +18,8 @@ import { useGame } from "hooks/useGame";
 
 export const DungeonPage = () => {
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
-  const { name, eventName, bg, lv } = useDungeon();
+  const error = useSelector(selectGameError);
+  const { name, eventName, bg, lv, slotsDefeated } = useDungeon();
   const { selectedDungeonId } = useGame();
   const { inCombat } = useCombat();
 
@@ -107,23 +107,29 @@ export const DungeonPage = () => {
                 to="/combat"
                 display={`${bg.icon}`}
                 onClick={() => beginBattleBySlot(0)}
-                completed={true}
-                disabled={true}
+                completed={slotsDefeated[0]}
+                disabled={slotsDefeated[0]}
               />
               <HeaderNavBtn
                 to="/combat"
                 display={`${bg.eventIcon}`}
                 onClick={() => beginBattleBySlot(1)}
+                completed={slotsDefeated[1]}
+                disabled={slotsDefeated[1]}
               />
               <HeaderNavBtn
                 to="/combat"
                 display={`${bg.flavorIcon}`}
                 onClick={() => beginBattleBySlot(2)}
+                completed={slotsDefeated[2]}
+                disabled={slotsDefeated[2]}
               />
               <HeaderNavBtn
                 to="/combat"
                 display="Boss ☠️"
                 onClick={beginBattle}
+                completed={slotsDefeated[3]}
+                disabled={slotsDefeated[3]}
               />
             </div>
           </div>

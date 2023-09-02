@@ -1,8 +1,7 @@
 // import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectError } from "redux/auth/selectors";
-import { Title } from "components/Phonebook/Title/Title";
+import { selectGameError } from "redux/game/selectors"; 
 import css from "./../components/Phonebook/Phonebook.module.css";
 import { useCombat, useDungeon } from "hooks";
 import { EnemyBody } from "components/EnemyBody/EnemyBody";
@@ -14,7 +13,7 @@ import { useEnemy } from "hooks/useEnemy";
 export const CombatPage = () => {
   //   const dispatch = useDispatch();
   const { inCombat } = useCombat();
-  const error = useSelector(selectError);
+  const error = useSelector(selectGameError);
   // const enemyName = useEnemy().name;
   // const dungeonName = useDungeon().name;
   // const { lv } = useDungeon();

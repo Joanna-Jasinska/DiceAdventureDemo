@@ -1,14 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   clearDungeon,
-  // beginDungeon,
   packEquipment,
-  // startRandomDungeon,
   startDungeonById,
   getReadyToEnter,
   setLv,
   getEnemyGold,
-  // engageRandomEnemy,
   engageEnemyBySlot,
 } from "./operations";
 
@@ -24,14 +21,19 @@ const initialState = {
     maxLife: 15,
     status: {},
   },
+  slotsDefeated: [false, false, false, false],
   error: null,
   isLoading: false,
   inDungeon: false,
   readyToEnter: false,
   items: [],
-  bosses: [],
+  bosses: ["ELEMENTALS|green|Mysterious Enemy"],
   ally: {},
-  enemies: [[{}], [], []],
+  enemies: [
+    ["ELEMENTALS|green|Mysterious Enemy"],
+    ["ELEMENTALS|green|Mysterious Enemy"],
+    ["ELEMENTALS|green|Mysterious Enemy"],
+  ],
   background: {
     icon: "🌲",
     eventIcon: "🌲",
@@ -47,9 +49,6 @@ const handleRejected = (state, action) => {
 const handlePending = (state) => {
   state.isLoading = true;
 };
-// const deleteContactByIdPending = state => {
-//   state.isLoading = true;
-// };
 const dungeonSlice = createSlice({
   name: "dungeon",
   initialState,
@@ -59,7 +58,6 @@ const dungeonSlice = createSlice({
     [clearDungeon.fulfilled](state, action) {
       state.isLoading = initialState.isLoading;
       state.error = initialState.error;
-      // state.endTurn = initialState.endTurn;
       state.name = initialState.name;
       state.eventName = initialState.eventName;
       state.background = initialState.background;
@@ -71,6 +69,7 @@ const dungeonSlice = createSlice({
       state.readyToEnter = initialState.readyToEnter;
       state.selectedEnemyID = initialState.selectedEnemyID;
       state.goldEarned = initialState.goldEarned;
+      state.slotsDefeated = initialState.slotsDefeated;
     },
 
     [setLv.pending]: handlePending,
@@ -112,24 +111,6 @@ const dungeonSlice = createSlice({
       state.readyToEnter = true;
     },
 
-    // [beginDungeon.pending]: handlePending,
-    // [beginDungeon.rejected]: handleRejected,
-    // [beginDungeon.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   // state.endTurn = false;
-    //   state.name = action.payload.name;
-    //   state.eventName = action.payload.eventName;
-    //   state.background = action.payload.background;
-    //   state.items = action.payload.items;
-    //   state.enemies = action.payload.enemies;
-    //   state.bosses = action.payload.bosses;
-    //   state.ally = action.payload.ally;
-    //   state.inDungeon = true;
-    //   state.readyToEnter = false;
-    //   state.player = action.payload.player;
-    // },
-
     // [startRandomDungeon.pending]: handlePending,
     // [startRandomDungeon.rejected]: handleRejected,
     // [startRandomDungeon.fulfilled](state, action) {
@@ -153,7 +134,6 @@ const dungeonSlice = createSlice({
     [startDungeonById.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      // state.endTurn = false;
       state.name = action.payload.name;
       state.eventName = action.payload.eventName;
       state.background = action.payload.background;
@@ -174,22 +154,7 @@ const dungeonSlice = createSlice({
       state.items = action.payload;
     },
 
-    // [deleteContactById.pending]: deleteContactByIdPending,
-    // [deleteContactById.rejected]: handleRejected,
-    // [deleteContactById.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.contacts = state.contacts.filter(
-    //     item => item.id !== action.payload.id
-    //   );
-    // },
-    // [addContact.pending]: handlePending,
-    // [addContact.rejected]: handleRejected,
-    // [addContact.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.items = [...state.equipment, action.payload];
-    // },
+    //
   },
 });
 export const dungeonReducer = dungeonSlice.reducer;

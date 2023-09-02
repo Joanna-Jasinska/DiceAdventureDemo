@@ -14,6 +14,7 @@ import {
   selectLv,
   selectStartedLv,
   selectGoldEarned,
+  selectSlotsDefeated,
 } from "redux/dungeon/selectors";
 
 export const useDungeon = () => {
@@ -33,6 +34,7 @@ export const useDungeon = () => {
   const lv = useSelector(selectLv);
   const startedLv = useSelector(selectStartedLv);
   const goldEarned = useSelector(selectGoldEarned);
+  const slotsDefeated = useSelector(selectSlotsDefeated);
 
   return {
     error,
@@ -51,5 +53,6 @@ export const useDungeon = () => {
     lv,
     startedLv,
     goldEarned,
+    slotsDefeated,
   };
 };

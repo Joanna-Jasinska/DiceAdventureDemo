@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectError } from "redux/auth/selectors";
+import { selectGameError } from "redux/game/selectors"; 
 import { Title } from "components/Phonebook/Title/Title";
 import { ItemList } from "components/ItemList/ItemList";
 import { HeaderNavBtn } from "components/HeaderNavBtn/HeaderNavBtn";
@@ -18,7 +18,7 @@ import { useDungeon } from "hooks";
 
 export const QuickBattlePage = () => {
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
+  const error = useSelector(selectGameError);
   // const { selectedDungeonId, currentDungeons } = useGame();
   // const { readyToEnter } = useDungeon();
 

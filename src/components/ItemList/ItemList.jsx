@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { game } from "api/game";
 import { selectLoading, selectEq, selectFilters } from "redux/eq/selectors";
@@ -8,12 +8,10 @@ import {
   fetchEquipment,
   deselectAllItems,
   updateItem,
-  refreshEq,
+  // refreshEq,
 } from "redux/eq/operations";
-// import { resetItems,  } from "redux/game/operations";
 import { setFilter } from "redux/filter/filterSlice";
 
-// import css from './../Phonebook.module.css';
 import css from "./ItemList.module.css";
 import { Loader } from "components/Loader/Loader";
 
@@ -21,20 +19,11 @@ export const ItemList = ({ filters }) => {
   const extraFilters = useSelector(selectFilters);
 
   const dispatch = useDispatch();
-  // const equipment = useSelector(selectEq);
-  // const items = useSelector(selectItems);
   const items = useSelector(selectEq);
-  // const items = game.selectItems;
 
-  useEffect(() => {
-    // dispatch(fetchEquipment());
-    dispatch(refreshEq());
-    // dispatch(resetItems());
-  }, [dispatch]);
-
-  //   useEffect(() => {
-  //     console.table(equipment);
-  //   }, [equipment]);
+  // useEffect(() => {
+  //   dispatch(refreshEq());
+  // }, [dispatch]);
 
   const filterItems = (filters, items) => {
     // return items;
@@ -42,7 +31,6 @@ export const ItemList = ({ filters }) => {
       ? Array.isArray(items)
         ? [
             ...items.filter((i) => {
-              // i.selected === true
               return !filters.selected || i.selected === filters.selected;
             }),
           ]
@@ -56,7 +44,6 @@ export const ItemList = ({ filters }) => {
       {useSelector(selectLoading) ? (
         <>
           <br />
-          {/* Loading changes... */}
           <Loader />
         </>
       ) : (
