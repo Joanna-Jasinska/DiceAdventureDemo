@@ -13,6 +13,11 @@ import {
   selectSelectedDungeonId,
 } from "redux/game/selectors";
 
+// import { selectLoading as sEqLoading } from "redux/eq/selectors";
+// import { selectLoading as sCombatLoading } from "redux/combat/selectors";
+// import { selectLoading as sDungeonLoading } from "redux/dungeon/selectors";
+// import { selectLoading as sEnemyLoading } from "redux/enemy/selectors";
+
 export const useGame = () => {
   const error = useSelector(selectGameError);
   const loading = useSelector(selectLoading);
@@ -26,7 +31,16 @@ export const useGame = () => {
   const gold = useSelector(selectGold);
   const selectedDungeonId = useSelector(selectSelectedDungeonId);
 
+  // const eqLoading = useSelector(sEqLoading);
+  // const combatLoading = useSelector(sCombatLoading);
+  // const dungeonLoading = useSelector(sDungeonLoading);
+  // const enemyLoading = useSelector(sEnemyLoading);
+
+  // const gameIsLoading =
+  //   loading || eqLoading || combatLoading || dungeonLoading || enemyLoading;
+
   return {
+    // gameIsLoading,
     error,
     loading,
     game,

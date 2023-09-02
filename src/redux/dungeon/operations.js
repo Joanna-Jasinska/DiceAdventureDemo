@@ -2,6 +2,13 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getDungeon } from "data/dungeons";
 import { getRandomNum } from "objects/Dice";
 import { Dungeon } from "objects/Dungeon";
+import {
+  selectCurrentSlot,
+  selectGoldEarned,
+  selectSlotsDefeated,
+} from "./selectors";
+import { selectEnemyGold } from "redux/enemy/selectors";
+import { selectGold } from "redux/game/selectors";
 // import { BASE_EQUIPMENT } from "../../data/eq";
 
 export const clearDungeon = createAsyncThunk(
@@ -91,7 +98,16 @@ export const getEnemyGold = createAsyncThunk(
     const state = thunkAPI.getState();
     const eGold = state.enemy.gold;
     const dGold = state.dungeon.goldEarned;
-    return dGold + eGold;
+    let replacedSlots = [...state.dungeon.slotsDefeated];
+    replacedSlots[state.dungeon.currentSlot] = true;
+    // let replacedSlots = [...selectSlotsDefeated(thunkAPI.getState())];
+    // replacedSlots[selectCurrentSlot(thunkAPI.getState())] = true;
+    // return {
+    //   // enemyGold: selectEnemyGold(state),
+    //   goldEarned: selectGoldEarned(state) + selectEnemyGold(state) + 1,
+    //   slotsDefeated: [false, false, false, true],
+    // };
+    return { goldEarned: dGold + eGold, slotsDefeated: replacedSlots };
   }
 );
 
@@ -103,7 +119,7 @@ export const engageEnemyBySlot = createAsyncThunk(
     const rn = getRandomNum(0, state.dungeon.enemies[slot].length - 1);
     const enemyId = await dungeons[rn];
     console.log(`Engaging ${enemyId} from dungeon[${slot}][${rn}]`);
-    return enemyId;
+    return { selectedEnemyID: enemyId, currentSlot: slot };
   }
 );
 export const getReadyToEnter = createAsyncThunk(

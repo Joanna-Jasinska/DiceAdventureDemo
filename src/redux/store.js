@@ -75,7 +75,16 @@ const dungeonPersistConfig = {
     "name",
     "eventName",
     "ally",
-    // "readyToEnter",
+    "player",
+    "background",
+    "lv",
+    "startedLv",
+    "goldEarned",
+    "currentSlot",
+    "slotsDefeated",
+    "selectedEnemyID",
+    "readyToEnter",
+    // "",
   ],
   // blacklist: ["inDungeon"],
 };
@@ -83,7 +92,31 @@ const dungeonPersistConfig = {
 const combatPersistConfig = {
   key: "combat",
   storage,
-  whitelist: ["all"],
+  whitelist: [
+    "rolledDices",
+    "dices",
+    // "isLoading",
+    "error",
+    "inCombat",
+    "endTurn",
+    "endCombat",
+  ],
+};
+
+const enemyPersistConfig = {
+  key: "enemy",
+  storage,
+  whitelist: [
+    "name",
+    "id",
+    "life",
+    "maxLife",
+    "isBoss",
+    "gold",
+    "portrait",
+    "status",
+    "body",
+  ],
 };
 
 export const store = configureStore({
@@ -91,10 +124,13 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     // contacts: contactsReducer,
     equipment: persistReducer(eqPersistConfig, equipmentReducer),
+    // combat: combatReducer,
     combat: persistReducer(combatPersistConfig, combatReducer),
+    // dungeon: dungeonReducer,
     dungeon: persistReducer(dungeonPersistConfig, dungeonReducer),
     game: persistReducer(gamePersistConfig, gameReducer),
-    enemy: enemyReducer,
+    enemy: persistReducer(enemyPersistConfig, enemyReducer),
+    // enemy: enemyReducer,
     // filter: filterReducer,
     // auth: authReducer,
   },

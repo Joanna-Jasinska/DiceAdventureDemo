@@ -21,6 +21,7 @@ const initialState = {
     maxLife: 15,
     status: {},
   },
+  currentSlot: 0,
   slotsDefeated: [false, false, false, false],
   error: null,
   isLoading: false,
@@ -70,6 +71,7 @@ const dungeonSlice = createSlice({
       state.selectedEnemyID = initialState.selectedEnemyID;
       state.goldEarned = initialState.goldEarned;
       state.slotsDefeated = initialState.slotsDefeated;
+      state.currentSlot = initialState.currentSlot;
     },
 
     [setLv.pending]: handlePending,
@@ -93,14 +95,18 @@ const dungeonSlice = createSlice({
     [getEnemyGold.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.goldEarned = action.payload;
+      state.slotsDefeated = action.payload.slotsDefeated;
+      state.goldEarned = action.payload.goldEarned;
+      // state.goldEarned = action.payload.goldEarned + action.payload.enemyGold;
     },
+
     [engageEnemyBySlot.pending]: handlePending,
     [engageEnemyBySlot.rejected]: handleRejected,
     [engageEnemyBySlot.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.selectedEnemyID = action.payload;
+      state.selectedEnemyID = action.payload.selectedEnemyID;
+      state.currentSlot = action.payload.currentSlot;
     },
 
     [getReadyToEnter.pending]: handlePending,

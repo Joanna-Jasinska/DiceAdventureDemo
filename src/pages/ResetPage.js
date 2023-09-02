@@ -10,7 +10,7 @@ import { clearDungeon } from "redux/dungeon/operations";
 import { Navigate } from "react-router-dom";
 import { clearCombat } from "redux/combat/operations";
 import { resetGame } from "redux/game/operations";
-import { Loader } from "components/Loader/Loader";
+// import { Loader } from "components/Loader/Loader";
 import { useGame } from "hooks/useGame";
 import css from "./../components/Phonebook/Phonebook.module.css";
 // import { selectLoading } from "redux/eq/selectors";

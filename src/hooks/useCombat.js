@@ -7,6 +7,7 @@ import {
   selectEndingTurn,
   selectDices,
   selectRolledDices,
+  selectEndCombat,
 } from "redux/combat/selectors";
 
 export const useCombat = () => {
@@ -18,6 +19,7 @@ export const useCombat = () => {
   // const enemy = useSelector(selectEnemy);
   const dices = useSelector(selectDices);
   const rolledDices = useSelector(selectRolledDices);
+  const endCombat = useSelector(selectEndCombat);
 
   return {
     error,
@@ -28,5 +30,6 @@ export const useCombat = () => {
     // enemy,
     dices,
     rolledDices,
+    endCombat,
   };
 };

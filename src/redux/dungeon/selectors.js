@@ -14,6 +14,7 @@ export const selectLv = (state) => state.dungeon.lv;
 export const selectStartedLv = (state) => state.dungeon.startedLv;
 export const selectGoldEarned = (state) => state.dungeon.goldEarned;
 export const selectSlotsDefeated = (state) => state.dungeon.slotsDefeated;
+export const selectCurrentSlot = (state) => state.dungeon.currentSlot;
 
 // id: "dungeon|1|",
 //   startedLv: 1,

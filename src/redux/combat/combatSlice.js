@@ -14,6 +14,7 @@ import {
   toggleDiceSelection,
   deselectAllDices,
   enterSummary,
+  willEndCombat,
 } from "./operations";
 
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
   error: null,
   inCombat: false,
   endTurn: false,
+  endCombat: false,
 };
 const handleRejected = (state, action) => {
   state.isLoading = false;
@@ -45,8 +47,17 @@ const combatSlice = createSlice({
       state.dices = initialState.dices;
       state.rolledDices = initialState.rolledDices;
       state.endTurn = false;
+      state.endCombat = false;
       // state.enemy = initialState.enemy;
       // state.enteringCombat = false;
+    },
+
+    [willEndCombat.pending]: handlePending,
+    [willEndCombat.rejected]: handleRejected,
+    [willEndCombat.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.endCombat = action.payload;
     },
 
     [enterSummary.pending]: handlePending,
@@ -54,7 +65,7 @@ const combatSlice = createSlice({
     [enterSummary.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.inCombat = 'summary';
+      state.inCombat = "summary";
     },
 
     [beginCombat.pending]: handlePending,

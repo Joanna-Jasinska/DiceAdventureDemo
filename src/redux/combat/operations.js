@@ -27,6 +27,13 @@ import { getEnemy } from "data/enemies";
 //   }
 // );
 
+export const willEndCombat = createAsyncThunk(
+  "combat/willEndCombat",
+  async (state, thunkAPI) => {
+    console.log(`dispatchng combat/willEndCombat`);
+    return state;
+  }
+);
 export const clearCombat = createAsyncThunk(
   "combat/clearCombat",
   async (_, thunkAPI) => {

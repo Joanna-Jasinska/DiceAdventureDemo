@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { TownNavigation } from "components/TownNavigation/TownNavigation";
 import { Footer } from "components/Footer/Footer";
 import { Suspense } from "react";
@@ -9,13 +9,20 @@ import { CombatNavigation } from "components/CombatNavigation/CombatNavigation";
 import { DungeonNavigation } from "components/DungeonNavigation/DungeonNavigation";
 
 export const Layout = () => {
+  // const { inCombat } = false;
+  // const { inDungeon } = false;
   const { inCombat } = useCombat();
   const { inDungeon } = useDungeon();
+  const location = useLocation();
+
+  console.log(`location [${location.pathname}]`);
+
   return (
     <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 16px" }}>
-      {/* <AppBar /> */}
       <div className={css.backLight} />
-      {inCombat ? (
+      {location.pathname === "/reset" ? (
+        ""
+      ) : inCombat ? (
         <CombatNavigation />
       ) : inDungeon ? (
         <DungeonNavigation />
