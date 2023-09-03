@@ -1,15 +1,12 @@
 import { useSelector } from "react-redux";
 import { selectGameError } from "redux/game/selectors";
-import { Item } from "components/Item/Item";
-import { Title } from "components/Phonebook/Title/Title";
 import css from "./../components/Phonebook/Phonebook.module.css";
-import { Navigate } from "react-router-dom";
-import { AllyList } from "components/AllyList/AllyList";
-import { BagOfGold } from "components/BagOfGold/BagOfGold";
-import { useDungeon } from "hooks";
-import { useGame } from "hooks/useGame";
 import { LevelUps } from "components/LevelUps/LevelUps";
-export const TownPage = () => {
+import { useGame } from "hooks/useGame";
+import { BagOfGold } from "components/BagOfGold/BagOfGold";
+import { ItemList } from "components/ItemList/ItemList";
+
+export const WorkshopPage = () => {
   const error = useSelector(selectGameError);
   const { gold, spareLvUps } = useGame();
   return (
@@ -29,9 +26,10 @@ export const TownPage = () => {
         <BagOfGold gold={gold} />
         <LevelUps lv={spareLvUps} />
       </div>
-      <AllyList />
+      {/* <WorkshopItemList /> */}
+      <ItemList />
     </main>
   );
 };
 
-export default TownPage;
+export default WorkshopPage;

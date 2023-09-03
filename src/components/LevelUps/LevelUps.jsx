@@ -1,10 +1,11 @@
 import { PropTypes } from "prop-types";
-import css from "./DungeonLevelUps.module.css";
+import css from "./LevelUps.module.css";
 import { useDungeon } from "hooks";
 
-export const DungeonLevelUps = () => {
-  const { lv, startedLv } = useDungeon();
-  const levelsEarned = startedLv && lv ? Math.max(0, startedLv - lv) : 0;
+export const LevelUps = ({ lv }) => {
+  // const { lv, startedLv } = useDungeon();
+  // const levelsEarned = startedLv && lv ? Math.max(0, startedLv - lv) : 0;
+  const levelsEarned = lv || 0;
   return levelsEarned === 0 ? (
     <></>
   ) : (

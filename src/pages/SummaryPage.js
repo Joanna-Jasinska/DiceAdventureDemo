@@ -9,7 +9,7 @@ import css from "./../components/Phonebook/Phonebook.module.css";
 import { Background } from "components/Background/Background";
 import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
-import { DungeonLevelUps } from "components/DungeonLevelUps/DungeonLevelUps";
+import { LevelUps } from "components/LevelUps/LevelUps";
 import { enterSummary } from "redux/combat/operations";
 
 export const SummaryPage = () => {
@@ -27,7 +27,10 @@ export const SummaryPage = () => {
     name,
     eventName,
     player,
+    lv,
+    startedLv,
   } = useDungeon();
+  const levelUps = Math.max((lv || 0) - (startedLv || 0), 0);
 
   useEffect(() => {
     if (inCombat !== "summary") dispatch(enterSummary());
@@ -73,7 +76,7 @@ export const SummaryPage = () => {
           >
             <PlayerAvatar />
             <BagOfGold gold={goldEarned} />
-            <DungeonLevelUps />
+            <LevelUps lv={levelUps} />
           </div>
         </main>
       )}

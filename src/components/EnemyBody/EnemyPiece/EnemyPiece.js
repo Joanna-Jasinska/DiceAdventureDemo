@@ -17,18 +17,23 @@ export const EnemyPiece = ({ p }) => {
 
   const onDiceHolderClick = () => {
     editToDispatch([
-      ...toDispatch,
-      ...Actions.clickOnBodyPiece(p, rolledDices),
+      ...toDispatch.concat(Actions.clickOnBodyPiece(p, rolledDices)),
     ]);
     // ;
   };
 
   useEffect(() => {
+    const runDispatch = async () => {
+      for (const dispatchFunc of toDispatch) {
+        await dispatch(dispatchFunc());
+      }
+      editToDispatch([]);
+    };
+
     if (toDispatch.length > 0) {
-      dispatch(toDispatch[0]());
-      editToDispatch(toDispatch.slice(1));
+      runDispatch();
     }
-  }, [dispatch, toDispatch]);
+  }, [toDispatch]);
 
   return (
     <div

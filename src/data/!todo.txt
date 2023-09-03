@@ -2,6 +2,15 @@
 -/later/- make piece requirements visible in game --in a better way
 -/later/- do something about game slice resetGame not having isLoading=true at pending
 
+
+- redesign  eq.js
+
+
+- workshop page to edit equipment
+- equipment list with filters
+- equipment leveling
+- make working equipment in equipment.js
+- make equipment scale properly with lv
 - redesign  eq.js
 - redesign and refactor equipment slice and objects Equipment
 
@@ -9,9 +18,7 @@
 - tracking player life in combat and dungeon
 - end turn - damage player
 
-- Return from combat page -check dungeon levelup then go back to dungeon
---- if enemy alive -> go back to combat
---- if enemy life < 1 -> get gold, check dungeon levelup then go back to dungeon
+- Return from combat page -if enemy killed -check dungeon levelup then go back to dungeon
 
 - dungeon slice operations startDungeonById - should load player life and statuses depending on eq
 
@@ -21,7 +28,6 @@
 - Piece.diceIsAllowed - check if fulfilled when requiring exact values
 
 - display and track enemy life
-
 
 - make leaving dungeon battle possible
 - make DungeonSumary page - left or died / gold gained / levels gained
@@ -36,27 +42,23 @@
 - fix CombatPage layout
 - fix DungeonPage layout
 
-- make enemies with working body pieces in data/enemies/ + enemies.js
-- make enemies scale properly with dungeon levels
-
-- combat state is saved in persist store
-
-- make working equipment in equipment.js
-- make equipment scale properly with lv
 
 - make skill descrition display in SkillList component during combat
 - make working skills from equipment
 
 - fill dungeons.js with enemies
 
+-------------------------------
+
 - info page with storyline
 - tutorial page
 - settings page
 
-- equipment list with filters
-- equipment leveling
+-------------------------------
 
 - boss
+
+-------------------------------
 
 - allies working at all
 - AllyPage
@@ -65,8 +67,11 @@
 - allies can sell items
 - allies give missions to unlock items
 
+-------------------------------
+
 - enchants can be added to weapons
 - enchants list with filters
+- alchemy page to edit enchantments
 - endchants leveling
 - allies can sell enchantments
 - allies give missions to unlock enchantments

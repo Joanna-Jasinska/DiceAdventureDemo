@@ -72,7 +72,6 @@ export const deleteAllPieceDices = createAsyncThunk(
   "enemy/deleteAllPieceDices",
   async (pieceId, thunkAPI) => {
     // return pieceId;
-
     const state = thunkAPI.getState().enemy;
     const { body } = state;
     const myBody = state.body.map((piece) => {
@@ -81,12 +80,12 @@ export const deleteAllPieceDices = createAsyncThunk(
       }
       return piece;
     });
-    console.log(`-----start-----body------evaluation--------------------`);
+    // console.log(`-----start-----body------evaluation--------------------`);
     console.table(myBody);
     const changedPiece = myBody.find((p) => p.id === pieceId);
     const myBodyEvaluated = Enemy.evaluatePieceThanBody(changedPiece, myBody);
     console.table(myBodyEvaluated);
-    console.log(`-----stop-----body------evaluation--------------------`);
+    // console.log(`-----stop-----body------evaluation--------------------`);
     return myBodyEvaluated;
   }
 );

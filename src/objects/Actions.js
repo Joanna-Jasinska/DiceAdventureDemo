@@ -11,8 +11,9 @@ import {
 
 export const Actions = {
   // -----------------------------------------------------------------------------
-  clickOnBodyPiece(piece, rolledDices) {
-    console.log(`clickOnBodyPiece`);
+  clickOnBodyPiece(piecee, rolledDices) {
+    const piece = JSON.parse(JSON.stringify(piecee));
+    // console.log(`clickOnBodyPiece`);
     const toDispatch = [];
     const foundRD = rolledDices;
     const bag =
@@ -26,7 +27,7 @@ export const Actions = {
         : false;
 
     const returnAllPieceDicesToBag = () => {
-      console.log(`Returning all piece dices to bag`);
+      // console.log(`Returning all piece dices to bag`);
       let diceArray = [];
       piece.dices.forEach((d) => {
         diceArray.push(d);
@@ -34,6 +35,11 @@ export const Actions = {
       if (diceArray.length > 0) {
         toDispatch.push(() => addMultipleRolledDice(diceArray));
         toDispatch.push(() => deleteAllPieceDices(piece.id));
+        // console.log(`Actions.returnAllPieceDicesToBag, piece.id: `, piece.id);
+        // console.log(
+        //   `Actions.returnAllPieceDicesToBag, dispatched: `,
+        //   toDispatch
+        // );
         return toDispatch;
       }
     };

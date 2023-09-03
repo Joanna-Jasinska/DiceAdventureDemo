@@ -11,7 +11,7 @@ import { Background } from "components/Background/Background";
 import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 import { SkillList } from "components/SkillList/SkillList";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
-import { DungeonLevelUps } from "components/DungeonLevelUps/DungeonLevelUps";
+import { LevelUps } from "components/LevelUps/LevelUps";
 import css from "./../components/Phonebook/Phonebook.module.css";
 import { DungeonSquare } from "components/DungeonSquare/DungeonSquare";
 import { useGame } from "hooks/useGame";
@@ -19,9 +19,11 @@ import { useGame } from "hooks/useGame";
 export const DungeonPage = () => {
   const dispatch = useDispatch();
   const error = useSelector(selectGameError);
-  const { name, eventName, bg, lv, slotsDefeated, goldEarned } = useDungeon();
+  const { name, eventName, bg, lv, slotsDefeated, goldEarned, startedLv } =
+    useDungeon();
   const { selectedDungeonId } = useGame();
   const { inCombat } = useCombat();
+  const levelUps = Math.max((lv || 0) - (startedLv || 0), 0);
 
   // const n = getRandomNum(0,4);
   const beginBattleBySlot = (n) => {
@@ -144,7 +146,7 @@ export const DungeonPage = () => {
           >
             <PlayerAvatar />
             <BagOfGold gold={goldEarned} />
-            <DungeonLevelUps />
+            <LevelUps lv={levelUps} />
           </div>
           <SkillList />
         </main>

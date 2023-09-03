@@ -13,11 +13,72 @@
 // Boots of Speed / 3/10 speed (+1/10 speed)
 // HASTE: [non 1 speed][non speed] reroll the nonspeed dice, change speed dice to 1
 
-const STARTING_EQ = [];
+const STARTING_EQ = [
+  "Legacy Sword|COMBO SLASH|",
+  "Old Broom|WITCH'S BROOM|",
+  "Provisions Bag|SNACK|",
+  "Lucky Clover|LUCKY ROLL|",
+];
 
 export const BASE_EQUIPMENT = [
   {
-    // selected: true,
+    name: "Lucky Clover",
+    itemId: "Lucky Clover|LUCKY ROLL|",
+    alt: "🍀",
+    skill: {
+      name: "LUCKY ROLL",
+      txt: "[(1)] => reroll for same or higher value ",
+      id: "Lucky Clover|LUCKY ROLL|",
+    },
+    statsTxT: "~ +1/4 per lv",
+    stats: [
+      { item: "stats", type: "life", maxHp: 7 },
+      {
+        item: "dice",
+        diceMax: 4,
+        value: 2,
+        type: "rainbow",
+        existSinceLv: 1,
+        duplicateAtLv: 80,
+        lvlsToRaiseValue: 4,
+        lvlsToRaiseDiceMax: 5,
+      },
+    ],
+  },
+  {
+    itemId: "Old Broom|WITCH'S BROOM|",
+    name: "Old Broom",
+    alt: "🧹",
+    skill: {
+      name: "WITCH'S BROOM",
+      txt: "Change 🌀 into one of 🔥❄️⚡ at random",
+      id: "Old Broom|WITCH'S BROOM|",
+    },
+    statsTxT: "~ +1/2 per lv",
+    stats: [
+      {
+        item: "dice",
+        diceMax: 10,
+        // value: undefined,
+        type: "smashed",
+        existSinceLv: 1,
+        duplicateAtLv: 60,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 3,
+      },
+      {
+        item: "dice",
+        diceMax: 2,
+        // value: undefined,
+        type: "mana",
+        existSinceLv: 5,
+        duplicateAtLv: 90,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 5,
+      },
+    ],
+  },
+  {
     itemId: "Legacy Sword|COMBO SLASH|",
     name: "Legacy Sword",
     alt: "🗡️",
@@ -26,6 +87,7 @@ export const BASE_EQUIPMENT = [
       txt: "Change speed/strength/dexterity dice into slashed+1",
       id: "Legacy Sword|COMBO SLASH|",
     },
+    statsTxT: "~ +1/3 per lv",
     stats: [
       {
         item: "dice",
@@ -33,24 +95,21 @@ export const BASE_EQUIPMENT = [
         // value: undefined,
         type: "slashed",
         existSinceLv: 1,
-        duplicateAtLv: 30,
+        duplicateAtLv: 12,
         // lvlsToRaiseValue: 3,
-        lvlsToRaiseDiceMax: 2,
+        lvlsToRaiseDiceMax: 3,
       },
-
       {
         item: "dice",
         diceMax: 4,
         // value: undefined,
         type: "speed",
         existSinceLv: 5,
-        duplicateAtLv: 30,
-        lvlsToRaiseValue: 3,
-        lvlsToRaiseDiceMax: 10,
+        duplicateAtLv: 10,
+        // lvlsToRaiseValue: 3,
+        // lvlsToRaiseDiceMax: 10,
       },
     ],
-    statsTxT: "EACH level: [ +1 speed ] of k6 ",
-    lv: 1,
   },
 
   {
@@ -63,20 +122,29 @@ export const BASE_EQUIPMENT = [
       txt: "combine STR/NEEDLE 2 dices to gain their combined value and max",
       id: "Utiki Spear|CHARGE|",
     },
-    stats: [{ item: "dice", diceMax: 20, value: undefined, type: "needle" }],
-    statGrow: [
+    statsTxT: "~ +1/3 per lv",
+    stats: [
       {
         item: "dice",
+        diceMax: 8,
+        // value: undefined,
+        type: "slashed",
         existSinceLv: 1,
-        diceMax: 20,
-        value: 0,
-        type: "needle",
-        valueGrowPerLevel: 1,
-        valueMakesExtraDice: true,
+        duplicateAtLv: 12,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 3,
+      },
+      {
+        item: "dice",
+        diceMax: 4,
+        // value: undefined,
+        type: "speed",
+        existSinceLv: 5,
+        duplicateAtLv: 10,
+        // lvlsToRaiseValue: 3,
+        // lvlsToRaiseDiceMax: 10,
       },
     ],
-    statsTxT: "EACH level: [ +1 needle ] of k20 ",
-    lv: 1,
   },
 
   {
@@ -85,28 +153,23 @@ export const BASE_EQUIPMENT = [
     alt: "👜",
     skill: {
       name: "SNACK",
-      txt: "spend speed dice to recover mana equal to its value and 1hp",
+      txt: "[(1)stamina] [speed] => heal 1hp, get [mana]=(1) ",
       id: "Provisions Bag|SNACK|",
     },
+    statsTxT: "~ +1/5 per lv",
     stats: [
-      { item: "stats", type: "life", maxHp: 20 },
-      { item: "dice", diceMax: 4, value: undefined, type: "stamina" },
-    ],
-    statGrow: [
+      { item: "stats", type: "life", maxHp: 18 },
       {
         item: "dice",
-        existSinceLv: 5,
         diceMax: 4,
-        value: undefined,
+        // value: undefined,
         type: "stamina",
-        // valueGrowPerLevel: 1,
-        // valueMakesExtraDice: true,
-        levelMakesExtraDice: true,
-        amountOfLevelsForExtraDice: 5,
+        existSinceLv: 1,
+        duplicateAtLv: 80,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 5,
       },
     ],
-    statsTxT: "Per 5 levels: [ +1d4 stamina ] ",
-    lv: 1,
   },
 
   {

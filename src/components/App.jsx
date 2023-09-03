@@ -22,6 +22,7 @@ const SummaryPage = lazy(() => import("../pages/SummaryPage"));
 const ReturnFromCombatPage = lazy(() =>
   import("../pages/ReturnFromCombatPage")
 );
+const WorkshopPage = lazy(() => import("../pages/WorkshopPage"));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,12 @@ export const App = () => {
           <Route
             path="/eq"
             element={<RouteTown redirectTo="/combat" component={<EQPage />} />}
+          />
+          <Route
+            path="/workshop"
+            element={
+              <RouteTown redirectTo="/combat" component={<WorkshopPage />} />
+            }
           />
           <Route
             path="/dungeon"
