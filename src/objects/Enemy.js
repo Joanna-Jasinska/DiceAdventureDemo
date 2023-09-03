@@ -52,11 +52,31 @@ export const Enemy = {
     return [...evaluatedBody];
   },
 
-  levelUp(e, lv, startedLv) {
+  levelUp(ee, lvv, startedLvv) {
+    const e = JSON.parse(JSON.stringify(ee));
+    const lv = JSON.parse(JSON.stringify(lvv));
+    const startedLv = JSON.parse(JSON.stringify(startedLvv));
     // !!!AAA!!! levelup enemy pieces
+    let leveledPiecesArray = [];
+    console.log("Enemy.levelUp enemy.body:", [...e.body]);
+    for (const piecee of e.body) {
+      const piece = JSON.parse(JSON.stringify(piecee));
+      // console.log("Enemy.levelUp Current piece:", piece);
+      const leveledPieces = [
+        ...Piece.levelupPiece({ ...piece, grow: { ...piece.grow, lv } }),
+      ];
+      console.log("Enemy.levelUp leveledPieces:", leveledPieces);
+      leveledPiecesArray = [...leveledPiecesArray.concat([...leveledPieces])];
+      console.log("Enemy.levelUp leveledPiecesArray:", leveledPiecesArray);
+    }
+    // const enemy = { ...e, body: [...leveledPiecesArray] };
+    const enemy = { ...e };
+    console.log(`Enemy.levelUp enemy:`, enemy);
     const gold = this.calculateGold({ lv, gold: e.gold, startedLv });
-    const enemy = e;
-    const evaluatedBody = this.evaluateBody(e.body);
+    // const gold = 14;
+    const evaluatedBody = this.evaluateBody([...leveledPiecesArray]);
+    // const evaluatedBody = enemy.body;
     return { ...enemy, body: [...evaluatedBody], gold: gold };
+    // return e;
   },
 };

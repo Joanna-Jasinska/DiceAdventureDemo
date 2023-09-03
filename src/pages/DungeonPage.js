@@ -19,7 +19,7 @@ import { useGame } from "hooks/useGame";
 export const DungeonPage = () => {
   const dispatch = useDispatch();
   const error = useSelector(selectGameError);
-  const { name, eventName, bg, lv, slotsDefeated } = useDungeon();
+  const { name, eventName, bg, lv, slotsDefeated, goldEarned } = useDungeon();
   const { selectedDungeonId } = useGame();
   const { inCombat } = useCombat();
 
@@ -49,7 +49,7 @@ export const DungeonPage = () => {
     // fight boss
   };
 
-  <Navigate to="/combat" />;
+  // <Navigate to="/combat" />;
   return (
     <>
       {inCombat ? (
@@ -143,7 +143,7 @@ export const DungeonPage = () => {
             }}
           >
             <PlayerAvatar />
-            <BagOfGold />
+            <BagOfGold gold={goldEarned} />
             <DungeonLevelUps />
           </div>
           <SkillList />

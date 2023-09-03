@@ -9,12 +9,13 @@ export const selectLoading = (state) => state.dungeon.isLoading;
 export const selectInDungeon = (state) => state.dungeon.inDungeon;
 export const selectDungeonLv = (state) => state.dungeon.lv;
 export const selectDungeonBg = (state) => state.dungeon.background;
-export const selectPlayer = (state) => state.dungeon.player;
 export const selectLv = (state) => state.dungeon.lv;
 export const selectStartedLv = (state) => state.dungeon.startedLv;
 export const selectGoldEarned = (state) => state.dungeon.goldEarned;
 export const selectSlotsDefeated = (state) => state.dungeon.slotsDefeated;
 export const selectCurrentSlot = (state) => state.dungeon.currentSlot;
+export const selectPlayer = (state) => state.dungeon.player;
+export const selectPlayerLife = (state) => state.dungeon.player.life;
 
 // id: "dungeon|1|",
 //   startedLv: 1,

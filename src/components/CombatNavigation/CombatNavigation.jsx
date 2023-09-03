@@ -9,7 +9,7 @@ import {
 } from "redux/combat/operations";
 import css from "./CombatNavigation.module.css";
 import { useCombat, useDungeon } from "hooks";
-import { deleteAllBodyDices } from "redux/enemy/operations";
+import { deleteAllBodyDices, die } from "redux/enemy/operations";
 import { useEnemy } from "hooks/useEnemy";
 import { EnemyPortrait } from "components/EnemyPortrait/EnemyPortrait";
 import { gainFromDungeonSummary } from "redux/game/operations";
@@ -31,6 +31,10 @@ export const CombatNavigation = () => {
     e.preventDefault();
     dispatch(copyAllEnemyDicesToBag());
     dispatch(deleteAllBodyDices());
+  };
+  const killEnemy = (e) => {
+    e.preventDefault();
+    dispatch(die());
   };
   const exitDungeon = (e) => {
     e.preventDefault();
@@ -114,7 +118,12 @@ export const CombatNavigation = () => {
             <HeaderNavBtn to="/-" display="🎲⭯" onClick={retrieveAllDices} />
           </div>
           <div className={css.rightNav}>
-            <HeaderNavBtn to="/return" display="Win Fight" />
+            <HeaderNavBtn
+              to="/-"
+              display="Win Fight"
+              onClick={killEnemy}
+              inactive={true}
+            />
             <HeaderNavBtn to="/summary" display="🏃 Town" />
             <HeaderNavBtn
               to="/-"

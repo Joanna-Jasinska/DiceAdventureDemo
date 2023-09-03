@@ -13,29 +13,40 @@
 // Boots of Speed / 3/10 speed (+1/10 speed)
 // HASTE: [non 1 speed][non speed] reroll the nonspeed dice, change speed dice to 1
 
+const STARTING_EQ = [];
+
 export const BASE_EQUIPMENT = [
   {
-    selected: true,
+    // selected: true,
+    itemId: "Legacy Sword|COMBO SLASH|",
     name: "Legacy Sword",
     alt: "🗡️",
     skill: {
       name: "COMBO SLASH",
       txt: "Change speed/strength/dexterity dice into slashed+1",
-      id: "Boots of Speed|HASTE|skill|ID",
+      id: "Legacy Sword|COMBO SLASH|",
     },
     stats: [
-      { item: "dice", diceMax: 8, value: undefined, type: "slashed" },
-      { item: "dice", diceMax: 4, value: undefined, type: "speed" },
-    ],
-    statGrow: [
       {
         item: "dice",
+        diceMax: 8,
+        // value: undefined,
+        type: "slashed",
         existSinceLv: 1,
-        diceMax: 6,
-        value: 0,
+        duplicateAtLv: 30,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 2,
+      },
+
+      {
+        item: "dice",
+        diceMax: 4,
+        // value: undefined,
         type: "speed",
-        valueGrowPerLevel: 1,
-        valueMakesExtraDice: true,
+        existSinceLv: 5,
+        duplicateAtLv: 30,
+        lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 10,
       },
     ],
     statsTxT: "EACH level: [ +1 speed ] of k6 ",
@@ -45,11 +56,12 @@ export const BASE_EQUIPMENT = [
   {
     selected: true,
     name: "Utiki Spear",
+    itemId: "Utiki Spear|CHARGE|",
     alt: "🔱",
     skill: {
       name: "CHARGE",
       txt: "combine STR/NEEDLE 2 dices to gain their combined value and max",
-      id: "Boots of Speed|HASTE|skill|ID",
+      id: "Utiki Spear|CHARGE|",
     },
     stats: [{ item: "dice", diceMax: 20, value: undefined, type: "needle" }],
     statGrow: [
@@ -69,11 +81,12 @@ export const BASE_EQUIPMENT = [
 
   {
     name: "Provisions Bag",
+    itemId: "Provisions Bag|SNACK|",
     alt: "👜",
     skill: {
       name: "SNACK",
       txt: "spend speed dice to recover mana equal to its value and 1hp",
-      id: "Provisions Bag|SNACK|skill|ID",
+      id: "Provisions Bag|SNACK|",
     },
     stats: [
       { item: "stats", type: "life", maxHp: 20 },
@@ -98,11 +111,12 @@ export const BASE_EQUIPMENT = [
 
   {
     name: "Wizard Hat",
+    itemId: "Wizard Hat|MANA ARMOR|",
     alt: "🎩",
     skill: {
       name: "MANA ARMOR",
       txt: "2x mana/magic slots (any value) gain shield equal to lower value of one dice",
-      id: "Wizard Hat|MANA ARMOR|skill|ID",
+      id: "Wizard Hat|MANA ARMOR|",
     },
     stats: [
       { item: "dice", diceMax: 6, value: undefined, type: "mana" },
@@ -128,11 +142,12 @@ export const BASE_EQUIPMENT = [
   {
     selected: true,
     name: "Boots of Speed",
+    itemId: "Boots of Speed|HASTE|",
     alt: "👢",
     skill: {
       name: "HASTE",
       txt: "[speed =/= 1][non speed] reroll the nonspeed dice, change speed dice to 1",
-      id: "Boots of Speed|HASTE|skill|ID",
+      id: "Boots of Speed|HASTE|",
     },
     stats: [{ item: "dice", diceMax: 10, value: 3, type: "speed" }],
     statGrow: [
@@ -153,6 +168,7 @@ export const BASE_EQUIPMENT = [
 
   {
     name: "Test Bag of nothing and nothingness",
+    itemId: "Test Bag of nothing and nothingness||",
     stats: [
       { item: "stats", type: "life", maxHp: 20 },
       {
@@ -180,11 +196,12 @@ export const BASE_EQUIPMENT = [
   {
     selected: true,
     name: "Fairy Advisor",
+    itemId: "Fairy Advisor|ADVISE|",
     alt: "🧚‍♀️",
     skill: {
       name: "ADVISE",
       txt: "Automatically arrange your dices.. but not always in a best way.",
-      id: "Fairy Advisor|ADVISE|skill|ID",
+      id: "Fairy Advisor|ADVISE|",
     },
     stats: [
       { item: "stats", type: "life", maxHp: 10 },

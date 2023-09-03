@@ -2,8 +2,12 @@
 -/later/- make piece requirements visible in game --in a better way
 -/later/- do something about game slice resetGame not having isLoading=true at pending
 
-- dungeon slice - save which dungeon slots were defeated
-- after winning a fight disable that dungeon slot button
+- redesign  eq.js
+- redesign and refactor equipment slice and objects Equipment
+
+- intiating player life from eq when entering dungeon
+- tracking player life in combat and dungeon
+- end turn - damage player
 
 - Return from combat page -check dungeon levelup then go back to dungeon
 --- if enemy alive -> go back to combat
@@ -18,9 +22,6 @@
 
 - display and track enemy life
 
-- intiating player life from eq when entering dungeon
-- tracking player life in combat and dungeon
-- end turn - damage player
 
 - make leaving dungeon battle possible
 - make DungeonSumary page - left or died / gold gained / levels gained

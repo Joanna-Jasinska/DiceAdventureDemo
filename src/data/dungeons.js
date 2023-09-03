@@ -48,9 +48,11 @@ export const DUNGEONS = [
         "GOBLINS|green|Surprised Goblin",
       ],
       [
-        "ANIMALS|green|Elder Badger",
         "GOBLINS|green|Angry Goblin",
-        "ELEMENTALS|green|Treant",
+        "GOBLINS|green|Angry Goblin",
+        "GOBLINS|green|Angry Goblin",
+        // "ANIMALS|green|Elder Badger",
+        // "ELEMENTALS|green|Treant",
       ],
       [
         "GOBLINS|green|Goblin Shaman",

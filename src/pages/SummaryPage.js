@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { selectGameError } from "redux/game/selectors"; 
+import { selectGameError } from "redux/game/selectors";
 import { HeaderNavBtn } from "components/HeaderNavBtn/HeaderNavBtn";
 import { Title } from "components/Phonebook/Title/Title";
 import { useCombat, useDungeon } from "hooks";
@@ -19,6 +19,7 @@ export const SummaryPage = () => {
   const { inCombat } = useCombat();
   const {
     error,
+    goldEarned,
     packedItems,
     ally,
     loading,
@@ -29,8 +30,8 @@ export const SummaryPage = () => {
   } = useDungeon();
 
   useEffect(() => {
-    if(inCombat!=='summary')dispatch(enterSummary());
-  }, [dispatch,inCombat]);
+    if (inCombat !== "summary") dispatch(enterSummary());
+  }, [dispatch, inCombat]);
 
   // useEffect(() => {
   //   dispatch(resetGame());
@@ -71,7 +72,7 @@ export const SummaryPage = () => {
             }}
           >
             <PlayerAvatar />
-            <BagOfGold />
+            <BagOfGold gold={goldEarned} />
             <DungeonLevelUps />
           </div>
         </main>

@@ -34,7 +34,13 @@ export const Piece = {
           return `[${
             !piece.requires.exactValues
               ? !piece.allows.exactValues
-                ? "R"
+                ? piece.allows.minValue || piece.allows.maxValue
+                  ? `${
+                      piece.allows.minValue ? piece.allows.minValue + "+" : ""
+                    }${
+                      piece.allows.maxValue ? "-" + piece.allows.maxValue : ""
+                    }`
+                  : "R"
                 : piece.allows.exactValues.join("/")
               : piece.requires.exactValues[i - 1]
           }]`;
@@ -136,40 +142,120 @@ export const Piece = {
     console.log(`--------------Dice ALLOWED-----------`);
     return true;
   },
+
+  levelupPiece(piecee) {
+    const piece = JSON.parse(JSON.stringify(piecee));
+    const pieceArray = [];
+    const lv = piece.lv || 0;
+    const grow = piece.grow ? piece.grow : false;
+    const r = piece.requires ? piece.requires : false;
+    let spilloverLv = grow && grow.lv ? grow.lv : -1;
+    const maxLv = grow.duplicateAtLv || false;
+    let iteration = 1;
+    while (r && maxLv && spilloverLv > maxLv) {
+      // make maxed dice  --------------------------------------------------
+      let currentPiece = JSON.parse(JSON.stringify({ ...piece }));
+      currentPiece.grow.lv = maxLv;
+      if (r.minDices && grow.lvlsToRaiseMinDices) {
+        const newMinDices =
+          r.minDices + Math.floor(maxLv / grow.lvlsToRaiseMinDices);
+        currentPiece.requires.minDices = newMinDices;
+        if (currentPiece.allows && currentPiece.allows.maxDices) {
+          currentPiece.allows.maxDices += Math.floor(
+            maxLv / grow.lvlsToRaiseMinDices
+          );
+        }
+      }
+      if (r.minSum && grow.lvlsToRaiseMinSum) {
+        const newMinSum = r.minSum + Math.floor(maxLv / grow.lvlsToRaiseMinSum);
+        currentPiece.requires.minSum = newMinSum;
+      }
+      if (r.exactValues && grow.lvlsToRaiseExactValues) {
+        const extraAmount = Math.floor(maxLv / grow.lvlsToRaiseExactValues);
+        for (let i = extraAmount; i > 0; i--) {
+          currentPiece.requires.exactValues.push(
+            currentPiece.requires.exactValues[0]
+          );
+        }
+      }
+      // --------------------------------------------------
+      currentPiece.id = `${currentPiece.id}|iteration|${iteration}`;
+      currentPiece.key = `${currentPiece.key}|iteration|${iteration}`;
+      console.log(
+        `Leveling piece - adding full level [${maxLv}] piece.`,
+        currentPiece
+      );
+      pieceArray.push({ ...currentPiece });
+      iteration += 1;
+      spilloverLv = spilloverLv - grow.duplicateAtLv;
+    }
+    if (spilloverLv > 0) {
+      // make not full dice  ----------------------------------------------
+      let currentPiece = JSON.parse(JSON.stringify({ ...piece }));
+      currentPiece.grow.lv = spilloverLv;
+      if (r.minDices && grow.lvlsToRaiseMinDices) {
+        const newMinDices =
+          r.minDices + Math.floor(lv / grow.lvlsToRaiseMinDices);
+        currentPiece.requires.minDices = newMinDices;
+        if (currentPiece.allows && currentPiece.allows.maxDices) {
+          currentPiece.allows.maxDices += Math.floor(
+            lv / grow.lvlsToRaiseMinDices
+          );
+        }
+      }
+      if (r.minSum && grow.lvlsToRaiseMinSum) {
+        const newMinSum = r.minSum + Math.floor(lv / grow.lvlsToRaiseMinSum);
+        currentPiece.requires.minSum = newMinSum;
+      }
+      if (r.exactValues && grow.lvlsToRaiseExactValues) {
+        const extraAmount = Math.floor(lv / grow.lvlsToRaiseExactValues);
+        for (let i = extraAmount; i > 0; i--) {
+          currentPiece.requires.exactValues.push(
+            currentPiece.requires.exactValues[0]
+          );
+        }
+      }
+      // --------------------------------------------------
+      currentPiece.id = `${currentPiece.id}|last`;
+      currentPiece.key = `${currentPiece.key}|last`;
+      console.log(
+        `Leveling piece - adding last level [${spilloverLv}] piece.`,
+        currentPiece
+      );
+      pieceArray.push({ ...currentPiece });
+    }
+    console.log(`finished leveling piece, pieceArray: `);
+    console.table(pieceArray);
+    return pieceArray;
+  },
 };
 
-// {
-//   priority: true,
-//   // extra: false, //dice unlocks after all priority and normal body are filled
-//   // keep: false, //player keeps its dices as extra dices for next turn
-//   bodyPartIcon: "😬",
-//   bodyPartTypes: ["eye", "head"],
-
-//   allows: {
-//     types: ["physical", "magic", "elemental", "speed"],
-//     minValue: 4,
-//     maxValue: -1,
-//     exactValues: ["even"],
-//     maxDices: false,
-//   },
-//   requires: {
-//     exactValues: false,
-//     minDices: 1,
-//     minDicesGrowthScale: false,
-//     minSum: 4,
-//     minSumGrowth: 1,
-//   },
-//   multiplies: {
-//     multipliedTypes: ["elemental"],
-//     multipliedBy: 2,
-//   },
-//   damages: {
-//     damageToPlayer: 0,
-//     effectsToPlayer: false,
-//     damageToEnemy: 0,
-//     effectsToEnemy: false,
-//   },
-
-//   id: "piece|GOBLINS|green|Surprised Goblin|eye|1",
-//   key: "piece|GOBLINS|green|Surprised Goblin|eye|1",
+// allows: {
+//   types: ["physical", "magic", "elemental", "speed"],
+//   minValue: 4,
+//   maxValue: -1,
+//   exactValues: ["even"],
+//   maxDices: false,
+// },
+// requires: {
+//   exactValues: false,
+//   minDices: 1,
+//   minSum: 4,
+// },
+// multiplies: {
+//   multipliedTypes: ["elemental"],
+//   multipliedBy: 2,
+// },
+// damages: {
+//   damageToPlayer: 0,
+//   effectsToPlayer: false,
+//   damageToEnemy: 0,
+//   effectsToEnemy: false,
+// },
+// grow: {
+//   lv: 33,
+//   duplicateAtLv: 20,
+//   lvlsToRaiseMinSum: 2,
+//   lvlsToRaiseMinDices: 5,
+//   lvlsToRaiseExactValues: 11,
 // },

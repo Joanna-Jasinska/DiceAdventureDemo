@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 // import { useSelector, useDispatch } from "react-redux";
 // import { Loader } from "components/Loader/Loader";
@@ -10,11 +10,15 @@ import { clearCombat, willEndCombat } from "redux/combat/operations";
 import { Loader } from "components/Loader/Loader";
 import { Navigate } from "react-router-dom";
 import { useCombat } from "hooks";
+import { selectEnemyLife } from "redux/enemy/selectors";
+import { selectPlayerLife } from "redux/dungeon/selectors";
 
 // import { selectLoading } from "redux/eq/selectors";
 export const ReturnFromCombatPage = () => {
   const dispatch = useDispatch();
   const { endCombat, inCombat } = useCombat();
+  const enemyLife = useSelector(selectEnemyLife);
+  const playerLife = useSelector(selectPlayerLife);
   // const error = useSelector(selectError);
   // const loading = useSelector(selectLoading);
   // let redirect = true;
@@ -29,10 +33,9 @@ export const ReturnFromCombatPage = () => {
     //   return;
     // }
     // if (endCombat === "processing") {
-    if (inCombat) {
+    if (inCombat && (enemyLife < 1 || playerLife < 1)) {
       // dispatch(willEndCombat("finished")).finally(() => {
-      console.log(`would dispatch get gold, will endCombat[$x{endCombat}]`);
-
+      // console.log(`would dispatch get gold, will endCombat[$x{endCombat}]`);
       dispatch(getEnemyGold()).then(() => {
         dispatch(clearCombat());
       });

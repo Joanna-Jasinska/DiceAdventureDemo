@@ -58,7 +58,7 @@ const enemySlice = createSlice({
     [die.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.hp = 0;
+      state.life = 0;
     },
     // placeBodyPieceDice{ pieceId, dice }
     [placeBodyPieceDice.pending]: handlePending,
