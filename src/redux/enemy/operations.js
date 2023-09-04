@@ -15,9 +15,10 @@ import { Enemy } from "objects/Enemy";
 export const damageEnemy = createAsyncThunk(
   "enemy/dmg",
   async (dmg, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const hp = Math.min(Math.max(state.enemy.hp - dmg, 0), state.enemy.maxHp);
-    return hp;
+    // const state = thunkAPI.getState();
+    // const hp = Math.min(Math.max(state.enemy.hp - dmg, 0), state.enemy.maxHp);
+    // return hp;
+    return dmg;
   }
 );
 

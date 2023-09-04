@@ -7,7 +7,7 @@ const ItemTemplate = {
 };
 
 const levelNondiceStat = (piecee, lvv = 1) => {
-  return [];
+  return [piecee];
 };
 const levelDiceStat = (piecee, lvv = 1) => {
   const piece = JSON.parse(JSON.stringify(piecee));

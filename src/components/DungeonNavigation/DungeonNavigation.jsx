@@ -72,11 +72,7 @@ export const DungeonNavigation = () => {
           />
         </div>
         <div className={css.rightNav}>
-          <HeaderNavBtn
-            to="/-"
-            display="🏃 Leave dung. 💩"
-            onClick={exitDungeon}
-          />
+          <HeaderNavBtn to="/-" display="🏃Leave Path" onClick={exitDungeon} />
         </div>
       </nav>
     </header>

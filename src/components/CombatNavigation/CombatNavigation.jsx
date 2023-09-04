@@ -10,7 +10,7 @@ import {
 } from "redux/combat/operations";
 import css from "./CombatNavigation.module.css";
 import { useCombat, useDungeon } from "hooks";
-import { deleteAllBodyDices, die } from "redux/enemy/operations";
+import { damageEnemy, deleteAllBodyDices, die } from "redux/enemy/operations";
 import { useEnemy } from "hooks/useEnemy";
 import { EnemyPortrait } from "components/EnemyPortrait/EnemyPortrait";
 import { gainFromDungeonSummary } from "redux/game/operations";
@@ -73,29 +73,15 @@ export const CombatNavigation = () => {
       }
     });
     // !!!AAA!!! to do:
-    // apply player damage
     // apply player status
-    // apply enemy damage
     // apply enemy status
     runDispatch([
       () => damagePlayer(dmgToPlayer),
+      () => damageEnemy(dmgToEnemy),
       deleteAllBodyDices,
       rollAllDices,
     ]);
   };
-  // const negatives = body
-  //   .map((piece) => {
-  //     const dmgToPlayer = `${
-  //       piece.damages.damageToPlayer ? `❤️x${piece.damages.damageToPlayer}` : ""
-  //     }`;
-  //     const effToPlayer = `${
-  //       piece.damages.effectsToPlayer
-  //         ? `❗️❔x${piece.damages.effectsToPlayer}`
-  //         : ""
-  //     }`;
-  //     return piece.fulfilled ? "" : dmgToPlayer + effToPlayer;
-  //   })
-  //   .join("");
   let negNum = 0;
   let effToPlayer = "";
   let posNum = 0;
@@ -116,27 +102,9 @@ export const CombatNavigation = () => {
   const positives = `${posNum === 0 ? "" : "⚔️x" + posNum}${
     effToEnemy === "" ? "" : effToEnemy
   }`;
-  // const positives = body
-  //   .map((piece) => {
-  //     const dmgToEnemy = `${
-  //       piece.damages.damageToEnemy ? `⚔️x${piece.damages.damageToEnemy}` : ""
-  //     }`;
-  //     const effToEnemy = `${
-  //       piece.damages.effectsToEnemy ? `❔x${piece.damages.effectsToEnemy}` : ""
-  //     }`;
-  //     return !piece.fulfilled ? "" : dmgToEnemy + effToEnemy;
-  //   })
-  //   .join("");
 
-  // damages: {
-  //   damageToPlayer: 0,
-  //   effectsToPlayer: false,
-  //   damageToEnemy: 0,
-  //   effectsToEnemy: false,
-  // },
   const endTurnIcon = negatives !== "" ? "❌" : "✔️"; //✔️❌
   const endTurnDmg = negatives !== "" ? negatives : positives; //⚔️❤️
-  // const consequences = "good"; //color ?
   //   ✔️❌☠️
   // ⚙️💀☠️🩸❤️⚔️👍
 
@@ -158,7 +126,11 @@ export const CombatNavigation = () => {
             />
           </div>
           <div className={css.rightNav}>
-            <HeaderNavBtn to="/-" display="🏃 Town" onClick={exitDungeon} />
+            <HeaderNavBtn
+              to="/-"
+              display="🏃Leave Path"
+              onClick={exitDungeon}
+            />
           </div>
         </nav>
       ) : (
@@ -185,7 +157,7 @@ export const CombatNavigation = () => {
               display={`${endTurnIcon} End Turn ${endTurnDmg}`}
               onClick={endTurn}
             />
-            <HeaderNavBtn to="/summary" display="🏃Town" />
+            <HeaderNavBtn to="/summary" display="🏃Leave Path" />
             <HeaderNavBtn
               to="/-"
               display="Win"

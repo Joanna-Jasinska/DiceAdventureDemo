@@ -3,7 +3,7 @@ import css from "./EnemyPortrait.module.css";
 import { useEnemy } from "hooks/useEnemy";
 
 export const EnemyPortrait = () => {
-  const { portrait } = useEnemy();
+  const { portrait, enemyLife, enemyMaxLife } = useEnemy();
   const {
     frontIcon,
     sideIcon,
@@ -13,6 +13,9 @@ export const EnemyPortrait = () => {
     filterColor,
     bgColor,
   } = portrait;
+  const lifePercent = `-${Math.floor(
+    ((enemyLife || 0) * 100) / (enemyMaxLife || 1)
+  )}%`;
   // {
   //   //😬😠
   //   //🦴🌳📿🌲
@@ -28,6 +31,7 @@ export const EnemyPortrait = () => {
   // }
   return (
     <figure className={`${css.miniature}`}>
+      <div className={css.bloodCover} style={{ bottom: lifePercent }}></div>
       <div
         className={`${css.imgFrame}`}
         style={{ backgroundColor: `${bgColor}` }}

@@ -2,15 +2,11 @@
 -/later/- make piece requirements visible in game --in a better way
 -/later/- do something about game slice resetGame not having isLoading=true at pending
 -/later/- Item.js leveling stats dices of item gives them unnecessary ||| in their id
+-/later/- dungeon slice operations startDungeonById:
+ should load player statuses depending on eq
 +/later/- when hovering on dice show its diceMax
 +/later/- enemy body pieces sides should grow bigger not appear
 
-
-- intiating player life from eq when entering dungeon
-- dungeon slice operations startDungeonById:
- should load player life and statuses depending on eq
-
-- end turn - damage to enemy calculation
 
 add to return page - when dungeon victory:
 // gain spare levelup  - game slice

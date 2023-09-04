@@ -9,6 +9,7 @@ import {
 } from "./selectors";
 import { selectEnemyGold } from "redux/enemy/selectors";
 import { selectGold } from "redux/game/selectors";
+import { PLAYER_BASE_LIFE } from "data/settings";
 // import { BASE_EQUIPMENT } from "../../data/eq";
 
 export const clearDungeon = createAsyncThunk(
@@ -185,6 +186,17 @@ export const packEquipment = createAsyncThunk(
     const eqTaken = state.equipment.all.filter((item) => item.selected);
     if (eqTaken.length > 5)
       return thunkAPI.rejectWithValue("Too many items equipped");
-    return eqTaken;
+    let eqLife = 0;
+    eqTaken.forEach((item) => {
+      if (item.nondices && Array.isArray(item.nondices)) {
+        for (let i = 0; i < item.nondices.length; i++) {
+          if (item.nondices[i].item === "stats" && item.nondices[i].maxHp) {
+            eqLife += item.nondices[i].maxHp;
+          }
+        }
+      }
+    });
+    const life = PLAYER_BASE_LIFE + eqLife;
+    return { items: eqTaken, life: life };
   }
 );

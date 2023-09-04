@@ -50,7 +50,7 @@ const enemySlice = createSlice({
     [damageEnemy.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.hp = action.payload;
+      state.life = state.life - action.payload;
     },
 
     [die.pending]: handlePending,

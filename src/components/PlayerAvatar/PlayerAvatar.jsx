@@ -28,7 +28,8 @@ const getBgColor = (percent) => {
   if (percent > 32) return "#ff0000";
   if (percent > 26) return "#e30000";
   if (percent > 18) return "#bc0000";
-  return "#810000";
+  return "#220000";
+  // return "#810000";
 };
 
 export const PlayerAvatar = () => {

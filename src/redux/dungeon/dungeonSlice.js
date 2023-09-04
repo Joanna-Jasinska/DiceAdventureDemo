@@ -223,7 +223,13 @@ const dungeonSlice = createSlice({
     [packEquipment.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items = action.payload;
+      state.items = action.payload.items;
+      // !!!AAA!!! items could give status
+      state.player = {
+        life: action.payload.life,
+        maxLife: action.payload.life,
+        status: initialState.player.status,
+      };
     },
 
     //
