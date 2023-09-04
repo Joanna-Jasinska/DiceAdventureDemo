@@ -7,7 +7,6 @@ import css from "./Skill.module.css";
 export const Skill = ({
   name,
   id,
-  desc = "No skill description, but there is skill.",
   icon,
   alt,
   tags = [""],
@@ -17,10 +16,11 @@ export const Skill = ({
   dices,
   stats = [],
   skill = {
-    name: "SKILL",
-    txt: "",
+    name: "NO SKILL",
+    txt: "-",
     id: "skill|id",
   },
+  statsTxT,
 }) => {
   return (
     <div className={css.item} id={id}>
@@ -43,7 +43,7 @@ export const Skill = ({
 
         <span className={css.text}>
           {skill.name}
-          <br /> {desc}
+          <br /> {skill.txt}
           {/* <span className={css.name}></span> */}
         </span>
       </div>
@@ -51,7 +51,7 @@ export const Skill = ({
         {(dices ? dices : stats).map((el, index) => {
           return (
             <DiceIcon
-            {...el}
+              {...el}
               // diceMax={el.diceMax}
               // value={el.value}
               // icon={el.type}

@@ -1,11 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  resetEquipment,
-  deselectAllItems,
-  updateItem,
-  deselectItem,
-  setItems,
-} from "./operations";
+import { resetEquipment, deselectAllItems, updateItem } from "./operations";
 
 const initialState = {
   all: [],
@@ -51,24 +45,24 @@ const equipmentSlice = createSlice({
     //   ];
     // },
 
-    [setItems.pending]: handlePending,
-    [setItems.rejected]: handleRejected,
-    [setItems.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.all = action.payload;
-    },
+    // [setItems.pending]: handlePending,
+    // [setItems.rejected]: handleRejected,
+    // [setItems.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.all = action.payload;
+    // },
 
-    [deselectItem.pending]: handlePending,
-    [deselectItem.rejected]: handleRejected,
-    [deselectItem.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.all[action.payload.index] = {
-        ...state.all[action.payload.index],
-        ...action.payload,
-      };
-    },
+    // [deselectItem.pending]: handlePending,
+    // [deselectItem.rejected]: handleRejected,
+    // [deselectItem.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.all[action.payload.index] = {
+    //     ...state.all[action.payload.index],
+    //     ...action.payload,
+    //   };
+    // },
 
     [updateItem.pending]: handlePending,
     [updateItem.rejected]: handleRejected,

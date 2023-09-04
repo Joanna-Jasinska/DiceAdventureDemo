@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { selectGameError } from "redux/game/selectors";
 import { HeaderNavBtn } from "components/HeaderNavBtn/HeaderNavBtn";
-import { engageEnemyBySlot } from "redux/dungeon/operations";
+import { engageBoss, engageEnemyBySlot } from "redux/dungeon/operations";
 import { useCombat, useDungeon } from "hooks";
 import { beginCombat } from "redux/combat/operations";
 import { loadEnemy } from "redux/enemy/operations";
@@ -47,10 +47,28 @@ export const DungeonPage = () => {
         // not engaged enemy
       });
   };
-  const beginBattle = () => {
-    // fight boss
-  };
 
+  const beginBossBattle = () => {
+    dispatch(engageBoss())
+      .then(() => {
+        dispatch(loadEnemy())
+          .then(() => {
+            dispatch(beginCombat({}))
+              .then(() => {
+                // began combat successfully
+              })
+              .catch((error) => {
+                // did not begin combat
+              });
+          })
+          .catch((error) => {
+            // not loaded enemy
+          });
+      })
+      .catch((error) => {
+        // not engaged enemy
+      });
+  };
   // <Navigate to="/combat" />;
   return (
     <>
@@ -129,9 +147,9 @@ export const DungeonPage = () => {
               <HeaderNavBtn
                 to="/combat"
                 display="Boss ☠️"
-                onClick={beginBattle}
-                completed={slotsDefeated[3]}
-                disabled={slotsDefeated[3]}
+                onClick={beginBossBattle}
+                completed={slotsDefeated["boss"]}
+                disabled={slotsDefeated["boss"]}
               />
             </div>
           </div>

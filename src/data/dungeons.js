@@ -38,7 +38,7 @@ export const DUNGEONS = [
       flavorIcon: "🌳",
       bgColor: "#3ea413",
     },
-    bosses: [],
+    bosses: ["ANIMALS|green|Elder Wolf"],
     enemies: [
       [
         // "ELEMENTALS|green|Dryad",
@@ -56,8 +56,10 @@ export const DUNGEONS = [
       ],
       [
         "GOBLINS|green|Goblin Shaman",
-        "ANIMALS|green|Fat Boar",
-        "ANIMALS|green|Old Wolf",
+        "GOBLINS|green|Goblin Shaman",
+        "GOBLINS|green|Goblin Shaman",
+        // "ANIMALS|green|Fat Boar",
+        // "ANIMALS|green|Old Wolf",
       ],
     ],
   },

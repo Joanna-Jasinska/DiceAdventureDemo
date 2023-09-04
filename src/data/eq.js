@@ -1,29 +1,47 @@
-// Utiki Spear 🔱 / 1k20 needle (+1/20 needle)
-// CHARGE: combine STR/NEEDLE 2 dices to gain their combined value and max
-
-// Legacy Sword 🗡 / 1k6 slashed 1k6 speed (+1/6 speed)
-// COMBO SLASH: change speed/strength/dexterity dice into slashed+1
-
-// Bag of Provisions / +20 mhp (+1mhp) 1k4 stamina(+1/5 1k4 stamina)
-// SNACK: spend speed dice to heal 1hp and recover mana of its value
-
-// Wizard Hat / 2k6 mana (+1/5 1k6 mana)
-// MANA ARMOR: 2 mana/magic slots (any value) gain shield equal to lower value of one dice
-
-// Boots of Speed / 3/10 speed (+1/10 speed)
-// HASTE: [non 1 speed][non speed] reroll the nonspeed dice, change speed dice to 1
-
-const STARTING_EQ = [
-  "Legacy Sword|COMBO SLASH|",
-  "Old Broom|WITCH'S BROOM|",
-  "Provisions Bag|SNACK|",
-  "Lucky Clover|LUCKY ROLL|",
-];
+export const getBaseEqById = (eid) => {
+  const found = BASE_EQUIPMENT.find((e) => e.id === eid);
+  // console.log(`eq.js > getBaseEqById looking for ${eid}, found:`, found);
+  return found ? found : BASE_EQUIPMENT[0];
+};
 
 export const BASE_EQUIPMENT = [
   {
+    id: "Legacy Sword|COMBO SLASH|",
+    name: "Legacy Sword",
+    alt: "🗡️",
+    skill: {
+      name: "COMBO SLASH",
+      txt: "Change speed /strength /dexterity dice into slashed+1",
+      id: "Legacy Sword|COMBO SLASH|",
+    },
+    statsTxT: "~ +1/3 per lv",
+    stats: [
+      {
+        item: "dice",
+        diceMax: 8,
+        // value: undefined,
+        type: "slashed",
+        existSinceLv: 1,
+        duplicateAtLv: 12,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 3,
+      },
+      {
+        item: "dice",
+        diceMax: 4,
+        // value: undefined,
+        type: "speed",
+        existSinceLv: 5,
+        duplicateAtLv: 10,
+        // lvlsToRaiseValue: 3,
+        // lvlsToRaiseDiceMax: 10,
+      },
+    ],
+  },
+
+  {
     name: "Lucky Clover",
-    itemId: "Lucky Clover|LUCKY ROLL|",
+    id: "Lucky Clover|LUCKY ROLL|",
     alt: "🍀",
     skill: {
       name: "LUCKY ROLL",
@@ -46,7 +64,7 @@ export const BASE_EQUIPMENT = [
     ],
   },
   {
-    itemId: "Old Broom|WITCH'S BROOM|",
+    id: "Old Broom|WITCH'S BROOM|",
     name: "Old Broom",
     alt: "🧹",
     skill: {
@@ -78,44 +96,11 @@ export const BASE_EQUIPMENT = [
       },
     ],
   },
-  {
-    itemId: "Legacy Sword|COMBO SLASH|",
-    name: "Legacy Sword",
-    alt: "🗡️",
-    skill: {
-      name: "COMBO SLASH",
-      txt: "Change speed/strength/dexterity dice into slashed+1",
-      id: "Legacy Sword|COMBO SLASH|",
-    },
-    statsTxT: "~ +1/3 per lv",
-    stats: [
-      {
-        item: "dice",
-        diceMax: 8,
-        // value: undefined,
-        type: "slashed",
-        existSinceLv: 1,
-        duplicateAtLv: 12,
-        // lvlsToRaiseValue: 3,
-        lvlsToRaiseDiceMax: 3,
-      },
-      {
-        item: "dice",
-        diceMax: 4,
-        // value: undefined,
-        type: "speed",
-        existSinceLv: 5,
-        duplicateAtLv: 10,
-        // lvlsToRaiseValue: 3,
-        // lvlsToRaiseDiceMax: 10,
-      },
-    ],
-  },
 
   {
     selected: true,
     name: "Utiki Spear",
-    itemId: "Utiki Spear|CHARGE|",
+    id: "Utiki Spear|CHARGE|",
     alt: "🔱",
     skill: {
       name: "CHARGE",
@@ -149,16 +134,16 @@ export const BASE_EQUIPMENT = [
 
   {
     name: "Provisions Bag",
-    itemId: "Provisions Bag|SNACK|",
+    id: "Provisions Bag|SNACK|",
     alt: "👜",
     skill: {
       name: "SNACK",
-      txt: "[(1)stamina] [speed] => heal 1hp, get [mana]=(1) ",
+      txt: "[(1)stamina] [speed] => heal 1hp, get [🌀]=(1) ",
       id: "Provisions Bag|SNACK|",
     },
     statsTxT: "~ +1/5 per lv",
     stats: [
-      { item: "stats", type: "life", maxHp: 18 },
+      { item: "stats", type: "life", maxHp: 12 },
       {
         item: "dice",
         diceMax: 4,
@@ -169,69 +154,79 @@ export const BASE_EQUIPMENT = [
         // lvlsToRaiseValue: 3,
         lvlsToRaiseDiceMax: 5,
       },
-    ],
-  },
-
-  {
-    name: "Wizard Hat",
-    itemId: "Wizard Hat|MANA ARMOR|",
-    alt: "🎩",
-    skill: {
-      name: "MANA ARMOR",
-      txt: "2x mana/magic slots (any value) gain shield equal to lower value of one dice",
-      id: "Wizard Hat|MANA ARMOR|",
-    },
-    stats: [
-      { item: "dice", diceMax: 6, value: undefined, type: "mana" },
-      // { item: "dice", diceMax: 6, value: undefined, type: "mana" },
-    ],
-    statGrow: [
       {
         item: "dice",
-        existSinceLv: 5,
-        diceMax: 6,
-        value: undefined,
-        type: "mana",
-        // valueGrowPerLevel: 1,
-        // valueMakesExtraDice: true,
-        amountOfLevelsForExtraDice: 5,
-        levelMakesExtraDice: true,
-      },
-    ],
-    statsTxT: "Per 5 levels: [ +1d6 mana ] ",
-    lv: 1,
-  },
-
-  {
-    selected: true,
-    name: "Boots of Speed",
-    itemId: "Boots of Speed|HASTE|",
-    alt: "👢",
-    skill: {
-      name: "HASTE",
-      txt: "[speed =/= 1][non speed] reroll the nonspeed dice, change speed dice to 1",
-      id: "Boots of Speed|HASTE|",
-    },
-    stats: [{ item: "dice", diceMax: 10, value: 3, type: "speed" }],
-    statGrow: [
-      {
-        item: "dice",
-        existSinceLv: 2,
-        diceMax: 10,
-        value: 0,
+        diceMax: 2,
+        // value: undefined,
         type: "speed",
-        valueGrowPerLevel: 1,
-        valueMakesExtraDice: true,
-        // amountOfLevelsForExtraDice: 5,
+        existSinceLv: 1,
+        duplicateAtLv: 64,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 8,
       },
     ],
-    statsTxT: "Per 5 levels: [ +1d6 mana ] ",
-    lv: 1,
   },
+
+  // {
+  //   name: "Wizard Hat",
+  //   id: "Wizard Hat|MANA ARMOR|",
+  //   alt: "🎩",
+  //   skill: {
+  //     name: "MANA ARMOR",
+  //     txt: "2x mana/magic slots (any value) gain shield equal to lower value of one dice",
+  //     id: "Wizard Hat|MANA ARMOR|",
+  //   },
+  //   stats: [
+  //     { item: "dice", diceMax: 6, value: undefined, type: "mana" },
+  //     // { item: "dice", diceMax: 6, value: undefined, type: "mana" },
+  //   ],
+  //   statGrow: [
+  //     {
+  //       item: "dice",
+  //       existSinceLv: 5,
+  //       diceMax: 6,
+  //       value: undefined,
+  //       type: "mana",
+  //       // valueGrowPerLevel: 1,
+  //       // valueMakesExtraDice: true,
+  //       amountOfLevelsForExtraDice: 5,
+  //       levelMakesExtraDice: true,
+  //     },
+  //   ],
+  //   statsTxT: "Per 5 levels: [ +1d6 mana ] ",
+  //   lv: 1,
+  // },
+
+  // {
+  //   selected: true,
+  //   name: "Boots of Speed",
+  //   id: "Boots of Speed|HASTE|",
+  //   alt: "👢",
+  //   skill: {
+  //     name: "HASTE",
+  //     txt: "[speed =/= 1][non speed] reroll the nonspeed dice, change speed dice to 1",
+  //     id: "Boots of Speed|HASTE|",
+  //   },
+  //   stats: [{ item: "dice", diceMax: 10, value: 3, type: "speed" }],
+  //   statGrow: [
+  //     {
+  //       item: "dice",
+  //       existSinceLv: 2,
+  //       diceMax: 10,
+  //       value: 0,
+  //       type: "speed",
+  //       valueGrowPerLevel: 1,
+  //       valueMakesExtraDice: true,
+  //       // amountOfLevelsForExtraDice: 5,
+  //     },
+  //   ],
+  //   statsTxT: "Per 5 levels: [ +1d6 mana ] ",
+  //   lv: 1,
+  // },
 
   {
     name: "Test Bag of nothing and nothingness",
-    itemId: "Test Bag of nothing and nothingness||",
+    id: "Test Bag of nothing and nothingness||",
     stats: [
       { item: "stats", type: "life", maxHp: 20 },
       {
@@ -259,23 +254,26 @@ export const BASE_EQUIPMENT = [
   {
     selected: true,
     name: "Fairy Advisor",
-    itemId: "Fairy Advisor|ADVISE|",
+    id: "Fairy Advisor|ADVISE|",
     alt: "🧚‍♀️",
     skill: {
       name: "ADVISE",
-      txt: "Automatically arrange your dices.. but not always in a best way.",
+      txt: "NOT WORKING Automatically arrange your dices.. but not always in a best way.",
       id: "Fairy Advisor|ADVISE|",
     },
+    statsTxT: "~ +1/4 per lv",
     stats: [
       { item: "stats", type: "life", maxHp: 10 },
       {
         item: "dice",
         diceMax: 6,
-        value: undefined,
+        // value: undefined,
         type: "magic",
+        existSinceLv: 1,
+        duplicateAtLv: 12,
+        // lvlsToRaiseValue: 3,
+        // lvlsToRaiseDiceMax: 5,
       },
     ],
-    statGrow: [],
-    lv: 1,
   },
 ];

@@ -7,6 +7,7 @@ import {
   setLv,
   getEnemyGold,
   engageEnemyBySlot,
+  engageBoss,
 } from "./operations";
 
 const initialState = {
@@ -103,6 +104,15 @@ const dungeonSlice = createSlice({
     [engageEnemyBySlot.pending]: handlePending,
     [engageEnemyBySlot.rejected]: handleRejected,
     [engageEnemyBySlot.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.selectedEnemyID = action.payload.selectedEnemyID;
+      state.currentSlot = action.payload.currentSlot;
+    },
+
+    [engageBoss.pending]: handlePending,
+    [engageBoss.rejected]: handleRejected,
+    [engageBoss.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.selectedEnemyID = action.payload.selectedEnemyID;

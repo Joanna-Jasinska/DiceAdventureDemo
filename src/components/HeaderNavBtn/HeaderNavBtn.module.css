@@ -22,6 +22,10 @@
   cursor: default;
   line-break: strict;
   word-break: keep-all;
+  /* height: min-content; */
+  /* max-width: 16vw; */
+  width: fit-content;
+  /* width: max-content; */
 }
 .navLink:hover:not(.inactive):not(.disabled) {
   cursor: pointer;

@@ -71,7 +71,7 @@ export const TownNavigation = () => {
           {(selectedItems.length > 0) & (selectedItems.length < 6) ? (
             <HeaderNavBtn
               to="/dungeon"
-              display="Fight"
+              display="Go⚔️"
               onClick={enterDungeon}
               // inactive={true}
             />

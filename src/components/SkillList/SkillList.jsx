@@ -76,6 +76,8 @@ export const SkillList = ({ filters }) => {
                   // key={`key|${index}`}
                   index={index}
                   selected={el.selected}
+                  skill={el.skill}
+                  statsTxT={el.statsTxT||''}
                   toggleSelect={() =>
                     dispatch(
                       updateItem({

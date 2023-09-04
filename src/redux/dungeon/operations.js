@@ -118,8 +118,20 @@ export const engageEnemyBySlot = createAsyncThunk(
     const dungeons = state.dungeon.enemies[slot];
     const rn = getRandomNum(0, state.dungeon.enemies[slot].length - 1);
     const enemyId = await dungeons[rn];
-    console.log(`Engaging ${enemyId} from dungeon[${slot}][${rn}]`);
+    // console.log(`Engaging ${enemyId} from dungeon[${slot}][${rn}]`);
     return { selectedEnemyID: enemyId, currentSlot: slot };
+  }
+);
+
+export const engageBoss = createAsyncThunk(
+  "dungeon/engameBoss",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const bosses = state.dungeon.bosses;
+    const rn = getRandomNum(0, state.dungeon.bosses.length - 1);
+    const enemyId = await bosses[rn];
+    // console.log(`Engaging Boss ${enemyId} from dungeon.boss[${rn}]`);
+    return { selectedEnemyID: enemyId, currentSlot: "boss" };
   }
 );
 export const getReadyToEnter = createAsyncThunk(

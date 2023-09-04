@@ -43,6 +43,7 @@ const ENEMIES = [
   // { id: "", collection: "" },
   // { id: "", collection: "" },
   { id: "ELEMENTALS|green|Mysterious Enemy", collection: "ELEMENTALS" },
+  { id: "ANIMALS|green|Elder Wolf", collection: "ANIMALS" },
   { id: "ANIMALS|green|Old Wolf", collection: "ANIMALS" },
   { id: "ANIMALS|green|Vyvernling", collection: "ANIMALS" },
   { id: "ANIMALS|green|Elder Badger", collection: "ANIMALS" },

@@ -6,7 +6,7 @@ export const GOBLINS = [
       frontIcon: "😬",
       sideIcon: "🦴",
       backIcon: "👹",
-      bgIcon: "🦂",
+      bgIcon: "🧝",
       bgSideIcon: "🌳",
       filterColor: "#005a124a",
       bgColor: "#ddd900",
@@ -16,109 +16,213 @@ export const GOBLINS = [
     id: "GOBLINS|green|Surprised Goblin",
     body: [
       {
-        priority: true,
+        priority: true, //dice must be fulfilled before others
         // extra: false, //dice unlocks after all priority and normal body are filled
         // keep: false, //player keeps its dices as extra dices for next turn
-        bodyPartIcon: "😬",
-        bodyPartTypes: ["eye", "head"],
+        // once: false, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "🙌",
+        bodyPartTypes: ["hands", "body"],
 
         allows: {
           types: ["physical", "magic", "elemental", "speed"],
-          minValue: 4,
-          maxValue: -1,
-          exactValues: ["even"],
-          maxDices: false,
+          // minValue: -1,
+          // maxValue: -1,
+          // exactValues: ["even"],
+          // maxDices: false,
         },
         requires: {
-          exactValues: false,
-          minDices: 1,
-          minDicesGrowthScale: false,
-          minSum: 4,
-          minSumGrowth: 1,
+          // exactValues: false,
+          // minDices: 1,
+          minSum: 3,
         },
         multiplies: {
           multipliedTypes: ["elemental"],
           multipliedBy: 2,
         },
         damages: {
-          damageToPlayer: 0,
-          effectsToPlayer: false,
-          damageToEnemy: 0,
-          effectsToEnemy: false,
+          // damageToPlayer: 0,
+          // effectsToPlayer: false,
+          // damageToEnemy: 0,
+          // effectsToEnemy: false,
+        },
+        grow: {
+          duplicateAtLv: 30,
+          lvlsToRaiseMinSum: 3,
+          // lvlsToRaiseMinDices: 10,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
         },
 
-        id: "piece|GOBLINS|green|Surprised Goblin|eye|1",
-        key: "piece|GOBLINS|green|Surprised Goblin|eye|1",
+        id: "piece|GOBLINS|green|Surprised Goblin|hands|1",
+        key: "piece|GOBLINS|green|Surprised Goblin|hands|1",
       },
+
       {
-        // priority: false,
-        extra: true, //dice unlocks after all priority and normal body are filled
-        // keep: false, //player keeps its dices as extra dices for next turn
-        bodyPartIcon: "🥩",
-        bodyPartTypes: ["torso", "body"],
+        // priority: true, //dice must be fulfilled before others
+        // extra: true, //dice unlocks after all priority and normal body are filled
+        // keep: true, //player keeps its dices as extra dices for next turn
+        // once: true, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "😬",
+        bodyPartTypes: ["head", "body"],
 
         allows: {
           types: ["physical", "magic", "elemental", "speed"],
-          minValue: false,
-          maxValue: false,
-          exactValues: [1, 2],
-          maxDices: false,
+          minValue: 3,
+          // maxValue: -1,
+          // exactValues: ["even"],
+          // maxDices: 2,
         },
         requires: {
-          exactValues: false,
+          // exactValues: [2],
           minDices: 1,
-          minDicesGrowthScale: 4,
-          minSum: false,
-          minSumGrowth: false,
+          // minSum: 3,
+        },
+        multiplies: {
+          multipliedTypes: ["elemental"],
+          multipliedBy: 2,
+        },
+        damages: {
+          // damageToPlayer: 0,
+          // effectsToPlayer: [],
+          damageToEnemy: 1,
+          // effectsToEnemy: []],
+        },
+        grow: {
+          duplicateAtLv: 99,
+          // lvlsToRaiseMinSum: 3,
+          // lvlsToRaiseMinDices: 10,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
+        },
+
+        id: "piece|GOBLINS|green|Surprised Goblin|head|1",
+        key: "piece|GOBLINS|green|Surprised Goblin|head|1",
+      },
+
+      {
+        // priority: true, //dice must be fulfilled before others
+        // extra: true, //dice unlocks after all priority and normal body are filled
+        // keep: true, //player keeps its dices as extra dices for next turn
+        // once: true, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "😬",
+        bodyPartTypes: ["head", "body"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: 2,
+          // maxValue: -1,
+          // exactValues: ["even"],
+          // maxDices: 2,
+        },
+        requires: {
+          // exactValues: [2],
+          minDices: 1,
+          // minSum: 3,
+        },
+        multiplies: {
+          multipliedTypes: ["elemental"],
+          multipliedBy: 2,
+        },
+        damages: {
+          damageToPlayer: 1,
+          // effectsToPlayer: [],
+          // damageToEnemy: 1,
+          // effectsToEnemy: []],
+        },
+        grow: {
+          duplicateAtLv: 101,
+          // lvlsToRaiseMinSum: 3,
+          // lvlsToRaiseMinDices: 10,
+          // lvlsToRaiseExactValues: 35,
+          lvlsToRaiseMinValue: 35,
+        },
+
+        id: "piece|GOBLINS|green|Surprised Goblin|head|2",
+        key: "piece|GOBLINS|green|Surprised Goblin|head|2",
+      },
+
+      {
+        // priority: true, //dice must be fulfilled before others
+        // extra: false, //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
+        // once: false, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "🦴",
+        bodyPartTypes: ["weapon"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: 3,
+          // maxValue: 4,
+          // exactValues: ["even"],
+          // maxDices: false,
+        },
+        requires: {
+          // exactValues: false,
+          minDices: 1,
+          // minSum: 3,
         },
         multiplies: {
           multipliedTypes: ["physical"],
           multipliedBy: 2,
         },
         damages: {
-          damageToPlayer: 0,
-          effectsToPlayer: false,
-          damageToEnemy: 2,
-          effectsToEnemy: false,
+          damageToPlayer: 1,
+          // effectsToPlayer: false,
+          // damageToEnemy: 0,
+          // effectsToEnemy: false,
+        },
+        grow: {
+          duplicateAtLv: 30,
+          // lvlsToRaiseMinSum: 3,
+          lvlsToRaiseMinDices: 10,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
         },
 
-        id: "piece|GOBLINS|green|Surprised Goblin|eye|2",
-        key: "piece|GOBLINS|green|Surprised Goblin|eye|2",
+        id: "piece|GOBLINS|green|Surprised Goblin|weapon|1",
+        key: "piece|GOBLINS|green|Surprised Goblin|weapon|1",
       },
+
       {
-        // priority: false,
-        // extra: true, //dice unlocks after all priority and normal body are filled
+        // priority: true, //dice must be fulfilled before others
+        extra: true, //dice unlocks after all priority and normal body are filled
         // keep: false, //player keeps its dices as extra dices for next turn
-        bodyPartIcon: "🦴",
-        bodyPartTypes: ["weapon"],
+        // once: false, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "👁‍🗨",
+        bodyPartTypes: ["eye", "head"],
 
         allows: {
           types: ["physical", "magic", "elemental", "speed"],
-          minValue: false,
-          maxValue: false,
-          exactValues: false,
-          maxDices: false,
+          minValue: 4,
+          // maxValue: 4,
+          // exactValues: ["even"],
+          // maxDices: false,
         },
         requires: {
-          exactValues: false,
+          // exactValues: false,
           minDices: 1,
-          minDicesGrowthScale: false,
-          minSum: 3,
-          minSumGrowth: 1,
+          minSum: 5,
         },
         multiplies: {
-          multipliedTypes: ["smashed"],
+          multipliedTypes: ["physical"],
           multipliedBy: 2,
         },
         damages: {
-          damageToPlayer: 3,
-          effectsToPlayer: false,
-          damageToEnemy: 0,
-          effectsToEnemy: false,
+          // damageToPlayer: 1,
+          // effectsToPlayer: false,
+          damageToEnemy: 1,
+          // effectsToEnemy: false,
+        },
+        grow: {
+          // duplicateAtLv: 32,
+          lvlsToRaiseMinSum: 5,
+          // lvlsToRaiseMinDices: 12,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
         },
 
-        id: "piece|GOBLINS|green|Surprised Goblin|bones|3",
-        key: "piece|GOBLINS|green|Surprised Goblin|bones|3",
+        id: "piece|GOBLINS|green|Surprised Goblin|eye|1",
+        key: "piece|GOBLINS|green|Surprised Goblin|eye|1",
       },
     ],
     status: [],
@@ -129,7 +233,7 @@ export const GOBLINS = [
       frontIcon: "😠",
       sideIcon: "🙌",
       backIcon: "👹",
-      bgIcon: "🦂",
+      bgIcon: "🧝",
       bgSideIcon: "🌲",
       filterColor: "#005a124a",
       bgColor: "#ddd900",
@@ -169,10 +273,11 @@ export const GOBLINS = [
           // effectsToEnemy: false,
         },
         grow: {
-          duplicateAtLv: 30,
+          duplicateAtLv: 29,
           lvlsToRaiseMinSum: 3,
           // lvlsToRaiseMinDices: 10,
           // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
         },
 
         id: "piece|GOBLINS|green|Angry Goblin|hands|1",
@@ -189,7 +294,7 @@ export const GOBLINS = [
 
         allows: {
           types: ["physical", "magic", "elemental", "speed"],
-          minValue: 4,
+          minValue: 3,
           // maxValue: -1,
           // exactValues: ["even"],
           // maxDices: 2,
@@ -214,10 +319,53 @@ export const GOBLINS = [
           // lvlsToRaiseMinSum: 3,
           // lvlsToRaiseMinDices: 10,
           // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
         },
 
         id: "piece|GOBLINS|green|Angry Goblin|head|1",
         key: "piece|GOBLINS|green|Angry Goblin|head|1",
+      },
+
+      {
+        // priority: true, //dice must be fulfilled before others
+        // extra: true, //dice unlocks after all priority and normal body are filled
+        // keep: true, //player keeps its dices as extra dices for next turn
+        // once: true, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "😠",
+        bodyPartTypes: ["head", "body"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: 2,
+          // maxValue: -1,
+          // exactValues: ["even"],
+          // maxDices: 2,
+        },
+        requires: {
+          // exactValues: [2],
+          minDices: 1,
+          // minSum: 3,
+        },
+        multiplies: {
+          multipliedTypes: ["elemental"],
+          multipliedBy: 2,
+        },
+        damages: {
+          damageToPlayer: 1,
+          // effectsToPlayer: [],
+          // damageToEnemy: 1,
+          // effectsToEnemy: []],
+        },
+        grow: {
+          duplicateAtLv: 100,
+          // lvlsToRaiseMinSum: 3,
+          // lvlsToRaiseMinDices: 10,
+          // lvlsToRaiseExactValues: 34,
+          lvlsToRaiseMinValue: 34,
+        },
+
+        id: "piece|GOBLINS|green|Surprised Goblin|head|2",
+        key: "piece|GOBLINS|green|Surprised Goblin|head|2",
       },
 
       {
@@ -255,10 +403,53 @@ export const GOBLINS = [
           // lvlsToRaiseMinSum: 3,
           lvlsToRaiseMinDices: 10,
           // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
         },
 
         id: "piece|GOBLINS|green|Angry Goblin|hands|2",
         key: "piece|GOBLINS|green|Angry Goblin|hands|2",
+      },
+
+      {
+        // priority: true, //dice must be fulfilled before others
+        extra: true, //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
+        // once: false, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "👁‍🗨",
+        bodyPartTypes: ["eye", "head"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: 4,
+          // maxValue: 4,
+          // exactValues: ["even"],
+          // maxDices: false,
+        },
+        requires: {
+          // exactValues: false,
+          minDices: 1,
+          minSum: 5,
+        },
+        multiplies: {
+          multipliedTypes: ["physical"],
+          multipliedBy: 2,
+        },
+        damages: {
+          // damageToPlayer: 1,
+          // effectsToPlayer: false,
+          damageToEnemy: 1,
+          // effectsToEnemy: false,
+        },
+        grow: {
+          // duplicateAtLv: 32,
+          lvlsToRaiseMinSum: 5,
+          // lvlsToRaiseMinDices: 12,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
+        },
+
+        id: "piece|GOBLINS|green|Surprised Goblin|eye|1",
+        key: "piece|GOBLINS|green|Surprised Goblin|eye|1",
       },
     ],
     status: [],
@@ -269,7 +460,7 @@ export const GOBLINS = [
       frontIcon: "😵",
       sideIcon: "📿",
       backIcon: "👹",
-      bgIcon: "🦂",
+      bgIcon: "🧝",
       bgSideIcon: "🌲",
       filterColor: "#005a124a",
       bgColor: "#ddd900",
@@ -279,26 +470,213 @@ export const GOBLINS = [
     id: "GOBLINS|green|Goblin Shaman",
     body: [
       {
+        priority: true, //dice must be fulfilled before others
+        // extra: false, //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
+        // once: false, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "🙌",
+        bodyPartTypes: ["hands", "body"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          // minValue: -1,
+          // maxValue: -1,
+          // exactValues: ["even"],
+          // maxDices: false,
+        },
+        requires: {
+          // exactValues: false,
+          // minDices: 1,
+          minSum: 4,
+        },
+        multiplies: {
+          multipliedTypes: ["elemental"],
+          multipliedBy: 2,
+        },
+        damages: {
+          // damageToPlayer: 0,
+          // effectsToPlayer: false,
+          // damageToEnemy: 0,
+          // effectsToEnemy: false,
+        },
+        grow: {
+          duplicateAtLv: 29,
+          lvlsToRaiseMinSum: 3,
+          // lvlsToRaiseMinDices: 10,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
+        },
+
+        id: "piece|GOBLINS|green|Angry Goblin|hands|1",
+        key: "piece|GOBLINS|green|Angry Goblin|hands|1",
+      },
+
+      {
+        // priority: true, //dice must be fulfilled before others
+        // extra: true, //dice unlocks after all priority and normal body are filled
+        // keep: true, //player keeps its dices as extra dices for next turn
+        // once: true, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "😵",
+        bodyPartTypes: ["head", "body"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: 3,
+          // maxValue: -1,
+          // exactValues: ["even"],
+          // maxDices: 2,
+        },
+        requires: {
+          // exactValues: [2],
+          minDices: 1,
+          // minSum: 3,
+        },
+        multiplies: {
+          multipliedTypes: ["elemental"],
+          multipliedBy: 2,
+        },
+        damages: {
+          // damageToPlayer: 0,
+          // effectsToPlayer: [],
+          damageToEnemy: 1,
+          // effectsToEnemy: []],
+        },
+        grow: {
+          duplicateAtLv: 100,
+          // lvlsToRaiseMinSum: 3,
+          // lvlsToRaiseMinDices: 10,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
+        },
+
+        id: "piece|GOBLINS|green|Angry Goblin|head|1",
+        key: "piece|GOBLINS|green|Angry Goblin|head|1",
+      },
+
+      {
+        // priority: true, //dice must be fulfilled before others
+        // extra: true, //dice unlocks after all priority and normal body are filled
+        // keep: true, //player keeps its dices as extra dices for next turn
+        // once: true, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "😵",
+        bodyPartTypes: ["head", "body"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: 2,
+          // maxValue: -1,
+          // exactValues: ["even"],
+          // maxDices: 2,
+        },
+        requires: {
+          // exactValues: [2],
+          minDices: 1,
+          // minSum: 3,
+        },
+        multiplies: {
+          multipliedTypes: ["elemental"],
+          multipliedBy: 2,
+        },
+        damages: {
+          damageToPlayer: 1,
+          // effectsToPlayer: [],
+          // damageToEnemy: 1,
+          // effectsToEnemy: []],
+        },
+        grow: {
+          duplicateAtLv: 100,
+          // lvlsToRaiseMinSum: 3,
+          // lvlsToRaiseMinDices: 10,
+          // lvlsToRaiseExactValues: 34,
+          lvlsToRaiseMinValue: 36,
+        },
+
+        id: "piece|GOBLINS|green|Surprised Goblin|head|2",
+        key: "piece|GOBLINS|green|Surprised Goblin|head|2",
+      },
+
+      {
+        // priority: true, //dice must be fulfilled before others
+        // extra: false, //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
+        // once: false, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "📿",
+        bodyPartTypes: ["weapon"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: 3,
+          // maxValue: 4,
+          // exactValues: ["even"],
+          // maxDices: false,
+        },
+        requires: {
+          // exactValues: false,
+          minDices: 1,
+          // minSum: 3,
+        },
+        multiplies: {
+          multipliedTypes: ["magic"],
+          multipliedBy: 2,
+        },
+        damages: {
+          damageToPlayer: 1,
+          // effectsToPlayer: false,
+          // damageToEnemy: 0,
+          // effectsToEnemy: false,
+        },
+        grow: {
+          duplicateAtLv: 30,
+          // lvlsToRaiseMinSum: 3,
+          lvlsToRaiseMinDices: 10,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
+        },
+
+        id: "piece|GOBLINS|green|Angry Goblin|hands|2",
+        key: "piece|GOBLINS|green|Angry Goblin|hands|2",
+      },
+
+      {
+        // priority: true, //dice must be fulfilled before others
+        extra: true, //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
+        // once: false, //can be fulfilled once then is forever disabled?
         bodyPartIcon: "👁‍🗨",
         bodyPartTypes: ["eye", "head"],
-        allowMinValue: 4,
-        allowMaxValue: -1,
-        allowExactValues: [],
-        reqExactValues: [],
-        maxAmountOfDices: 2,
-        reqAmountOfDices: 1,
-        types: ["speed", "mana"],
-        multipliedTypes: ["mana"],
-        multipliedBy: 2,
-        damageToPlayer: 1,
-        effectsToPlayer: [],
-        damageToEnemy: 1,
-        effectsToEnemy: [],
-        priority: true,
-        id: "testpiece|Enemy|eye|1",
-        key: "testpiece|Enemy|eye|1",
-        bonus: false, //dice unlocks after all priority and normal body are filled
-        keep: false, //player keeps its dices as extra dices for next turn
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          minValue: 4,
+          // maxValue: 4,
+          // exactValues: ["even"],
+          // maxDices: false,
+        },
+        requires: {
+          // exactValues: false,
+          minDices: 1,
+          minSum: 5,
+        },
+        multiplies: {
+          multipliedTypes: ["physical"],
+          multipliedBy: 2,
+        },
+        damages: {
+          // damageToPlayer: 1,
+          // effectsToPlayer: false,
+          damageToEnemy: 1,
+          // effectsToEnemy: false,
+        },
+        grow: {
+          // duplicateAtLv: 32,
+          lvlsToRaiseMinSum: 5,
+          // lvlsToRaiseMinDices: 12,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
+        },
+
+        id: "piece|GOBLINS|green|Surprised Goblin|eye|1",
+        key: "piece|GOBLINS|green|Surprised Goblin|eye|1",
       },
     ],
     status: [],

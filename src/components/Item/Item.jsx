@@ -7,7 +7,6 @@ import { Title } from "components/Phonebook/Title/Title";
 export const Item = ({
   name,
   id,
-  desc = "No skill description, but there is skill.",
   icon,
   alt,
   tags = [""],
@@ -16,6 +15,8 @@ export const Item = ({
   toggleSelect,
   dices,
   stats = [],
+  skill = { name: "NO SKILL", txt: "-", id: "noskill" },
+  statsTxT,
 }) => {
   return (
     <div className={css.item} id={id}>
@@ -26,7 +27,9 @@ export const Item = ({
         bgTxtBack={tags[0]}
         children={
           <>
-            {desc}
+            {`${skill.name}`}
+            <br />
+            {`${skill.txt}`}
             <Title title={`${alt} ${name}`} />
           </>
         }
@@ -50,8 +53,8 @@ export const Item = ({
       <div className={css.iconBag}>
         {(dices ? dices : stats).map((el, index) => {
           return (
-            <DiceIcon 
-            {...el}
+            <DiceIcon
+              {...el}
               // diceMax={el.diceMax}
               // value={el.value}
               // icon={el.type}

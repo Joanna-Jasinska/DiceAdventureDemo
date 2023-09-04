@@ -155,20 +155,24 @@ export const Piece = {
     while (r && maxLv && spilloverLv > maxLv) {
       // make maxed dice  --------------------------------------------------
       let currentPiece = JSON.parse(JSON.stringify({ ...piece }));
+      let a = currentPiece.allows ? currentPiece.allows : false;
       currentPiece.grow.lv = maxLv;
       if (r.minDices && grow.lvlsToRaiseMinDices) {
         const newMinDices =
           r.minDices + Math.floor(maxLv / grow.lvlsToRaiseMinDices);
         currentPiece.requires.minDices = newMinDices;
-        if (currentPiece.allows && currentPiece.allows.maxDices) {
-          currentPiece.allows.maxDices += Math.floor(
-            maxLv / grow.lvlsToRaiseMinDices
-          );
+        if (a && a.maxDices) {
+          a.maxDices += Math.floor(maxLv / grow.lvlsToRaiseMinDices);
         }
       }
       if (r.minSum && grow.lvlsToRaiseMinSum) {
         const newMinSum = r.minSum + Math.floor(maxLv / grow.lvlsToRaiseMinSum);
         currentPiece.requires.minSum = newMinSum;
+      }
+      if (a && a.minValue && grow.lvlsToRaiseMinValue) {
+        const newMinValue =
+          a.minValue + Math.floor(maxLv / grow.lvlsToRaiseMinValue);
+        a.minValue = newMinValue;
       }
       if (r.exactValues && grow.lvlsToRaiseExactValues) {
         const extraAmount = Math.floor(maxLv / grow.lvlsToRaiseExactValues);
@@ -192,6 +196,7 @@ export const Piece = {
     if (spilloverLv > 0) {
       // make not full dice  ----------------------------------------------
       let currentPiece = JSON.parse(JSON.stringify({ ...piece }));
+      let a = currentPiece.allows ? currentPiece.allows : false;
       currentPiece.grow.lv = spilloverLv;
       if (r.minDices && grow.lvlsToRaiseMinDices) {
         const newMinDices =
@@ -206,6 +211,11 @@ export const Piece = {
       if (r.minSum && grow.lvlsToRaiseMinSum) {
         const newMinSum = r.minSum + Math.floor(lv / grow.lvlsToRaiseMinSum);
         currentPiece.requires.minSum = newMinSum;
+      }
+      if (a && a.minValue && grow.lvlsToRaiseMinValue) {
+        const newMinValue =
+          a.minValue + Math.floor(lv / grow.lvlsToRaiseMinValue);
+        a.minValue = newMinValue;
       }
       if (r.exactValues && grow.lvlsToRaiseExactValues) {
         const extraAmount = Math.floor(lv / grow.lvlsToRaiseExactValues);

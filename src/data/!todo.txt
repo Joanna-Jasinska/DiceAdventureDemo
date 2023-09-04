@@ -1,18 +1,8 @@
 -/later/- objects Enemy, objects Piece -- finishing evaluation
 -/later/- make piece requirements visible in game --in a better way
 -/later/- do something about game slice resetGame not having isLoading=true at pending
+-/later/- Item.js leveling stats dices of item gives them unnecessary ||| in their id
 
-
-- redesign  eq.js
-
-
-- workshop page to edit equipment
-- equipment list with filters
-- equipment leveling
-- make working equipment in equipment.js
-- make equipment scale properly with lv
-- redesign  eq.js
-- redesign and refactor equipment slice and objects Equipment
 
 - intiating player life from eq when entering dungeon
 - tracking player life in combat and dungeon
@@ -24,6 +14,15 @@
 
 - end turn
 - end turn - damage to enemy calculation
+
+
+- delete Items.js + LeveledItem.js
+
+
+- workshop page to edit equipment
+- equipment list with filters
+- equipment leveling
+- make equipment scale properly with lv
 
 - Piece.diceIsAllowed - check if fulfilled when requiring exact values
 
@@ -50,13 +49,19 @@
 
 -------------------------------
 
+- redesign  ItemList component to accept - list and filters - as props
+- add filters to eq page + navigation
+- add filters to workshop page + navigation
+
+-------------------------------
+
 - info page with storyline
 - tutorial page
 - settings page
 
 -------------------------------
 
-- boss
+-/not sure/- boss gives extra gold?
 
 -------------------------------
 

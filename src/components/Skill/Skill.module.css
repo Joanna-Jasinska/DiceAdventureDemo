@@ -9,6 +9,7 @@
   width: max-content;
   width: 8.5rem;
   width: 7.8rem;
+  height: 7.8rem;
   display: inline-block;
 }
 
@@ -63,6 +64,10 @@
   margin: 0px 4px 1px 0px;
   width: 3rem;
   height: 2.4rem;
+  width: 100%;
+  /* height: 7.8rem; */
+  height: 4.8rem;
+  background-color: #8eff312c;
   /* display: inline; */
   justify-content: center;
   border: transparent;
@@ -75,6 +80,12 @@
   cursor: pointer;
   transition: 250ms;
 }
+.button:hover,
+button:focus,
+.button:active {
+  /* z-index: -1; */
+  opacity: 0.04;
+}
 
 .selected {
   background-color: #c3ff91;
@@ -82,6 +93,7 @@
   /* box-shadow: 1px 1px 1px red; */
 }
 .text {
+  z-index: 2;
   margin: 2px 4px;
   display: inline;
   color: #000000a0;
@@ -91,6 +103,7 @@
   z-index: 3;
   line-height: 0.84rem;
   text-align: center;
+  /* line-break: anywhere; */
 }
 
 /* .name {

@@ -46,30 +46,51 @@ export const CombatNavigation = () => {
   const nothing = (e) => {
     e.preventDefault();
   };
-  const negatives = body
-    .map((piece) => {
-      const dmgToPlayer = `${
-        piece.damages.damageToPlayer ? `❤️x${piece.damages.damageToPlayer}` : ""
-      }`;
-      const effToPlayer = `${
-        piece.damages.effectsToPlayer
-          ? `❗️❔x${piece.damages.effectsToPlayer}`
-          : ""
-      }`;
-      return piece.fulfilled ? "" : dmgToPlayer + effToPlayer;
-    })
-    .join("");
-  const positives = body
-    .map((piece) => {
-      const dmgToEnemy = `${
-        piece.damages.damageToEnemy ? `⚔️x${piece.damages.damageToEnemy}` : ""
-      }`;
-      const effToEnemy = `${
-        piece.damages.effectsToEnemy ? `❔x${piece.damages.effectsToEnemy}` : ""
-      }`;
-      return !piece.fulfilled ? "" : dmgToEnemy + effToEnemy;
-    })
-    .join("");
+  // const negatives = body
+  //   .map((piece) => {
+  //     const dmgToPlayer = `${
+  //       piece.damages.damageToPlayer ? `❤️x${piece.damages.damageToPlayer}` : ""
+  //     }`;
+  //     const effToPlayer = `${
+  //       piece.damages.effectsToPlayer
+  //         ? `❗️❔x${piece.damages.effectsToPlayer}`
+  //         : ""
+  //     }`;
+  //     return piece.fulfilled ? "" : dmgToPlayer + effToPlayer;
+  //   })
+  //   .join("");
+  let negNum = 0;
+  let effToPlayer = "";
+  let posNum = 0;
+  let effToEnemy = "";
+  body.forEach((piece) => {
+    if (piece.damages.damageToPlayer && !piece.fulfilled)
+      negNum += piece.damages.damageToPlayer;
+    if (piece.damages.damageToEnemy && piece.fulfilled)
+      posNum += piece.damages.damageToEnemy;
+    if (piece.damages.effectsToPlayer && !piece.fulfilled)
+      effToPlayer += `❗️❔x${piece.damages.effectsToPlayer}`;
+    if (piece.damages.effectsToEnemy && piece.fulfilled)
+      effToEnemy += `❗️❔x${piece.damages.effectsToEnemy}`;
+  });
+  const negatives = `${negNum === 0 ? "" : "❤️x" + negNum}${
+    effToPlayer === "" ? "" : effToPlayer
+  }`;
+  const positives = `${posNum === 0 ? "" : "⚔️x" + posNum}${
+    effToEnemy === "" ? "" : effToEnemy
+  }`;
+  // const positives = body
+  //   .map((piece) => {
+  //     const dmgToEnemy = `${
+  //       piece.damages.damageToEnemy ? `⚔️x${piece.damages.damageToEnemy}` : ""
+  //     }`;
+  //     const effToEnemy = `${
+  //       piece.damages.effectsToEnemy ? `❔x${piece.damages.effectsToEnemy}` : ""
+  //     }`;
+  //     return !piece.fulfilled ? "" : dmgToEnemy + effToEnemy;
+  //   })
+  //   .join("");
+
   // damages: {
   //   damageToPlayer: 0,
   //   effectsToPlayer: false,
@@ -120,15 +141,15 @@ export const CombatNavigation = () => {
           <div className={css.rightNav}>
             <HeaderNavBtn
               to="/-"
-              display="Win Fight"
-              onClick={killEnemy}
-              inactive={true}
-            />
-            <HeaderNavBtn to="/summary" display="🏃 Town" />
-            <HeaderNavBtn
-              to="/-"
               display={`${endTurnIcon} End Turn ${endTurnDmg}`}
               onClick={nothing}
+            />
+            <HeaderNavBtn to="/summary" display="🏃Town" />
+            <HeaderNavBtn
+              to="/-"
+              display="Win"
+              onClick={killEnemy}
+              inactive={true}
             />
           </div>
         </nav>
