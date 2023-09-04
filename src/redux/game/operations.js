@@ -1,14 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getRandomNum } from "objects/Dice";
-import { Dungeon } from "objects/Dungeon";
-// import { BASE_EQUIPMENT } from "../../data/eq";
+import { STARTING_DUNGEONS } from "data/settings";
+// import { getRandomNum } from "objects/Dice";
 
 //   moveCaravan,
 
 export const resetGame = createAsyncThunk("game/reset", async (_, thunkAPI) => {
-  return true;
+  return [...STARTING_DUNGEONS];
 });
-
 
 export const setGameError = createAsyncThunk(
   "game/setError",
@@ -31,9 +29,10 @@ export const playerLvUp = createAsyncThunk(
 export const LvUpDungeonById = createAsyncThunk(
   "game/LvUpDungeonById",
   async (id, thunkAPI) => {
-    const state = thunkAPI.getState().game;
-    const { dungeonLevels } = state;
-    return { ...dungeonLevels, [id]: dungeonLevels[id] + 1 };
+    // const state = thunkAPI.getState().game;
+    // const { dungeonLevels } = state;
+    // return { ...dungeonLevels, [id]: dungeonLevels[id] + 1 };
+    return id;
   }
 );
 export const moveCaravan = createAsyncThunk(
@@ -55,7 +54,7 @@ export const gainFromDungeonSummary = createAsyncThunk(
     // const levelsEarned = startedLv && lv ? Math.max(0, startedLv - lv) : 0;
     // dungeonLevels{}
     // selectedDungeonId
-    return {gold: gold+goldEarned};
+    return { gold: gold + goldEarned };
   }
 );
 // export const addGold = createAsyncThunk("game/addGold", async (g, thunkAPI) => {

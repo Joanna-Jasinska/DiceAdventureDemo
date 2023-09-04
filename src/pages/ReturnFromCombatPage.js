@@ -11,12 +11,12 @@ import { clearCombat } from "redux/combat/operations";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useCombat, useDungeon } from "hooks";
 import { useEnemy } from "hooks/useEnemy";
-import { gainFromDungeonSummary } from "redux/game/operations";
+import { LvUpDungeonById, gainFromDungeonSummary } from "redux/game/operations";
 
 export const ReturnFromCombatPage = () => {
   const dispatch = useDispatch();
   const { endCombat, inCombat } = useCombat();
-  const { slotsDefeated, player } = useDungeon();
+  const { slotsDefeated, player, dungeonId } = useDungeon();
   const { life } = player;
   const { enemyLife } = useEnemy();
   const navigate = useNavigate();
@@ -66,16 +66,17 @@ export const ReturnFromCombatPage = () => {
       return;
     }
     if (dungeonVictory) {
-      console.log(`dungeonVictory [${dungeonVictory}]`);
+      // console.log(`dungeonVictory [${dungeonVictory}] Dungeon ID [${dungeonId}]`);
       // gain spare levelup
       // load dungeon without loosing level and gold streak
+      dispatch(LvUpDungeonById(dungeonId));
       dispatch(levelupAndReloadDungeon());
     } else {
       // console.log(`Dungeon in progress, victory [${dungeonVictory}]: found`, [
       //   ...Object.values(slotsDefeated),
       // ]);
     }
-  }, [dispatch, inCombat, dungeonVictory, enemyLife, life]);
+  }, [dispatch, inCombat, dungeonVictory, enemyLife, life, dungeonId]);
 
   return (
     <main

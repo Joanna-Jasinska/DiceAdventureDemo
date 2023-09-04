@@ -171,8 +171,10 @@ const dungeonSlice = createSlice({
       state.inDungeon = true;
       state.readyToEnter = false;
       state.player = action.payload.player;
-      state.lv = action.payload.lv;
       state.slotsDefeated = initialState.slotsDefeated;
+      state.lv = action.payload.lv;
+      state.startedLv = action.payload.lv;
+      state.id = action.payload.id;
     },
 
     [damagePlayer.pending]: handlePending,

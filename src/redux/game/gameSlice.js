@@ -49,7 +49,8 @@ const gameSlice = createSlice({
     [resetGame.pending]: () => {},
     [resetGame.rejected]: handleRejected,
     [resetGame.fulfilled](state, action) {
-      state.currentDungeons = initialState.currentDungeons;
+      // state.currentDungeons = initialState.currentDungeons;
+      state.currentDungeons = action.payload;
       // needs to be fixed to generate all possible dungeon list
       state.possibleDungeons = initialState.possibleDungeons;
       // state.possibleDungeons = action.payload.possibleDungeons;
@@ -85,7 +86,8 @@ const gameSlice = createSlice({
     [LvUpDungeonById.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.dungeonLevels = action.payload;
+      // state.dungeonLevels = action.payload;
+      state.dungeonLevels = {...state.dungeonLevels, [action.payload]: state.dungeonLevels[action.payload]+1};
     },
 
     [setSelectDungeon.pending]: handlePending,

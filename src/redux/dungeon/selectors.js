@@ -16,6 +16,7 @@ export const selectSlotsDefeated = (state) => state.dungeon.slotsDefeated;
 export const selectCurrentSlot = (state) => state.dungeon.currentSlot;
 export const selectPlayer = (state) => state.dungeon.player;
 export const selectPlayerLife = (state) => state.dungeon.player.life;
+export const selectDungeonId = (state) => state.dungeon.id;
 
 // id: "dungeon|1|",
 //   startedLv: 1,

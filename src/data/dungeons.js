@@ -3,9 +3,16 @@ export const getDungeon = (eid) => {
   return found ? found : DUNGEONS[0];
 };
 
-export const getBasicDungeons = () => {
-  return DUNGEONS.slice(0, 5);
-};
+// export const getBasicDungeons = () => {
+//   // return [
+//   //   "dungeon|2|2",
+//   //   "dungeon|2|2",
+//   //   "dungeon|2|2",
+//   //   "dungeon|2|2",
+//   //   "dungeon|2|2",
+//   // ];
+//   return [...DUNGEONS.slice(0, 5).map((d) => d.eventId)];
+// };
 
 export const DUNGEONS = [
   {
