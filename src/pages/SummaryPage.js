@@ -11,6 +11,8 @@ import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
 import { LevelUps } from "components/LevelUps/LevelUps";
 import { enterSummary } from "redux/combat/operations";
+import { useGame } from "hooks/useGame";
+import { DungeonSquare } from "components/DungeonSquare/DungeonSquare";
 
 export const SummaryPage = () => {
   const dispatch = useDispatch();
@@ -20,16 +22,18 @@ export const SummaryPage = () => {
   const {
     error,
     goldEarned,
+    name,
+    eventName,
+    bg,
     packedItems,
     ally,
     loading,
     inDungeon,
-    name,
-    eventName,
     player,
     lv,
     startedLv,
   } = useDungeon();
+  const { selectedDungeonId } = useGame();
   const levelUps = Math.max((lv || 0) - (startedLv || 0), 0);
 
   useEffect(() => {
@@ -74,6 +78,16 @@ export const SummaryPage = () => {
               gap: "0.4rem",
             }}
           >
+            <DungeonSquare
+              {...{
+                name,
+                eventName,
+                id: selectedDungeonId,
+                lv,
+                background: bg,
+                selected: "hide",
+              }}
+            />
             <PlayerAvatar />
             <BagOfGold gold={goldEarned} />
             <LevelUps lv={levelUps} />

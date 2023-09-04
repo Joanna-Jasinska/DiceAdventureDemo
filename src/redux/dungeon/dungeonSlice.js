@@ -9,6 +9,8 @@ import {
   getEnemyGold,
   engageEnemyBySlot,
   engageBoss,
+  damagePlayer,
+  resetPlayer,
 } from "./operations";
 
 const initialState = {
@@ -171,6 +173,30 @@ const dungeonSlice = createSlice({
       state.player = action.payload.player;
       state.lv = action.payload.lv;
       state.slotsDefeated = initialState.slotsDefeated;
+    },
+
+    [damagePlayer.pending]: handlePending,
+    [damagePlayer.rejected]: handleRejected,
+    [damagePlayer.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.player = {
+        life: state.player.life - action.payload,
+        maxLife: state.player.maxLife,
+        status: state.player.status,
+      };
+    },
+
+    [resetPlayer.pending]: handlePending,
+    [resetPlayer.rejected]: handleRejected,
+    [resetPlayer.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.player = {
+        life: initialState.player.life,
+        maxLife: initialState.player.maxLife,
+        status: initialState.player.status,
+      };
     },
 
     [levelupAndReloadDungeon.pending]: handlePending,

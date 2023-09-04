@@ -82,6 +82,7 @@ const combatSlice = createSlice({
       state.inCombat = true;
     },
 
+
     [toggleDiceSelection.pending]: handlePending,
     [toggleDiceSelection.rejected]: handleRejected,
     [toggleDiceSelection.fulfilled](state, action) {

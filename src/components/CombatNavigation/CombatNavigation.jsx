@@ -6,6 +6,7 @@ import {
   clearCombat,
   copyAllEnemyDicesToBag,
   deselectAllDices,
+  rollAllDices,
 } from "redux/combat/operations";
 import css from "./CombatNavigation.module.css";
 import { useCombat, useDungeon } from "hooks";
@@ -13,14 +14,17 @@ import { deleteAllBodyDices, die } from "redux/enemy/operations";
 import { useEnemy } from "hooks/useEnemy";
 import { EnemyPortrait } from "components/EnemyPortrait/EnemyPortrait";
 import { gainFromDungeonSummary } from "redux/game/operations";
-import { clearDungeon } from "redux/dungeon/operations";
+import { clearDungeon, damagePlayer } from "redux/dungeon/operations";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const CombatNavigation = () => {
   const dispatch = useDispatch();
   const { player } = useDungeon();
   const { life, maxLife } = player;
-  const { body, gold } = useEnemy();
+  const { body, gold, enemyLife } = useEnemy();
   const { inCombat } = useCombat();
+  const navigate = useNavigate();
 
   // const deselectAll = (e) => {
   //   e.preventDefault();
@@ -45,6 +49,39 @@ export const CombatNavigation = () => {
   };
   const nothing = (e) => {
     e.preventDefault();
+  };
+  const endTurn = (e) => {
+    e.preventDefault();
+    const runDispatch = async (toDispatch) => {
+      for (const func of toDispatch) {
+        await dispatch(func());
+      }
+    };
+    let dmgToPlayer = 0;
+    let effToPlayer = [];
+    let dmgToEnemy = 0;
+    let effToEnemy = [];
+    body.forEach((piece) => {
+      if (!piece.fulfilled) {
+        dmgToPlayer += piece.damages.damageToPlayer || false;
+        effToPlayer = effToPlayer.concat(
+          piece.damages.effectsToPlayer || false
+        );
+      } else {
+        dmgToEnemy += piece.damages.damageToEnemy || false;
+        effToEnemy = effToEnemy.concat(piece.damages.effectsToEnemy || false);
+      }
+    });
+    // !!!AAA!!! to do:
+    // apply player damage
+    // apply player status
+    // apply enemy damage
+    // apply enemy status
+    runDispatch([
+      () => damagePlayer(dmgToPlayer),
+      deleteAllBodyDices,
+      rollAllDices,
+    ]);
   };
   // const negatives = body
   //   .map((piece) => {
@@ -103,6 +140,10 @@ export const CombatNavigation = () => {
   //   ✔️❌☠️
   // ⚙️💀☠️🩸❤️⚔️👍
 
+  useEffect(() => {
+    if (enemyLife < 1 || life < 1) navigate("/return");
+  }, [life, enemyLife]);
+
   return (
     <header className={`header ${css.header}`}>
       <EnemyPortrait />
@@ -142,7 +183,7 @@ export const CombatNavigation = () => {
             <HeaderNavBtn
               to="/-"
               display={`${endTurnIcon} End Turn ${endTurnDmg}`}
-              onClick={nothing}
+              onClick={endTurn}
             />
             <HeaderNavBtn to="/summary" display="🏃Town" />
             <HeaderNavBtn

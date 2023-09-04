@@ -134,6 +134,20 @@ export const getEnemyGold = createAsyncThunk(
   }
 );
 
+export const damagePlayer = createAsyncThunk(
+  "dungeon/damagePlayer",
+  async (dmg, thunkAPI) => {
+    return Number(dmg || 0);
+  }
+);
+
+export const resetPlayer = createAsyncThunk(
+  "dungeon/resetPlayer",
+  async (_, thunkAPI) => {
+    return true;
+  }
+);
+
 export const engageEnemyBySlot = createAsyncThunk(
   "dungeon/engameEnemyBySlot",
   async (slot, thunkAPI) => {

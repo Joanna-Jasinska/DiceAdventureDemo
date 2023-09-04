@@ -21,8 +21,8 @@ export const useEnemy = () => {
 
   const name = useSelector(selectEnemyName);
   const id = useSelector(selectEnemyId);
-  const life = useSelector(selectEnemyLife);
-  const maxLife = useSelector(selectEnemyMaxLife);
+  const enemyLife = useSelector(selectEnemyLife);
+  const enemyMaxLife = useSelector(selectEnemyMaxLife);
   const isBoss = useSelector(selectEnemyIsBoss);
   const gold = useSelector(selectEnemyGold);
   const portrait = useSelector(selectEnemyPortrait);
@@ -35,8 +35,8 @@ export const useEnemy = () => {
     enemy,
     name,
     id,
-    life,
-    maxLife,
+    enemyLife,
+    enemyMaxLife,
     isBoss,
     gold,
     portrait,

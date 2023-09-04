@@ -70,7 +70,7 @@ export const rollAllDices = createAsyncThunk(
         return item;
       }),
     ];
-    const rolled = myDices;
+    const rolled = myDices.map((d) => Dice.roll(d));
     return rolled;
   }
 );

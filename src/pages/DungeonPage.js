@@ -163,8 +163,8 @@ export const DungeonPage = () => {
             }}
           >
             <PlayerAvatar />
-            <BagOfGold gold={goldEarned} />
             <LevelUps lv={levelUps} />
+            <BagOfGold gold={goldEarned} />
           </div>
           <SkillList />
         </main>
