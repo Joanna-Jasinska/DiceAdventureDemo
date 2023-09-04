@@ -5,6 +5,9 @@
 +/later/- when hovering on dice show its diceMax
 +/later/- enemy body pieces sides should grow bigger not appear
 
+-fix leveling enemy body pieces 
+doesnt add minsum
+
 add to return page:
 - slice
 // gain spare levelup

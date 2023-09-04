@@ -63,7 +63,7 @@ export const Enemy = {
       const piece = JSON.parse(JSON.stringify(piecee));
       // console.log("Enemy.levelUp Current piece:", piece);
       const leveledPieces = [
-        ...Piece.levelupPiece({ ...piece, grow: { ...piece.grow, lv } }),
+        ...Piece.levelupPiece({ ...piece, grow: { ...piece.grow }, lv }),
       ];
       console.log("Enemy.levelUp leveledPieces:", leveledPieces);
       leveledPiecesArray = [...leveledPiecesArray.concat([...leveledPieces])];

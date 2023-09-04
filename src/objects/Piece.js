@@ -149,14 +149,14 @@ export const Piece = {
     const lv = piece.lv || 0;
     const grow = piece.grow ? piece.grow : false;
     const r = piece.requires ? piece.requires : false;
-    let spilloverLv = grow && grow.lv ? grow.lv : -1;
+    let spilloverLv = lv;
     const maxLv = grow.duplicateAtLv || false;
     let iteration = 1;
     while (r && maxLv && spilloverLv > maxLv) {
       // make maxed dice  --------------------------------------------------
       let currentPiece = JSON.parse(JSON.stringify({ ...piece }));
       let a = currentPiece.allows ? currentPiece.allows : false;
-      currentPiece.grow.lv = maxLv;
+      currentPiece.lv = maxLv;
       if (r.minDices && grow.lvlsToRaiseMinDices) {
         const newMinDices =
           r.minDices + Math.floor(maxLv / grow.lvlsToRaiseMinDices);
@@ -185,10 +185,10 @@ export const Piece = {
       // --------------------------------------------------
       currentPiece.id = `${currentPiece.id}|iteration|${iteration}`;
       currentPiece.key = `${currentPiece.key}|iteration|${iteration}`;
-      console.log(
-        `Leveling piece - adding full level [${maxLv}] piece.`,
-        currentPiece
-      );
+      // console.log(
+      //   `Leveling piece - adding full level [${maxLv}] piece.`,
+      //   currentPiece
+      // );
       pieceArray.push({ ...currentPiece });
       iteration += 1;
       spilloverLv = spilloverLv - grow.duplicateAtLv;
@@ -197,7 +197,7 @@ export const Piece = {
       // make not full dice  ----------------------------------------------
       let currentPiece = JSON.parse(JSON.stringify({ ...piece }));
       let a = currentPiece.allows ? currentPiece.allows : false;
-      currentPiece.grow.lv = spilloverLv;
+      currentPiece.lv = spilloverLv;
       if (r.minDices && grow.lvlsToRaiseMinDices) {
         const newMinDices =
           r.minDices + Math.floor(lv / grow.lvlsToRaiseMinDices);
@@ -208,8 +208,14 @@ export const Piece = {
           );
         }
       }
+      // console.log(
+      //   `NNNNNNNNNNNNNN checking (r.minSum [${r.minSum}] && [${grow.lvlsToRaiseMinSum}] grow.lvlsToRaiseMinSum)`
+      // );
       if (r.minSum && grow.lvlsToRaiseMinSum) {
         const newMinSum = r.minSum + Math.floor(lv / grow.lvlsToRaiseMinSum);
+        // console.log(
+        //   `WWWWWWWWWWWWWWWWWWW entered leveling minSum, newMinSum [${newMinSum}]`
+        // );
         currentPiece.requires.minSum = newMinSum;
       }
       if (a && a.minValue && grow.lvlsToRaiseMinValue) {
@@ -228,14 +234,16 @@ export const Piece = {
       // --------------------------------------------------
       currentPiece.id = `${currentPiece.id}|last`;
       currentPiece.key = `${currentPiece.key}|last`;
-      console.log(
-        `Leveling piece - adding last level [${spilloverLv}] piece.`,
-        currentPiece
-      );
+      // console.log(
+      //   `Leveling piece - adding last level [${spilloverLv}] piece.`,
+      //   currentPiece
+      // );
       pieceArray.push({ ...currentPiece });
     }
-    console.log(`finished leveling piece, pieceArray: `);
-    console.table(pieceArray);
+    console.log(
+      `finished leveling piece for enemy lv[${lv}], pieceArray: `,
+      pieceArray
+    );
     return pieceArray;
   },
 };
