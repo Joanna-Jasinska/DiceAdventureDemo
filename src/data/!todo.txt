@@ -8,15 +8,6 @@
 +/later/- enemy body pieces sides should grow bigger not appear
 
 
-add to return page - when dungeon victory:
-// gain spare levelup  - game slice
-// level up dungeon  - game slice
-
-
-
-- delete Items.js + LeveledItem.js
-
-
 - workshop page to edit equipment
 - equipment list with filters
 - equipment leveling

@@ -87,7 +87,11 @@ const gameSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       // state.dungeonLevels = action.payload;
-      state.dungeonLevels = {...state.dungeonLevels, [action.payload]: state.dungeonLevels[action.payload]+1};
+      state.dungeonLevels = {
+        ...state.dungeonLevels,
+        [action.payload]: state.dungeonLevels[action.payload] + 1,
+      };
+      state.spareLvUps = state.spareLvUps + 1;
     },
 
     [setSelectDungeon.pending]: handlePending,

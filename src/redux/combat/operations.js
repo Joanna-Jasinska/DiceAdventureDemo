@@ -2,7 +2,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 // import { useSelector } from "react-redux";
 import { selectItems } from "redux/combat/selectors";
-import { Items } from "objects/Items";
 import { Dice } from "objects/Dice";
 import { BASE_EQUIPMENT } from "../../data/eq";
 import { getEnemy } from "data/enemies";
