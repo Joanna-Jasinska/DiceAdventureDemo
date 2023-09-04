@@ -4,7 +4,7 @@ import css from "./../components/Phonebook/Phonebook.module.css";
 import { LevelUps } from "components/LevelUps/LevelUps";
 import { useGame } from "hooks/useGame";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
-import { ItemList } from "components/ItemList/ItemList";
+import { WorkshopList } from "components/WorkshopList/WorkshopList";
 
 export const WorkshopPage = () => {
   const error = useSelector(selectGameError);
@@ -26,8 +26,7 @@ export const WorkshopPage = () => {
         <BagOfGold gold={gold} />
         <LevelUps lv={spareLvUps} />
       </div>
-      {/* <WorkshopItemList /> */}
-      <ItemList />
+      <WorkshopList />
     </main>
   );
 };

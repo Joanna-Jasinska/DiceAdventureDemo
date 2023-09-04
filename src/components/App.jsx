@@ -76,7 +76,8 @@ export const App = () => {
             path="/dungeon"
             element={
               <RouteBattle
-                redirectTo="/quickBattle"
+                // redirectTo="/quickBattle"
+                redirectTo="/workshop"
                 component={<DungeonPage />}
               />
             }
@@ -86,6 +87,7 @@ export const App = () => {
             element={
               <RouteBattle
                 redirectTo="/quickBattle"
+                // redirectTo="/workshop"
                 component={<CombatPage />}
               />
             }
@@ -95,6 +97,7 @@ export const App = () => {
             element={
               <RouteBattle
                 redirectTo="/quickBattle"
+                // redirectTo="/workshop"
                 component={<ReturnFromCombatPage />}
               />
             }
@@ -103,7 +106,8 @@ export const App = () => {
             path="/summary"
             element={
               <RouteBattle
-                redirectTo="/quickBattle"
+                // redirectTo="/quickBattle"
+                redirectTo="/workshop"
                 component={<SummaryPage />}
               />
             }

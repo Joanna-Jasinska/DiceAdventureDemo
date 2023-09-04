@@ -59,7 +59,9 @@ export const TownNavigation = () => {
       <nav className={css.header}>
         <div className={css.leftNav}>
           <HeaderNavBtn to="/reset" display={"♻️"} />
-          <HeaderNavBtn to="/eq" display={`EQ ${selectedItems.length}/5`} />
+          <HeaderNavBtn to="/eq" display={`${selectedItems.length}/5`} />
+          <HeaderNavBtn to="/workshop" display={`🔨`} />
+          {/* <HeaderNavBtn to="/alchemy" display={`⚗️`} /> */}
           <HeaderNavBtn
             to="/eq"
             display="✔️"

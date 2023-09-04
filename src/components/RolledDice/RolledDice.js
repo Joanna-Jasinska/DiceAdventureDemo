@@ -26,6 +26,7 @@ export const RolledDice = ({ value, diceMax, type, selected, id }) => {
     >
       {value || diceMax || "?"}{" "}
       <span className={css.icon}>{getDiceTypeIcon(type)}</span>
+      <div className={css.diceMaxCover}>{diceMax}</div>
     </div>
   );
 };

@@ -12,7 +12,10 @@ const getColor = ({ value, diceMax = 6 }) => {
 
 export const DiceIcon = ({ value, diceMax, type }) => {
   return (
-    <div className={`${css.dice} ${getColor({ value, diceMax })}`}>
+    <div
+      className={`${css.dice} ${getColor({ value, diceMax })}`}
+      // data-text={`${diceMax}`}
+    >
       {value || diceMax || "?"}{" "}
       <span className={css.icon}>{getDiceTypeIcon(type)}</span>
     </div>

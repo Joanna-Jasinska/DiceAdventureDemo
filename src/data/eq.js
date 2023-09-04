@@ -161,7 +161,7 @@ export const BASE_EQUIPMENT = [
     alt: "👜",
     skill: {
       name: "SNACK",
-      txt: "[(1)stamina] [speed] => heal 1hp, get [🌀]=(1) ",
+      txt: "[🕒] [(1)🥧] => heal 1hp, get [🌀]=(1) ",
       id: "Provisions Bag|SNACK|",
     },
     statsTxT: "~ +1/5 per lv",
