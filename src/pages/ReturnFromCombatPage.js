@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 // import { useRef } from "react";
 // import { selectError } from "redux/auth/selectors";
 import { Title } from "components/Phonebook/Title/Title";
-import { getEnemyGold } from "redux/dungeon/operations";
+import {
+  getEnemyGold,
+  levelupAndReloadDungeon,
+} from "redux/dungeon/operations";
 import { clearCombat, willEndCombat } from "redux/combat/operations";
 import { Loader } from "components/Loader/Loader";
 import { Navigate } from "react-router-dom";
-import { useCombat } from "hooks";
+import { useCombat, useDungeon } from "hooks";
 import { selectEnemyLife } from "redux/enemy/selectors";
 import { selectPlayerLife } from "redux/dungeon/selectors";
 
@@ -19,6 +22,7 @@ export const ReturnFromCombatPage = () => {
   const { endCombat, inCombat } = useCombat();
   const enemyLife = useSelector(selectEnemyLife);
   const playerLife = useSelector(selectPlayerLife);
+  const { slotsDefeated } = useDungeon();
   // const error = useSelector(selectError);
   // const loading = useSelector(selectLoading);
   // let redirect = true;
@@ -36,8 +40,32 @@ export const ReturnFromCombatPage = () => {
     if (inCombat && (enemyLife < 1 || playerLife < 1)) {
       // dispatch(willEndCombat("finished")).finally(() => {
       // console.log(`would dispatch get gold, will endCombat[$x{endCombat}]`);
-      dispatch(getEnemyGold()).then(() => {
-        dispatch(clearCombat());
+      dispatch(getEnemyGold()).finally(() => {
+        const dungeonVictory = ![...Object.values(slotsDefeated)].some(
+          (slot) => slot === false
+        );
+        // console.log("Inside finally block");
+        // const dungeonVictory = ![...Object.values(slotsDefeated)].some(
+        //   (slot) => slot === false
+        // );
+        console.log("dungeonVictory:", dungeonVictory);
+        if (dungeonVictory) {
+          console.log(`victory [${dungeonVictory}]: found`);
+          // console.log(
+          //   `Dungeon victory [${dungeonVictory}]: found`,
+          //   [...Object.values(slotsDefeated)].some((slot) => slot === false)
+          // );
+          // gain spare levelup
+          dispatch(levelupAndReloadDungeon());
+          // load dungeon without loosing level and gold streak
+          dispatch(clearCombat());
+        } else {
+          console.log(
+            `Dungeon in progress, victory [${dungeonVictory}]: found`,
+            [...Object.values(slotsDefeated)]
+          );
+          dispatch(clearCombat());
+        }
       });
       // });
       return;
@@ -48,7 +76,7 @@ export const ReturnFromCombatPage = () => {
     //   });
     //   return;
     // }
-  }, [dispatch, inCombat]);
+  }, [dispatch, inCombat, slotsDefeated]);
 
   return (
     <main

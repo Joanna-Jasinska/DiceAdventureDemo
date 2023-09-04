@@ -3,6 +3,7 @@ import {
   clearDungeon,
   packEquipment,
   startDungeonById,
+  levelupAndReloadDungeon,
   getReadyToEnter,
   setLv,
   getEnemyGold,
@@ -23,7 +24,12 @@ const initialState = {
     status: {},
   },
   currentSlot: 0,
-  slotsDefeated: [false, false, false, false],
+  slotsDefeated: {
+    boss: false,
+    0: false,
+    1: false,
+    2: false,
+  },
   error: null,
   isLoading: false,
   inDungeon: false,
@@ -73,6 +79,7 @@ const dungeonSlice = createSlice({
       state.goldEarned = initialState.goldEarned;
       state.slotsDefeated = initialState.slotsDefeated;
       state.currentSlot = initialState.currentSlot;
+      // state.lv = action.payload.lv;
     },
 
     [setLv.pending]: handlePending,
@@ -99,6 +106,8 @@ const dungeonSlice = createSlice({
       state.slotsDefeated = action.payload.slotsDefeated;
       state.goldEarned = action.payload.goldEarned;
       // state.goldEarned = action.payload.goldEarned + action.payload.enemyGold;
+      console.log("Inside [getEnemyGold.fulfilled] handler");
+      console.log("Updated slotsDefeated:", action.payload.slotsDefeated);
     },
 
     [engageEnemyBySlot.pending]: handlePending,
@@ -160,6 +169,27 @@ const dungeonSlice = createSlice({
       state.inDungeon = true;
       state.readyToEnter = false;
       state.player = action.payload.player;
+      state.lv = action.payload.lv;
+      state.slotsDefeated = initialState.slotsDefeated;
+    },
+
+    [levelupAndReloadDungeon.pending]: handlePending,
+    [levelupAndReloadDungeon.rejected]: handleRejected,
+    [levelupAndReloadDungeon.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      // state.enemies = action.payload.enemies;
+      // state.bosses = action.payload.bosses;
+      // state.ally = action.payload.ally;
+      // state.inDungeon = true;
+      // state.readyToEnter = false;
+      state.player = {
+        life: state.player.life,
+        maxLife: state.player.maxLife,
+        status: action.payload.player.status,
+      };
+      state.lv = state.lv + 1;
+      state.slotsDefeated = initialState.slotsDefeated;
     },
 
     [packEquipment.pending]: handlePending,

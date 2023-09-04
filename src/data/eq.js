@@ -11,7 +11,7 @@ export const BASE_EQUIPMENT = [
     alt: "🗡️",
     skill: {
       name: "COMBO SLASH",
-      txt: "Change speed /strength /dexterity dice into slashed+1",
+      txt: "Change [🕒 /💪 /🤸‍♂️] => into [⚔️] same value+1",
       id: "Legacy Sword|COMBO SLASH|",
     },
     statsTxT: "~ +1/3 per lv",
@@ -35,6 +35,29 @@ export const BASE_EQUIPMENT = [
         duplicateAtLv: 10,
         // lvlsToRaiseValue: 3,
         // lvlsToRaiseDiceMax: 10,
+      },
+    ],
+  },
+  {
+    id: "Kitchen Knives|KNIFE THROW|",
+    name: "Kitchen Knives",
+    alt: "🔪",
+    skill: {
+      name: "KNIFE THROW",
+      txt: "[(📌)] => reroll (📌) into [1] or [max value]",
+      id: "Kitchen Knives|KNIFE THROW|",
+    },
+    statsTxT: "~ +1/5 per lv",
+    stats: [
+      {
+        item: "dice",
+        diceMax: 4,
+        // value: undefined,
+        type: "needle",
+        existSinceLv: 1,
+        duplicateAtLv: 10,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 5,
       },
     ],
   },

@@ -62,6 +62,29 @@ export const startDungeonById = createAsyncThunk(
   }
 );
 
+export const levelupAndReloadDungeon = createAsyncThunk(
+  "dungeon/levelupAndReload",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const id = state.dungeon.id;
+    const myDungeon = getDungeon(id);
+    // could clear player status
+    const myPlayer = {
+      // life: 10,
+      // maxLife: 16,
+      status: {},
+    };
+    // const myLv = state.game.dungeonLevels[myDungeon.id] + 1 || 1;
+    return {
+      // ...myDungeon,
+      player: myPlayer,
+      // lv: myLv,
+      // startedLv: myLv,
+      // goldEarned: 0,
+    };
+  }
+);
+
 // export const startRandomDungeon = createAsyncThunk(
 //   "dungeon/random",
 //   async (_, thunkAPI) => {
@@ -98,7 +121,7 @@ export const getEnemyGold = createAsyncThunk(
     const state = thunkAPI.getState();
     const eGold = state.enemy.gold;
     const dGold = state.dungeon.goldEarned;
-    let replacedSlots = [...state.dungeon.slotsDefeated];
+    let replacedSlots = { ...state.dungeon.slotsDefeated };
     replacedSlots[state.dungeon.currentSlot] = true;
     // let replacedSlots = [...selectSlotsDefeated(thunkAPI.getState())];
     // replacedSlots[selectCurrentSlot(thunkAPI.getState())] = true;
