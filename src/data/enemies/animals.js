@@ -11,8 +11,8 @@ export const ANIMALS = [
       filterColor: "#005a124a",
       bgColor: "#ddd900",
     },
-    life: 9,
-    maxLife: 10,
+    life: 7,
+    maxLife: 7,
     id: "ANIMALS|green|Old Wolf",
     body: [
       {
@@ -69,7 +69,7 @@ export const ANIMALS = [
           types: ["physical", "magic", "elemental", "speed"],
           // minValue: 3,
           // maxValue: -1,
-          // exactValues: ["even"],
+          // exactValues: ["odd"],
           // maxDices: 2,
         },
         requires: {
@@ -84,7 +84,7 @@ export const ANIMALS = [
         damages: {
           // damageToPlayer: 0,
           // effectsToPlayer: [],
-          damageToEnemy: 1,
+          damageToEnemy: 2,
           // effectsToEnemy: []],
         },
         grow: {
@@ -111,7 +111,7 @@ export const ANIMALS = [
           types: ["physical", "magic", "elemental", "speed"],
           minValue: 2,
           // maxValue: -1,
-          // exactValues: ["even"],
+          exactValues: ["odd"],
           // maxDices: 2,
         },
         requires: {
@@ -153,7 +153,7 @@ export const ANIMALS = [
           types: ["physical", "magic", "elemental", "speed"],
           minValue: 3,
           // maxValue: 4,
-          // exactValues: ["even"],
+          exactValues: ["odd"],
           // maxDices: false,
         },
         requires: {

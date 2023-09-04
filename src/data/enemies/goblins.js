@@ -11,8 +11,8 @@ export const GOBLINS = [
       filterColor: "#005a124a",
       bgColor: "#ddd900",
     },
-    life: 9,
-    maxLife: 10,
+    life: 5,
+    maxlife: 5,
     id: "GOBLINS|green|Surprised Goblin",
     body: [
       {
@@ -238,8 +238,8 @@ export const GOBLINS = [
       filterColor: "#005a124a",
       bgColor: "#ddd900",
     },
-    life: 9,
-    maxLife: 10,
+    life: 5,
+    maxlife: 5,
     id: "GOBLINS|green|Angry Goblin",
     body: [
       {
@@ -465,8 +465,8 @@ export const GOBLINS = [
       filterColor: "#005a124a",
       bgColor: "#ddd900",
     },
-    life: 9,
-    maxLife: 10,
+    life: 5,
+    maxlife: 5,
     id: "GOBLINS|green|Goblin Shaman",
     body: [
       {

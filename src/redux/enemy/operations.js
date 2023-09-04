@@ -32,7 +32,7 @@ export const loadEnemy = createAsyncThunk("enemy/load", async (_, thunkAPI) => {
   const lv = state.dungeon.lv;
   const startedLv = state.dungeon.startedLv;
   const leveledEnemy = await Enemy.levelUp(getEnemy(id), lv, startedLv);
-  return leveledEnemy;
+  return { ...leveledEnemy, maxLife: leveledEnemy.life };
 });
 
 export const placeBodyPieceDice = createAsyncThunk(

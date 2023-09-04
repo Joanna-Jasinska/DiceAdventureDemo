@@ -41,11 +41,12 @@ export const DUNGEONS = [
     bosses: ["ANIMALS|green|Elder Wolf"],
     enemies: [
       [
-        // "ELEMENTALS|green|Dryad",
+        "ELEMENTALS|green|Dryad",
+        "ELEMENTALS|green|Dryad",
         // "ANIMALS|green|Giant Spider",
         "GOBLINS|green|Surprised Goblin",
-        "GOBLINS|green|Surprised Goblin",
-        "GOBLINS|green|Surprised Goblin",
+        // "GOBLINS|green|Surprised Goblin",
+        // "GOBLINS|green|Surprised Goblin",
       ],
       [
         "GOBLINS|green|Angry Goblin",
@@ -56,10 +57,9 @@ export const DUNGEONS = [
       ],
       [
         "GOBLINS|green|Goblin Shaman",
-        "GOBLINS|green|Goblin Shaman",
-        "GOBLINS|green|Goblin Shaman",
         // "ANIMALS|green|Fat Boar",
-        // "ANIMALS|green|Old Wolf",
+        "ANIMALS|green|Old Wolf",
+        "ANIMALS|green|Old Wolf",
       ],
     ],
   },
