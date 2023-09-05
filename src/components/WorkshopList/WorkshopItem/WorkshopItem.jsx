@@ -19,7 +19,7 @@ export const WorkshopItem = ({
   statsTxT,
 }) => {
   return (
-    <div className={css.WorkshopItem} id={id}>
+    <div className={css.item} id={id}>
       <Miniature
         url={icon}
         alt={alt || name}
@@ -36,14 +36,30 @@ export const WorkshopItem = ({
       />
       <div className={css.bar}>
         <button
-          key={`${name}btn${id}`}
-          className={`${css.button} ${selected ? css.selected : ""} ${
-            css.delete
-          }`}
+          key={`${name}btnLv1${id}`}
+          className={`${css.button} ${css.level1} ${css.delete}`}
           type="button"
           onClick={toggleSelect}
         >
-          {selected ? "✔️" : "+"}
+          ♻️
+          {/* 💰 */}
+        </button>
+        <button
+          key={`${name}btnLvUp${id}`}
+          className={`${css.button} ${css.levelUp} ${css.plus1} ${css.delete}`}
+          type="button"
+          onClick={toggleSelect}
+        >
+          +1
+          {/* ⮉ */}
+        </button>
+        <button
+          key={`${name}btnLvUp10${id}`}
+          className={`${css.button} ${css.levelUp} ${css.plus10} ${css.delete}`}
+          type="button"
+          onClick={toggleSelect}
+        >
+          +10
         </button>
         <span className={css.text}>
           <span className={css.level}>{`${lv} `}</span>

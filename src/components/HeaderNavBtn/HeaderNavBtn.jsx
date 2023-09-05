@@ -26,12 +26,12 @@ export const HeaderNavBtn = ({
       to={to}
       // state={(prev) => prev}
       state={{ from: location.state.from }}
-      onClick={(e) => {
-        e.preventDefault();
-        if (!disabled) onClick(e);
-      }}
+      // onClick={(e) => {
+      //   e.preventDefault();
+      //   if (!disabled) onClick(e);
+      // }}
     >
-      {display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
+      {"here" + display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
     </NavLink>
   ) : (
     <NavLink

@@ -23,7 +23,8 @@ export const TownNavigation = () => {
   });
 
   const selectFav = () => {};
-  const deselectEQ = () => {
+  const deselectEQ = (e) => {
+    e.preventDefault();
     selectedItems.forEach((el) => {
       if (el.selected)
         dispatch(
@@ -63,7 +64,7 @@ export const TownNavigation = () => {
           <HeaderNavBtn to="/workshop" display={`🔨`} />
           {/* <HeaderNavBtn to="/alchemy" display={`⚗️`} /> */}
           <HeaderNavBtn
-            to="/eq"
+            to="/-"
             display="✔️"
             crossed={true}
             onClick={deselectEQ}

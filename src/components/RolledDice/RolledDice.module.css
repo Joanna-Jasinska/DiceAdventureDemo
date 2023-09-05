@@ -36,23 +36,29 @@
   border-radius: 4px;
   /* overflow: hidden; */
   color: transparent;
-  /* background-color: #66df168c; */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* transition: ease-in-out 300ms; */
+  transition: color 0.1s ease-in-out, height 0.4s ease-in-out;
 }
 .diceMaxCover:hover,
 .diceMaxCover:active,
 .diceMaxCover:focus {
   z-index: 4;
-  display: flex;
+  /* display: flex;
   align-items: flex-end;
-  justify-content: center;
-  position: absolute;
-  box-sizing: border-box;
-  left: -1px;
-  top: 3px;
+  justify-content: center; */
+  /* position: absolute;
+  box-sizing: border-box; */
+  /* left: -1px;
+  top: 3px; */
   height: 200%;
   width: 100%;
   border-radius: 4px;
   color: var(--color);
+  transition: height 0.1s ease-in-out, color 0.4s ease-in-out;
+  /* background-color 0.6s ease-in-out; */
   /* background-color: #66df168c; */
 }
 .diceMaxCover:hover::before,
@@ -69,8 +75,11 @@
   /* border-radius: 4px; */
   border-radius: 0 0 50% 50%;
   color: var(--color);
-  background-color: #ffffecf3;
-  box-shadow: 0 0 1px 1px #ffffecf3;
+  background-color: #ffffec;
+  box-shadow: 0 0 1px 1px #ffffec;
+  opacity: 92%;
+  /* background-color 0.6s ease-in-out */
+  transition: ease-in-out 300ms;
 }
 /* .dice:hover::after {
   z-index: -100;

@@ -19,7 +19,8 @@
   --border: 0px solid lightgray;
   --border-medium: 1px solid red;
   --bg-highlighted: #c6ffea6d;
-  --bg-highlighted-solid: #d5f7ec;
+  /* --bg-highlighted-solid: #d5f7ec; */
+  --bg-highlighted-solid: #e5ffbd;
   /* --bg-outline: #d5f4ff; */
   --bg-outline: #00344c78;
   --bg-regular: white;

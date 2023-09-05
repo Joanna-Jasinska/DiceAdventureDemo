@@ -18,6 +18,7 @@
   position: absolute;
   /* height: 4.2em; */
   height: 4.2rem;
+  box-shadow: #ffffffa3 0 2px 1px 0px;
   box-shadow: #ffffffbb 0 2px 1px 0px;
   /* min-height: 4em; */
   /* height: min-content; */
@@ -25,6 +26,7 @@
   left: 0;
   width: 120px;
   /* background-color: #ffffff42; */
+  background-color: #ffffffa3;
   background-color: #ffffffbb;
   text-align: left;
   z-index: 2;
@@ -53,22 +55,65 @@
 .button {
   overflow: visible;
   position: absolute;
-  top: 0px;
-  right: -4px;
+  /* top: 0px;
+  right: -4px; */
   /* right: 0.8rem; */
   margin: 0px 4px 1px 0px;
-  width: 3rem;
-  height: 2.4rem;
+  padding: 0;
+  width: 2rem;
+  height: 2.1rem;
   /* display: inline; */
   justify-content: center;
   border: transparent;
   border-radius: 0 20px;
-  font-size: 2.4rem;
+  /* font-size: 2.4rem; */
+  font-size: 1.3rem;
   line-height: 2rem;
   /* overflow: hidden; */
   z-index: 4;
   cursor: pointer;
   transition: 250ms;
+  opacity: 30%;
+}
+.level1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* text-align: left; */
+  top: 0px;
+  left: 0px;
+  border-radius: 20px 0;
+  background-color: #ff5b5bbb;
+  background-color: #ffad5bbb;
+  background-color: #ffdd46bb;
+  background-color: #3b3724bb;
+  background-color: #3b372491;
+  box-shadow: -1px 0px 6px 2px #792007;
+  box-shadow: -1px 0px 6px 2px #431a0f;
+}
+.levelUp {
+  background-color: #9fff5bbb;
+  background-color: #5bffd9bb;
+  background-color: #7effe1;
+  box-shadow: -1px 0px 6px 2px #00cf9f;
+}
+.plus1 {
+  top: 0px;
+  right: -4px;
+}
+.plus10 {
+  top: 2.12rem;
+  right: -4px;
+  border-radius: 20px 0 0 20px;
+  width: 2.2rem;
+  color: transparent;
+}
+.button:hover,
+.button:focus,
+.button:active {
+  /* transform: scale(1.2); */
+  opacity: 100%;
+  color: var(--color);
 }
 
 .selected {
@@ -83,26 +128,22 @@
 .level {
   position: absolute;
   top: 2px;
-  left: -6px;
-  left: 0px;
-  height: 1rem;
+  left: 1.3rem;
   height: 2rem;
-  width: 3.7rem;
   width: 3.9rem;
   /* border-radius: 18px 0 0 0; */
   overflow: hidden;
   /* margin: 10px 0px; */
   /* display: inline; */
-  /* background-color: aqua; */
   font-size: 1.6em;
   text-align: right;
-  text-align: center;
   text-align: left;
+  text-align: center;
   /* width: 100%; */
   display: block;
   margin: 0px 0.5rem;
   z-index: 3;
-  /* background-color: red; */
+  /* background-color: purple; */
 }
 .name {
   min-width: 120px;
@@ -110,7 +151,7 @@
   bottom: -0.06rem;
   display: block;
   /* background-color: red; */
-  color: #000000a0;
+  /* color: #000000a0; */
   /* margin-top: 1rem;
   margin: 0 auto; */
   /* min-height: 1em;
