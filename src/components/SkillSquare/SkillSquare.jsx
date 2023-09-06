@@ -30,7 +30,9 @@ export const SkillSquare = ({
   // const success = Skill.usedDices(skill.id, { combat });
   return (
     <div
-      className={`${css.item} ${success ? css.canFire : inCombat!==true? css.displayOnly : css.disabled}`}
+      className={`${css.item} ${
+        inCombat !== true ? css.display : success ? css.canFire : css.disabled
+      }`}
       id={id}
     >
       <Miniature

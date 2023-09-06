@@ -1,4 +1,4 @@
-import { fetchSkillEvaluations } from "data/skillEvaluation";
+import { fetchSkillEvaluations } from "data/skillEvaluation/skillEvaluation";
 
 export const Skill = {
   usedDices(skillId, state) {
@@ -20,9 +20,17 @@ export const Skill = {
     let i = 0;
     while (success && i < arr.length) {
       const singleResult = arr[i]();
-      if (singleResult === undefined || singleResult === false) success = false;
-      if (singleResult !== true && singleResult !== false) {
-        // txt += `<Test[${i}]> \n${singleResult.join("\n")}\n`;
+      if (singleResult === undefined || singleResult === false) {
+        success = false;
+      } else {
+        if (singleResult !== true) {
+          // txt += `<Test[${i}]> \n${singleResult.join("\n")}\n`;
+          if (success !== true && success !== false) {
+            success = [...success, ...singleResult];
+          } else {
+            success = [...singleResult];
+          }
+        }
       }
       i++;
     }

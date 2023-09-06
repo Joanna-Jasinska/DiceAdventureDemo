@@ -51,7 +51,7 @@ export const SkillList = ({ filters }) => {
       : items;
     return filteredItems;
   };
-  const { combat } = useCombat();
+  const { combat, inCombat } = useCombat();
 
   return (
     <div className={css.list}>

@@ -7,13 +7,11 @@
 ?/later/- workshop items paying gold for leveling ?
 +/later/- enemy body pieces sides should grow bigger not appear - or never shrink space taken
 
+- add evaluation for dice to have space to increase value (in allowed)
 
 - Skill component has onClick 
-- create SkillCheck object
 - create SkillExecute object
-- create folder for skillChecks 
 - create folder for skillExecutes 
-- create skillChecksCollection data
 - create skillExecutesCollection data
 
 - Skill.onClick(id) -> SkillCheck(id) -> from skillChecksCollection CheckSkill(id) 

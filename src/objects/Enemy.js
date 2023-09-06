@@ -9,7 +9,7 @@ export const Enemy = {
       lv > startedLv
         ? Math.min(lv * 2, maxDoubleDungGold)
         : Math.min(lv, maxDungGold);
-    console.log(`enemy base gold [${gold}] dungeonGold [${dungeonGold}]`);
+    // console.log(`enemy base gold [${gold}] dungeonGold [${dungeonGold}]`);
     return enemyGold + dungeonGold;
   },
 
@@ -28,7 +28,7 @@ export const Enemy = {
       return { ...ev, disabled: false };
     });
     if (!priorityFulfilled) {
-      console.log(`body evaluation ended at priority failure`);
+      // console.log(`body evaluation ended at priority failure`);
       return evaluatedPriority.map((p) =>
         p.priority ? p : { ...p, disabled: true, fulfilled: false }
       );
@@ -41,7 +41,7 @@ export const Enemy = {
       return { ...ev, disabled: false };
     });
     if (!normalFulfilled) {
-      console.log(`body evaluation ended at normal failure`);
+      // console.log(`body evaluation ended at normal failure`);
       return evaluatedNormal.map((p) =>
         !p.extra ? p : { ...p, disabled: true, fulfilled: false }
       );
@@ -58,20 +58,20 @@ export const Enemy = {
     const startedLv = JSON.parse(JSON.stringify(startedLvv));
     // !!!AAA!!! levelup enemy pieces
     let leveledPiecesArray = [];
-    console.log("Enemy.levelUp enemy.body:", [...e.body]);
+    // console.log("Enemy.levelUp enemy.body:", [...e.body]);
     for (const piecee of e.body) {
       const piece = JSON.parse(JSON.stringify(piecee));
       // console.log("Enemy.levelUp Current piece:", piece);
       const leveledPieces = [
         ...Piece.levelupPiece({ ...piece, grow: { ...piece.grow }, lv }),
       ];
-      console.log("Enemy.levelUp leveledPieces:", leveledPieces);
+      // console.log("Enemy.levelUp leveledPieces:", leveledPieces);
       leveledPiecesArray = [...leveledPiecesArray.concat([...leveledPieces])];
-      console.log("Enemy.levelUp leveledPiecesArray:", leveledPiecesArray);
+      // console.log("Enemy.levelUp leveledPiecesArray:", leveledPiecesArray);
     }
     // const enemy = { ...e, body: [...leveledPiecesArray] };
     const enemy = { ...e };
-    console.log(`Enemy.levelUp enemy:`, enemy);
+    // console.log(`Enemy.levelUp enemy:`, enemy);
     const gold = this.calculateGold({ lv, gold: e.gold, startedLv });
     // const gold = 14;
     const evaluatedBody = this.evaluateBody([...leveledPiecesArray]);

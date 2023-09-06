@@ -14,26 +14,32 @@ export const SKILLS = {
     actionId: false,
   },
   "Lucky Clover|LUCKY ROLL|": {
-    evaluationId: "1|PIECE|",
+    // "[(1)] => reroll for same or higher value "
+    evaluationId: "1|PIECE|space-1",
     actionId: false,
   },
   "Old Broom|WITCH'S BROOM|": {
-    evaluationId: false,
+    // "Change 🌀 into one of 🔥❄️⚡ at random"
+    evaluationId: "1|PIECE|mana",
     actionId: false,
   },
   "Utiki Spear|CHARGE|": {
+    // "combine STR/NEEDLE 2 dices to gain their combined value and max"
     evaluationId: false,
     actionId: false,
   },
   "Provisions Bag|SNACK|": {
+    // "[🕒] [(1)🥧] => heal 1hp, get [🌀]=(1) "
     evaluationId: "2|PIECE|stamina|speed",
     actionId: false,
   },
   "Fairy Advisor|ADVISE|": {
+    // "NOT WORKING Automatically arrange your dices.. but not always in a best way."
     evaluationId: false,
     actionId: false,
   },
   "Cheat Sheet|-|": {
+    // "-"
     evaluationId: false,
     actionId: false,
   },
