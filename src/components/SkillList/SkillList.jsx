@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import { game } from "api/game";
 import { selectLoading, selectEq, selectFilters } from "redux/eq/selectors";
 // import { selectItems, selectFilters } from "redux/game/selectors";
-import { Skill } from "components/Skill/Skill";
+import { SkillSquare } from "components/SkillSquare/SkillSquare";
 import {
   fetchEquipment,
   deselectAllItems,
@@ -17,6 +17,8 @@ import { setFilter } from "redux/filter/filterSlice";
 import css from "./SkillList.module.css";
 import { Loader } from "components/Loader/Loader";
 import { selectPackedItems } from "redux/dungeon/selectors";
+import { useCombat } from "hooks";
+import { Skill } from "objects/Skill";
 
 export const SkillList = ({ filters }) => {
   const extraFilters = useSelector(selectFilters);
@@ -49,6 +51,7 @@ export const SkillList = ({ filters }) => {
       : items;
     return filteredItems;
   };
+  const { combat } = useCombat();
 
   return (
     <div className={css.list}>
@@ -68,7 +71,7 @@ export const SkillList = ({ filters }) => {
         ? Array.isArray(items)
           ? filterItems(filters || extraFilters, items).map((el, index) => {
               return (
-                <Skill
+                <SkillSquare
                   name={`${el.name}`}
                   alt={`${el.alt}`}
                   id={`${el.id}`}
@@ -77,7 +80,8 @@ export const SkillList = ({ filters }) => {
                   index={index}
                   selected={el.selected}
                   skill={el.skill}
-                  statsTxT={el.statsTxT||''}
+                  success={Skill.usedDices(el.skill.id, { combat })}
+                  statsTxT={el.statsTxT || ""}
                   toggleSelect={() =>
                     dispatch(
                       updateItem({

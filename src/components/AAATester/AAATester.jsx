@@ -1,4 +1,3 @@
-import { evaluateSkill } from "data/skillEvaluation";
 import css from "./AAATester.module.css";
 import { useGame } from "hooks/useGame";
 import { useCombat } from "hooks";

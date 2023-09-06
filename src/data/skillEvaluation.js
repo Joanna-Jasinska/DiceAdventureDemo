@@ -23,7 +23,8 @@ const fetchSkillEvaluation = (id, state) => {
   return sequence;
 };
 
-export const evaluateSkill = ({ skillId, state }) => {
+export const fetchSkillEvaluations = ({ skillId, state }) => {
+  // returns false or sequence of functions to evaluate
   const { evaluationId } = getSkillById(skillId);
   const sequence = fetchSkillEvaluation(evaluationId, state);
   // getSkillById(skillId).evaluationId

@@ -1,15 +1,19 @@
-import { evaluateSkill } from "data/skillEvaluation";
+import { fetchSkillEvaluations } from "data/skillEvaluation";
 
 export const Skill = {
   usedDices(skillId, state) {
     // returns false or array of dice ids
     // if false skill cannot be fired
     // those dices will be used by skill
-    const arrayToTest = evaluateSkill({
+    const arrayToTest = fetchSkillEvaluations({
       skillId,
       state,
     });
-    let result;
+    // let result;
+    if (!arrayToTest) {
+      console.log(`${skillId} had no evaluations to perform`);
+      return false;
+    }
     const arr = [...arrayToTest];
     // let txt = "";
     let success = true;

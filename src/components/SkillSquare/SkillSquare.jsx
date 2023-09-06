@@ -1,10 +1,13 @@
 // import { PropTypes } from 'prop-types';
 import { Miniature } from "components/Miniature/Miniature";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
-import { Title } from "components/Phonebook/Title/Title";
-import css from "./Skill.module.css";
+// import { Title } from "components/Phonebook/Title/Title";
+import css from "./SkillSquare.module.css";
+import { useCombat } from "hooks";
+// import { useCombat } from "hooks";
+// import { Skill } from "objects/Skill";
 
-export const Skill = ({
+export const SkillSquare = ({
   name,
   id,
   icon,
@@ -14,6 +17,7 @@ export const Skill = ({
   selected = false,
   toggleSelect,
   dices,
+  success = false,
   stats = [],
   skill = {
     name: "NO SKILL",
@@ -22,8 +26,13 @@ export const Skill = ({
   },
   statsTxT,
 }) => {
+  const { inCombat } = useCombat();
+  // const success = Skill.usedDices(skill.id, { combat });
   return (
-    <div className={css.item} id={id}>
+    <div
+      className={`${css.item} ${success ? css.canFire : inCombat!==true? css.displayOnly : css.disabled}`}
+      id={id}
+    >
       <Miniature
         url={icon}
         alt={alt || name}
@@ -37,7 +46,7 @@ export const Skill = ({
         // }
       />
       <div className={css.bar}>
-        <div key={`${name}btn${id}`} className={`${css.button} ${css.delete}`}>
+        <div key={`${name}btn${id}`} className={`${css.button} `}>
           {alt}
         </div>
 
