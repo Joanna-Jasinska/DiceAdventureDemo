@@ -9,6 +9,8 @@ import { BagOfGold } from "components/BagOfGold/BagOfGold";
 import { useDungeon } from "hooks";
 import { useGame } from "hooks/useGame";
 import { LevelUps } from "components/LevelUps/LevelUps";
+import { PlayerLvAvatar } from "components/PlayerLvAvatar/PlayerLvAvatar";
+import { TravelCount } from "components/TravelCount/TravelCount";
 export const TownPage = () => {
   const error = useSelector(selectGameError);
   const { gold, spareLvUps } = useGame();
@@ -26,6 +28,8 @@ export const TownPage = () => {
         }}
       >
         {/* <PlayerAvatar /> */}
+        <TravelCount />
+        <PlayerLvAvatar />
         <BagOfGold gold={gold} />
         <LevelUps lv={spareLvUps} />
       </div>

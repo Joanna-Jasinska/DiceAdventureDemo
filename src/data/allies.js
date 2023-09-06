@@ -3,13 +3,12 @@ export const getAlly = (id) => {
 };
 export const ALLIES = [
   {
-    name: "Ihlaoxeus",
-    // name: "Xinaleus",
-    id: "ally|1|",
-    title: "Rajavi Mage & Pathforcer",
-    icon: "🧙",
-    eventIcon: "✨",
-    bgColor: "#275674",
+    name: "Tashka",
+    id: "ally|4|",
+    title: "Elite Rajavi Pathforcer",
+    icon: "🧞‍♀️",
+    eventIcon: "🪓",
+    bgColor: "#742727",
   },
   {
     name: "Valathar",
@@ -28,20 +27,22 @@ export const ALLIES = [
     bgColor: "#4a7427",
   },
   {
-    name: "Tashka",
-    id: "ally|4|",
-    title: "Elite Rajavi Pathforcer",
-    icon: "🧞‍♀️",
-    eventIcon: "🪓",
-    bgColor: "#742727",
-  },
-  {
     name: "Mir",
     id: "ally|5|",
     title: "Elite Rajavi Pathforcer",
     icon: "🦹‍♀️",
     eventIcon: "🔪",
     bgColor: "#4b2774",
+  },
+
+  {
+    name: "Ihlaoxeus",
+    // name: "Xinaleus",
+    id: "ally|1|",
+    title: "Rajavi Mage & Pathforcer",
+    icon: "🧙",
+    eventIcon: "✨",
+    bgColor: "#275674",
   },
 
   //   { type: "ally", icon: "🍭", color: "#fff", id: "ally|1|rainbow" },

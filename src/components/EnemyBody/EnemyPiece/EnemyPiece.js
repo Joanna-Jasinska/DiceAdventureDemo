@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useCombat } from "hooks";
 import { Piece } from "objects/Piece";
+import { PieceIcon } from "./PieceIcon/PieceIcon";
 
 export const EnemyPiece = ({ p }) => {
   const dispatch = useDispatch();
   const { rolledDices } = useCombat();
   const [toDispatch, editToDispatch] = useState([]);
   const damageIcons = Piece.getDmgIcons(p);
+  // const requiredIcons = false;
   const requiredIcons = Piece.getReqIcons(p);
   const allowedTypes = Piece.getAllowedTypes(p);
 
@@ -68,27 +70,35 @@ export const EnemyPiece = ({ p }) => {
         )}{" "}
       </div>
 
-      <div className={css.diceHolder} onClick={onDiceHolderClick}>
+      <div className={css.middleContainer} onClick={onDiceHolderClick}>
         <div className={css.displayedBodyPart}>{p.bodyPartIcon}</div>
-
-        {p.dices
-          ? p.dices.map((dice, index) => (
-              <DiceIcon
-                {...dice}
-                // value={dice.value}
-                // diceMax={dice.diceMax}
-                // icon={getIcon(dice.type).icon}
-                key={`pieceDice|${dice.type}|${index}`}
-              />
-            ))
-          : ""}
+        <div className={css.diceHolder}>
+          {p.dices
+            ? p.dices.map((dice, index) => (
+                <DiceIcon
+                  {...dice}
+                  // value={dice.value}
+                  // diceMax={dice.diceMax}
+                  // icon={getIcon(dice.type).icon}
+                  key={`pieceDice|${dice.type}|${index}`}
+                />
+              ))
+            : ""}
+        </div>
         <div className={css.requiredHolder}>
           <div className={css.req}></div>
           {requiredIcons
             ? requiredIcons.map((i, index) => (
-                <div className={css.req} key={`${p.id}|reqIcon|${index}`}>
-                  {i}
-                </div>
+                // <div className={css.req} key={`${p.id}|reqIcon|${index}`}>
+                //   {i}
+                // </div>
+                <PieceIcon
+                  {...i}
+                  // value={dice.value}
+                  // diceMax={dice.diceMax}
+                  // icon={getIcon(dice.type).icon}
+                  key={`pieceIcon|${p.id}|${index}`}
+                />
               ))
             : ""}
         </div>

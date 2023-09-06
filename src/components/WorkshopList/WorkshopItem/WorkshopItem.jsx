@@ -3,23 +3,69 @@ import { Miniature } from "components/Miniature/Miniature";
 import css from "./WorkshopItem.module.css";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
 import { Title } from "components/Phonebook/Title/Title";
+import { useDispatch } from "react-redux";
+import { itemLvUpx1, itemLvUpx10, resetItemLv } from "redux/eq/operations";
+import {
+  gainSpLvUps,
+  payGold,
+  remove10SpLvUps,
+  remove1SpLvUp,
+} from "redux/game/operations";
+import { useEQ } from "hooks/useEQ";
+import { useGame } from "hooks/useGame";
 
 export const WorkshopItem = ({
   name,
-  id,
+  itemId,
   icon,
   alt,
   tags = [""],
   lv = 1,
-  selected = false,
-  toggleSelect,
   dices,
+  index,
+  selected = false,
+  // nondices,
   stats = [],
   skill = { name: "NO SKILL", txt: "-", id: "noskill" },
-  statsTxT,
+  // statsTxT='',
 }) => {
+  const dispatch = useDispatch();
+  const { eq } = useEQ();
+  const { maxEqLv, spareLvUps, gold } = useGame();
+
+  const levelUp1 = (e) => {
+    e.preventDefault();
+    dispatch(remove1SpLvUp()).then((result) => {
+      if (typeof result.payload !== "string")
+        dispatch(itemLvUpx1({ index, itemId, lv, selected }));
+    });
+  };
+  const levelUp10 = (e) => {
+    e.preventDefault();
+    dispatch(remove10SpLvUps()).then((result) => {
+      if (typeof result.payload !== "string")
+        dispatch(itemLvUpx10({ index, itemId, lv, selected }));
+    });
+  };
+  const delevel10 = (e) => {
+    e.preventDefault();
+    // dispatch(resetItemLv({ index, itemId, selected })).then((result) => {
+    //   if (typeof result.payload !== "string")
+    //     dispatch(gainSpLvUps(result.payload[1]));
+    //     dispatch(payGold(result.payload[1]));
+    // });
+  };
+  const resetLvTo1 = (e) => {
+    e.preventDefault();
+    dispatch(resetItemLv({ index, itemId, selected })).then((result) => {
+      if (typeof result.payload !== "string")
+        dispatch(gainSpLvUps(result.payload[1]));
+      dispatch(payGold(result.payload[1]));
+    });
+  };
+
   return (
-    <div className={css.item} id={id}>
+    <div className={css.item} id={itemId}>
       <Miniature
         url={icon}
         alt={alt || name}
@@ -30,37 +76,65 @@ export const WorkshopItem = ({
             {`${skill.name}`}
             <br />
             {`${skill.txt}`}
-            <Title title={`${alt} ${name}`} />
+            <Title title={`${alt} ${name} (${index})${itemId}`} />
           </>
         }
       />
       <div className={css.bar}>
-        <button
-          key={`${name}btnLv1${id}`}
-          className={`${css.button} ${css.level1} ${css.delete}`}
-          type="button"
-          onClick={toggleSelect}
-        >
-          ♻️
-          {/* 💰 */}
-        </button>
-        <button
-          key={`${name}btnLvUp${id}`}
-          className={`${css.button} ${css.levelUp} ${css.plus1} ${css.delete}`}
-          type="button"
-          onClick={toggleSelect}
-        >
-          +1
-          {/* ⮉ */}
-        </button>
-        <button
-          key={`${name}btnLvUp10${id}`}
-          className={`${css.button} ${css.levelUp} ${css.plus10} ${css.delete}`}
-          type="button"
-          onClick={toggleSelect}
-        >
-          +10
-        </button>
+        {lv < 2 || gold + 1 < lv ? (
+          ""
+        ) : (
+          <button
+            key={`${name}btnLv1${itemId}`}
+            className={`${css.button} ${css.delevel} ${css.delevelTo1} `}
+            type="button"
+            onClick={resetLvTo1}
+          >
+            ♻️
+            {/* 💰 */}
+          </button>
+        )}
+
+        {lv < 11 || gold < 10 ? (
+          ""
+        ) : (
+          <button
+            key={`${name}btnLv-10${itemId}`}
+            className={`${css.button} ${css.delevel} ${css.delevel10} `}
+            type="button"
+            onClick={delevel10}
+          >
+            -10
+            {/* 💰 */}
+          </button>
+        )}
+
+        {spareLvUps < 1 || lv + 1 > maxEqLv ? (
+          ""
+        ) : (
+          <button
+            key={`${name}btnLvUp${itemId}`}
+            className={`${css.button} ${css.levelUp} ${css.plus1} `}
+            type="button"
+            onClick={levelUp1}
+          >
+            +1
+            {/* ⮉ */}
+          </button>
+        )}
+
+        {spareLvUps < 1 || lv + 10 > maxEqLv ? (
+          ""
+        ) : (
+          <button
+            key={`${name}btnLvUp10${itemId}`}
+            className={`${css.button} ${css.levelUp} ${css.plus10} `}
+            type="button"
+            onClick={levelUp10}
+          >
+            +10
+          </button>
+        )}
         <span className={css.text}>
           <span className={css.level}>{`${lv} `}</span>
           <span className={css.name}>{name + " "}</span>

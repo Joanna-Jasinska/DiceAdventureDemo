@@ -32,10 +32,10 @@ const getBgColor = (percent) => {
   // return "#810000";
 };
 
-export const PlayerAvatar = () => {
+export const PlayerAvatar = ({ percent }) => {
   const { player } = useDungeon();
   const { life, maxLife } = player;
-  const percentLife = Math.ceil((100 * life) / maxLife);
+  const percentLife = percent ? percent : Math.ceil((100 * life) / maxLife);
   const faceIcon = getAvatarIcon(percentLife);
   const bgIconFront = "";
   const bgSideIcon = "";

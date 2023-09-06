@@ -75,21 +75,34 @@
   transition: 250ms;
   opacity: 30%;
 }
-.level1 {
+.delevel {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   /* text-align: left; */
-  top: 0px;
-  left: 0px;
-  border-radius: 20px 0;
   background-color: #ff5b5bbb;
   background-color: #ffad5bbb;
   background-color: #ffdd46bb;
   background-color: #3b3724bb;
   background-color: #3b372491;
+  background-color: #6b695c;
   box-shadow: -1px 0px 6px 2px #792007;
   box-shadow: -1px 0px 6px 2px #431a0f;
+  /* color: #ff5252; */
+}
+.delevelTo1 {
+  top: 0px;
+  left: 0px;
+  border-radius: 20px 0;
+  width: 2.2rem;
+  /* color: transparent; */
+}
+.delevel10 {
+  left: 0px;
+  top: 2.12rem;
+  border-radius: 0 20px 20px 0;
+  width: 2.2rem;
+  color: transparent;
 }
 .levelUp {
   background-color: #9fff5bbb;
@@ -114,6 +127,15 @@
   /* transform: scale(1.2); */
   opacity: 100%;
   color: var(--color);
+  /* color: inherit; */
+}
+.delevel:hover,
+.delevel:focus,
+.delevel:active {
+  /* transform: scale(1.2); */
+  opacity: 100%;
+  color: #cfb7b7;
+  /* color: inherit; */
 }
 
 .selected {

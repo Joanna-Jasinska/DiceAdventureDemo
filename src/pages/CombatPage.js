@@ -16,6 +16,7 @@ import {
 } from "redux/dungeon/selectors";
 import { selectLoading } from "redux/combat/selectors";
 import { Loader } from "components/Loader/Loader";
+import { AAATester } from "components/AAATester/AAATester";
 
 export const CombatPage = () => {
   //   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ export const CombatPage = () => {
         ) : (
           <>
             <Background />
+            <AAATester />
             {/* <Title title={`Combat`} /> */}
             {/* <Title title={`Lv.${lv} ${dungeonName} ${dungeonEvName}`} /> */}
             {/* <EnemyPortrait /> */}

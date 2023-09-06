@@ -1,0 +1,28 @@
+.test {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: var(--color);
+  width: 4rem;
+  line-break: anywhere;
+  opacity: 10%;
+  border-radius: 0 1rem 1rem 0;
+  padding: 2px;
+  white-space: pre-wrap;
+}
+.success {
+  background-color: #acff47;
+  opacity: 40%;
+}
+.failure {
+  background-color: #ff6767;
+  opacity: 40%;
+}
+.test:hover,
+.test:focus,
+.test:active {
+  opacity: 100%;
+  width: 20rem;
+  min-height: 10rem;
+}

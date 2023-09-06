@@ -4,34 +4,50 @@
 -/later/- Item.js leveling stats dices of item gives them unnecessary ||| in their id
 -/later/- dungeon slice operations startDungeonById:
  should load player statuses depending on eq
-+/later/- when hovering on dice show its diceMax
-+/later/- enemy body pieces sides should grow bigger not appear
+?/later/- workshop items paying gold for leveling ?
++/later/- enemy body pieces sides should grow bigger not appear - or never shrink space taken
 
 
-- workshop page to edit equipment
+- Skill component has onClick 
+- create SkillCheck object
+- create SkillExecute object
+- create folder for skillChecks 
+- create folder for skillExecutes 
+- create skillChecksCollection data
+- create skillExecutesCollection data
+
+- Skill.onClick(id) -> SkillCheck(id) -> from skillChecksCollection CheckSkill(id) 
+    -> pulls and runs all small skillchecks from folder data 
+    -> returns all those checks as one big check to be run inside the component
+
+- same for skill execution    
+
+-------------------------------
+
+- data eq placed in folder and separate files
+
+- workshop page - workshop navigation ?
+
+- equipment list sorted by lv
+- equipment page - equipment navigation ?
 - equipment list with filters
-- equipment leveling
-- make equipment scale properly with lv
+
+- workshop item -10 button onClick does nothing
+
+-------------------------------
+
+- allies working at all
+- AllyPage
+- allies can sell items
+- AllySquare can be used at specific dungeon type - up till friendship lv
+- AllySquare has friewnship dices
+- AllySquare has skill
+
+
 
 - Piece.diceIsAllowed - check if fulfilled when requiring exact values
 
-- display and track enemy life
 
-- make leaving dungeon battle possible
-- make DungeonSumary page - left or died / gold gained / levels gained
-
-- CombatPage - show consequences of ending turn
-
-- combat can end - win/loss
-- level up
-
-- add stats to DungeonPage -  levels gained / gold gained
-
-- fix CombatPage layout
-- fix DungeonPage layout
-
-
-- make skill descrition display in SkillList component during combat
 - make working skills from equipment
 
 - fill dungeons.js with enemies
@@ -44,8 +60,8 @@
 
 -------------------------------
 
-- info page with storyline
-- tutorial page
+- welcome page with storyline
+- tutorial page with links
 - settings page
 
 -------------------------------
@@ -54,12 +70,10 @@
 
 -------------------------------
 
-- allies working at all
-- AllyPage
 - allies can help in normal battle
 - allies can help in boss battle
-- allies can sell items
 - allies give missions to unlock items
+
 
 -------------------------------
 

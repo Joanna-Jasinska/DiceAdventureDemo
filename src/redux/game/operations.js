@@ -35,6 +35,36 @@ export const LvUpDungeonById = createAsyncThunk(
     return id;
   }
 );
+
+export const gainSpLvUps = createAsyncThunk(
+  "game/gainSpLvUps",
+  async (num, thunkAPI) => {
+    return num;
+  }
+);
+
+export const remove10SpLvUps = createAsyncThunk(
+  "game/remove_10_SpLvUps",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState().game;
+    if (!state.spareLvUps || state.spareLvUps < 10) {
+      return thunkAPI.rejectWithValue("Not enough Spare LevelUPs");
+    }
+    return true;
+  }
+);
+
+export const remove1SpLvUp = createAsyncThunk(
+  "game/remove_1_SpLvUp",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState().game;
+    if (!state.spareLvUps || state.spareLvUps < 1) {
+      return thunkAPI.rejectWithValue("Not enough Spare LevelUPs");
+    }
+    return true;
+  }
+);
+
 export const moveCaravan = createAsyncThunk(
   "game/moveCaravan",
   async (_, thunkAPI) => {
@@ -57,6 +87,13 @@ export const gainFromDungeonSummary = createAsyncThunk(
     return { gold: gold + goldEarned };
   }
 );
+export const payGold = createAsyncThunk("game/addGold", async (g, thunkAPI) => {
+  const state = thunkAPI.getState().game;
+  const { gold } = state;
+  if (gold - g < 0) thunkAPI.rejectWithValue("Not enough gold.");
+  return g;
+});
+
 // export const addGold = createAsyncThunk("game/addGold", async (g, thunkAPI) => {
 //   const state = thunkAPI.getState().game;
 //   const { gold } = state;

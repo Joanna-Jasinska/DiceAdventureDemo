@@ -11,7 +11,11 @@ import { clearCombat } from "redux/combat/operations";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useCombat, useDungeon } from "hooks";
 import { useEnemy } from "hooks/useEnemy";
-import { LvUpDungeonById, gainFromDungeonSummary } from "redux/game/operations";
+import {
+  LvUpDungeonById,
+  gainFromDungeonSummary,
+  playerLvUp,
+} from "redux/game/operations";
 
 export const ReturnFromCombatPage = () => {
   const dispatch = useDispatch();
@@ -69,6 +73,7 @@ export const ReturnFromCombatPage = () => {
       // console.log(`dungeonVictory [${dungeonVictory}] Dungeon ID [${dungeonId}]`);
       // gain spare levelup
       // load dungeon without loosing level and gold streak
+      dispatch(playerLvUp());
       dispatch(LvUpDungeonById(dungeonId));
       dispatch(levelupAndReloadDungeon());
     } else {

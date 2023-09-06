@@ -90,7 +90,7 @@ const levelDiceStat = (piecee, lvv = 1) => {
 const levelItem = (itemm, lvv) => {
   const item = JSON.parse(JSON.stringify(itemm));
   const lv = lvv || itemm.lv || 1;
-  // console.log(`Item.js > levelItem Lv[${lv}] ID: ${item.id}`);
+  console.log(`Item.js > levelItem Lv[${lv}] ID: ${item.id}`);
   const itemTemplate = {
     itemId: item.id,
     name: item.name,

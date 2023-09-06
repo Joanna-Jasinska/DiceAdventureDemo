@@ -1,0 +1,45 @@
+.avatar {
+  position: relative;
+  display: block;
+}
+.lv {
+  z-index: 200;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.2rem;
+  font-size: 2rem;
+  /* display: flex;
+  flex-direction: column-reverse; */
+  /* align-items: flex-end; */
+  /* justify-content: center; */
+  border-radius: 20px 20px 0 0;
+  /* background-color: #f6ffd5db; */
+  /* text-align: center; */
+  overflow: hidden;
+  font-weight: bold;
+}
+.lv::after {
+  z-index: 1;
+  content: attr(data-text);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -0.4rem;
+  left: 0;
+  font-size: 2.6rem;
+  font-weight: normal;
+  text-align: center;
+  /* border-radius: 20px 20px 0 0; */
+  /* background-color: #ff80009a; */
+  background-color: #f6ffd5db;
+  background-color: #ffffffc5;
+  box-shadow: #f6ffd5db 0 2px 1px 0px;
+  /* box-shadow: #ffffffbb 0 2px 1px 0px; */
+  box-shadow: #ffffffc5 0 2px 1px 0px;
+  /* box-shadow: ; */
+  color: var(--color);
+  color: black;
+  opacity: 100%;
+}

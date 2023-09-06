@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { resetEquipment, deselectAllItems, updateItem } from "./operations";
+import {
+  resetEquipment,
+  deselectAllItems,
+  updateItem,
+  itemLvUpx10,
+  itemLvUpx1,
+  resetItemLv,
+} from "./operations";
 
 const initialState = {
   all: [],
@@ -74,6 +81,42 @@ const equipmentSlice = createSlice({
         ...action.payload,
       };
     },
+
+    [resetItemLv.pending]: handlePending,
+    [resetItemLv.rejected]: handleRejected,
+    [resetItemLv.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.all[action.payload[0].index] = {
+        ...action.payload[0],
+      };
+    },
+
+    [itemLvUpx10.pending]: handlePending,
+    [itemLvUpx10.rejected]: handleRejected,
+    [itemLvUpx10.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.all[action.payload.index] = { ...action.payload };
+      // state.all[action.payload] = {
+      //   ...state.all[action.payload],
+      //   lv: state.all[action.payload].lv + 10,
+      // };
+    },
+
+    [itemLvUpx1.pending]: handlePending,
+    [itemLvUpx1.rejected]: handleRejected,
+    [itemLvUpx1.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.all[action.payload.index] = { ...action.payload };
+      // state.all[action.payload] = {
+      //   ...state.all[action.payload],
+      //   lv: state.all[action.payload].lv + 1,
+      // };
+    },
+
+    //
   },
 });
 export const equipmentReducer = equipmentSlice.reducer;

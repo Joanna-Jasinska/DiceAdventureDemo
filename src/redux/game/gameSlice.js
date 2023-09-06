@@ -5,9 +5,12 @@ import {
   LvUpDungeonById,
   moveCaravan,
   gainFromDungeonSummary,
-  // addGold,
+  payGold,
   setSelectDungeon,
   setGameError,
+  remove1SpLvUp,
+  remove10SpLvUps,
+  gainSpLvUps,
 } from "./operations";
 
 const initialState = {
@@ -16,7 +19,7 @@ const initialState = {
   selectedDungeonId: "dungeon|2|",
   playerLv: 5,
   maxEqLv: 2,
-  spareLvUps: 0,
+  spareLvUps: 1,
   gold: 200,
   currentDungeons: [
     "dungeon|1|1",
@@ -76,8 +79,10 @@ const gameSlice = createSlice({
     [playerLvUp.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.playerLv = action.payload.playerLv;
-      state.spareLvUps = action.payload.spareLvUps;
+      state.playerLv = state.playerLv + 1;
+      state.spareLvUps = state.spareLvUps + 1;
+      // state.playerLv = action.payload.playerLv;
+      // state.spareLvUps = action.payload.spareLvUps;
       state.maxEqLv = action.payload.maxEqLv;
     },
 
@@ -91,7 +96,31 @@ const gameSlice = createSlice({
         ...state.dungeonLevels,
         [action.payload]: state.dungeonLevels[action.payload] + 1,
       };
-      state.spareLvUps = state.spareLvUps + 1;
+      // state.spareLvUps = state.spareLvUps + 1;
+    },
+
+    [gainSpLvUps.pending]: handlePending,
+    [gainSpLvUps.rejected]: handleRejected,
+    [gainSpLvUps.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.spareLvUps = state.spareLvUps + action.payload;
+    },
+
+    [remove1SpLvUp.pending]: handlePending,
+    [remove1SpLvUp.rejected]: handleRejected,
+    [remove1SpLvUp.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.spareLvUps = state.spareLvUps - 1;
+    },
+
+    [remove10SpLvUps.pending]: handlePending,
+    [remove10SpLvUps.rejected]: handleRejected,
+    [remove10SpLvUps.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.spareLvUps = state.spareLvUps - 10;
     },
 
     [setSelectDungeon.pending]: handlePending,
@@ -109,6 +138,14 @@ const gameSlice = createSlice({
       state.error = null;
       state.gold = action.payload.gold;
       // state.dungeonLevels = action.payload.dungeonLevels;
+    },
+
+    [payGold.pending]: handlePending,
+    [payGold.rejected]: handleRejected,
+    [payGold.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.gold = state.gold-action.payload;
     },
 
     // [addGold.pending]: handlePending,

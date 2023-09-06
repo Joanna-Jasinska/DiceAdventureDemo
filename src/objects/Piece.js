@@ -24,36 +24,62 @@ export const Piece = {
   getReqIcons(piece) {
     // !!!AAA!!! needs to be changed to something that looks better
     const req = [];
+    const allow = [];
+    let showAllows = false;
     if (!piece.requires) return false;
-    if (piece.requires.minSum) req.push(`${piece.requires.minSum}+`);
+    // req exact values
+    if (piece.requires.exactValues)
+      piece.requires.exactValues.forEach((ex) => {
+        req.push({ value: `${ex}`, required: true });
+      });
+    // req min sum
+    if (piece.requires.minSum) {
+      req.push({ value: `${piece.requires.minSum}+`, required: true });
+      showAllows = true;
+    }
+    // amount of dices
     const reqAmount = piece.requires.minDices || 0;
-    const amount = Math.max(reqAmount, piece.allows.maxDices || 0);
-    for (let i = amount; i > 0; i--) {
-      const generateIcon = (required, i) => {
-        if (required)
-          return `[${
-            !piece.requires.exactValues
-              ? !piece.allows.exactValues
-                ? piece.allows.minValue || piece.allows.maxValue
-                  ? `${
-                      piece.allows.minValue ? piece.allows.minValue + "+" : ""
-                    }${
-                      piece.allows.maxValue ? "-" + piece.allows.maxValue : ""
-                    }`
-                  : "R"
-                : piece.allows.exactValues.join("/")
-              : piece.requires.exactValues[i - 1]
-          }]`;
-        return `[${
-          !piece.allows.exactValues ? "_" : piece.allows.exactValues.join("/")
-        }]`;
-      };
-      if (i <= reqAmount) {
-        req.push(generateIcon(true, i));
+    const amount = Math.max(
+      reqAmount,
+      piece.allows ? piece.allows.maxDices || 0 : 0
+    );
+    if (amount > 0) {
+      req.push({
+        value: `x${amount}`,
+        required: reqAmount > 0,
+        allowed: reqAmount === 0,
+      });
+      showAllows = true;
+    }
+    if (showAllows && piece.allows) {
+      if (piece.allows.exactValues) {
+        // allows exact values
+        allow.push({
+          value: `${piece.allows.exactValues.join(", ")}`,
+          allowed: true,
+        });
+      }
+      if (piece.allows.minValue || piece.allows.maxValue) {
+        // allows min-max values
+        if (piece.allows.minValue || false) {
+          allow.push({
+            value: `${
+              piece.allows.maxValue || false
+                ? piece.allows.minValue + "-" + piece.allows.maxValue
+                : piece.allows.minValue + "+"
+            }`,
+            allowed: true,
+          });
+        } else {
+          allow.push({ value: `-${piece.allows.maxValue}`, allowed: true });
+        }
+        // allow.push({ value: ` `});
       } else {
-        req.push(generateIcon(false, i));
+        // no allows restrictions
+        // allow.push({ value: ` ` });
       }
     }
+
     //   allows: {
     //     types: ["physical", "magic", "elemental", "speed"],
     //     minValue: 4,
@@ -65,8 +91,8 @@ export const Piece = {
     //     exactValues: false,
     //     minDices: 1,
     //   },
-
-    return req.length > 0 ? req : false;
+    const icons = [...req, ...allow];
+    return icons.length > 0 ? icons : false;
   },
 
   evaluateFulfilled(piece) {

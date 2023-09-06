@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import { game } from "api/game";
 import { selectLoading, selectEq, selectFilters } from "redux/eq/selectors";
 // import { selectItems, selectFilters } from "redux/game/selectors";
-import { WorkshopItem } from "./WorkshopItem/WorkshopItem";  
+import { WorkshopItem } from "./WorkshopItem/WorkshopItem";
 import {
   fetchEquipment,
   deselectAllItems,
@@ -59,21 +59,21 @@ export const WorkshopList = ({ filters }) => {
                 <WorkshopItem
                   name={`${el.name}`}
                   alt={`${el.alt}`}
-                  id={`${el.id}`}
+                  itemId={`${el.itemId}`}
                   key={`${el.name}|${el.index}|${el.id}`}
                   // key={`key|${index}`}
                   index={index}
                   selected={el.selected}
                   skill={el.skill}
                   statsTxT={el.statsTxT || ""}
-                  toggleSelect={() =>
-                    dispatch(
-                      updateItem({
-                        ...el,
-                        selected: !el.selected,
-                      })
-                    )
-                  }
+                  // toggleSelect={() =>
+                  //   dispatch(
+                  //     updateItem({
+                  //       ...el,
+                  //       selected: !el.selected,
+                  //     })
+                  //   )
+                  // }
                   // stats={el ? (el.stats ? el.stats : el) : []}
                   dices={el.dices}
                   lv={el.lv}
