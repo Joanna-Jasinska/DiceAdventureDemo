@@ -25,7 +25,7 @@ export const SKILLS = {
   },
   "Utiki Spear|CHARGE|": {
     // "combine STR/NEEDLE 2 dices to gain their combined value and max"
-    evaluationId: false,
+    evaluationId: "2|PIECE|str/needle",
     actionId: false,
   },
   "Provisions Bag|SNACK|": {

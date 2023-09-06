@@ -6,6 +6,7 @@ export const STARTING_EQ = [
   "Old Broom|WITCH'S BROOM|",
   "Provisions Bag|SNACK|",
   "Lucky Clover|LUCKY ROLL|",
+  "Utiki Spear|CHARGE|",
   // "Cheat Sheet|-|",
 ];
 

@@ -38,8 +38,21 @@ export const SKILL_EVALUATION = {
       },
     ],
   ],
+  "2|PIECE|str/needle": [
+    [OTHER, "NUMDICES", { value: 2 }],
+    [
+      PIECE,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["strength", "needle"] },
+          requires: { minDices: 2, maxDices: 2 },
+        },
+      },
+    ],
+  ],
   "1|PIECE|space-1": [
-    // [OTHER, "NUMDICES", { value: 1 }],
+    [OTHER, "NUMDICES", { value: 1 }],
     [
       PIECE,
       "PIECE",

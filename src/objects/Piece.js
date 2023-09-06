@@ -115,17 +115,19 @@ export const Piece = {
   },
 
   diceIsAllowed(piece, dice) {
-    console.log(`--------------Dice not allowed----piece disabled`);
-    if (piece.disabled) return false;
-    console.log(`--------------Dice not allowed----too many dices`);
+    if (piece.disabled) {
+      console.log(`--------------Dice not allowed----piece disabled`);
+      return false;
+    }
     if (
       piece.dices &&
       piece.allows &&
       piece.allows.maxDices &&
       piece.dices.length >= piece.allows.maxDices
-    )
+    ) {
+      console.log(`--------------Dice not allowed----too many dices`);
       return false;
-    console.log(`--------------Dice not allowed----type doesnt match`);
+    }
     // !!!AAA!!! check if dice type matches
     let typeMatches = false;
     if (piece.allows && piece.allows.types && piece.allows.types.length > 0) {
@@ -137,52 +139,65 @@ export const Piece = {
     } else {
       typeMatches = true;
     }
-    if (!typeMatches) return false;
-    const valueSpace = dice.diceMax - dice.value;
-    console.log(
-      `--------------Dice not allowed----valueSpace (${valueSpace}/${piece.requires.valueSpace}) too low--${dice.id}`
-    );
-    if (piece.requires.valueSpace && piece.requires.valueSpace > valueSpace) {
+    if (!typeMatches) {
+      console.log(
+        `--------------Dice not allowed----type doesnt match`,
+        dice,
+        piece
+      );
       return false;
     }
-    console.log(`--------------Dice not allowed----value too low`);
+    const valueSpace = dice.diceMax - dice.value;
+    if (piece.requires.valueSpace && piece.requires.valueSpace > valueSpace) {
+      console.log(
+        `--------------Dice not allowed----valueSpace (${valueSpace}/${piece.requires.valueSpace}) too low--${dice.id}`
+      );
+      return false;
+    }
     if (
       piece.allows &&
       piece.allows.minValue &&
       dice.value < piece.allows.minValue
-    )
+    ) {
+      console.log(`--------------Dice not allowed----value too low`);
       return false;
-    console.log(`--------------Dice not allowed----value too high`);
+    }
     if (
       piece.allows &&
       piece.allows.maxValue &&
       piece.allows.maxValue > 0 &&
       dice.value > piece.allows.maxValue
-    )
+    ) {
+      console.log(`--------------Dice not allowed----value too high`);
       return false;
+    }
     if (
       piece.allows &&
       piece.allows.exactValues &&
       piece.allows.exactValues.find((r) => r === "even") &&
       dice.value % 2 === 0
-    )
+    ) {
+      console.log(`--------------Dice ALLOWED----"even"-------`);
       return true;
+    }
     if (
       piece.allows &&
       piece.allows.exactValues &&
       piece.allows.exactValues.find((r) => r === "odd") &&
       dice.value % 2 === 1
-    )
+    ) {
+      console.log(`--------------Dice ALLOWED-----"odd"------`);
       return true;
-    console.log(`--------------Dice not allowed----not exact value`);
+    }
     if (
       piece.allows &&
       piece.allows.exactValues &&
       !piece.allows.exactValues.find((r) => r === dice.value)
     ) {
+      console.log(`--------------Dice not allowed----not exact value`);
       return false;
     }
-    console.log(`--------------Dice ALLOWED-----------`);
+    console.log(`--------------Dice ALLOWED-----------`, dice, piece);
     return true;
   },
 
