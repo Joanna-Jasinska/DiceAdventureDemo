@@ -14,6 +14,12 @@ import { PIECE } from "./skillEvaluation/piece";
 //     minSum: 3,
 //   },
 
+// PIECE evaluation only checks allowed dices
+// so if there are more selected dices then needed it wont return false
+// made that way to allow multiple PIECE evaluations in one skill evaluation
+// thats why NUMDICES is needed - to return false when too many dices selected
+// (avoids confusion what dices will be used)
+// after all evaluations are done only id of dices used by PIECE evaluations will be returned
 export const SKILL_EVALUATION = {
   "2|PIECE|stamina|speed": [
     [OTHER, "NUMDICES", { value: 2 }],
