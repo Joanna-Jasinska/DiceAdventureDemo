@@ -12,42 +12,14 @@
   height: 7.8rem;
   display: inline-block;
 }
+.canFire {
+  position: relative;
+  box-shadow: -1px 0px 14px 6px #7ae621;
+  background-color: #7ae621;
+  /* width: 7.8rem;
+  height: 7.5rem; */
+}
 
-.bar {
-  border-radius: 20px 20px 0 0;
-  position: absolute;
-  height: 2.2rem;
-  box-shadow: #ffffffbb 0 2px 1px 0px;
-  top: 0;
-  left: 0;
-  width: 120px;
-  background-color: #ffffffbb;
-  text-align: left;
-  z-index: 2;
-  overflow: visible;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.iconBag {
-  bottom: 2px;
-  left: 2px;
-  width: 116px;
-  height: 3.16em;
-  padding: 4px;
-  display: flex;
-  z-index: 10;
-  position: absolute;
-  box-sizing: border-box;
-  overflow: hidden;
-  flex-flow: row-reverse;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: flex-start;
-  column-gap: 3px;
-  border-radius: 0 0 20px 20px;
-  /* background-color: red; */
-}
 .button {
   z-index: 1;
   overflow: visible;
@@ -86,47 +58,111 @@ button:focus,
   opacity: 0.04;
 }
 
-.selected {
+/* .selected {
   background-color: #c3ff91;
+  box-shadow: 1px 1px 1px red;
   box-shadow: -1px 0px 14px 6px #7ae621;
-  /* box-shadow: 1px 1px 1px red; */
+} */
+
+.bar {
+  position: absolute;
+  left: 0;
+  height: 2.2rem;
+  height: 1.9rem;
+  width: 7.5rem;
+  height: 7.5rem;
+
+  /* top: 0;
+  border-radius: 20px 20px 0 0; */
+
+  bottom: 0.3rem;
+  border-radius: 0 0 20px 20px;
+
+  border-radius: 20px;
+
+  /* box-shadow: #ffffffbb 0 -2px 1px 0px; */
+  /* background-color: #ffffffbb; */
+  /* background-color: #ff24e58d; */
+  text-align: left;
+  z-index: 2;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .text {
   z-index: 2;
-  margin: 2px 4px;
-  display: inline;
+  /* margin: 2px 4px; */
+  /* display: inline; */
+  display: block;
   color: #000000a0;
   /* height: 1.73rem; */
-  max-height: 2rem;
+  /* max-height: 2rem; */
+  width: 100%;
+  height: 100%;
   font-weight: bold;
   z-index: 3;
   line-height: 0.84rem;
   text-align: center;
+  /* background-color: #00ffe5a5; */
   /* line-break: anywhere; */
 }
 
-/* .name {
+.name {
   min-width: 120px;
   position: absolute;
-  bottom: -0.06rem;
-  bottom: 0.1rem;
+  position: relative;
   display: block;
   overflow: hidden;
 
+  bottom: 0rem;
+  border-radius: 0 0 20px 20px;
+
+  box-shadow: #ffffffbb 0 -1px 1px 0px;
+  background-color: #ffffffbb;
+
   color: #000000a0;
   height: 1.73rem;
+  height: 2.9rem;
   font-weight: bold;
   z-index: 3;
   line-height: 0.84rem;
   text-align: center;
-} */
+}
 
-.canFire {
+.iconBag {
+  position: absolute;
   position: relative;
-  box-shadow: -1px 0px 14px 6px #7ae621;
-  background-color: #7ae621;
-  width: 7.8rem;
-  height: 7.5rem;
+  z-index: 2;
+  width: 7.5rem;
+  height: 1.5em;
+  left: 0;
+
+  /* bottom: 0.1rem;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 0 0 20px 20px; */
+
+  top: 0.1rem;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 20px 20px 0 0;
+
+  /* padding: 0.1rem 0.5rem 0.5rem 0.5rem; */
+  padding: 0 0.5rem 1rem 0.5rem;
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-flow: row-reverse;
+  flex-wrap: wrap;
+  /* justify-content: flex-end; */
+  /* align-items: flex-end; */
+  column-gap: 3px;
+  background-color: #fffdf037;
+}
+.canFire .iconBag {
+  z-index: 1;
 }
 .disabled {
   position: relative;

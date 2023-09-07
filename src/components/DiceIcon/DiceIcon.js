@@ -2,8 +2,10 @@ import { getDiceTypeIcon } from "data/icons";
 import css from "./DiceIcon.module.css";
 
 const getColor = ({ value, type }) => {
-  const style = !value || value === -1 ? `${css.notRolled} ` : "";
+  const style = value === undefined || value === -1 ? `${css.notRolled} ` : "";
   switch (type) {
+    case "any":
+      return `${style}${css.any}`;
     case "physical":
       return `${style}${css.physical}`;
     case "slashed":
@@ -69,7 +71,7 @@ export const DiceIcon = ({ value, diceMax, type }) => {
       className={`${css.dice} ${getColor({ value, diceMax, type })}`}
       // data-text={`${diceMax}`}
     >
-      {value || diceMax || "?"}{" "}
+      {value || diceMax || " "}{" "}
       <span className={css.icon}>{getDiceTypeIcon(type)}</span>
     </div>
   );

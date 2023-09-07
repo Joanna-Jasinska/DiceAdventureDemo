@@ -23,6 +23,7 @@ export const SkillSquare = ({
     name: "NO SKILL",
     txt: "-",
     id: "skill|id",
+    displayCost: [],
   },
   statsTxT,
 }) => {
@@ -47,30 +48,27 @@ export const SkillSquare = ({
         //   </>
         // }
       />
+      <div key={`${name}btn${id}`} className={`${css.button} `}>
+        {alt}
+      </div>
       <div className={css.bar}>
-        <div key={`${name}btn${id}`} className={`${css.button} `}>
-          {alt}
+        <div className={css.iconBag}>
+          {(skill.displayCost ? skill.displayCost : []).map((el, index) => {
+            return (
+              <DiceIcon
+                {...el}
+                // diceMax={el.diceMax}
+                // value={el.value}
+                // icon={el.type}
+                key={`${name}|${el.type}|${index}`}
+              />
+            );
+          })}
         </div>
 
-        <span className={css.text}>
-          {skill.name}
-          <br /> {skill.txt}
-          {/* <span className={css.name}></span> */}
-        </span>
+        <div className={css.text}>{skill.txt}</div>
+        <span className={css.name}>{skill.name}</span>
       </div>
-      {/* <div className={css.iconBag}>
-        {(dices ? dices : stats).map((el, index) => {
-          return (
-            <DiceIcon
-              {...el}
-              // diceMax={el.diceMax}
-              // value={el.value}
-              // icon={el.type}
-              key={`${name}|${el.type}|${index}`}
-            />
-          );
-        })}
-      </div> */}
     </div>
   );
 };

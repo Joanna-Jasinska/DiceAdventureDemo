@@ -213,6 +213,21 @@
   box-shadow: #3636368d 0px 0px 1px 1px, inset #f6ff00 0px 0px 2px 1px;
   background-color: #799e00;
 }
+
+.any::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1rem;
+  left: -1px;
+  top: 3px;
+  background-color: #ea8aff;
+  background-color: #ffcb1f;
+  box-shadow: #3636368d 0px 0px 1px 1px, inset #fffdef 0px 0px 2px 1px;
+  background-color: #bba8cc;
+  background-color: #c9c6bd;
+}
 .notRolled::before {
   border-radius: 0px 22px 22px 42px;
 }

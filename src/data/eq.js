@@ -11,8 +11,13 @@ export const BASE_EQUIPMENT = [
     alt: "🗡️",
     skill: {
       name: "COMBO SLASH",
-      txt: "Change [🕒 /💪 /🤸‍♂️] => into [⚔️] same value+1",
+      txt: "change 1 into ⚔️ of same value+1",
       id: "Legacy Sword|COMBO SLASH|",
+      displayCost: [
+        { value: "", type: "speed" },
+        { value: "", type: "strength" },
+        { value: "", type: "dexterity" },
+      ],
     },
     statsTxT: "~ +1/3 per lv",
     stats: [
@@ -44,8 +49,9 @@ export const BASE_EQUIPMENT = [
     alt: "🔪",
     skill: {
       name: "KNIFE THROW",
-      txt: "[(📌)] => reroll (📌) into [1] or [max value]",
+      txt: "reroll 1 into [1] or [max value]",
       id: "Kitchen Knives|KNIFE THROW|",
+      displayCost: [{ value: "", type: "needle" }],
     },
     statsTxT: "~ +1/4 per lv",
     stats: [
@@ -78,8 +84,9 @@ export const BASE_EQUIPMENT = [
     alt: "🍀",
     skill: {
       name: "LUCKY ROLL",
-      txt: "[(1)] => reroll for same or higher value ",
+      txt: " reroll 1 for same or higher value ",
       id: "Lucky Clover|LUCKY ROLL|",
+      displayCost: [{ value: "", type: "any" }],
     },
     statsTxT: "~ +1/4 per lv",
     stats: [
@@ -102,8 +109,13 @@ export const BASE_EQUIPMENT = [
     alt: "🧪",
     skill: {
       name: "MIX POISON",
-      txt: "2 of 🕒🧠💚 => create 1💚 with combined value",
+      txt: "put 2 to create 1💚 with combined value",
       id: "Vial of Iroposion|MIX POISON|",
+      displayCost: [
+        { value: "", type: "speed" },
+        { value: "", type: "wits" },
+        { value: "", type: "poison" },
+      ],
     },
     statsTxT: "~ +1/4 per lv",
     stats: [
@@ -127,8 +139,9 @@ export const BASE_EQUIPMENT = [
     alt: "🥢",
     skill: {
       name: "WAVE MENACINGLY",
-      txt: "🔥 => change value to half of maximum, create 🕒 of 1-20 value",
+      txt: "change value to half of maximum, create 🕒 of 1-20 value",
       id: "Torch|WAVE MENACINGLY|",
+      displayCost: [{ value: "", type: "heat" }],
     },
     statsTxT: "~ +1/5 per lv",
     stats: [
@@ -151,8 +164,9 @@ export const BASE_EQUIPMENT = [
     alt: "🧹",
     skill: {
       name: "WITCH'S BROOM",
-      txt: "Change 🌀 into one of 🔥❄️⚡ at random",
+      txt: "change into one of 🔥❄️⚡ at random",
       id: "Old Broom|WITCH'S BROOM|",
+      displayCost: [{ value: "", type: "mana" }],
     },
     statsTxT: "~ +1/2 per lv",
     stats: [
@@ -187,8 +201,12 @@ export const BASE_EQUIPMENT = [
     alt: "🔱",
     skill: {
       name: "CHARGE",
-      txt: "combine STR/NEEDLE 2 dices to gain their combined value and max",
+      txt: "put 2 to create 1📌 of combined value",
       id: "Utiki Spear|CHARGE|",
+      displayCost: [
+        { value: "", type: "needle" },
+        { value: "", type: "strength" },
+      ],
     },
     statsTxT: "~ +1/3 per lv",
     stats: [
@@ -222,8 +240,12 @@ export const BASE_EQUIPMENT = [
     alt: "👜",
     skill: {
       name: "SNACK",
-      txt: "[🕒] [(1)🥧] => heal 1hp, get [🌀]=(1) ",
+      txt: "put both to heal 1hp, get 1🌀 of 🥧value",
       id: "Provisions Bag|SNACK|",
+      displayCost: [
+        { value: "", type: "speed" },
+        { value: "", type: "stamina" },
+      ],
     },
     statsTxT: "~ +1/5 per lv",
     stats: [
@@ -344,6 +366,7 @@ export const BASE_EQUIPMENT = [
       name: "ADVISE",
       txt: "NOT WORKING Automatically arrange your dices.. but not always in a best way.",
       id: "Fairy Advisor|ADVISE|",
+      displayCost: [],
     },
     statsTxT: "~ +1/4 per lv",
     stats: [
@@ -368,6 +391,7 @@ export const BASE_EQUIPMENT = [
       name: "Cheat Sheet",
       txt: "-",
       id: "Cheat Sheet|-|",
+      displayCost: [],
     },
     statsTxT: "~",
     stats: [
