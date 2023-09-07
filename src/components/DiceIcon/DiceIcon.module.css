@@ -2,7 +2,8 @@
   z-index: 4;
   position: relative;
   display: block;
-  min-width: 0.7rem;
+  /* min-width: 0.7rem; */
+  min-width: 0.3rem;
   max-width: 2rem;
   height: 1rem;
   margin: 0;

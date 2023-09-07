@@ -65,6 +65,7 @@ button:focus,
 } */
 
 .bar {
+  z-index: 2;
   position: absolute;
   left: 0;
   height: 2.2rem;
@@ -84,7 +85,6 @@ button:focus,
   /* background-color: #ffffffbb; */
   /* background-color: #ff24e58d; */
   text-align: left;
-  z-index: 2;
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -110,6 +110,7 @@ button:focus,
 }
 
 .name {
+  z-index: 2;
   min-width: 120px;
   position: absolute;
   position: relative;
@@ -134,10 +135,12 @@ button:focus,
 .iconBag {
   position: absolute;
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 7.5rem;
   height: 1.5em;
   left: 0;
+  transform: scaleX(1.5) scaleY(1.3) translateY(-0.1rem);
+  /* background-color: #fffdf037; */
 
   /* bottom: 0.1rem;
   justify-content: center;
@@ -159,20 +162,24 @@ button:focus,
   /* justify-content: flex-end; */
   /* align-items: flex-end; */
   column-gap: 3px;
-  background-color: #fffdf037;
+}
+.disabled .iconBag {
+  z-index: 999;
 }
 .canFire .iconBag {
   z-index: 1;
 }
 .disabled {
+  /* z-index: 0; */
+  display: block;
   position: relative;
   /* background-color: #000000; */
   /* opacity: 50%; */
   /* visibility: hidden; */
 }
 .disabled::after {
+  z-index: 2;
   content: "";
-  z-index: 2000;
   position: absolute;
   top: 0;
   left: 0;

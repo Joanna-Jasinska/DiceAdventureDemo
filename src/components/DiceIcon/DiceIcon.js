@@ -1,7 +1,7 @@
 import { getDiceTypeIcon } from "data/icons";
 import css from "./DiceIcon.module.css";
 
-const getColor = ({ value, type }) => {
+const getFrame = ({ value, type }) => {
   const style = value === undefined || value === -1 ? `${css.notRolled} ` : "";
   switch (type) {
     case "any":
@@ -53,7 +53,7 @@ const getColor = ({ value, type }) => {
       return `${style}${css.trait}`;
 
     default:
-      return `${style}${css.trait}`;
+      return `${style}${css.any}`;
   }
 };
 // const getColor = ({ value, diceMax = 6 }) => {
@@ -68,7 +68,7 @@ const getColor = ({ value, type }) => {
 export const DiceIcon = ({ value, diceMax, type }) => {
   return (
     <div
-      className={`${css.dice} ${getColor({ value, diceMax, type })}`}
+      className={`${css.dice} ${getFrame({ value, type })}`}
       // data-text={`${diceMax}`}
     >
       {value || diceMax || " "}{" "}

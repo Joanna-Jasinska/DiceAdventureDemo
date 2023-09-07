@@ -15,7 +15,13 @@ export const EnemyPiece = ({ p }) => {
   const damageIcons = Piece.getDmgIcons(p);
   // const requiredIcons = false;
   const requiredIcons = Piece.getReqIcons(p);
-  const allowedTypes = Piece.getAllowedTypes(p);
+  // const allowedTypes = Piece.getAllowedTypes(p);
+  const allowedTypes = p.allows ? (p.allows.types ? p.allows.types : []) : [];
+  // const allowedTypes = p.multiplies
+  //   ? p.multiplies.multipliedTypes
+  //     ? p.multiplies.multipliedTypes
+  //     : []
+  //   : [];
 
   const onDiceHolderClick = () => {
     editToDispatch([
@@ -47,23 +53,25 @@ export const EnemyPiece = ({ p }) => {
         {!allowedTypes
           ? ""
           : allowedTypes.map((type, index) => (
-              <div
-                className={css.modifier}
-                key={`allowedDiceType|${type}|${p.id}|${index}`}
-              >
-                {type}
-              </div>
+              <DiceIcon
+                type={type}
+                value={``}
+                key={`allowedDiceType|${p.id}|${type}${index}`}
+                // onClick={() => console.log(`[${type}]`)}
+              />
             ))}
         {p.multiplies && p.multiplies.multipliedBy ? (
           <div className={css.x2}>
             <div
               className={css.modifier}
             >{`${p.multiplies.multipliedBy}x `}</div>
-            {p.multiplies.multipliedTypes.map((t) => (
-              <div className={css.modifier} key={`modifier|${t.id}`}>
-                {getDiceTypeIcon(t)}
-              </div>
-            ))}{" "}
+            {p.multiplies.multipliedTypes.map((type, index) => (
+              <DiceIcon
+                type={type}
+                value={""}
+                key={`x2modifier|${p.id}|${type}${index}`}
+              />
+            ))}
           </div>
         ) : (
           ""

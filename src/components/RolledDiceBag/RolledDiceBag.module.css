@@ -1,7 +1,8 @@
 .diceBag {
   position: relative;
   width: 64%;
-  height: 3.16em;
+  /* height: 3.16em; */
+  height: 2.16em;
   padding: 7px;
   display: flex;
   z-index: 10;
