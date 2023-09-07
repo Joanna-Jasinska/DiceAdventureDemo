@@ -1,0 +1,204 @@
+.dice {
+  z-index: 4;
+  position: relative;
+  display: block;
+  min-width: 0.7rem;
+  max-width: 2rem;
+  height: 1rem;
+  color: black;
+  font-weight: bold;
+  border-radius: 4px;
+  display: flex;
+  padding: 2px 3px 0px 6px;
+  padding: 2px 1px 0px 7px;
+  line-height: 1.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: ease-in-out 300ms;
+}
+.diceMaxCover {
+  z-index: 8;
+  position: absolute;
+  box-sizing: border-box;
+  left: -1px;
+  top: 3px;
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  color: transparent;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: color 0.1s ease-in-out, height 0.4s ease-in-out;
+}
+.diceMaxCover:hover,
+.diceMaxCover:active,
+.diceMaxCover:focus {
+  z-index: 4;
+  height: 200%;
+  width: 100%;
+  border-radius: 4px;
+  color: var(--color);
+  transition: height 0.1s ease-in-out, color 0.4s ease-in-out;
+}
+.diceMaxCover:hover::before,
+.diceMaxCover:active::before,
+.diceMaxCover:focus::before {
+  content: "";
+  position: absolute;
+  z-index: -100;
+  box-sizing: border-box;
+  left: 0.1rem;
+  top: 1.3rem;
+  height: 34%;
+  width: 80%;
+  border-radius: 0 0 50% 50%;
+  color: var(--color);
+  background-color: #ffffec;
+  box-shadow: 0 0 1px 1px #ffffec;
+  opacity: 92%;
+  transition: ease-in-out 300ms;
+}
+/* .dice:hover::after {
+  z-index: -100;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -1px;
+  top: 3px;
+  border-radius: 3px;
+  background-color: transparent;
+  box-shadow: -1px 0px 14px 5px #f5ff3a, #3636368d 0px 0px 1px 1px;
+  box-shadow: -1px 0px 9px 5px #f5ff3a, #3636368d 0px 0px 1px 1px;
+  opacity: 100%;
+} */
+.removing,
+.appearing {
+  transform: rotate(180deg) scale(0.01);
+}
+.dice:hover,
+.dice:focus,
+.dice:active {
+  z-index: 200;
+  transform: scale(1.4);
+}
+.dice::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  left: 8px;
+  top: 11px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: #fff 0px 0px 5px 5px;
+  opacity: 45%;
+  transition: ease-in-out 300ms;
+}
+.icon {
+  z-index: -1;
+  position: absolute;
+  height: 1.2rem;
+  left: -3px;
+  top: 1px;
+  border-radius: 4px;
+  opacity: 38%;
+  overflow: hidden;
+  font-size: 0.7rem;
+}
+.random::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -1px;
+  top: 3px;
+  border-radius: 3px;
+  border-radius: 0px 22px 22px 42px;
+  background-color: rgb(166, 235, 135);
+  background-color: #6eca47;
+  background-color: #77c158;
+  box-shadow: #3636368d 0px 0px 1px 1px, inset #baff8d 0px 0px 2px 1px;
+  opacity: 100%;
+}
+.full::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -1px;
+  top: 3px;
+  border-radius: 0px 22px 22px 42px;
+  border-radius: 3px;
+  background-color: #4cffe4;
+  background-color: #00ffd9;
+  box-shadow: #9dfff58d 0px 0px 1px 1px, #8fffe1 0px 0px 4px 2px,
+    inset #ecfffa 0px 0px 2px 3px, #3636368d 0px 0px 1px 1px;
+  opacity: 100%;
+}
+.half::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -1px;
+  top: 3px;
+  border-radius: 0px 22px 22px 42px;
+  border-radius: 3px;
+  box-shadow: inset #fccc2e 0px 0px 2px 1px;
+  box-shadow: #3636368d 0px 0px 1px 1px, inset #fcff5a 0px 0px 2px 1px;
+  box-shadow: #3636368d 0px 0px 1px 1px, inset #f1c994 0px 0px 2px 1px;
+  box-shadow: #3636368d 0px 0px 1px 1px, inset #f4e98b 0px 0px 2px 1px;
+  background-color: #fcff5a;
+  background-color: #fccc2e;
+  background-color: #d8b382;
+  opacity: 100%;
+}
+.empty::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -1px;
+  top: 3px;
+  border-radius: 0px 22px 22px 42px;
+  border-radius: 3px;
+  box-shadow: inset #e24533 0px 0px 2px 1px;
+  box-shadow: #3636368d 0px 0px 1px 1px, inset #ff805a 0px 0px 2px 1px;
+  box-shadow: #3636368d 0px 0px 1px 1px, inset #e0967f 0px 0px 2px 1px;
+  box-shadow: #3636368d 0px 0px 1px 1px, inset #ff9b85 0px 0px 2px 1px;
+  background-color: #ff805a;
+  background-color: #e24533;
+  background-color: #c37d75;
+  opacity: 100%;
+}
+
+.selected {
+  z-index: 100;
+  transform: scale(1.2);
+  position: relative;
+}
+.selected::after {
+  z-index: -100;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -1px;
+  top: 3px;
+  border-radius: 0px 22px 22px 42px;
+  border-radius: 3px;
+  background-color: transparent;
+  box-shadow: -1px 0px 14px 5px #f5ff3a, #3636368d 0px 0px 1px 1px;
+  box-shadow: 0px 0px 4px 5px #fcffe5, #3636368d 0px 0px 1px 1px;
+  opacity: 100%;
+}
+.random.selected::after {
+  border-radius: 0px 22px 22px 42px;
+}

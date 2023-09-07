@@ -58,7 +58,7 @@ export const SkillSquare = ({
           {/* <span className={css.name}></span> */}
         </span>
       </div>
-      <div className={css.iconBag}>
+      {/* <div className={css.iconBag}>
         {(dices ? dices : stats).map((el, index) => {
           return (
             <DiceIcon
@@ -70,7 +70,7 @@ export const SkillSquare = ({
             />
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -65,7 +65,7 @@ export const ItemList = ({ filters }) => {
                   index={index}
                   selected={el.selected}
                   skill={el.skill}
-                  statsTxT={el.statsTxT||''}
+                  statsTxT={el.statsTxT || ""}
                   toggleSelect={() =>
                     dispatch(
                       updateItem({
@@ -76,6 +76,7 @@ export const ItemList = ({ filters }) => {
                   }
                   // stats={el ? (el.stats ? el.stats : el) : []}
                   dices={el.dices}
+                  nondices={el.nondices}
                   lv={el.lv}
                 />
               );

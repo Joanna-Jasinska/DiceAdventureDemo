@@ -12,13 +12,14 @@ import {
   remove10SpLvUps,
   gainSpLvUps,
 } from "./operations";
+import { PLAYER_STARTING_MAX_EQ_LV } from "data/settings";
 
 const initialState = {
   error: null,
   isLoading: false,
   selectedDungeonId: "dungeon|2|",
-  playerLv: 5,
-  maxEqLv: 2,
+  playerLv: 1,
+  maxEqLv: PLAYER_STARTING_MAX_EQ_LV,
   spareLvUps: 1,
   gold: 200,
   currentDungeons: [
@@ -83,7 +84,7 @@ const gameSlice = createSlice({
       state.spareLvUps = state.spareLvUps + 1;
       // state.playerLv = action.payload.playerLv;
       // state.spareLvUps = action.payload.spareLvUps;
-      state.maxEqLv = action.payload.maxEqLv;
+      state.maxEqLv = action.payload.maxEqLv + PLAYER_STARTING_MAX_EQ_LV;
     },
 
     [LvUpDungeonById.pending]: handlePending,
@@ -145,7 +146,7 @@ const gameSlice = createSlice({
     [payGold.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.gold = state.gold-action.payload;
+      state.gold = state.gold - action.payload;
     },
 
     // [addGold.pending]: handlePending,

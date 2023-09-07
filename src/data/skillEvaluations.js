@@ -96,5 +96,31 @@ export const SKILL_EVALUATION = {
       },
     ],
   ],
+  "1|PIECE|heat": [
+    [OTHER, "NUMDICES", { value: 1 }],
+    [
+      PIECE,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["heat"] },
+          requires: { minDices: 1, maxDices: 1 },
+        },
+      },
+    ],
+  ],
+  "2|PIECE|speed/wits/poison": [
+    [OTHER, "NUMDICES", { value: 1 }],
+    [
+      PIECE,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["speed", "wits", "poison"] },
+          requires: { minDices: 2, maxDices: 2 },
+        },
+      },
+    ],
+  ],
   //
 };

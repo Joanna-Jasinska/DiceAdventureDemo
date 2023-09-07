@@ -8,6 +8,16 @@ const skillTemplate = {
   actionId: false,
 };
 export const SKILLS = {
+  "Fairy Advisor|ADVISE|": {
+    // "NOT WORKING Automatically arrange your dices.. but not always in a best way."
+    evaluationId: false,
+    actionId: false,
+  },
+  "Cheat Sheet|-|": {
+    // "-"
+    evaluationId: false,
+    actionId: false,
+  },
   "Kitchen Knives|KNIFE THROW|": {
     // "[(📌)] => reroll (📌) into [1] or [max value]"
     evaluationId: "1|PIECE|needle",
@@ -33,14 +43,14 @@ export const SKILLS = {
     evaluationId: "2|PIECE|stamina|speed",
     actionId: false,
   },
-  "Fairy Advisor|ADVISE|": {
-    // "NOT WORKING Automatically arrange your dices.. but not always in a best way."
-    evaluationId: false,
+  "Torch|WAVE MENACINGLY|": {
+    // "🔥 => change value to half of maximum, create 🕒 of 1-20 value"
+    evaluationId: "1|PIECE|heat",
     actionId: false,
   },
-  "Cheat Sheet|-|": {
-    // "-"
-    evaluationId: false,
+  "Vial of Iroposion|MIX POISON|": {
+    // "2 of 🕒🧠💚 => create 1💚 with combined value"
+    evaluationId: "2|PIECE|speed/wits/poison",
     actionId: false,
   },
 };

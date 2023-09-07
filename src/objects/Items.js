@@ -16,7 +16,7 @@ const levelDiceStat = (piecee, lvv = 1) => {
   //   piece
   // );
   const lv = lvv || piece.lv || 1;
-  const existSinceLv = piece.existSinceLv || 1;
+  const existSinceLv = piece.existSinceLv || 0;
   const pieceArray = [];
   if (!!piece.existSinceLv && piece.existSinceLv > lv) return pieceArray;
   const diceTemplate = {

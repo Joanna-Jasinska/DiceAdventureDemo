@@ -21,7 +21,7 @@ export const playerLvUp = createAsyncThunk(
     const state = thunkAPI.getState();
     const playerLv = state.game.playerLv + 1;
     const spareLvUps = state.game.spareLvUps + 1;
-    const maxEqLv = Math.floor(playerLv / 5) + 1;
+    const maxEqLv = Math.floor(playerLv / 5);
     return { playerLv, spareLvUps, maxEqLv };
   }
 );

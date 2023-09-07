@@ -3,6 +3,7 @@ import { Miniature } from "components/Miniature/Miniature";
 import css from "./Item.module.css";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
 import { Title } from "components/Phonebook/Title/Title";
+import { StatIcon } from "components/StatIcon/StatIcon";
 
 export const Item = ({
   name,
@@ -14,6 +15,7 @@ export const Item = ({
   selected = false,
   toggleSelect,
   dices,
+  nondices,
   stats = [],
   skill = { name: "NO SKILL", txt: "-", id: "noskill" },
   statsTxT,
@@ -51,6 +53,17 @@ export const Item = ({
         </span>
       </div>
       <div className={css.iconBag}>
+        {(nondices ? nondices : []).map((el, index) => {
+          return (
+            <StatIcon
+              {...el}
+              // diceMax={el.diceMax}
+              // value={el.value}
+              // icon={el.type}
+              key={`${name}|${el.type}|${index}`}
+            />
+          );
+        })}
         {(dices ? dices : stats).map((el, index) => {
           return (
             <DiceIcon
