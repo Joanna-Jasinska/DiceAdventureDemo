@@ -55,7 +55,7 @@ export const Piece = {
       if (piece.allows.exactValues) {
         // allows exact values
         allow.push({
-          value: `${piece.allows.exactValues.join(", ")}`,
+          value: `${piece.allows.exactValues.join(",")}`,
           allowed: true,
         });
       }
@@ -284,9 +284,7 @@ export const Piece = {
       if (r.exactValues && grow.lvlsToRaiseExactValues) {
         const extraAmount = Math.floor(lv / grow.lvlsToRaiseExactValues);
         for (let i = extraAmount; i > 0; i--) {
-          currentPiece.requires.exactValues.push(
-            currentPiece.requires.exactValues[0]
-          );
+          r.exactValues.push(r.exactValues[0]);
         }
       }
       // --------------------------------------------------

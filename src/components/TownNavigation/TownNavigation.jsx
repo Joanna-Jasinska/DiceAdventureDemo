@@ -21,6 +21,26 @@ export const TownNavigation = () => {
   const selectedItems = [...items].filter((item) => {
     if (item.selected) return item.selected;
   });
+  // const boxShadowWarning = getComputedStyle(
+  //   document.documentElement
+  // ).getPropertyValue("--box-shadow-warning");
+  // const boxShadowRecommended = getComputedStyle(
+  //   document.documentElement
+  // ).getPropertyValue("--box-shadow-recommended");
+  // const bgWarning = getComputedStyle(document.documentElement).getPropertyValue(
+  //   "--bg-warning"
+  // );
+  // const bgRecommended = getComputedStyle(
+  //   document.documentElement
+  // ).getPropertyValue("--bg-recommended");
+  // const warningStyle = {
+  //   boxShadow: boxShadowWarning,
+  //   backgroundColor: bgWarning,
+  // };
+  // const recommendedStyle = {
+  //   boxShadow: boxShadowRecommended,
+  //   backgroundColor: bgRecommended,
+  // };
 
   const selectFav = () => {};
   const deselectEQ = (e) => {
@@ -77,6 +97,7 @@ export const TownNavigation = () => {
               display="Go⚔️"
               onClick={enterDungeon}
               // inactive={true}
+              recommended={true}
             />
           ) : (
             <HeaderNavBtn to="/eq" display={`PackEQ`} warning={true} />

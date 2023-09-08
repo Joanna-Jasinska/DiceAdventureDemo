@@ -25,7 +25,6 @@ export const CombatNavigation = () => {
   const { body, gold, enemyLife } = useEnemy();
   const { inCombat } = useCombat();
   const navigate = useNavigate();
-
   // const deselectAll = (e) => {
   //   e.preventDefault();
   //   dispatch(deselectAllDices());
@@ -102,7 +101,27 @@ export const CombatNavigation = () => {
   const positives = `${posNum === 0 ? "" : "⚔️x" + posNum}${
     effToEnemy === "" ? "" : effToEnemy
   }`;
-
+  // style={{
+  //   display: "flex",
+  //   flexWrap: "wrap",
+  //   gap: "0.4rem",
+  // }}
+  // const boxShadowWarning = getComputedStyle(
+  //   document.documentElement
+  // ).getPropertyValue("--box-shadow-warning");
+  // const boxShadowRecommended = getComputedStyle(
+  //   document.documentElement
+  // ).getPropertyValue("--box-shadow-recommended");
+  // const bgWarning = getComputedStyle(document.documentElement).getPropertyValue(
+  //   "--bg-warning"
+  // );
+  // const bgRecommended = getComputedStyle(
+  //   document.documentElement
+  // ).getPropertyValue("--bg-recommended");
+  // const endTurnBtnStyle =
+  //   negatives !== ""
+  //     ? { boxShadow: boxShadowWarning, backgroundColor: bgWarning }
+  //     : { boxShadow: boxShadowRecommended, backgroundColor: bgRecommended };
   const endTurnIcon = negatives !== "" ? "❌" : "✔️"; //✔️❌
   const endTurnDmg = negatives !== "" ? negatives : positives; //⚔️❤️
   //   ✔️❌☠️
@@ -156,6 +175,9 @@ export const CombatNavigation = () => {
               to="/-"
               display={`${endTurnIcon} End Turn ${endTurnDmg}`}
               onClick={endTurn}
+              warning={negatives !== ""}
+              recommended={negatives === ""}
+              // styles={endTurnBtnStyle}
             />
             <HeaderNavBtn to="/summary" display="🏃Leave Path" />
             <HeaderNavBtn

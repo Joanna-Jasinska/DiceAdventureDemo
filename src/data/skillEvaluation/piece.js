@@ -1,27 +1,11 @@
 import { Piece } from "objects/Piece";
 const validateInput = ({ piece, state }) => {
-  // returns true or false
-  //   console.log(
-  //     `!piece--------------- SKILL > EVA > PIECE > const bodyPieceEvaluation`
-  //   );
   if (!piece) return false;
   const { combat } = state;
-  //   console.log(
-  //     `!combat--------------- SKILL > EVA > PIECE > const bodyPieceEvaluation`
-  //   );
   if (!combat) return false;
   const { rolledDices } = combat;
-  //   console.log(
-  //     `!rolledDices--------------- SKILL > EVA > PIECE > const bodyPieceEvaluation`
-  //   );
   if (!rolledDices) return false;
   const selectedDices = [...rolledDices.filter((d) => d.selected === true)];
-  //   console.log(
-  //     `selectedDices? (${selectedDices === undefined})(${!piece.requires})(${
-  //       selectedDices.length < 1
-  //     })--------------- SKILL > EVA > PIECE > const bodyPieceEvaluation -selectedDices:`,
-  //     selectedDices
-  //   );
   if (
     selectedDices === undefined ||
     !piece.requires ||
@@ -86,21 +70,8 @@ const bodyPieceEvaluation = ({ params, state }) => {
   // now filter allowedDices to only dices needed
   //
   // -------------------------------------------------------------------------------------
-
   return usedDicesIDArr;
 };
-// allows: {
-//     types: ["physical", "magic", "elemental", "speed"],
-//     // minValue: -1,
-//     // maxValue: -1,
-//     // exactValues: ["even"],
-//     // maxDices: false,
-//   },
-// requires: {
-//     // exactValues: false,
-//     // minDices: 1,
-//     minSum: 3,
-//   },
 export const PIECE = {
   false: () => false,
   PIECE: bodyPieceEvaluation,

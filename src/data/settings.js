@@ -3,12 +3,12 @@ export const PLAYER_STARTING_MAX_EQ_LV = 3;
 // export const PLAYER_EXTRA_LEVELS = 8;
 
 export const STARTING_EQ = [
-  // "Legacy Sword|COMBO SLASH|",
+  "Legacy Sword|COMBO SLASH|",
   "Kitchen Knives|KNIFE THROW|",
-  "Old Broom|WITCH'S BROOM|",
+  // "Old Broom|WITCH'S BROOM|",
+  "Torch|WAVE MENACINGLY|",
   "Provisions Bag|SNACK|",
   "Lucky Clover|LUCKY ROLL|",
-  "Torch|WAVE MENACINGLY|",
   // "Vial of Iroposion|MIX POISON|",
   // "Utiki Spear|CHARGE|",
   // "Cheat Sheet|-|",

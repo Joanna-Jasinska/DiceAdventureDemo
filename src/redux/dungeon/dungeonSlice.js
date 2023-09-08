@@ -11,6 +11,7 @@ import {
   engageBoss,
   damagePlayer,
   resetPlayer,
+  useItem,
 } from "./operations";
 
 const initialState = {
@@ -90,6 +91,15 @@ const dungeonSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.lv = action.payload;
+    },
+
+    [useItem.pending]: handlePending,
+    [useItem.rejected]: handleRejected,
+    [useItem.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      // state. = action.payload;
+      // !!!AAA!!!
     },
 
     // [engageRandomEnemy.pending]: handlePending,

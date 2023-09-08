@@ -1,6 +1,13 @@
 /* @import-normalize;  */
 :root {
-  --box-shadow: -1px -1px 1px 0px lightgray, 1px 1px 3px 1px gray;
+  --box-shadow: -1px -1px 2px 0px #6f6f6f8e, 1px 1px 3px 0px #2d2d2da9;
+  --box-shadow-selected: -1px -1px 2px 0px #6f6f6f8e, 1px 1px 3px 0px #2d2d2da9,
+    0px 0px 4px 5px #fcffe5, #3636368d 0px 0px 1px 1px;
+  --box-shadow-warning: -1px -1px 2px 0px #6f6f6f8e, 1px 1px 3px 0px #2d2d2da9,
+    0px 0px 16px 0px #ff6822, #3636368d 0px 0px 1px 1px;
+  --box-shadow-recommended: -1px -1px 2px 0px #6f6f6f8e,
+    1px 1px 3px 0px #2d2d2da9, 0px 0px 16px 0px #7eff22,
+    #3636368d 0px 0px 1px 1px;
   --box-shadow-detailed: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12),
     inset 0px -2px 4px -1px #ad8fb93e, inset 0px -4px 5px 0px #ad8fb926,
@@ -13,6 +20,10 @@
     inset 10px 0px 4px -8px #0000009e, inset -9px 0px 4px -9px #0000009e;
   --box-shadow-inset-small: inset 1px 1px 0px 1px lightgray,
     inset -1px -1px 0px 1px #f1f1f177, inset -70px -30px 40px 0px #ffffff18;
+  --box-shadow-inset-shine-light: inset 2px 1px 2px 0px #fdffc9,
+    inset 0px 0px 2px 0px #340f00;
+  --box-shadow-inset-shine-green: inset 2px 1px 2px 0px #b7ff7480,
+    inset 0px 0px 2px 0px #062900;
   --border-radius: 16px;
   /* --border-radius-small: 6px; */
   --border-inset: 2px solid white;
@@ -21,6 +32,8 @@
   --bg-highlighted: #c6ffea6d;
   /* --bg-highlighted-solid: #d5f7ec; */
   --bg-highlighted-solid: #e5ffbd;
+  --bg-recommended: #baff79;
+  --bg-warning: #ffbc79;
   /* --bg-outline: #d5f4ff; */
   --bg-outline: #00344c78;
   --bg-regular: white;
@@ -31,12 +44,6 @@
   --txt-disabled: dimgray;
   --online: rgb(138, 230, 0);
   --offline: dimgray;
-  --color-variant1: rgba(233, 251, 255, 0.3);
-  --color-variant2: rgba(168, 239, 255, 0.3);
-  --color-variant3: rgba(106, 228, 255, 0.3);
-  --color-variant4: rgba(45, 216, 255, 0.3);
-  --color-variant5: rgba(0, 198, 243, 0.3);
-  --color-variant6: rgba(0, 177, 217, 0.3);
   --duration-short: 100ms;
   --scale-medium: scale(1.1);
   --scale-small: scale(1.04);

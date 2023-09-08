@@ -2,7 +2,7 @@
   z-index: 4;
   position: relative;
   min-width: 0.7rem;
-  max-width: 2rem;
+  /* max-width: 2rem; */
   height: 1rem;
   color: black;
   font-weight: bold;
@@ -21,7 +21,7 @@
   z-index: 4;
   position: relative;
   min-width: 0.7rem;
-  max-width: 2rem;
+  max-width: 20rem;
   height: 1rem;
   color: black;
   font-weight: bold;

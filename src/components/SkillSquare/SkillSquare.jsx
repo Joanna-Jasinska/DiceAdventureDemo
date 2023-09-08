@@ -28,7 +28,11 @@ export const SkillSquare = ({
   statsTxT,
 }) => {
   const { inCombat } = useCombat();
-  // const success = Skill.usedDices(skill.id, { combat });
+  const fireSkill = () => {
+    if (success) {
+      console.log(`${skill.id} fired!`, success);
+    }
+  };
   return (
     <div
       className={`${css.item} ${
@@ -36,19 +40,12 @@ export const SkillSquare = ({
       }`}
       id={id}
     >
-      <Miniature
-        url={icon}
-        alt={alt || name}
-        // bgTxtFront={alt}
-        bgTxtBack={tags[0]}
-        // children={
-        //   <>
-        //     {desc}
-        //     <Title title={`${alt} ${name}`} />
-        //   </>
-        // }
-      />
-      <div key={`${name}btn${id}`} className={`${css.button} `}>
+      <Miniature url={icon} alt={alt || name} bgTxtBack={tags[0]} />
+      <div
+        key={`${name}btn${id}`}
+        className={`${css.button} `}
+        onClick={fireSkill}
+      >
         {alt}
       </div>
       <div className={css.bar}>

@@ -90,7 +90,16 @@
 }
 .warning {
   /* color: chartreuse; */
-  background-color: #ff7272;
-  color: #4f0000;
+  /* background-color: #ff7272; */
+  background-color: var(--bg-warning);
+  box-shadow: var(--box-shadow-warning);
+  color: #210000;
+  /* opacity: 0.7; */
+}
+.recommended {
+  /* color: chartreuse; */
+  background-color: var(--bg-recommended);
+  box-shadow: var(--box-shadow-recommended);
+  /* color: #4f0000; */
   /* opacity: 0.7; */
 }

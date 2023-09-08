@@ -10,7 +10,9 @@ export const HeaderNavBtn = ({
   crossed = false,
   completed = false,
   warning = false,
+  recommended = false,
   disabled = false,
+  styles = false,
 }) => {
   const location = useLocation();
   const isHereAlready = !inactive && location.state && location.pathname === to;
@@ -30,6 +32,7 @@ export const HeaderNavBtn = ({
       //   e.preventDefault();
       //   if (!disabled) onClick(e);
       // }}
+      style={styles ? styles : {}}
     >
       {"here" + display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
     </NavLink>
@@ -39,7 +42,7 @@ export const HeaderNavBtn = ({
         `${css.navLink}  ${nav.isActive ? css.active : ""}  ${
           inactive ? css.inactive : ""
         } ${crossed ? css.crossed : ""} ${disabled ? css.disabled : ""} ${
-          warning ? css.warning : completed ? css.completed : ""
+          warning ? css.warning : completed ? css.completed : recommended? css.recommended : ""
         } `
       }
       to={to}
@@ -47,6 +50,7 @@ export const HeaderNavBtn = ({
       onClick={(e) => {
         if (!disabled) onClick(e);
       }}
+      style={styles ? styles : {}}
     >
       {display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
     </NavLink>

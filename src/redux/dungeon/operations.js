@@ -20,6 +20,18 @@ export const clearDungeon = createAsyncThunk(
     // return thunkAPI.fulfillWithValue(null);
   }
 );
+export const useItem = createAsyncThunk(
+  "dungeon/useItem",
+  async (id, thunkAPI) => {
+//     const itemTemplate = {
+//       turnUses: 1,
+//       currentUses: 1,
+//     };
+
+// .map((item)=>{return{...itemTemplate,...item}});
+    return id;
+  }
+);
 
 // export const beginDungeon = createAsyncThunk(
 //   "dungeon/begin",
@@ -183,7 +195,15 @@ export const packEquipment = createAsyncThunk(
   "dungeon/packEquipment",
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const eqTaken = state.equipment.all.filter((item) => item.selected);
+    const itemTemplate = {
+      turnUses: 1,
+      currentUses: 1,
+    };
+    const eqTaken = state.equipment.all
+      .filter((item) => item.selected)
+      .map((item) => {
+        return { ...itemTemplate, ...item };
+      });
     if (eqTaken.length > 5)
       return thunkAPI.rejectWithValue("Too many items equipped");
     let eqLife = 0;

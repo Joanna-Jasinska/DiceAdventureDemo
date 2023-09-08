@@ -129,6 +129,7 @@ export const DungeonPage = () => {
                 onClick={() => beginBattleBySlot(0)}
                 completed={slotsDefeated[0]}
                 disabled={slotsDefeated[0]}
+                recommended={!slotsDefeated[0]}
               />
               <HeaderNavBtn
                 to="/combat"
@@ -136,6 +137,7 @@ export const DungeonPage = () => {
                 onClick={() => beginBattleBySlot(1)}
                 completed={slotsDefeated[1]}
                 disabled={slotsDefeated[1]}
+                recommended={!slotsDefeated[1]}
               />
               <HeaderNavBtn
                 to="/combat"
@@ -143,6 +145,7 @@ export const DungeonPage = () => {
                 onClick={() => beginBattleBySlot(2)}
                 completed={slotsDefeated[2]}
                 disabled={slotsDefeated[2]}
+                recommended={!slotsDefeated[2]}
               />
               <HeaderNavBtn
                 to="/combat"
@@ -150,6 +153,7 @@ export const DungeonPage = () => {
                 onClick={beginBossBattle}
                 completed={slotsDefeated["boss"]}
                 disabled={slotsDefeated["boss"]}
+                warning={!slotsDefeated["boss"]}
               />
             </div>
           </div>
