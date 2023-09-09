@@ -17,6 +17,7 @@ export const EnemyPiece = ({ p }) => {
   const requiredIcons = Piece.getReqIcons(p);
   // const allowedTypes = Piece.getAllowedTypes(p);
   const allowedTypes = p.allows ? (p.allows.types ? p.allows.types : []) : [];
+  const weaknessTypes = p.weakness ? p.weakness : [];
   // const allowedTypes = p.multiplies
   //   ? p.multiplies.multipliedTypes
   //     ? p.multiplies.multipliedTypes
@@ -49,18 +50,36 @@ export const EnemyPiece = ({ p }) => {
         p.fulfilled ? css.fulfilled : p.disabled ? css.disabled : css.waiting
       }`}
     >
-      <div className={css.modifierHolder}>
-        {!allowedTypes
+      <div className={css.leftHolder}>
+        {!weaknessTypes
           ? ""
-          : allowedTypes.map((type, index) => (
-              <DiceIcon
-                type={type}
-                value={``}
-                key={`allowedDiceType|${p.id}|${type}${index}`}
-                // onClick={() => console.log(`[${type}]`)}
-              />
-            ))}
-        {p.multiplies && p.multiplies.multipliedBy ? (
+          : weaknessTypes.map((type, index) =>
+              type === "any" ? (
+                ""
+              ) : (
+                <DiceIcon
+                  type={type}
+                  value={``}
+                  key={`weaknessDiceType|${p.id}|${type}${index}`}
+                  // onClick={() => console.log(`[${type}]`)}
+                />
+              )
+            )}
+        {/* {!allowedTypes
+          ? ""
+          : allowedTypes.map((type, index) =>
+              type === "any" ? (
+                ""
+              ) : (
+                <DiceIcon
+                  type={type}
+                  value={``}
+                  key={`allowedDiceType|${p.id}|${type}${index}`}
+                  // onClick={() => console.log(`[${type}]`)}
+                />
+              )
+            )} */}
+        {/* {p.multiplies && p.multiplies.multipliedBy ? (
           <div className={css.x2}>
             <div
               className={css.modifier}
@@ -75,7 +94,7 @@ export const EnemyPiece = ({ p }) => {
           </div>
         ) : (
           ""
-        )}{" "}
+        )}{" "} */}
       </div>
 
       <div className={css.middleContainer} onClick={onDiceHolderClick}>
@@ -83,13 +102,7 @@ export const EnemyPiece = ({ p }) => {
         <div className={css.diceHolder}>
           {p.dices
             ? p.dices.map((dice, index) => (
-                <DiceIcon
-                  {...dice}
-                  // value={dice.value}
-                  // diceMax={dice.diceMax}
-                  // icon={getIcon(dice.type).icon}
-                  key={`pieceDice|${dice.type}|${index}`}
-                />
+                <DiceIcon {...dice} key={`pieceDice|${dice.type}|${index}`} />
               ))
             : ""}
         </div>

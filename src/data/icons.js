@@ -16,14 +16,17 @@ export const getDiceTypeIcon = (type) => {
 // };
 
 export const diceTypeMatches = (diceType, mustMatchType) => {
+  if (mustMatchType === "any" || diceType === "any") return true;
   const found = ICONS.find((i) => i.type === diceType);
   const diceFamily = found ? found.mainType : diceType;
   if (diceType === mustMatchType || diceFamily === mustMatchType) return true;
   return false;
 };
-
+// 🟨🟩🟦🟧 ------------------⬜️🟪⬛️🟫
 export const ICONS = [
   { type: "default", icon: "❔", color: "#4d472d", id: "default" },
+
+  { type: "any", mainType: "any", icon: " ", color: "#fff", id: "" },
 
   { type: "physical", mainType: "physical", icon: " ", color: "#fff", id: "" },
   // { type: "physical", mainType: "physical", icon: "🤛", color: "#fff", id: "" },

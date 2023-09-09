@@ -116,11 +116,18 @@ export const selectDice = createAsyncThunk(
 export const updateDice = createAsyncThunk(
   "combat/updateDice",
   async (dice, thunkAPI) => {
-    // const state = thunkAPI.getState();
+    const state = thunkAPI.getState();
     // console.log(`Updating item.`);
     // console.table(item);
     // return state.combat.dices;
-    return dice;
+    const index = state.combat.rolledDices.indexOf(
+      state.combat.rolledDices.find((d) => d.id === dice.id)
+    );
+    console.log(
+      `combat/updateDice > rolledDices[${index}] > changed dice`,
+      dice
+    );
+    return { ...dice, index: index };
   }
 );
 
@@ -142,6 +149,16 @@ export const addRolledDice = createAsyncThunk(
     // console.log(`Updating item.`);
     // console.table(item);
     return item;
+    // return state.combat.rolledDices;
+  }
+);
+export const deleteAllSelectedDices = createAsyncThunk(
+  "combat/deleteAllSelectedDices",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    // console.log(`Updating item.`);
+    // console.table(item);
+    return true;
     // return state.combat.rolledDices;
   }
 );

@@ -7,19 +7,12 @@
 ?/later/- workshop items paying gold for leveling ?
 +/later/- enemy body pieces sides should grow bigger not appear - or never shrink space taken
 
-- fix skill evaluation for 2 same dices / utiki spear
-    in data skilleva piece.js the dice eva runs twice and returns type doesnt match - wrong
 
-- Skill component has onClick 
-- create SkillExecute object
-- create folder for skillExecutes 
-- create skillExecutesCollection data
+- move each enemy to separate file
 
-- Skill.onClick(id) -> SkillCheck(id) -> from skillChecksCollection CheckSkill(id) 
-    -> pulls and runs all small skillchecks from folder data 
-    -> returns all those checks as one big check to be run inside the component
+- balance starting items
 
-- same for skill execution    
+- finish skill execution for all items
 
 -------------------------------
 

@@ -45,7 +45,9 @@
   box-sizing: border-box;
   height: 100%;
   width: max-content;
-  box-shadow: var(--box-shadow-inset-dark-detailed);
+  /* box-shadow: var(--box-shadow-inset-dark-detailed); */
+  box-shadow: var(--box-shadow-inset-dark-detailed),
+    var(--box-shadow-inset-shine-light);
   /* border-radius: var(--border-radius); */
   cursor: pointer;
   /* background-color: #fff1295d; */
@@ -62,17 +64,19 @@
   border: transparent;
   margin: 0px 4px 1px 0px;
   padding-right: 3px;
-  /* box-shadow: var(--box-shadow); */
   justify-content: center;
 
   position: absolute;
   top: -0.1rem;
   left: -0.2rem;
+  left: -1rem;
   justify-content: center;
   font-size: 1.1rem;
+  font-size: 5rem;
   line-height: 1rem;
+  opacity: 10%;
 }
-.displayedBodyPart::after {
+/* .displayedBodyPart::after {
   border-radius: 0 0 20px 0;
   content: "";
   position: absolute;
@@ -81,10 +85,8 @@
   width: 100%;
   height: 1.2rem;
   background-color: #0000004c;
-  /* background-color: transparent; */
-  /* background-color: #2ac4004c; */
-}
-.modifierHolder {
+} */
+.leftHolder {
   z-index: 2;
   position: relative;
   /* top: -0.02rem; */
@@ -111,7 +113,7 @@
   row-gap: 0.5rem;
   /* line-height: 0.1rem; */
 }
-.modifierHolder::after,
+.leftHolder::after,
 .damageHolder::after {
   content: "";
   z-index: 111;
@@ -121,14 +123,15 @@
   border-radius: inherit;
   box-shadow: var(--box-shadow-inset-shine-light);
 }
-.modifierHolder > div {
+.leftHolder > div {
   z-index: -2;
   position: relative;
   top: -0.2rem;
+  left: 0.1rem;
   /* visibility: hidden; */
-  transform: scaleY(1.7) scaleX(1.5);
+  transform: scaleY(1.5) scaleX(1.5);
 }
-.modifierHolder > div > div {
+.leftHolder > div > div {
   transform: scale(0.8) translateX(10%);
 }
 .modifier {
@@ -251,7 +254,7 @@
 .dmg {
   position: relative;
   z-index: 0;
-  top: 0;
+  top: 0.1rem;
   left: -0.14rem;
   display: block;
   box-sizing: border-box;
@@ -274,8 +277,9 @@
   /* visibility: hidden; */
   /* width: 0.4rem; */
 }
-.disabled .dmg {
-  /* display: none; */
+.disabled .middleContainer,
+.fulfilled .middleContainer {
+  box-shadow: var(--box-shadow-inset-dark-detailed);
 }
 
 .disabled .diceHolder {
@@ -312,6 +316,7 @@
   background-color: #62a807c6;
   background-color: #62a807;
   background-color: #539300;
+  background-color: #4d8700;
   /* background-color: transparent; */
   opacity: 80%;
   opacity: 60%;
@@ -326,17 +331,17 @@
 /* .fulfilled .diceHolder, */
 /* .fulfilled .requiredHolder, */
 .fulfilled > .damageHolder::after,
-.fulfilled > .modifierHolder::after {
+.fulfilled > .leftHolder::after {
   box-shadow: var(--box-shadow-inset-shine-green);
   /* display: none; */
   /* opacity: 60%; */
   /* visibility: hidden; */
 }
 
-.fulfilled .displayedBodyPart {
+/* .fulfilled .displayedBodyPart {
   opacity: 20%;
-}
-/* .fulfilled .modifierHolder > div, */
+} */
+/* .fulfilled .leftHolder > div, */
 .fulfilled .dmg,
 .fulfilled .x2 {
   opacity: 70%;
@@ -351,12 +356,12 @@
 .fulfilled:hover .modifier,
 .fulfilled:active .modifier,
 .fulfilled:focus .modifier,
-.fulfilled:hover .modifierHolder,
-.fulfilled:active .modifierHolder,
-.fulfilled:focus .modifierHolder,
-/* .fulfilled:hover .modifierHolder > div,
-.fulfilled:active .modifierHolder > div,
-.fulfilled:focus .modifierHolder > div, */
+.fulfilled:hover .leftHolder,
+.fulfilled:active .leftHolder,
+.fulfilled:focus .leftHolder,
+/* .fulfilled:hover .leftHolder > div,
+.fulfilled:active .leftHolder > div,
+.fulfilled:focus .leftHolder > div, */
 .fulfilled:hover .diceHolder > div,
 .fulfilled:active .diceHolder > div,
 .fulfilled:focus .diceHolder > div {

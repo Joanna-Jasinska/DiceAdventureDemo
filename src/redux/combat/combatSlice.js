@@ -15,6 +15,7 @@ import {
   deselectAllDices,
   enterSummary,
   willEndCombat,
+  deleteAllSelectedDices,
 } from "./operations";
 
 const initialState = {
@@ -82,7 +83,6 @@ const combatSlice = createSlice({
       state.inCombat = true;
     },
 
-
     [toggleDiceSelection.pending]: handlePending,
     [toggleDiceSelection.rejected]: handleRejected,
     [toggleDiceSelection.fulfilled](state, action) {
@@ -112,6 +112,12 @@ const combatSlice = createSlice({
       state.isLoading = false;
       state.rolledDices = action.payload;
     },
+    [deleteAllSelectedDices.pending]: handlePending,
+    [deleteAllSelectedDices.rejected]: handleRejected,
+    [deleteAllSelectedDices.fulfilled](state, action) {
+      state.isLoading = false;
+      state.rolledDices = state.rolledDices.filter((d) => !d.selected);
+    },
 
     [endTurn.pending]: handlePending,
     [endTurn.rejected]: handleRejected,
@@ -125,8 +131,8 @@ const combatSlice = createSlice({
     [updateDice.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.rolledDices[action.payload.stats.index] = {
-        ...state.rolledDices[action.payload.stats.index],
+      state.rolledDices[action.payload.index] = {
+        ...state.rolledDices[action.payload.index],
         ...action.payload,
       };
     },

@@ -109,8 +109,21 @@ export const SKILL_EVALUATION = {
       },
     ],
   ],
-  "2|PIECE|speed/wits/poison": [
+  "1|PIECE|speed/dexterity/strength": [
     [OTHER, "NUMDICES", { value: 1 }],
+    [
+      PIECE,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["speed", "dexterity", "strength"] },
+          requires: { minDices: 1, maxDices: 1 },
+        },
+      },
+    ],
+  ],
+  "2|PIECE|speed/wits/poison": [
+    [OTHER, "NUMDICES", { value: 2 }],
     [
       PIECE,
       "PIECE",

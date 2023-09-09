@@ -1,8 +1,6 @@
-//
-export const ANIMALS = [
-  
+export const ANIMAL_BOSSES = [
   {
-    name: "Old Wolf",
+    name: "Elder Wolf",
     portrait: {
       frontIcon: "🐺",
       sideIcon: "🌿",
@@ -12,9 +10,10 @@ export const ANIMALS = [
       filterColor: "#005a124a",
       bgColor: "#ddd900",
     },
-    life: 7,
-    maxLife: 7,
-    id: "ANIMALS|green|Old Wolf",
+    life: 16,
+    maxLife: 16,
+    gold: 20,
+    id: "ANIMAL_BOSSES|green|Elder Wolf",
     body: [
       {
         priority: true, //dice must be fulfilled before others
@@ -54,8 +53,50 @@ export const ANIMALS = [
           // lvlsToRaiseMinValue: 35,
         },
 
-        id: "piece|ANIMALS|green|Old Wolf|paws|1",
-        key: "piece|ANIMALS|green|Old Wolf|paws|1",
+        id: "piece|ANIMAL_BOSSES|green|Old Wolf|paws|1",
+        key: "piece|ANIMAL_BOSSES|green|Old Wolf|paws|1",
+      },
+
+      {
+        priority: true, //dice must be fulfilled before others
+        // extra: false, //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
+        // once: false, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "🐺",
+        bodyPartTypes: ["head", "body"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          // minValue: -1,
+          // maxValue: -1,
+          exactValues: ["odd"],
+          // maxDices: false,
+        },
+        requires: {
+          // exactValues: false,
+          minDices: 1,
+          // minSum: 3,
+        },
+        multiplies: {
+          multipliedTypes: ["elemental"],
+          multipliedBy: 2,
+        },
+        damages: {
+          // damageToPlayer: 0,
+          // effectsToPlayer: false,
+          // damageToEnemy: 0,
+          // effectsToEnemy: false,
+        },
+        grow: {
+          duplicateAtLv: 60,
+          // lvlsToRaiseMinSum: 3,
+          lvlsToRaiseMinDices: 11,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
+        },
+
+        id: "piece|ANIMAL_BOSSES|green|Old Wolf|head|1",
+        key: "piece|ANIMAL_BOSSES|green|Old Wolf|head|1",
       },
 
       {
@@ -70,7 +111,7 @@ export const ANIMALS = [
           types: ["physical", "magic", "elemental", "speed"],
           // minValue: 3,
           // maxValue: -1,
-          // exactValues: ["odd"],
+          // exactValues: ["even"],
           // maxDices: 2,
         },
         requires: {
@@ -96,8 +137,8 @@ export const ANIMALS = [
           // lvlsToRaiseMinValue: 35,
         },
 
-        id: "piece|ANIMALS|green|Old Wolf|head|1",
-        key: "piece|ANIMALS|green|Old Wolf|head|1",
+        id: "piece|ANIMAL_BOSSES|green|Old Wolf|torso|1",
+        key: "piece|ANIMAL_BOSSES|green|Old Wolf|torso|1",
       },
 
       {
@@ -110,41 +151,41 @@ export const ANIMALS = [
 
         allows: {
           types: ["physical", "magic", "elemental", "speed"],
-          minValue: 2,
+          minValue: 3,
           // maxValue: -1,
-          exactValues: ["odd"],
+          // exactValues: ["even"],
           // maxDices: 2,
         },
         requires: {
           // exactValues: [2],
-          minDices: 1,
-          // minSum: 3,
+          //   minDices: 1,
+          minSum: 4,
         },
         multiplies: {
           multipliedTypes: ["elemental"],
           multipliedBy: 2,
         },
         damages: {
-          damageToPlayer: 1,
+          damageToPlayer: 3,
           // effectsToPlayer: [],
           // damageToEnemy: 1,
           // effectsToEnemy: []],
         },
         grow: {
           duplicateAtLv: 100,
-          // lvlsToRaiseMinSum: 3,
+          lvlsToRaiseMinSum: 9,
           // lvlsToRaiseMinDices: 10,
           // lvlsToRaiseExactValues: 35,
           lvlsToRaiseMinValue: 35,
         },
 
-        id: "piece|ANIMALS|green|Old Wolf|head|2",
-        key: "piece|ANIMALS|green|Old Wolf|head|2",
+        id: "piece|ANIMAL_BOSSES|green|Elder Wolf|head|2",
+        key: "piece|ANIMAL_BOSSES|green|Elder Wolf|head|2",
       },
 
       {
         // priority: true, //dice must be fulfilled before others
-        // extra: false, //dice unlocks after all priority and normal body are filled
+        extra: true, //dice unlocks after all priority and normal body are filled
         // keep: false, //player keeps its dices as extra dices for next turn
         // once: false, //can be fulfilled once then is forever disabled?
         bodyPartIcon: "🐺",
@@ -152,9 +193,9 @@ export const ANIMALS = [
 
         allows: {
           types: ["physical", "magic", "elemental", "speed"],
-          minValue: 3,
+          minValue: 2,
           // maxValue: 4,
-          exactValues: ["odd"],
+          // exactValues: ["even"],
           // maxDices: false,
         },
         requires: {
@@ -180,8 +221,8 @@ export const ANIMALS = [
           // lvlsToRaiseMinValue: 35,
         },
 
-        id: "piece|ANIMALS|green|Old Wolf|head|3",
-        key: "piece|ANIMALS|green|Old Wolf|head|3",
+        id: "piece|ANIMAL_BOSSES|green|Elder Wolf|head|3",
+        key: "piece|ANIMAL_BOSSES|green|Elder Wolf|head|3",
       },
 
       {
@@ -202,7 +243,7 @@ export const ANIMALS = [
         requires: {
           // exactValues: false,
           // minDices: 1,
-          minSum: 4,
+          minSum: 6,
         },
         multiplies: {
           multipliedTypes: ["physical"],
@@ -211,7 +252,7 @@ export const ANIMALS = [
         damages: {
           // damageToPlayer: 1,
           // effectsToPlayer: false,
-          damageToEnemy: 1,
+          damageToEnemy: 2,
           // effectsToEnemy: false,
         },
         grow: {
@@ -222,78 +263,53 @@ export const ANIMALS = [
           // lvlsToRaiseMinValue: 35,
         },
 
-        id: "piece|ANIMALS|green|Old Wolf|head|4",
-        key: "piece|ANIMALS|green|Old Wolf|head|4",
+        id: "piece|ANIMAL_BOSSES|green|Elder Wolf|head|4",
+        key: "piece|ANIMAL_BOSSES|green|Elder Wolf|head|4",
+      },
+
+      {
+        // priority: true, //dice must be fulfilled before others
+        extra: true, //dice unlocks after all priority and normal body are filled
+        // keep: false, //player keeps its dices as extra dices for next turn
+        // once: false, //can be fulfilled once then is forever disabled?
+        bodyPartIcon: "🐾",
+        bodyPartTypes: ["paws", "body"],
+
+        allows: {
+          types: ["physical", "magic", "elemental", "speed"],
+          // minValue: 4,
+          // maxValue: 4,
+          exactValues: ["even"],
+          maxDices: 2,
+        },
+        requires: {
+          // exactValues: false,
+          // minDices: 1,
+          minSum: 4,
+        },
+        multiplies: {
+          multipliedTypes: ["physical"],
+          multipliedBy: 2,
+        },
+        damages: {
+          // damageToPlayer: 1,
+          // effectsToPlayer: false,
+          damageToEnemy: 3,
+          // effectsToEnemy: false,
+        },
+        grow: {
+          // duplicateAtLv: 32,
+          lvlsToRaiseMinSum: 5,
+          lvlsToRaiseMinDices: 17,
+          // lvlsToRaiseExactValues: 17,
+          // lvlsToRaiseMinValue: 35,
+        },
+
+        id: "piece|ANIMAL_BOSSES|green|Elder Wolf|paws|2",
+        key: "piece|ANIMAL_BOSSES|green|Elder Wolf|paws|2",
       },
     ],
     status: [],
   },
-  {
-    name: "Vyvernling",
-    portrait: {
-      frontIcon: "",
-      sideIcon: "🌿",
-      bgSideIcon: "🌲",
-      backIcon: "🦎",
-      bgIcon: "🌳",
-      filterColor: "#005a124a",
-      bgColor: "#ddd900",
-    },
-    life: 9,
-    maxLife: 10,
-    id: "ANIMALS|green|Vyvernling",
-    body: [],
-    status: [],
-  },
-  {
-    name: "Elder Badger",
-    portrait: {
-      frontIcon: "",
-      sideIcon: "🌿",
-      bgSideIcon: "🌲",
-      backIcon: "🦡",
-      bgIcon: "🌳",
-      filterColor: "#005a124a",
-      bgColor: "#ddd900",
-    },
-    life: 9,
-    maxLife: 10,
-    id: "ANIMALS|green|Elder Badger",
-    body: [],
-    status: [],
-  },
-  {
-    name: "Giant Spider",
-    portrait: {
-      frontIcon: "",
-      sideIcon: "🌳",
-      bgSideIcon: "🕸",
-      backIcon: "🕷",
-      bgIcon: "🌳",
-      filterColor: "#005a124a",
-      bgColor: "#ddd900",
-    },
-    life: 9,
-    maxLife: 10,
-    id: "ANIMALS|green|Giant Spider",
-    body: [],
-    status: [],
-  },
-  {
-    name: "Fat Boar",
-    portrait: {
-      frontIcon: "🐗",
-      sideIcon: "🌳",
-      bgSideIcon: "🌳",
-      backIcon: "🟤",
-      bgIcon: "🟤",
-      filterColor: "#005a124a",
-      bgColor: "#ddd900",
-    },
-    life: 9,
-    maxLife: 10,
-    id: "ANIMALS|green|Fat Boar",
-    body: [],
-    status: [],
-  },
+  //
 ];

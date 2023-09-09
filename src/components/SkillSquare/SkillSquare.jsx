@@ -4,6 +4,9 @@ import { DiceIcon } from "components/DiceIcon/DiceIcon";
 // import { Title } from "components/Phonebook/Title/Title";
 import css from "./SkillSquare.module.css";
 import { useCombat } from "hooks";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Skill } from "objects/Skill";
 // import { useCombat } from "hooks";
 // import { Skill } from "objects/Skill";
 
@@ -27,12 +30,53 @@ export const SkillSquare = ({
   },
   statsTxT,
 }) => {
-  const { inCombat } = useCombat();
+  const [toDispatch, editToDispatch] = useState([]);
+  const { inCombat, combat } = useCombat();
+  const dispatch = useDispatch();
+
   const fireSkill = () => {
-    if (success) {
-      console.log(`${skill.id} fired!`, success);
+    if (success && toDispatch.length === 0) {
+      console.log(`--------FIRING SKILL - ADDING TO DISPATCH--------`);
+      editToDispatch([
+        ...toDispatch.concat(Skill.execute(skill.id, { combat }, success)),
+      ]);
+      // editToDispatch((prevToDispatch) => [
+      //   ...prevToDispatch,
+      //   Skill.execute(skill.id, { combat }, success),
+      // ]);
     }
   };
+
+  useEffect(() => {
+    const runDispatch = async (toDispatch) => {
+      for (const dispatchFunc of toDispatch) {
+        // console.log(`FIRING SKILL > will dispatch: `, dispatchFunc);
+        if (dispatchFunc !== false) {
+          // console.log(`dispatching`);
+          await dispatch(dispatchFunc());
+        }
+      }
+      editToDispatch([]);
+      // console.log(
+      //   `Skill component -> Running toDispatch.length[${toDispatch.length}]`,
+      //   toDispatch
+      // );
+      // const dispatchResults = await Promise.all(
+      //   toDispatch.map((dispatchFunc) => {
+      //     if (typeof dispatchFunc === "function") {
+      //       console.log(`Skill component -> Dispathing..`);
+      //       return dispatch(dispatchFunc());
+      //     } else return () => {};
+      //   }),
+      //   editToDispatch([])
+      // );
+    };
+
+    if (toDispatch.length > 0) {
+      runDispatch(toDispatch);
+    }
+  }, [toDispatch]);
+
   return (
     <div
       className={`${css.item} ${

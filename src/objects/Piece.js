@@ -39,18 +39,25 @@ export const Piece = {
     }
     // amount of dices
     const reqAmount = piece.requires.minDices || 0;
-    const amount = Math.max(
-      reqAmount,
-      piece.allows ? piece.allows.maxDices || 0 : 0
-    );
-    if (amount > 0) {
-      req.push({
-        value: `x${amount}`,
-        required: reqAmount > 0,
-        allowed: reqAmount === 0,
+    const allAmount = piece.allows.maxDices || 0;
+
+    if (reqAmount > 0) {
+      // allows exact values
+      allow.push({
+        value: `x${reqAmount}+`,
+        required: true,
       });
       showAllows = true;
     }
+    if (allAmount > 0) {
+      // allows exact values
+      allow.push({
+        value: `-${allAmount}x`,
+        allowed: true,
+      });
+      showAllows = true;
+    }
+
     if (showAllows && piece.allows) {
       if (piece.allows.exactValues) {
         // allows exact values
@@ -116,8 +123,19 @@ export const Piece = {
 
   diceIsAllowed(piece, dice) {
     if (piece.disabled) {
-      console.log(`--------------Dice not allowed----piece disabled`);
+      // console.log(`--------------Dice not allowed----piece disabled`);
       return false;
+    }
+    let weaknessMatches = false;
+    if (piece.weakness && piece.weakness.length > 0) {
+      weaknessMatches = piece.weakness.some((type) => {
+        if (diceTypeMatches(dice.type, type)) {
+          return true;
+        }
+      });
+    }
+    if (weaknessMatches) {
+      return true;
     }
     if (
       piece.dices &&
@@ -125,10 +143,9 @@ export const Piece = {
       piece.allows.maxDices &&
       piece.dices.length >= piece.allows.maxDices
     ) {
-      console.log(`--------------Dice not allowed----too many dices`);
+      // console.log(`--------------Dice not allowed----too many dices`);
       return false;
     }
-    // !!!AAA!!! check if dice type matches
     let typeMatches = false;
     if (piece.allows && piece.allows.types && piece.allows.types.length > 0) {
       typeMatches = piece.allows.types.some((type) => {
@@ -140,18 +157,13 @@ export const Piece = {
       typeMatches = true;
     }
     if (!typeMatches) {
-      console.log(
-        `--------------Dice not allowed----type doesnt match`,
-        dice,
-        piece
-      );
       return false;
     }
     const valueSpace = dice.diceMax - dice.value;
     if (piece.requires.valueSpace && piece.requires.valueSpace > valueSpace) {
-      console.log(
-        `--------------Dice not allowed----valueSpace (${valueSpace}/${piece.requires.valueSpace}) too low--${dice.id}`
-      );
+      // console.log(
+      //   `----------Dice not allowed---valueSpace (${valueSpace}/${piece.requires.valueSpace}) too low--${dice.id}`
+      // );
       return false;
     }
     if (
@@ -159,7 +171,7 @@ export const Piece = {
       piece.allows.minValue &&
       dice.value < piece.allows.minValue
     ) {
-      console.log(`--------------Dice not allowed----value too low`);
+      // console.log(`--------------Dice not allowed----value too low`);
       return false;
     }
     if (
@@ -168,7 +180,7 @@ export const Piece = {
       piece.allows.maxValue > 0 &&
       dice.value > piece.allows.maxValue
     ) {
-      console.log(`--------------Dice not allowed----value too high`);
+      // console.log(`--------------Dice not allowed----value too high`);
       return false;
     }
     if (
@@ -177,7 +189,7 @@ export const Piece = {
       piece.allows.exactValues.find((r) => r === "even") &&
       dice.value % 2 === 0
     ) {
-      console.log(`--------------Dice ALLOWED----"even"-------`);
+      // console.log(`--------------Dice ALLOWED----"even"-------`);
       return true;
     }
     if (
@@ -186,7 +198,7 @@ export const Piece = {
       piece.allows.exactValues.find((r) => r === "odd") &&
       dice.value % 2 === 1
     ) {
-      console.log(`--------------Dice ALLOWED-----"odd"------`);
+      // console.log(`--------------Dice ALLOWED-----"odd"------`);
       return true;
     }
     if (
@@ -194,10 +206,10 @@ export const Piece = {
       piece.allows.exactValues &&
       !piece.allows.exactValues.find((r) => r === dice.value)
     ) {
-      console.log(`--------------Dice not allowed----not exact value`);
+      // console.log(`--------------Dice not allowed----not exact value`);
       return false;
     }
-    console.log(`--------------Dice ALLOWED-----------`, dice, piece);
+    // console.log(`--------------Dice ALLOWED-----------`, dice, piece);
     return true;
   },
 

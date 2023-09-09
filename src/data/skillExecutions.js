@@ -1,5 +1,5 @@
-import { OTHER } from "./skillEvaluation/other";
 import { DICE } from "./skillsExecution/dice";
+import { OTHER } from "./skillsExecution/other";
 
 //
 // txt: "NOT WORKING Automatically arrange your dices.. but not always in a best way.",
@@ -11,7 +11,7 @@ export const SKILL_EXECUTION = {
       DICE,
       "Acc into 1 Dice & Remove",
       {
-        value: 1,
+        value: 2,
         obj: {
           type: "needle",
           // diceMax: 8,
@@ -31,18 +31,6 @@ export const SKILL_EXECUTION = {
           type: ["heat", "ice", "shock"],
           // diceMax: [],
           // value: [],
-        },
-      },
-    ],
-    [
-      DICE,
-      "Acc into 1 Dice & Remove",
-      {
-        value: 1,
-        obj: {
-          // type: "slashed",
-          // diceMax: 8,
-          value: 0,
         },
       },
     ],
@@ -83,7 +71,7 @@ export const SKILL_EXECUTION = {
       DICE,
       "Reroll+ & Remove",
       {
-        value: 1,
+        value: 1, //1 dice to reroll
       },
     ],
   ],
@@ -91,15 +79,14 @@ export const SKILL_EXECUTION = {
   "1|VALUE|[1,max]": [
     [
       DICE,
-      "Value from Array & Remove",
+      "Change to Random Array",
       {
         value: 1,
-        arr: [1, "max"],
-        // obj: {
-        //   type: "poison",
-        //   // diceMax: 8,
-        //   // value: 1,
-        // },
+        obj: {
+          // type: ["heat", "ice", "shock"],
+          // diceMax: [],
+          value: [1, "diceMax"],
+        },
       },
     ],
   ],
@@ -112,7 +99,7 @@ export const SKILL_EXECUTION = {
         value: 1,
         obj: {
           type: "slashed",
-          // diceMax: 8,
+          diceMax: 1,
           value: 1,
         },
       },

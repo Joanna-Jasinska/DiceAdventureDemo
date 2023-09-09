@@ -6,6 +6,46 @@ export const getBaseEqById = (eid) => {
 
 export const BASE_EQUIPMENT = [
   {
+    id: "Martial Art Manual I|COMBO MOVE ||",
+    name: "Martial Art Manual I",
+    alt: "📔",
+    skill: {
+      name: "COMBO MOVE |",
+      txt: "put 🟨🟩 to duplicate 🟨 dice",
+      id: "Martial Art Manual I|COMBO MOVE ||",
+      displayCost: [
+        { value: "", type: "physical" },
+        { value: "", type: "speed" },
+        { value: "", type: "wits" },
+        { value: "", type: "strength" },
+        { value: "", type: "dexterity" },
+      ],
+    },
+    statsTxT: "~ +1/4 per lv",
+    stats: [
+      {
+        item: "dice",
+        diceMax: 3,
+        // value: undefined,
+        type: "wits",
+        existSinceLv: 0,
+        duplicateAtLv: 68,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 4,
+      },
+      {
+        item: "dice",
+        diceMax: 2,
+        // value: undefined,
+        type: "smashed",
+        existSinceLv: 2,
+        duplicateAtLv: 10,
+        // lvlsToRaiseValue: 3,
+        lvlsToRaiseDiceMax: 6,
+      },
+    ],
+  },
+  {
     id: "Legacy Sword|COMBO SLASH|",
     name: "Legacy Sword",
     alt: "🗡️",

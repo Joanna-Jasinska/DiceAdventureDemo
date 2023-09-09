@@ -193,7 +193,10 @@ const dungeonSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.player = {
-        life: state.player.life - action.payload,
+        life: Math.min(
+          state.player.life - action.payload,
+          state.player.maxLife
+        ),
         maxLife: state.player.maxLife,
         status: state.player.status,
       };

@@ -107,8 +107,25 @@ export const DUNGEONS = [
     },
     name: "Cursed Castle",
     eventName: "",
-    enemies: [[], [], []],
-    bosses: [],
+    weakness: ["physical"],
+    enemies: [
+      [
+        "ANIMALS|purple|Mutated Rat",
+        "UNDEAD|purple|Skeleton Head",
+        //
+      ],
+      [
+        "UNDEAD|purple|Ghost",
+        "ANIMALS|purple|Bats",
+        //
+      ],
+      [
+        "HUMAN|purple|Cursed Soldier",
+        "UNDEAD|purple|Ghost Widow",
+        //
+      ],
+    ],
+    bosses: ["HUMAN|purple|Cursed King"],
     id: "dungeon|5|",
     eventId: "dungeon|5|5",
   },
