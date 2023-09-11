@@ -10,6 +10,7 @@ import { PGhost } from "./enemies/undead/PGhost";
 import { PBats } from "./enemies/animals/PBats";
 import { PGhostWidow } from "./enemies/undead/PGhostWidow";
 import { PDemon } from "./enemies/purgatory/PDemon";
+import { PCOrb } from "./enemies/animated/PCOrb";
 
 const template = {};
 
@@ -67,6 +68,7 @@ const ENEMIES = {
   // "HUMAN|purple|Witch": PWitch,
   "HUMAN|purple|Cursed King": PCursedKing,
   "HUMAN|purple|Cursed Soldier": PCursedSoldier,
+  "ANIMATED|purple|Cursed Orb": PCOrb,
   // "UNDEAD|purple|Skeleton Punk": PSkeletonPunk,
   // "UNDEAD|purple|Skeleton Soldier": PSkeletonSoldier,
 

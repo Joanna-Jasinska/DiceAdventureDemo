@@ -12,7 +12,8 @@ export const Piece = {
     const pDmg = generateIcons("damageToPlayer");
     const eDmg = generateIcons("damageToEnemy");
 
-    const dIcons = [...(piece.priority ? ["🛡️", ...pDmg] : [...pDmg]), ...eDmg];
+    const dIcons = [...[...pDmg], ...eDmg];
+    // const dIcons = [...(piece.priority ? ["🛡️", ...pDmg] : [...pDmg]), ...eDmg];
     return dIcons.length > 0 ? dIcons : false;
   },
   getAllowedTypes(piece) {

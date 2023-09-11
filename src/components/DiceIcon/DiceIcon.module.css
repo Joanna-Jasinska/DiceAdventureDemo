@@ -225,7 +225,11 @@
   top: 3px;
   background-color: #ea8aff;
   background-color: #ffcb1f;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #fffdef 0px 0px 2px 1px;
+  /* box-shadow: #3636368d 0px 0px 1px 1px, inset #fffdef 0px 0px 2px 1px; */
+  box-shadow: #3636368d 0px 0px 1px 1px, inset #ffffffe6 0px 0px 1px 1px,
+    inset #ff00f2 -1px -2px 2px -1px, inset #ffee00 2px -1px 2px -1px,
+    inset #4dff00 1px 2px 2px -1px, inset #00d9ff -2px 1px 2px -1px,
+    inset #001d1439 0px 0px 2px 1px;
   background-color: #bba8cc;
   background-color: #c9c6bd;
 }

@@ -1,7 +1,7 @@
 export const PGhostWidow = {
   name: "Ghost Widow",
   portrait: {
-    frontIcon: "⛆",
+    frontIcon: "",
     sideIcon: "⛆", //🤍✖️
     bgSideIcon: "⛆", //🧱⛆
     backIcon: "👰🏻", //🏹⛓⚔️❕❔

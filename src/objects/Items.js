@@ -90,7 +90,7 @@ const levelDiceStat = (piecee, lvv = 1) => {
 const levelItem = (itemm, lvv) => {
   const item = JSON.parse(JSON.stringify(itemm));
   const lv = lvv || itemm.lv || 1;
-  console.log(`Item.js > levelItem Lv[${lv}] ID: ${item.id}`);
+  // console.log(`Item.js > levelItem Lv[${lv}] ID: ${item.id}`);
   const itemTemplate = {
     itemId: item.id,
     name: item.name,
@@ -114,20 +114,20 @@ const levelItem = (itemm, lvv) => {
       continue;
     }
   }
-  console.log(
-    `Item.js > levelItem, setting id for dices and nondices Lv[${lv}] ID: ${item.id}`
-  );
+  // console.log(
+  //   `Item.js > levelItem, setting id for dices and nondices Lv[${lv}] ID: ${item.id}`
+  // );
   leveledNondices = leveledNondices.map((piece, index) => {
     return { ...piece, id: `${item.id}|${piece.id}|nondice|${index}` };
   });
   leveledDices = leveledDices.map((piece, index) => {
     return { ...piece, id: `${item.id}|${piece.id}|dice|${index}` };
   });
-  console.log(
-    `Item.js > levelItem ${item.id} : dices and nondices`,
-    leveledDices,
-    leveledNondices
-  );
+  // console.log(
+  //   `Item.js > levelItem ${item.id} : dices and nondices`,
+  //   leveledDices,
+  //   leveledNondices
+  // );
   return {
     ...itemTemplate,
     dices: [...leveledDices],

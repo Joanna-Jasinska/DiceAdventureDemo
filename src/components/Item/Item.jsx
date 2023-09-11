@@ -4,6 +4,7 @@ import css from "./Item.module.css";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
 import { Title } from "components/Phonebook/Title/Title";
 import { StatIcon } from "components/StatIcon/StatIcon";
+import { SkillSquare } from "components/SkillSquare/SkillSquare";
 
 export const Item = ({
   name,
@@ -29,10 +30,11 @@ export const Item = ({
         bgTxtBack={tags[0]}
         children={
           <>
-            {`${skill.name}`}
+            {/* {`${skill.name}`}
             <br />
             {`${skill.txt}`}
-            <Title title={`${alt} ${name}`} />
+            <Title title={`${alt} ${name}`} /> */}
+            <SkillSquare skill={skill} />
           </>
         }
       />

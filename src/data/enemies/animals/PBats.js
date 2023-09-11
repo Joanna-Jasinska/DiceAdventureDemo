@@ -18,7 +18,7 @@ export const PBats = {
       bodyPartIcon: "🐾",
       bodyPartTypes: ["paws", "body"],
       id: "piece|ANIMALS|purple|Bats|paws|1",
-      weakness: ["physical"],
+      weakness: ["needle"],
       damages: {
         // damageToPlayer: 1,
         // damageToEnemy: 1,
@@ -49,7 +49,7 @@ export const PBats = {
       bodyPartIcon: "🐭",
       bodyPartTypes: ["head", "body"],
       id: "piece|ANIMALS|purple|Bats|head|1",
-      // weakness: ["physical"],
+      // weakness: ["needle"],
       damages: {
         damageToPlayer: 2,
         // damageToEnemy: 1,
@@ -80,7 +80,7 @@ export const PBats = {
       bodyPartIcon: "⚫️",
       bodyPartTypes: ["torso", "body"],
       id: "piece|ANIMALS|purple|Bats|torso|1",
-      // weakness: ["physical"],
+      // weakness: ["needle"],
       damages: {
         // damageToPlayer: 1,
         damageToEnemy: 1,
@@ -111,7 +111,7 @@ export const PBats = {
       bodyPartIcon: "🐭",
       bodyPartTypes: ["head", "body"],
       id: "piece|ANIMALS|purple|Bats|head|2",
-      weakness: ["physical"],
+      weakness: ["needle"],
       damages: {
         damageToPlayer: 1,
         damageToEnemy: 1,

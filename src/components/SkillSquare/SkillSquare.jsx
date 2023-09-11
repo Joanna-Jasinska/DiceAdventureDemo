@@ -3,7 +3,7 @@ import { Miniature } from "components/Miniature/Miniature";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
 // import { Title } from "components/Phonebook/Title/Title";
 import css from "./SkillSquare.module.css";
-import { useCombat } from "hooks";
+import { useCombat, useDungeon } from "hooks";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Skill } from "objects/Skill";
@@ -12,7 +12,7 @@ import { Skill } from "objects/Skill";
 
 export const SkillSquare = ({
   name,
-  id,
+  itemId,
   icon,
   alt,
   tags = [""],
@@ -21,6 +21,7 @@ export const SkillSquare = ({
   toggleSelect,
   dices,
   success = false,
+  currentUses = -1,
   stats = [],
   skill = {
     name: "NO SKILL",
@@ -38,7 +39,7 @@ export const SkillSquare = ({
     if (success && toDispatch.length === 0) {
       console.log(`--------FIRING SKILL - ADDING TO DISPATCH--------`);
       editToDispatch([
-        ...toDispatch.concat(Skill.execute(skill.id, { combat }, success)),
+        ...toDispatch.concat(Skill.execute(itemId, { combat }, success)),
       ]);
       // editToDispatch((prevToDispatch) => [
       //   ...prevToDispatch,
@@ -50,26 +51,11 @@ export const SkillSquare = ({
   useEffect(() => {
     const runDispatch = async (toDispatch) => {
       for (const dispatchFunc of toDispatch) {
-        // console.log(`FIRING SKILL > will dispatch: `, dispatchFunc);
         if (dispatchFunc !== false) {
-          // console.log(`dispatching`);
           await dispatch(dispatchFunc());
         }
       }
       editToDispatch([]);
-      // console.log(
-      //   `Skill component -> Running toDispatch.length[${toDispatch.length}]`,
-      //   toDispatch
-      // );
-      // const dispatchResults = await Promise.all(
-      //   toDispatch.map((dispatchFunc) => {
-      //     if (typeof dispatchFunc === "function") {
-      //       console.log(`Skill component -> Dispathing..`);
-      //       return dispatch(dispatchFunc());
-      //     } else return () => {};
-      //   }),
-      //   editToDispatch([])
-      // );
     };
 
     if (toDispatch.length > 0) {
@@ -80,14 +66,18 @@ export const SkillSquare = ({
   return (
     <div
       className={`${css.item} ${
-        inCombat !== true ? css.display : success ? css.canFire : css.disabled
-      }`}
-      id={id}
+        inCombat !== true || currentUses < 0
+          ? css.display
+          : success
+          ? css.canFire
+          : css.disabled
+      } ${inCombat === true && currentUses === 0 ? css.spent : ""}`}
+      id={itemId}
     >
       <Miniature url={icon} alt={alt || name} bgTxtBack={tags[0]} />
       <div
-        key={`${name}btn${id}`}
-        className={`${css.button} `}
+        key={`${name}btn${itemId}`}
+        className={`${css.skillButton} `}
         onClick={fireSkill}
       >
         {alt}
@@ -95,15 +85,7 @@ export const SkillSquare = ({
       <div className={css.bar}>
         <div className={css.iconBag}>
           {(skill.displayCost ? skill.displayCost : []).map((el, index) => {
-            return (
-              <DiceIcon
-                {...el}
-                // diceMax={el.diceMax}
-                // value={el.value}
-                // icon={el.type}
-                key={`${name}|${el.type}|${index}`}
-              />
-            );
+            return <DiceIcon {...el} key={`${name}|${el.type}|${index}`} />;
           })}
         </div>
 

@@ -1,5 +1,5 @@
-import { OTHER } from "./skillEvaluation/other";
-import { PIECE } from "./skillEvaluation/piece";
+import { OTHER_SEV } from "./skillEvaluation/other";
+import { PIECE_SEV } from "./skillEvaluation/piece";
 // allows: {
 //     types: ["physical", "magic", "elemental", "speed"],
 //     minValue: -1,
@@ -21,46 +21,10 @@ import { PIECE } from "./skillEvaluation/piece";
 // (avoids confusion what dices will be used)
 // after all evaluations are done only id of dices used by PIECE evaluations will be returned
 export const SKILL_EVALUATION = {
-  "2|PIECE|stamina|speed": [
-    [OTHER, "NUMDICES", { value: 2 }],
-    [
-      PIECE,
-      "PIECE",
-      {
-        obj: {
-          allows: { types: ["stamina"] },
-          requires: { minDices: 1, maxDices: 1 },
-        },
-      },
-    ],
-    [
-      PIECE,
-      "PIECE",
-      {
-        obj: {
-          allows: { types: ["speed"] },
-          requires: { minDices: 1, maxDices: 1 },
-        },
-      },
-    ],
-  ],
-  "2|PIECE|str/needle": [
-    [OTHER, "NUMDICES", { value: 2 }],
-    [
-      PIECE,
-      "PIECE",
-      {
-        obj: {
-          allows: { types: ["strength", "needle"] },
-          requires: { minDices: 2, maxDices: 2 },
-        },
-      },
-    ],
-  ],
   "1|PIECE|space-1": [
-    [OTHER, "NUMDICES", { value: 1 }],
+    [OTHER_SEV, "NUMDICES", { value: 1 }],
     [
-      PIECE,
+      PIECE_SEV,
       "PIECE",
       {
         obj: {
@@ -70,10 +34,36 @@ export const SKILL_EVALUATION = {
       },
     ],
   ],
-  "1|PIECE|needle": [
-    [OTHER, "NUMDICES", { value: 1 }],
+  "1|PIECE|magic": [
+    [OTHER_SEV, "NUMDICES", { value: 1 }],
     [
-      PIECE,
+      PIECE_SEV,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["magic"] },
+          requires: { minDices: 1, maxDices: 1 },
+        },
+      },
+    ],
+  ],
+  "1|PIECE|dexterity": [
+    [OTHER_SEV, "NUMDICES", { value: 1 }],
+    [
+      PIECE_SEV,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["dexterity"] },
+          requires: { minDices: 1, maxDices: 1 },
+        },
+      },
+    ],
+  ],
+  "1|PIECE|needle": [
+    [OTHER_SEV, "NUMDICES", { value: 1 }],
+    [
+      PIECE_SEV,
       "PIECE",
       {
         obj: {
@@ -84,9 +74,9 @@ export const SKILL_EVALUATION = {
     ],
   ],
   "1|PIECE|mana": [
-    [OTHER, "NUMDICES", { value: 1 }],
+    [OTHER_SEV, "NUMDICES", { value: 1 }],
     [
-      PIECE,
+      PIECE_SEV,
       "PIECE",
       {
         obj: {
@@ -96,23 +86,10 @@ export const SKILL_EVALUATION = {
       },
     ],
   ],
-  "1|PIECE|heat": [
-    [OTHER, "NUMDICES", { value: 1 }],
-    [
-      PIECE,
-      "PIECE",
-      {
-        obj: {
-          allows: { types: ["heat"] },
-          requires: { minDices: 1, maxDices: 1 },
-        },
-      },
-    ],
-  ],
   "1|PIECE|speed/dexterity/strength": [
-    [OTHER, "NUMDICES", { value: 1 }],
+    [OTHER_SEV, "NUMDICES", { value: 1 }],
     [
-      PIECE,
+      PIECE_SEV,
       "PIECE",
       {
         obj: {
@@ -123,13 +100,72 @@ export const SKILL_EVALUATION = {
     ],
   ],
   "2|PIECE|speed/wits/poison": [
-    [OTHER, "NUMDICES", { value: 2 }],
+    [OTHER_SEV, "NUMDICES", { value: 2 }],
     [
-      PIECE,
+      PIECE_SEV,
       "PIECE",
       {
         obj: {
           allows: { types: ["speed", "wits", "poison"] },
+          requires: { minDices: 2, maxDices: 2 },
+        },
+      },
+    ],
+  ],
+  "2|PIECE|physical|trait": [
+    [OTHER_SEV, "NUMDICES", { value: 2 }],
+    [
+      PIECE_SEV,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["physical"] },
+          requires: { minDices: 1 },
+        },
+      },
+    ],
+    [
+      PIECE_SEV,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["trait"] },
+          requires: { minDices: 1 },
+        },
+      },
+    ],
+  ],
+  "2|PIECE|stamina|speed": [
+    [OTHER_SEV, "NUMDICES", { value: 2 }],
+    [
+      PIECE_SEV,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["stamina"] },
+          requires: { minDices: 1, maxDices: 1 },
+        },
+      },
+    ],
+    [
+      PIECE_SEV,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["speed"] },
+          requires: { minDices: 1, maxDices: 1 },
+        },
+      },
+    ],
+  ],
+  "2|PIECE|str/needle": [
+    [OTHER_SEV, "NUMDICES", { value: 2 }],
+    [
+      PIECE_SEV,
+      "PIECE",
+      {
+        obj: {
+          allows: { types: ["strength", "needle"] },
           requires: { minDices: 2, maxDices: 2 },
         },
       },

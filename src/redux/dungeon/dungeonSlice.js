@@ -12,6 +12,8 @@ import {
   damagePlayer,
   resetPlayer,
   useItem,
+  endTurnInDungeon,
+  useDungeonItemSkill,
 } from "./operations";
 
 const initialState = {
@@ -148,24 +150,6 @@ const dungeonSlice = createSlice({
       state.readyToEnter = true;
     },
 
-    // [startRandomDungeon.pending]: handlePending,
-    // [startRandomDungeon.rejected]: handleRejected,
-    // [startRandomDungeon.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   // state.endTurn = false;
-    //   state.name = action.payload.name;
-    //   state.eventName = action.payload.eventName;
-    //   state.background = action.payload.background;
-    //   state.items = action.payload.items;
-    //   state.enemies = action.payload.enemies;
-    //   state.bosses = action.payload.bosses;
-    //   state.ally = action.payload.ally;
-    //   state.inDungeon = true;
-    //   state.readyToEnter = false;
-    //   state.player = action.payload.player;
-    // },
-
     [startDungeonById.pending]: handlePending,
     [startDungeonById.rejected]: handleRejected,
     [startDungeonById.fulfilled](state, action) {
@@ -245,6 +229,22 @@ const dungeonSlice = createSlice({
         maxLife: action.payload.life,
         status: initialState.player.status,
       };
+    },
+    [endTurnInDungeon.pending]: handlePending,
+    [endTurnInDungeon.rejected]: handleRejected,
+    [endTurnInDungeon.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.items = action.payload.items;
+    },
+
+    [useDungeonItemSkill.pending]: handlePending,
+    [useDungeonItemSkill.rejected]: handleRejected,
+    [useDungeonItemSkill.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      // console.log(`useDungeonItemSkill, action.payload`, action.payload);
+      state.items[action.payload.index] = { ...action.payload };
     },
 
     //

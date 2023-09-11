@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { BASE_EQUIPMENT } from "./../../data/eq";
+// import { BASE_EQUIPMENT } from "./../../data/eq";
 // import { Item } from "objects/Item";
 import { useSelector } from "react-redux";
 import { selectEq } from "./selectors";

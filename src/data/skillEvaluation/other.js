@@ -10,7 +10,7 @@ const numberOfDicesSelectedEvaluation = ({ params, state }) => {
   //   );
   return true;
 };
-export const OTHER = {
+export const OTHER_SEV = {
   false: () => false,
   NUMDICES: numberOfDicesSelectedEvaluation,
 };

@@ -72,7 +72,7 @@ const bodyPieceEvaluation = ({ params, state }) => {
   // -------------------------------------------------------------------------------------
   return usedDicesIDArr;
 };
-export const PIECE = {
+export const PIECE_SEV = {
   false: () => false,
   PIECE: bodyPieceEvaluation,
 };

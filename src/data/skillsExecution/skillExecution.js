@@ -1,12 +1,14 @@
 import { SKILL_EXECUTION } from "data/skillExecutions";
 import { getSkillById } from "../skills";
 import { deleteAllSelectedDices } from "redux/combat/operations";
+import { getSkillExecById } from "data/eq";
 
-export const fetchSkillExecution = ({ skillId, state, usedDices }) => {
+export const fetchSkillExecution = ({ itemId, state, usedDices }) => {
   // returns array of functions
-  const id = getSkillById(skillId).actionId;
-  if (!id) return [];
-  const found = SKILL_EXECUTION[id] || [];
+  // const id = getSkillById(skillId).actionId;
+  if (!itemId) return [];
+  const found = getSkillExecById(itemId) || [];
+  // const found = SKILL_EXECUTION[id] || [];
   if (found.length === 0) return [];
   const sequence = [
     ...found.map((exec) => {
@@ -22,6 +24,6 @@ export const fetchSkillExecution = ({ skillId, state, usedDices }) => {
     }),
   ];
   if (sequence.length < 1) return false;
-  console.log(`data> skillExecs > SkillExecs for:`, skillId, sequence);
+  console.log(`data> skillExecs > SkillExecs for:`, itemId, sequence);
   return sequence;
 };

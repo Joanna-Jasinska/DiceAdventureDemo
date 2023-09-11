@@ -20,8 +20,18 @@ export const SKILLS = {
   },
   "Martial Art Manual I|COMBO MOVE ||": {
     // "put 🟨🟩 to duplicate 🟨 dice"
-    evaluationId: "2|PIECE|physical|speed/dexterity/strength/wits",
+    evaluationId: "2|PIECE|physical|trait",
     actionId: "1|COPY|x2",
+  },
+  "Scroll of Arcane Missles|INVOKE ARCANE|": {
+    // "divide 1 into 3 ✨ dices - rerolled to same or lower value"
+    evaluationId: "1|PIECE|magic",
+    actionId: "1|VALUE|/3|ACC|(ACC|reroll-)x3",
+  },
+  "Leather Vest|THUMBLE|": {
+    // "change 1 into ⬜️ of value -1"
+    evaluationId: "1|PIECE|dexterity",
+    actionId: "1|ACC|ANY|-2",
   },
   "Legacy Sword|COMBO SLASH|": {
     // "change 1 into ⚔️ of same value+1"
@@ -31,7 +41,8 @@ export const SKILLS = {
   "Kitchen Knives|KNIFE THROW|": {
     // "[(📌)] => reroll (📌) into [1] or [max value]"
     evaluationId: "1|PIECE|needle",
-    actionId: "1|VALUE|[1,max]",
+    actionId: "1|ACC|needle|VALUE|[1,max]",
+    // actionId: "1|VALUE|[1,max]",
   },
   "Lucky Clover|LUCKY ROLL|": {
     // "[(1)] => reroll for same or higher value "
@@ -52,11 +63,6 @@ export const SKILLS = {
     // "[🕒] [(1)🥧] => heal 1hp, get [🌀]=(1) "
     evaluationId: "2|PIECE|stamina|speed",
     actionId: "1|ACC|MANA|heal_1",
-  },
-  "Torch|WAVE MENACINGLY|": {
-    // "🔥 => change value to half of maximum, create 🕒 of 1-20 value"
-    evaluationId: "1|PIECE|heat",
-    actionId: false,
   },
   "Vial of Iroposion|MIX POISON|": {
     // "2 of 🕒🧠💚 => create 1💚 with combined value"

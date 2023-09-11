@@ -3,15 +3,29 @@ export const PLAYER_STARTING_MAX_EQ_LV = 3;
 // export const PLAYER_EXTRA_LEVELS = 8;
 
 export const STARTING_EQ = [
-  "Legacy Sword|COMBO SLASH|",
-  "Kitchen Knives|KNIFE THROW|",
-  "Old Broom|WITCH'S BROOM|",
-  // "Torch|WAVE MENACINGLY|",
-  "Provisions Bag|SNACK|",
-  "Lucky Clover|LUCKY ROLL|",
-  "Vial of Iroposion|MIX POISON|",
-  "Utiki Spear|CHARGE|",
+  "Rusty Sword|SWORD SLASH +|",
+  "Wooden Shield|SHIELD BASH +1|",
+  "Torch|WAVE MENACINGLY|",
+  "Scroll of Strength|INVOKE STRENGTH +1|",
+  "Travel Bag|COOKING UTENSIL TOSS|",
+  // -----------------not used:
+  // "Heavy Metal Shield|SHIELD BASH +2|",
+  // -----------------given to ally:
+  // -----------------not done:
+  // "Kitchen Knives|KNIFE THROW|",
+  // "Scroll of Arcane Missles|INVOKE ARCANE|",
+  // "Leather Vest|THUMBLE|",
+  // "Lucky Clover|LUCKY ROLL|",
+  // --------------
+  // "Legacy Sword|COMBO SLASH|",
+  // "Old Broom|WITCH'S BROOM|",
+  // "Provisions Bag|SNACK|",
+  // "Vial of Iroposion|MIX POISON|",
+  // "Utiki Spear|CHARGE|",
+  // --------------
+  // "Martial Art Manual I|COMBO MOVE ||",
   // "Cheat Sheet|-|",
+  // "Fairy Advisor|ADVISE|",
 ];
 
 export const STARTING_DUNGEONS = [

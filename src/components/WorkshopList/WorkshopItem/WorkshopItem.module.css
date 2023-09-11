@@ -10,6 +10,7 @@
   /* width: 8.5rem; */
   width: 7.7rem;
   display: inline-block;
+  margin-top: 4rem;
 }
 
 .bar {
@@ -52,7 +53,7 @@
   border-radius: 0 0 20px 20px;
   /* background-color: red; */
 }
-.button {
+.selectButton {
   overflow: visible;
   position: absolute;
   /* top: 0px;
@@ -121,9 +122,10 @@
   width: 2.2rem;
   color: transparent;
 }
-.button:hover,
-.button:focus,
-.button:active {
+.selectButton:hover,
+.selectButton:focus,
+.selectButton:active {
+  /* z-index: 400; */
   /* transform: scale(1.2); */
   opacity: 100%;
   color: var(--color);

@@ -13,7 +13,7 @@ const Heal = ({ params, state }) => {
   return [toHeal ? () => damagePlayer(-toHeal) : () => {}];
 };
 
-export const OTHER = {
+export const OTHER_SEX = {
   false: () => false,
   heal: Heal,
   //   "": func,

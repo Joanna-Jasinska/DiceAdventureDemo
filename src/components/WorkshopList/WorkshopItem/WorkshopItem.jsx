@@ -13,6 +13,7 @@ import {
 } from "redux/game/operations";
 import { useEQ } from "hooks/useEQ";
 import { useGame } from "hooks/useGame";
+import { SkillSquare } from "components/SkillSquare/SkillSquare";
 
 export const WorkshopItem = ({
   name,
@@ -25,7 +26,7 @@ export const WorkshopItem = ({
   index,
   selected = false,
   // nondices,
-  stats = [],
+  // stats = [],
   skill = { name: "NO SKILL", txt: "-", id: "noskill" },
   // statsTxT='',
 }) => {
@@ -73,10 +74,11 @@ export const WorkshopItem = ({
         bgTxtBack={tags[0]}
         children={
           <>
-            {`${skill.name}`}
+            {/* {`${skill.name}`}
             <br />
             {`${skill.txt}`}
-            <Title title={`${alt} ${name} (${index})${itemId}`} />
+            <Title title={`${alt} ${name} (${index})${itemId}`} /> */}
+            <SkillSquare skill={skill} />
           </>
         }
       />
@@ -86,7 +88,7 @@ export const WorkshopItem = ({
         ) : (
           <button
             key={`${name}btnLv1${itemId}`}
-            className={`${css.button} ${css.delevel} ${css.delevelTo1} `}
+            className={`${css.selectButton} ${css.delevel} ${css.delevelTo1} `}
             type="button"
             onClick={resetLvTo1}
           >
@@ -100,7 +102,7 @@ export const WorkshopItem = ({
         ) : (
           <button
             key={`${name}btnLv-10${itemId}`}
-            className={`${css.button} ${css.delevel} ${css.delevel10} `}
+            className={`${css.selectButton} ${css.delevel} ${css.delevel10} `}
             type="button"
             onClick={delevel10}
           >
@@ -114,7 +116,7 @@ export const WorkshopItem = ({
         ) : (
           <button
             key={`${name}btnLvUp${itemId}`}
-            className={`${css.button} ${css.levelUp} ${css.plus1} `}
+            className={`${css.selectButton} ${css.levelUp} ${css.plus1} `}
             type="button"
             onClick={levelUp1}
           >
@@ -128,7 +130,7 @@ export const WorkshopItem = ({
         ) : (
           <button
             key={`${name}btnLvUp10${itemId}`}
-            className={`${css.button} ${css.levelUp} ${css.plus10} `}
+            className={`${css.selectButton} ${css.levelUp} ${css.plus10} `}
             type="button"
             onClick={levelUp10}
           >
@@ -141,7 +143,7 @@ export const WorkshopItem = ({
         </span>
       </div>
       <div className={css.iconBag}>
-        {(dices ? dices : stats).map((el, index) => {
+        {(dices ? dices : []).map((el, index) => {
           return (
             <DiceIcon
               {...el}

@@ -17,11 +17,12 @@ import { setFilter } from "redux/filter/filterSlice";
 import css from "./SkillList.module.css";
 import { Loader } from "components/Loader/Loader";
 import { selectPackedItems } from "redux/dungeon/selectors";
-import { useCombat } from "hooks";
+import { useCombat, useDungeon } from "hooks";
 import { Skill } from "objects/Skill";
 
 export const SkillList = ({ filters }) => {
   const extraFilters = useSelector(selectFilters);
+  const { dungeon } = useDungeon();
 
   const dispatch = useDispatch();
   // const equipment = useSelector(selectEq);
@@ -74,13 +75,14 @@ export const SkillList = ({ filters }) => {
                 <SkillSquare
                   name={`${el.name}`}
                   alt={`${el.alt}`}
-                  id={`${el.id}`}
+                  itemId={`${el.itemId}`}
                   key={`${el.name}|${el.index}|${el.id}`}
                   // key={`key|${index}`}
                   index={index}
                   selected={el.selected}
                   skill={el.skill}
-                  success={Skill.usedDices(el.skill.id, { combat })}
+                  currentUses={el.currentUses}
+                  success={Skill.usedDices(el.itemId, { combat, dungeon })}
                   statsTxT={el.statsTxT || ""}
                   toggleSelect={() =>
                     dispatch(

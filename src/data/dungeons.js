@@ -26,7 +26,7 @@ export const DUNGEONS = [
       bgColor: "#413e20",
       flavorIcon: "🗻",
     },
-    // items: [],
+    weakness: ["elemental", "magic"],
     bosses: [],
     enemies: [[""], [], []],
     // ally: {},
@@ -45,6 +45,7 @@ export const DUNGEONS = [
       flavorIcon: "🌳",
       bgColor: "#3ea413",
     },
+    weakness: ["elemental", "physical"],
     bosses: ["ANIMALS|green|Elder Wolf"],
     enemies: [
       [
@@ -79,10 +80,11 @@ export const DUNGEONS = [
     },
     name: "Lost Valley",
     eventName: "",
-    enemies: [[], [], []],
-    bosses: [],
     id: "dungeon|3|",
     eventId: "dungeon|3|3",
+    weakness: ["magic", "trait"],
+    bosses: [],
+    enemies: [[], [], []],
   },
   {
     background: {
@@ -93,10 +95,11 @@ export const DUNGEONS = [
     },
     name: "Remote Islands",
     eventName: "",
-    enemies: [[], [], []],
-    bosses: [],
     id: "dungeon|4|",
     eventId: "dungeon|4|4",
+    weakness: ["trait", "physical"],
+    bosses: [],
+    enemies: [[], [], []],
   },
   {
     background: {
@@ -107,7 +110,7 @@ export const DUNGEONS = [
     },
     name: "Cursed Castle",
     eventName: "",
-    weakness: ["physical"],
+    weakness: ["physical", "magic"],
     enemies: [
       [
         "ANIMALS|purple|Mutated Rat",
@@ -125,7 +128,12 @@ export const DUNGEONS = [
         //
       ],
     ],
-    bosses: ["HUMAN|purple|Cursed King"],
+    bosses: [
+      //
+      "ANIMATED|purple|Cursed Orb",
+      // "HUMAN|purple|Cursed King"
+      //
+    ],
     id: "dungeon|5|",
     eventId: "dungeon|5|5",
   },

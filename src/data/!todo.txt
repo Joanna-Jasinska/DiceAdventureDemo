@@ -8,11 +8,7 @@
 +/later/- enemy body pieces sides should grow bigger not appear - or never shrink space taken
 
 
-- move each enemy to separate file
-
-- balance starting items
-
-- finish skill execution for all items
+- move  the rest of items to its item file
 
 -------------------------------
 

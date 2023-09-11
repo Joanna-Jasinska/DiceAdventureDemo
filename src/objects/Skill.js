@@ -1,23 +1,29 @@
 import { fetchSkillEvaluations } from "data/skillEvaluation/skillEvaluation";
 import { fetchSkillExecution } from "data/skillsExecution/skillExecution";
 import { deleteAllSelectedDices } from "redux/combat/operations";
+import { useDungeonItemSkill } from "redux/dungeon/operations";
 const getDiceFromId = (id, dices) => {
   const found = dices.find((dice) => dice.id === id);
   return found || {};
 };
 
 export const Skill = {
-  usedDices(skillId, state) {
+  usedDices(itemId, state) {
     // returns false or array of dice ids
     // if false skill cannot be fired
     // those dices will be used by skill
+    const dungeon = state.dungeon || false;
+    const items = dungeon ? dungeon.items || false : false;
+    const thisItem = items ? items.find((i) => i.itemId === itemId) : false;
+    const currentUses = thisItem ? thisItem.currentUses || 0 : 0;
+    if (currentUses < 1) return false;
     const arrayToTest = fetchSkillEvaluations({
-      skillId,
+      itemId,
       state,
     });
     // let result;
     if (!arrayToTest) {
-      console.log(`${skillId} had no evaluations to perform`);
+      console.log(`${itemId} had no evaluations to perform`);
       return false;
     }
     const arr = [...arrayToTest];
@@ -46,7 +52,7 @@ export const Skill = {
     // if(success)console.log(txt);
     return success;
   },
-  execute(skillId, state, diceIdArr) {
+  execute(itemId, state, diceIdArr) {
     // returns false or array of func to dispatch
     // if false skill cannot be fired
     // those dices will be used by skill
@@ -59,13 +65,13 @@ export const Skill = {
     ];
     console.log(`Skill.EXECUTE > usedDices, diceIdArr`, usedDices, diceIdArr);
     const arrayToExecute = fetchSkillExecution({
-      skillId,
+      itemId,
       state,
       usedDices,
     });
     // let result;
     if (!arrayToExecute) {
-      console.log(`${skillId} had no actions to execute`);
+      console.log(`${itemId} had no actions to execute`);
       return false;
     }
     const arr = [...arrayToExecute];
@@ -102,9 +108,13 @@ export const Skill = {
       funcList = false;
     } else {
       if (funcList !== true && funcList !== false) {
-        funcList = [...funcList, () => deleteAllSelectedDices()];
+        funcList = [
+          ...funcList,
+          deleteAllSelectedDices,
+          () => useDungeonItemSkill(itemId),
+        ];
       } else {
-        funcList = [() => deleteAllSelectedDices()];
+        funcList = [deleteAllSelectedDices, () => useDungeonItemSkill(itemId)];
       }
     }
     // result = { funcList, txt: txt };

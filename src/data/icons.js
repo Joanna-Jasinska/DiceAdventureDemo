@@ -34,6 +34,7 @@ export const ICONS = [
   { type: "needle", mainType: "physical", icon: "📌", color: "#fff", id: "" },
   { type: "smashed", mainType: "physical", icon: "🔨", color: "#fff", id: "" },
 
+  { type: "mana", mainType: "magic", icon: "🌀", color: "#fff", id: "" },
   { type: "magic", mainType: "magic", icon: " ", color: "#fff", id: "" },
   { type: "arcane", mainType: "magic", icon: "✨", color: "#fff", id: "" },
   { type: "toxic", mainType: "magic", icon: "☣️", color: "#fff", id: "" },
@@ -53,7 +54,7 @@ export const ICONS = [
   { type: "shock", mainType: "elemental", icon: "⚡️", color: "#fff", id: "" },
   { type: "poison", mainType: "elemental", icon: "💚", color: "#fff", id: "" },
 
-  { type: "mana", mainType: "mana", icon: "🌀", color: "#fff", id: "" },
+  { type: "trait", mainType: "trait", icon: " ", color: "#fff", id: "" },
   { type: "speed", mainType: "trait", icon: "🕒", color: "#fff", id: "" },
   { type: "strength", mainType: "trait", icon: "💪", color: "#fff", id: "" },
   { type: "dexterity", mainType: "trait", icon: "🤸‍♂️", color: "#fff", id: "" },

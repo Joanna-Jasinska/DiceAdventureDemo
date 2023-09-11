@@ -18,7 +18,7 @@ export const PGhost = {
       bodyPartIcon: "🐾",
       bodyPartTypes: ["paws", "body"],
       id: "piece|UNDEAD|purple|Ghost|paws|1",
-      weakness: ["physical"],
+      weakness: ["magic"],
       damages: {
         // damageToPlayer: 1,
         // damageToEnemy: 1,
@@ -49,7 +49,7 @@ export const PGhost = {
       bodyPartIcon: "🐭",
       bodyPartTypes: ["head", "body"],
       id: "piece|UNDEAD|purple|Ghost|head|1",
-      // weakness: ["physical"],
+      // weakness: ["magic"],
       damages: {
         damageToPlayer: 2,
         // damageToEnemy: 1,
@@ -80,7 +80,7 @@ export const PGhost = {
       bodyPartIcon: "⚫️",
       bodyPartTypes: ["torso", "body"],
       id: "piece|UNDEAD|purple|Ghost|torso|1",
-      // weakness: ["physical"],
+      // weakness: ["magic"],
       damages: {
         // damageToPlayer: 1,
         damageToEnemy: 1,
@@ -111,7 +111,7 @@ export const PGhost = {
       bodyPartIcon: "🐭",
       bodyPartTypes: ["head", "body"],
       id: "piece|UNDEAD|purple|Ghost|head|2",
-      weakness: ["physical"],
+      weakness: ["magic"],
       damages: {
         damageToPlayer: 1,
         damageToEnemy: 1,

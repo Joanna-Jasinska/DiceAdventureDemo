@@ -14,7 +14,11 @@ import { damageEnemy, deleteAllBodyDices, die } from "redux/enemy/operations";
 import { useEnemy } from "hooks/useEnemy";
 import { EnemyPortrait } from "components/EnemyPortrait/EnemyPortrait";
 import { gainFromDungeonSummary } from "redux/game/operations";
-import { clearDungeon, damagePlayer } from "redux/dungeon/operations";
+import {
+  clearDungeon,
+  damagePlayer,
+  endTurnInDungeon,
+} from "redux/dungeon/operations";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -79,6 +83,7 @@ export const CombatNavigation = () => {
       () => damageEnemy(dmgToEnemy),
       deleteAllBodyDices,
       rollAllDices,
+      endTurnInDungeon,
     ]);
   };
   let negNum = 0;
@@ -123,7 +128,7 @@ export const CombatNavigation = () => {
   //     ? { boxShadow: boxShadowWarning, backgroundColor: bgWarning }
   //     : { boxShadow: boxShadowRecommended, backgroundColor: bgRecommended };
   const endTurnIcon = negatives !== "" ? "❌" : "✔️"; //✔️❌
-  const endTurnDmg = negatives !== "" ? negatives : positives; //⚔️❤️
+  const endTurnDmg = negatives !== "" ? `${negatives}${positives}` : positives; //⚔️❤️
   //   ✔️❌☠️
   // ⚙️💀☠️🩸❤️⚔️👍
 

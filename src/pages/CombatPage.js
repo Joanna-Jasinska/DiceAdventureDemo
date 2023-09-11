@@ -48,7 +48,7 @@ export const CombatPage = () => {
         ) : (
           <>
             <Background />
-            <AAATester />
+            {/* <AAATester /> */}
             {/* <Title title={`Combat`} /> */}
             {/* <Title title={`Lv.${lv} ${dungeonName} ${dungeonEvName}`} /> */}
             {/* <EnemyPortrait /> */}

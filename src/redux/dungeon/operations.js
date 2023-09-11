@@ -1,50 +1,20 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getDungeon } from "data/dungeons";
 import { getRandomNum } from "objects/Dice";
-import { Dungeon } from "objects/Dungeon";
-import {
-  selectCurrentSlot,
-  selectGoldEarned,
-  selectSlotsDefeated,
-} from "./selectors";
-import { selectEnemyGold } from "redux/enemy/selectors";
-import { selectGold } from "redux/game/selectors";
 import { PLAYER_BASE_LIFE } from "data/settings";
-// import { BASE_EQUIPMENT } from "../../data/eq";
 
 export const clearDungeon = createAsyncThunk(
   "dungeon/clear",
   async (_, thunkAPI) => {
-    // const myDungeon = { ...Dungeon }.getRandom();
     return true;
-    // return thunkAPI.fulfillWithValue(null);
   }
 );
 export const useItem = createAsyncThunk(
   "dungeon/useItem",
   async (id, thunkAPI) => {
-//     const itemTemplate = {
-//       turnUses: 1,
-//       currentUses: 1,
-//     };
-
-// .map((item)=>{return{...itemTemplate,...item}});
     return id;
   }
 );
-
-// export const beginDungeon = createAsyncThunk(
-//   "dungeon/begin",
-//   async (init, thunkAPI) => {
-//     const myDungeon = init;
-//     const myPlayer = {
-//       life: 12,
-//       maxLife: 12,
-//       status: {},
-//     };
-//     return { ...myDungeon, player: myPlayer };
-//   }
-// );
 
 export const setLv = createAsyncThunk("dungeon/setLv", async (lv, thunkAPI) => {
   return lv;
@@ -54,13 +24,9 @@ export const startDungeonById = createAsyncThunk(
   "dungeon/startSelected",
   async (id, thunkAPI) => {
     const myDungeon = getDungeon(id);
-    // console.log(
-    //   `dungeon/startSelected requested [${id}] gained [${myDungeon.id}]`
-    // );
-    // !!!AAA!!! should load player life and statuses depending on eq
     const myPlayer = {
-      life: 10,
-      maxLife: 16,
+      life: 1,
+      maxLife: 1,
       status: {},
     };
     const state = thunkAPI.getState();
@@ -83,13 +49,9 @@ export const levelupAndReloadDungeon = createAsyncThunk(
     const myDungeon = getDungeon(id);
     // could clear player status
     const myPlayer = {
-      // life: 10,
-      // maxLife: 16,
       status: {},
     };
-    // const myLv = state.game.dungeonLevels[myDungeon.id] + 1 || 1;
     return {
-      // ...myDungeon,
       player: myPlayer,
       // lv: myLv,
       // startedLv: myLv,
@@ -97,36 +59,6 @@ export const levelupAndReloadDungeon = createAsyncThunk(
     };
   }
 );
-
-// export const startRandomDungeon = createAsyncThunk(
-//   "dungeon/random",
-//   async (_, thunkAPI) => {
-//     const myDungeon = { ...Dungeon }.getRandom();
-//     const myPlayer = {
-//       life: 10,
-//       maxLife: 16,
-//       status: {},
-//     };
-//     return {
-//       ...myDungeon,
-//       player: myPlayer,
-//       startedLv: myDungeon.lv,
-//       goldEarned: 0,
-//     };
-//   }
-// );
-
-// export const engageRandomEnemy = createAsyncThunk(
-//   "dungeon/engameRandomEnemy",
-//   async (_, thunkAPI) => {
-//     const n = getRandomNum(0, (await state.dungeon.enemies.length) - 1);
-//     const state = thunkAPI.getState();
-//     const randomEnemyId = await state.dungeon.enemies[n][
-//       getRandomNum(0, state.dungeon.enemies[n].length - 1)
-//     ];
-//     return randomEnemyId;
-//   }
-// );
 
 export const getEnemyGold = createAsyncThunk(
   "dungeon/getEnemyGold",
@@ -136,13 +68,6 @@ export const getEnemyGold = createAsyncThunk(
     const dGold = state.dungeon.goldEarned;
     let replacedSlots = { ...state.dungeon.slotsDefeated };
     replacedSlots[state.dungeon.currentSlot] = true;
-    // let replacedSlots = [...selectSlotsDefeated(thunkAPI.getState())];
-    // replacedSlots[selectCurrentSlot(thunkAPI.getState())] = true;
-    // return {
-    //   // enemyGold: selectEnemyGold(state),
-    //   goldEarned: selectGoldEarned(state) + selectEnemyGold(state) + 1,
-    //   slotsDefeated: [false, false, false, true],
-    // };
     return { goldEarned: dGold + eGold, slotsDefeated: replacedSlots };
   }
 );
@@ -168,7 +93,6 @@ export const engageEnemyBySlot = createAsyncThunk(
     const dungeons = state.dungeon.enemies[slot];
     const rn = getRandomNum(0, state.dungeon.enemies[slot].length - 1);
     const enemyId = await dungeons[rn];
-    // console.log(`Engaging ${enemyId} from dungeon[${slot}][${rn}]`);
     return { selectedEnemyID: enemyId, currentSlot: slot };
   }
 );
@@ -180,7 +104,6 @@ export const engageBoss = createAsyncThunk(
     const bosses = state.dungeon.bosses;
     const rn = getRandomNum(0, state.dungeon.bosses.length - 1);
     const enemyId = await bosses[rn];
-    // console.log(`Engaging Boss ${enemyId} from dungeon.boss[${rn}]`);
     return { selectedEnemyID: enemyId, currentSlot: "boss" };
   }
 );
@@ -218,5 +141,43 @@ export const packEquipment = createAsyncThunk(
     });
     const life = PLAYER_BASE_LIFE + eqLife;
     return { items: eqTaken, life: life };
+  }
+);
+export const endTurnInDungeon = createAsyncThunk(
+  "dungeon/endTurnInDungeon",
+  async (_, thunkAPI) => {
+    // resets item uses
+    const state = thunkAPI.getState();
+    // const itemTemplate = {
+    //   turnUses: 1,
+    //   currentUses: 1,
+    // };
+    const eqTaken = state.dungeon.items || [];
+    return {
+      items: [
+        ...eqTaken.map((i) => {
+          return { ...i, currentUses: i.turnUses };
+        }),
+      ],
+    };
+  }
+);
+
+export const useDungeonItemSkill = createAsyncThunk(
+  "dungeon/useDungeonItemSkill",
+  async (itemId, thunkAPI) => {
+    // resets item uses
+    const state = thunkAPI.getState();
+    // const itemTemplate = {
+    //   turnUses: 1,
+    //   currentUses: 1,
+    // };
+    const eqTaken = state.dungeon.items || [];
+    const found = eqTaken.find((i) => i.itemId === itemId) || false;
+    const currentUses = found ? found.currentUses : 0;
+    if (currentUses < 1) {
+      return thunkAPI.rejectWithValue("This item is already used up.");
+    }
+    return { ...found, currentUses: found.currentUses - 1 };
   }
 );

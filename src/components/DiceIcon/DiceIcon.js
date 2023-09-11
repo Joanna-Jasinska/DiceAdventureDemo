@@ -16,7 +16,7 @@ const getFrame = ({ value, type }) => {
       return `${style}${css.physical}`;
 
     case "mana":
-      return `${style}${css.trait}`;
+      return `${style}${css.magic}`;
     case "magic":
       return `${style}${css.magic}`;
     case "arcane":
@@ -39,6 +39,8 @@ const getFrame = ({ value, type }) => {
     case "poison":
       return `${style}${css.elemental}`;
 
+    case "trait":
+      return `${style}${css.trait}`;
     case "speed":
       return `${style}${css.trait}`;
     case "strength":

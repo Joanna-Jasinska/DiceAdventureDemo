@@ -1,5 +1,5 @@
-import { DICE } from "./skillsExecution/dice";
-import { OTHER } from "./skillsExecution/other";
+import { DICE_SEX } from "./skillsExecution/dice";
+import { OTHER_SEX } from "./skillsExecution/other";
 
 //
 // txt: "NOT WORKING Automatically arrange your dices.. but not always in a best way.",
@@ -8,7 +8,7 @@ export const SKILL_EXECUTION = {
   // txt: "put 2 to create 1📌 of combined value",
   "2|ACC|NEEDLE|": [
     [
-      DICE,
+      DICE_SEX,
       "Acc into 1 Dice & Remove",
       {
         value: 2,
@@ -23,7 +23,7 @@ export const SKILL_EXECUTION = {
   // txt: "change into one of 🔥❄️⚡ at random",
   "1|RANDOM|HEAT/ICE/SHOCK|": [
     [
-      DICE,
+      DICE_SEX,
       "Change to Random Array",
       {
         value: 1,
@@ -35,40 +35,10 @@ export const SKILL_EXECUTION = {
       },
     ],
   ],
-  // txt: "change value to half of maximum, create 🕒 of 1-20 value",
-  "1|VALUE|half": [
-    [
-      DICE,
-      "Value Manipulation & Remove",
-      {
-        value: 1,
-        // arr:[1,"max"],
-        obj: {
-          setTo: "diceMax",
-          // multiplyBy: 10,
-          divideBy: 2,
-          // add: 1,
-        },
-      },
-    ],
-    [
-      DICE,
-      "Create",
-      {
-        value: 1,
-        // arr:[1,"max"],
-        obj: {
-          type: "speed",
-          diceMax: 20,
-          // value: 1,
-        },
-      },
-    ],
-  ],
   // txt: " reroll 1 for same or higher value ",
   "1|REROLL+|": [
     [
-      DICE,
+      DICE_SEX,
       "Reroll+ & Remove",
       {
         value: 1, //1 dice to reroll
@@ -76,9 +46,21 @@ export const SKILL_EXECUTION = {
     ],
   ],
   // txt: "reroll 1 into [1] or [max value]",
-  "1|VALUE|[1,max]": [
+  "1|ACC|needle|VALUE|[1,max]": [
     [
-      DICE,
+      DICE_SEX,
+      "Acc into 1 Dice",
+      {
+        value: 1,
+        obj: {
+          type: "needle",
+          // diceMax: 1,
+          // value: -2,
+        },
+      },
+    ],
+    [
+      DICE_SEX,
       "Change to Random Array",
       {
         value: 1,
@@ -90,10 +72,25 @@ export const SKILL_EXECUTION = {
       },
     ],
   ],
+  // txt: "change 💪 into 🔨+1",
+  // "1|ACC|SMASHED|+1": [
+  //   [
+  //     DICE_SEX,
+  //     "Acc into 1 Dice & Remove",
+  //     {
+  //       value: 1,
+  //       obj: {
+  //         type: "smashed",
+  //         diceMax: 1,
+  //         value: 1,
+  //       },
+  //     },
+  //   ],
+  // ],
   // txt: "change 1 into ⚔️ of same value+1",
   "1|ACC|SLASHED|+1": [
     [
-      DICE,
+      DICE_SEX,
       "Acc into 1 Dice & Remove",
       {
         value: 1,
@@ -105,10 +102,25 @@ export const SKILL_EXECUTION = {
       },
     ],
   ],
+  // txt: "change 1 into ⬜️ of value -1"
+  "1|ACC|ANY|-2": [
+    [
+      DICE_SEX,
+      "Acc into 1 Dice & Remove",
+      {
+        value: 1,
+        obj: {
+          type: "any",
+          // diceMax: 1,
+          value: -2,
+        },
+      },
+    ],
+  ],
   // txt: "put 2 to create 1💚 with combined value",
   "2|ACC|POISON|": [
     [
-      DICE,
+      DICE_SEX,
       "Acc into 1 Dice & Remove",
       {
         value: 2,
@@ -123,14 +135,14 @@ export const SKILL_EXECUTION = {
   // txt: "put both to heal 1hp, get 1🌀 of 🥧value",
   "1|ACC|MANA|heal_1": [
     [
-      OTHER,
+      OTHER_SEX,
       "heal",
       {
         value: 1,
       },
     ],
     [
-      DICE,
+      DICE_SEX,
       "Acc into 1 Dice & Remove",
       {
         value: 1,
@@ -141,6 +153,87 @@ export const SKILL_EXECUTION = {
         },
       },
     ],
+  ],
+  // txt: "divide 1 into 3 ✨ dices - rerolled to same or lower value",
+  "1|VALUE|/3|ACC|(ACC|reroll-)x3": [
+    [
+      DICE_SEX,
+      "Acc into 1 Dice",
+      {
+        value: 1,
+        obj: {
+          type: "arcane",
+          // diceMax: 1,
+          // value: -2,
+        },
+      },
+    ],
+    [
+      DICE_SEX,
+      "Value Manipulation Array",
+      {
+        value: 1,
+        obj: {
+          // setTo: ["diceMax"],
+          // multiplyBy: [10],
+          divideBy: [3],
+          // add: [1],
+          extraCopies: [2],
+        },
+      },
+    ],
+    [
+      DICE_SEX,
+      "Reroll-",
+      {
+        value: 3, //1 dice to reroll
+      },
+    ],
+    // [
+    //   DICE_SEX,
+    //   "Reroll+ & Remove",
+    //   {
+    //     value: 1, //1 dice to reroll
+    //   },
+    // ],
+    // [
+    //   DICE_SEX,
+    //   "Acc into 1 Dice & Remove",
+    //   {
+    //     value: 1,
+    //     obj: {
+    //       // type: "any",
+    //       // diceMax: 1,
+    //       // value: -2,
+    //     },
+    //   },
+    // ],
+    // [
+    //   DICE_SEX,
+    //   "Reroll+ & Remove",
+    //   {
+    //     value: 1, //1 dice to reroll
+    //   },
+    // ],
+    // [
+    //   DICE_SEX,
+    //   "Acc into 1 Dice & Remove",
+    //   {
+    //     value: 1,
+    //     obj: {
+    //       // type: "any",
+    //       // diceMax: 1,
+    //       // value: -2,
+    //     },
+    //   },
+    // ],
+    // [
+    //   DICE_SEX,
+    //   "Reroll+ & Remove",
+    //   {
+    //     value: 1, //1 dice to reroll
+    //   },
+    // ],
   ],
   //
 };

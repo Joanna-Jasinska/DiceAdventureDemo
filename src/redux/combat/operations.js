@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 // import { useSelector } from "react-redux";
 import { selectItems } from "redux/combat/selectors";
 import { Dice } from "objects/Dice";
-import { BASE_EQUIPMENT } from "../../data/eq";
+// import { BASE_EQUIPMENT } from "../../data/eq";
 import { getEnemy } from "data/enemies";
 
 // const baseURL = "https://connections-api.herokuapp.com/";

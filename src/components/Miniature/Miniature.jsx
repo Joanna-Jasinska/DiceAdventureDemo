@@ -12,25 +12,21 @@ export const Miniature = ({
   bgColor = "#d7ca92",
 }) => {
   return (
-    <figure className={`${css.miniature}`}>
+    <figure className={`${css.miniature} ${children ? css.extended : ""}`}>
       <div
         className={`${css.imgFrame} ${padding ? css.padding : ""} `}
         style={{ backgroundColor: `${bgColor}` }}
       >
-        {url && url !== "" ? (
+        {/* {url && url !== "" ? (
           <img className={css.img} src={url} alt={`\n${alt}`} />
-        ) : (
-          <div className={css.textBoxContainer}>
-            <div className={css.textBoxBack}>{bgTxtBack}</div>
-            <div className={css.textBoxFront}>{bgTxtFront}</div>
-          </div>
-        )}
+        ) : ( */}
+        <div className={css.textBoxContainer}>
+          <div className={css.textBoxBack}>{bgTxtBack}</div>
+          <div className={css.textBoxFront}>{bgTxtFront}</div>
+        </div>
+        {/* )} */}
       </div>
-      {children ? (
-        <figcaption className={css.figcaption}>{children}</figcaption>
-      ) : (
-        ""
-      )}
+      {children ? <div className={css.extension}> {children}</div> : ""}
     </figure>
   );
 };

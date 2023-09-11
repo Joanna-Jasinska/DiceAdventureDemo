@@ -15,6 +15,8 @@ import { toggleDiceSelection } from "redux/combat/operations";
 const getColor = ({ value, type }) => {
   const style = !value || value === -1 ? `${css.notRolled} ` : "";
   switch (type) {
+    case "any":
+      return `${style}${css.any}`;
     case "physical":
       return `${style}${css.physical}`;
     case "slashed":
@@ -25,7 +27,7 @@ const getColor = ({ value, type }) => {
       return `${style}${css.physical}`;
 
     case "mana":
-      return `${style}${css.trait}`;
+      return `${style}${css.magic}`;
     case "magic":
       return `${style}${css.magic}`;
     case "arcane":
@@ -62,7 +64,7 @@ const getColor = ({ value, type }) => {
       return `${style}${css.trait}`;
 
     default:
-      return `${style}${css.trait}`;
+      return `${style}${css.any}`;
   }
 };
 
