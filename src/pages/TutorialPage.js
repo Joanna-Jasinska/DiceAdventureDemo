@@ -203,6 +203,13 @@ export const TutorialPage = () => {
         <br />
         {getDiceTypeIcon("life")} damage to you <br />
         {getDiceTypeIcon("playerAttack")} your progress towards victory
+        <HeaderNavBtn
+          to="/-"
+          display={`✔️End Turn`}
+          onClick={(e) => e.preventDefault()}
+          recommended={true}
+          styles={{ whiteSpace: "nowrap" }}
+        />
       </ContainerHorisontal>
       <ContainerHorisontal>
         Some boxes remain LOCKED until you filfill requirements of other boxes.
