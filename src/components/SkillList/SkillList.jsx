@@ -1,50 +1,25 @@
-import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { game } from "api/game";
-import { selectLoading, selectEq, selectFilters } from "redux/eq/selectors";
-// import { selectItems, selectFilters } from "redux/game/selectors";
+import { selectLoading, selectFilters } from "redux/eq/selectors";
 import { SkillSquare } from "components/SkillSquare/SkillSquare";
-import {
-  fetchEquipment,
-  deselectAllItems,
-  updateItem,
-  // refreshEq,
-} from "redux/eq/operations";
-// import { resetItems,  } from "redux/game/operations";
-import { setFilter } from "redux/filter/filterSlice";
-
-// import css from './../Phonebook.module.css';
-import css from "./SkillList.module.css";
+import { updateItem } from "redux/eq/operations";
 import { Loader } from "components/Loader/Loader";
 import { selectPackedItems } from "redux/dungeon/selectors";
 import { useCombat, useDungeon } from "hooks";
 import { Skill } from "objects/Skill";
+import css from "./SkillList.module.css";
 
 export const SkillList = ({ filters }) => {
   const extraFilters = useSelector(selectFilters);
   const { dungeon } = useDungeon();
 
   const dispatch = useDispatch();
-  // const equipment = useSelector(selectEq);
-  // const items = useSelector(selectItems);
   const items = useSelector(selectPackedItems);
-  // const items = game.selectItems;
-
-  // useEffect(() => {
-  //   dispatch(refreshEq());
-  // }, [dispatch]);
-
-  //   useEffect(() => {
-  //     console.table(equipment);
-  //   }, [equipment]);
 
   const filterItems = (filters, items) => {
-    // return items;
     const filteredItems = items
       ? Array.isArray(items)
         ? [
             ...items.filter((i) => {
-              // i.selected === true
               return !filters.selected || i.selected === filters.selected;
             }),
           ]
@@ -52,14 +27,12 @@ export const SkillList = ({ filters }) => {
       : items;
     return filteredItems;
   };
-  const { combat, inCombat } = useCombat();
+  const { combat } = useCombat();
 
   return (
     <div className={css.list}>
       {useSelector(selectLoading) ? (
         <>
-          <br />
-          {/* Loading changes... */}
           <Loader />
         </>
       ) : (
@@ -92,7 +65,6 @@ export const SkillList = ({ filters }) => {
                       })
                     )
                   }
-                  // stats={el ? (el.stats ? el.stats : el) : []}
                   dices={el.dices}
                   lv={el.lv}
                 />

@@ -23,7 +23,8 @@ export const TownNavigation = () => {
   const location = useLocation();
   const { pathname } = location;
   const selectedItems = [...items].filter((item) => {
-    if (item.selected) return item.selected;
+    if (item.selected) return true;
+    return false;
   });
   // const boxShadowWarning = getComputedStyle(
   //   document.documentElement
@@ -46,19 +47,19 @@ export const TownNavigation = () => {
   //   backgroundColor: bgRecommended,
   // };
 
-  const selectFav = () => {};
-  const deselectEQ = (e) => {
-    e.preventDefault();
-    selectedItems.forEach((el) => {
-      if (el.selected)
-        dispatch(
-          updateItem({
-            ...el,
-            selected: false,
-          })
-        );
-    });
-  };
+  // const selectFav = () => {};
+  // const deselectEQ = (e) => {
+  //   e.preventDefault();
+  //   selectedItems.forEach((el) => {
+  //     if (el.selected)
+  //       dispatch(
+  //         updateItem({
+  //           ...el,
+  //           selected: false,
+  //         })
+  //       );
+  //   });
+  // };
 
   const enterDungeon = (e) => {
     e.preventDefault();
@@ -77,7 +78,7 @@ export const TownNavigation = () => {
       );
       dispatch(packEquipment());
     }
-  }, [dispatch, readyToEnter]);
+  }, [dispatch, readyToEnter, currentDungeons, selectedDungeonId]);
 
   return (
     <header className={`header ${css.header}`}>

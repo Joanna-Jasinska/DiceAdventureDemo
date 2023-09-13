@@ -1,8 +1,5 @@
-import { scrollOfArcaneMissles } from "./equipment/arcane/soAMissles";
 import { sofStr, sofStr_ev, sofStr_ex } from "./equipment/mana/soStr";
 import { torch, torch_ev, torch_ex } from "./equipment/heat/torch";
-import { kitchenKnives } from "./equipment/needle/kitchenKnives";
-import { luckyClover } from "./equipment/rainbow/luckyClover";
 import { rSword, rSword_ev, rSword_ex } from "./equipment/slashed/rSword";
 import { tBag, tBag_ev, tBag_ex } from "./equipment/smashed/tBag";
 import {
@@ -15,12 +12,10 @@ import { leatherVest } from "./equipment/trait/leatherVest";
 
 export const getBaseEqById = (eid) => {
   const found = EQ[eid];
-  // console.log(`eq.js > getBaseEqById looking for ${eid}, found:`, found);
   return found === undefined ? EQ[0][0] : found[0];
 };
 export const getSkillEvalById = (eid) => {
   const found = EQ[eid];
-  // console.log(`eq.js > getSkillEvalById looking for ${eid}, found:`, found);
   return found === undefined ? EQ[0][1] : found[1];
 };
 export const getSkillExecById = (eid) => {

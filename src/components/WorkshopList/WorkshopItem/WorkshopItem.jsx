@@ -2,7 +2,6 @@
 import { Miniature } from "components/Miniature/Miniature";
 import css from "./WorkshopItem.module.css";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
-import { Title } from "components/Title/Title";
 import { useDispatch } from "react-redux";
 import { itemLvUpx1, itemLvUpx10, resetItemLv } from "redux/eq/operations";
 import {
@@ -11,7 +10,6 @@ import {
   remove10SpLvUps,
   remove1SpLvUp,
 } from "redux/game/operations";
-import { useEQ } from "hooks/useEQ";
 import { useGame } from "hooks/useGame";
 import { SkillSquare } from "components/SkillSquare/SkillSquare";
 import { StatIcon } from "components/StatIcon/StatIcon";
@@ -33,7 +31,6 @@ export const WorkshopItem = ({
   // statsTxT='',
 }) => {
   const dispatch = useDispatch();
-  const { eq } = useEQ();
   const { maxEqLv, spareLvUps, gold } = useGame();
 
   const levelUp1 = (e) => {

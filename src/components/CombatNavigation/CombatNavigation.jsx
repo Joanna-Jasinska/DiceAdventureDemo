@@ -7,7 +7,7 @@ import {
 } from "redux/combat/operations";
 import css from "./CombatNavigation.module.css";
 import { useCombat, useDungeon } from "hooks";
-import { damageEnemy, deleteAllBodyDices, die } from "redux/enemy/operations";
+import { damageEnemy, deleteAllBodyDices } from "redux/enemy/operations";
 import { useEnemy } from "hooks/useEnemy";
 import { EnemyPortrait } from "components/EnemyPortrait/EnemyPortrait";
 import { gainFromDungeonSummary } from "redux/game/operations";
@@ -115,7 +115,7 @@ export const CombatNavigation = () => {
 
   useEffect(() => {
     if (enemyLife < 1 || life < 1) navigate("/return");
-  }, [life, enemyLife]);
+  }, [life, enemyLife, navigate]);
 
   return (
     <header className={`header ${css.header}`}>

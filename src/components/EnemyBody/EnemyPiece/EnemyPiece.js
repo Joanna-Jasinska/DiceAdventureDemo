@@ -34,7 +34,7 @@ export const EnemyPiece = ({ p }) => {
     if (toDispatch.length > 0) {
       runDispatch();
     }
-  }, [toDispatch]);
+  }, [toDispatch, dispatch]);
 
   return (
     <div

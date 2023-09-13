@@ -1,14 +1,11 @@
 // import { PropTypes } from 'prop-types';
 import { Miniature } from "components/Miniature/Miniature";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
-// import { Title } from "components/Phonebook/Title/Title";
 import css from "./SkillSquare.module.css";
-import { useCombat, useDungeon } from "hooks";
+import { useCombat } from "hooks";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Skill } from "objects/Skill";
-// import { useCombat } from "hooks";
-// import { Skill } from "objects/Skill";
 
 export const SkillSquare = ({
   name,
@@ -16,20 +13,20 @@ export const SkillSquare = ({
   icon,
   alt,
   tags = [""],
-  lv = 1,
-  selected = false,
-  toggleSelect,
-  dices,
+  // lv = 1,
+  // selected = false,
+  // toggleSelect,
+  // dices,
   success = false,
   currentUses = -1,
-  stats = [],
+  // stats = [],
   skill = {
     name: "NO SKILL",
     txt: "-",
     id: "skill|id",
     displayCost: [],
   },
-  statsTxT,
+  // statsTxT,
 }) => {
   const [toDispatch, editToDispatch] = useState([]);
   const { inCombat, combat } = useCombat();
@@ -37,7 +34,7 @@ export const SkillSquare = ({
 
   const fireSkill = () => {
     if (success && toDispatch.length === 0) {
-      console.log(`--------FIRING SKILL - ADDING TO DISPATCH--------`);
+      // console.log(`--------FIRING SKILL - ADDING TO DISPATCH--------`);
       editToDispatch([
         ...toDispatch.concat(Skill.execute(itemId, { combat }, success)),
       ]);
@@ -61,7 +58,7 @@ export const SkillSquare = ({
     if (toDispatch.length > 0) {
       runDispatch(toDispatch);
     }
-  }, [toDispatch]);
+  }, [toDispatch, dispatch]);
 
   return (
     <div

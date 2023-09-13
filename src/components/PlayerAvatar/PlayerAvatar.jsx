@@ -1,4 +1,4 @@
-import { PropTypes } from "prop-types";
+// import { PropTypes } from "prop-types";
 import css from "./PlayerAvatar.module.css";
 import { useDungeon } from "hooks";
 const getAvatarIcon = (percent) => {

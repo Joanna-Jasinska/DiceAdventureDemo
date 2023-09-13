@@ -1,32 +1,15 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-// import { game } from "api/game";
+import { useSelector } from "react-redux";
 import { selectLoading, selectEq, selectFilters } from "redux/eq/selectors";
-// import { selectItems, selectFilters } from "redux/game/selectors";
 import { WorkshopItem } from "./WorkshopItem/WorkshopItem";
-import {
-  fetchEquipment,
-  deselectAllItems,
-  updateItem,
-  // refreshEq,
-} from "redux/eq/operations";
-import { setFilter } from "redux/filter/filterSlice";
 
 import css from "./WorkshopList.module.css";
 import { Loader } from "components/Loader/Loader";
 
 export const WorkshopList = ({ filters }) => {
   const extraFilters = useSelector(selectFilters);
-
-  const dispatch = useDispatch();
   const items = useSelector(selectEq);
 
-  // useEffect(() => {
-  //   dispatch(refreshEq());
-  // }, [dispatch]);
-
   const filterItems = (filters, items) => {
-    // return items;
     const filteredItems = items
       ? Array.isArray(items)
         ? [

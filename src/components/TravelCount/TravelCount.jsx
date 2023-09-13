@@ -1,6 +1,6 @@
-import { PropTypes } from "prop-types";
+// import { PropTypes } from "prop-types";
 import css from "./TravelCount.module.css";
-import { useDungeon } from "hooks";
+// import { useDungeon } from "hooks";
 
 export const TravelCount = ({ count }) => {
   // const { lv, startedLv } = useDungeon();

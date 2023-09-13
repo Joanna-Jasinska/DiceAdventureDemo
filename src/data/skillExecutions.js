@@ -1,9 +1,6 @@
 import { DICE_SEX } from "./skillsExecution/dice";
 import { OTHER_SEX } from "./skillsExecution/other";
 
-//
-// txt: "NOT WORKING Automatically arrange your dices.. but not always in a best way.",
-
 export const SKILL_EXECUTION = {
   // txt: "put 2 to create 1📌 of combined value",
   "2|ACC|NEEDLE|": [
