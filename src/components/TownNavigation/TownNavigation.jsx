@@ -14,7 +14,6 @@ import { useGame } from "hooks/useGame";
 import { getDiceTypeIcon } from "data/icons";
 import { useLocation } from "react-router-dom";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
-import { PlayerLvAvatar } from "components/PlayerLvAvatar/PlayerLvAvatar";
 import { PLvAvatar } from "components/PLvAvatar/PLvAvatar";
 
 export const TownNavigation = () => {
@@ -91,7 +90,6 @@ export const TownNavigation = () => {
         <nav className={css.header}>
           <div className={css.leftNav}>
             {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
-            {/* <PlayerLvAvatar shrink={true} /> */}
             <PLvAvatar shrink={true} gold={"lv"} />
             <BagOfGold shrink={true} gold={gold} />
             <HeaderNavBtn to="/eq" display={`${selectedItems.length}/5`} />
