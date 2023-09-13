@@ -8,24 +8,14 @@ import { WorkshopList } from "components/WorkshopList/WorkshopList";
 
 export const WorkshopPage = () => {
   const error = useSelector(selectGameError);
-  const { spareLvUps } = useGame();
+  // const { spareLvUps } = useGame();
   return (
-    <main
-      style={{ width: "100%", boxSizing: "border-box", padding: "0.4em 0px" }}
-    >
+    <main className={`${css.main} ${css.center}`}>
       {error ? <span className={css.error}>{error}</span> : ""}
 
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "0.4rem",
-        }}
-      >
-        {/* <PlayerAvatar /> */}
-        {/* <BagOfGold gold={gold} /> */}
-        <LevelUps lv={spareLvUps} />
-      </div>
+      {/* <PlayerAvatar /> */}
+      {/* <BagOfGold gold={gold} /> */}
+      {/* <LevelUps lv={spareLvUps} /> */}
       <WorkshopList />
     </main>
   );

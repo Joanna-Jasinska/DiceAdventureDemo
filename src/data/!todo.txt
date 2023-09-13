@@ -16,6 +16,8 @@ to do for presentation:
 - fill dungeons with enemies
 - readme on github
 
+- fix button at tutorial - cannot be clicked in middle
+
 - if you leave dungeon with 0 gold it skips summary
 -------------------------------
 

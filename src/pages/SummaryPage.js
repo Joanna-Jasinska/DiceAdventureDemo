@@ -3,14 +3,13 @@ import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { Title } from "components/Title/Title";
 import { useCombat, useDungeon } from "hooks";
-import css from "./Page.module.css";
-// import { Background } from "components/Background/Background";
 import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
 import { LevelUps } from "components/LevelUps/LevelUps";
 import { enterSummary } from "redux/combat/operations";
 import { useGame } from "hooks/useGame";
 import { DungeonSquare } from "components/DungeonSquare/DungeonSquare";
+import css from "./Page.module.css";
 
 export const SummaryPage = () => {
   const dispatch = useDispatch();
@@ -29,31 +28,10 @@ export const SummaryPage = () => {
       {!inCombat ? (
         <Navigate to="/quickBattle" />
       ) : (
-        <main
-          style={{
-            width: "100%",
-            boxSizing: "border-box",
-            // padding: "0.4em 0px",
-            minHeight: "76vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            // backgroundColor: "red",
-            zIndex: "2",
-            position: "relative",
-            top: "-2rem",
-          }}
-        >
+        <main className={`${css.main} ${css.center}`}>
           {error ? <span className={css.error}>{error}</span> : ""}
-          {/* <Background /> */}
           <Title title={`Summary`} />
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "0.4rem",
-            }}
-          >
+          <div className={`${css.wrap}`}>
             <DungeonSquare
               {...{
                 name,

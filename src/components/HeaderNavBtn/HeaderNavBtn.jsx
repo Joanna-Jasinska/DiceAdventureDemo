@@ -34,7 +34,7 @@ export const HeaderNavBtn = ({
       // }}
       style={styles ? styles : {}}
     >
-      {"here" + display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
+      {display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
     </NavLink>
   ) : (
     <NavLink

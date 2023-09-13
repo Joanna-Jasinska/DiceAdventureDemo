@@ -6,9 +6,7 @@ import css from "./Page.module.css";
 export const EQPage = () => {
   const error = useSelector(selectGameError);
   return (
-    <main
-      style={{ width: "100%", boxSizing: "border-box", padding: "0.4em 0px" }}
-    >
+    <main className={`${css.main}`}>
       {error ? <span className={css.error}>{error}</span> : ""}
       <ItemList />
     </main>

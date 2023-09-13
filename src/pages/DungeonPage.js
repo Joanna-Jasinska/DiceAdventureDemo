@@ -72,17 +72,7 @@ export const DungeonPage = () => {
       {inCombat ? (
         <Navigate to="/combat" />
       ) : (
-        <main
-          style={{
-            width: "100%",
-            boxSizing: "border-box",
-            padding: "0px",
-            minHeight: "76vh",
-            // display: "flex",
-            // flexWrap: "wrap",
-            // gap: "0.4rem",
-          }}
-        >
+        <main className={`${css.main} ${css.padding0}`}>
           {error ? <span className={css.error}>{error}</span> : ""}
           <Background />
 

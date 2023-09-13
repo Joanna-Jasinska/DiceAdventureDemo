@@ -6,6 +6,7 @@ import { ContainerHorisontal } from "components/ContainerHorisontal/ContainerHor
 import { getDiceTypeIcon } from "data/icons";
 import { PieceIcon } from "components/EnemyBody/EnemyPiece/PieceIcon/PieceIcon";
 import { Piece } from "objects/Piece";
+import css from "./Page.module.css";
 
 export const TutorialPage = () => {
   const exampleEPiece1 = {
@@ -75,19 +76,7 @@ export const TutorialPage = () => {
   };
   // const error = useSelector(selectGameError);
   return (
-    <main
-      style={{
-        width: "100%",
-        boxSizing: "border-box",
-        padding: "0.4em 0px",
-        minHeight: "76vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "0.5rem",
-        textAlign: "center",
-      }}
-    >
+    <main className={`${css.main} ${css.center}`}>
       {/* {error ? <span className={css.error}>{error}</span> : ""} */}
       <HeaderNavBtn
         to="/"

@@ -12,6 +12,7 @@ import { useEnemy } from "hooks/useEnemy";
 import { LvUpDungeonById, playerLvUp } from "redux/game/operations";
 import { Loader } from "components/Loader/Loader";
 import { Background } from "components/Background/Background";
+import css from "./Page.module.css";
 
 export const ReturnFromCombatPage = () => {
   const dispatch = useDispatch();
@@ -72,9 +73,7 @@ export const ReturnFromCombatPage = () => {
   ]);
 
   return (
-    <main
-      style={{ width: "100%", boxSizing: "border-box", padding: "0.4em 0px" }}
-    >
+    <main className={`${css.main}`}>
       {/* {error ? <span className={css.error}>{error}</span> : ""} */}
       <Navigate to="/town" />
       <Background />
