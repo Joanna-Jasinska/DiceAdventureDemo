@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   resetEquipment,
-  deselectAllItems,
+  // deselectAllItems,
   updateItem,
   itemLvUpx10,
   itemLvUpx1,

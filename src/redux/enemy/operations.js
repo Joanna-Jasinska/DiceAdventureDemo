@@ -2,16 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getEnemy } from "data/enemies";
 import { Enemy } from "objects/Enemy";
 
-// loadEnemy,
-// loadBody,
-// withdrawDice,
-// placeDice,
-// deleteAllDices,
-// withdrawAllDices,
-
-// autoPlaceAllDices,
-// changeStatus,
-
 export const damageEnemy = createAsyncThunk(
   "enemy/dmg",
   async (dmg, thunkAPI) => {
@@ -39,7 +29,7 @@ export const placeBodyPieceDice = createAsyncThunk(
   "enemy/placeBodyPieceDice",
   async ({ pieceId, dice }, thunkAPI) => {
     const state = thunkAPI.getState().enemy;
-    const { body } = state;
+    // const { body } = state;
     const myBody = state.body.map((piece) => {
       if (piece.id === pieceId) {
         if (!piece.dices) return { ...piece, dices: [dice] };
@@ -47,12 +37,12 @@ export const placeBodyPieceDice = createAsyncThunk(
       }
       return piece;
     });
-    console.log(`-----start-----body------evaluation--------------------`);
-    console.table(myBody);
+    // console.log(`-----start-----body------evaluation--------------------`);
+    // console.table(myBody);
     const changedPiece = myBody.find((p) => p.id === pieceId);
     const myBodyEvaluated = Enemy.evaluatePieceThanBody(changedPiece, myBody);
-    console.table(myBodyEvaluated);
-    console.log(`-----stop-----body------evaluation--------------------`);
+    // console.table(myBodyEvaluated);
+    // console.log(`-----stop-----body------evaluation--------------------`);
     return myBodyEvaluated;
   }
 );
@@ -82,19 +72,11 @@ export const deleteAllPieceDices = createAsyncThunk(
       return piece;
     });
     // console.log(`-----start-----body------evaluation--------------------`);
-    console.table(myBody);
+    // console.table(myBody);
     const changedPiece = myBody.find((p) => p.id === pieceId);
     const myBodyEvaluated = Enemy.evaluatePieceThanBody(changedPiece, myBody);
-    console.table(myBodyEvaluated);
+    // console.table(myBodyEvaluated);
     // console.log(`-----stop-----body------evaluation--------------------`);
     return myBodyEvaluated;
   }
 );
-
-// export const startRandomEnemy = createAsyncThunk(
-//   "enemy/random",
-//   async (_, thunkAPI) => {
-//     const myEnemy = { ...Enemy }.getRandom();
-//     return myEnemy;
-//   }
-// );

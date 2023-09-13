@@ -1,9 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  LVLS_REQ_PER_MAX_EQ_LV,
-  PLAYER_STARTING_MAX_EQ_LV,
-  STARTING_DUNGEONS,
-} from "data/settings";
+import { LVLS_REQ_PER_MAX_EQ_LV, STARTING_DUNGEONS } from "data/settings";
 // import { getRandomNum } from "objects/Dice";
 
 //   moveCaravan,

@@ -1,13 +1,5 @@
-// import axios from 'axios';
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import { BASE_EQUIPMENT } from "./../../data/eq";
-// import { Item } from "objects/Item";
-import { useSelector } from "react-redux";
-import { selectEq } from "./selectors";
 import { Items } from "objects/Items";
-
-const baseURL = "https://connections-api.herokuapp.com/";
-// axios.defaults.baseURL = baseURL;
 
 export const resetEquipment = createAsyncThunk(
   "equipment/resetAll",

@@ -1,9 +1,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-// import { contactsReducer } from "./contacts/contactsSlice";
 import { equipmentReducer } from "./eq/equipmentSlice";
 import { combatReducer } from "./combat/combatSlice";
-// import { filterReducer } from "./filter/filterSlice";
 import { dungeonReducer } from "./dungeon/dungeonSlice";
 import { authReducer } from "./auth/slice";
 import {

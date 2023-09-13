@@ -118,54 +118,6 @@ const enemySlice = createSlice({
       state.body = action.payload.body;
     },
 
-    // [withdrawDice.pending]: handlePending,
-    // [withdrawDice.rejected]: handleRejected,
-    // [withdrawDice.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.body = [...action.payload];
-    // },
-
-    // [placeDice.pending]: handlePending,
-    // [placeDice.rejected]: handleRejected,
-    // [placeDice.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.body = [...action.payload];
-    // },
-
-    // [deleteAllDices.rejected]: handleRejected,
-    // [deleteAllDices.pending]: handlePending,
-    // [deleteAllDices.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.body = [...action.payload];
-    // },
-
-    // [withdrawAllDices.rejected]: handleRejected,
-    // [withdrawAllDices.pending]: handlePending,
-    // [withdrawAllDices.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.body = [...action.payload];
-    // },
-
-    // [deleteContactById.pending]: deleteContactByIdPending,
-    // [deleteContactById.rejected]: handleRejected,
-    // [deleteContactById.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.contacts = state.contacts.filter(
-    //     item => item.id !== action.payload.id
-    //   );
-    // },
-    // [addContact.pending]: handlePending,
-    // [addContact.rejected]: handleRejected,
-    // [addContact.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.items = [...state.equipment, action.payload];
-    // },
   },
 });
 export const enemyReducer = enemySlice.reducer;

@@ -44,9 +44,9 @@ export const startDungeonById = createAsyncThunk(
 export const levelupAndReloadDungeon = createAsyncThunk(
   "dungeon/levelupAndReload",
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const id = state.dungeon.id;
-    const myDungeon = getDungeon(id);
+    // const state = thunkAPI.getState();
+    // const id = state.dungeon.id;
+    // const myDungeon = getDungeon(id);
     // could clear player status
     const myPlayer = {
       status: {},
