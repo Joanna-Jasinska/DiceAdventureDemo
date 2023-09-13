@@ -1,5 +1,4 @@
 import { Title } from "components/Title/Title";
-import { Background } from "components/Background/Background";
 import { HeaderNavBtn } from "components/HeaderNavBtn/HeaderNavBtn";
 import { useDungeon } from "hooks";
 import { useGame } from "hooks/useGame";

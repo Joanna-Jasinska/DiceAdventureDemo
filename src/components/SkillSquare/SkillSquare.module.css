@@ -32,8 +32,6 @@
   width: 100%;
   width: 7.5rem;
   height: 7.5rem;
-  background-color: #8eff312c;
-  background-color: #e8ffb590;
   background-color: #e0ff9d;
   justify-content: center;
   border: transparent;
@@ -75,17 +73,12 @@
   width: 7.5rem;
   height: 7.5rem;
 
-  /* top: 0;
-  border-radius: 20px 20px 0 0; */
 
   bottom: 0.3rem;
   border-radius: 0 0 20px 20px;
 
   border-radius: 20px;
 
-  /* box-shadow: #ffffffbb 0 -2px 1px 0px; */
-  /* background-color: #ffffffbb; */
-  /* background-color: #ff24e58d; */
   text-align: left;
   overflow: visible;
   display: flex;
@@ -95,20 +88,14 @@
 }
 .text {
   z-index: 2;
-  /* margin: 2px 4px; */
-  /* display: inline; */
   display: block;
   color: #000000a0;
-  /* height: 1.73rem; */
-  /* max-height: 2rem; */
   width: 100%;
   height: 100%;
   font-weight: bold;
   z-index: 3;
   line-height: 0.84rem;
   text-align: center;
-  /* background-color: #00ffe5a5; */
-  /* line-break: anywhere; */
 }
 
 .name {
@@ -142,27 +129,18 @@
   height: 1.5em;
   left: 0;
   transform: scaleX(1.5) scaleY(1.3) translateY(-0.1rem);
-  /* background-color: #fffdf037; */
-
-  /* bottom: 0.1rem;
-  justify-content: center;
-  align-items: flex-start;
-  border-radius: 0 0 20px 20px; */
 
   top: 0.1rem;
   justify-content: center;
   align-items: flex-start;
   border-radius: 20px 20px 0 0;
 
-  /* padding: 0.1rem 0.5rem 0.5rem 0.5rem; */
   padding: 0 0.5rem 1rem 0.5rem;
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
   flex-flow: row-reverse;
   flex-wrap: wrap;
-  /* justify-content: flex-end; */
-  /* align-items: flex-end; */
   column-gap: 3px;
 }
 .disabled .iconBag {
@@ -172,12 +150,8 @@
   z-index: 1;
 }
 .disabled {
-  /* z-index: 0; */
   display: block;
   position: relative;
-  /* background-color: #000000; */
-  /* opacity: 50%; */
-  /* visibility: hidden; */
 }
 .disabled::after {
   z-index: 2;
@@ -185,18 +159,13 @@
   position: absolute;
   top: 0;
   left: 0;
-  /* width: 100%; */
-  /* height: 100%; */
   width: 7.5rem;
   height: 7.5rem;
   border-radius: inherit;
-  /* background-color: #000000; */
   background-color: transparent;
-  /* opacity: 20%; */
-  /* visibility: hidden; */
 }
 .spent.disabled::after {
-  background-color: #ff0000;
+  /* background-color: #ff0000; */
   background-color: #000000;
   opacity: 40%;
 }
