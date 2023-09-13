@@ -61,7 +61,15 @@ export const ReturnFromCombatPage = () => {
       dispatch(LvUpDungeonById(dungeonId));
       dispatch(levelupAndReloadDungeon());
     }
-  }, [dispatch, inCombat, dungeonVictory, enemyLife, life, dungeonId]);
+  }, [
+    dispatch,
+    inCombat,
+    dungeonVictory,
+    enemyLife,
+    life,
+    dungeonId,
+    navigate,
+  ]);
 
   return (
     <main

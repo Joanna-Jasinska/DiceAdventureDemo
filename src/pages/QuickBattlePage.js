@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectGameError } from "redux/game/selectors";
 import { ItemList } from "components/ItemList/ItemList";
 import { DungeonList } from "components/DungeonList/DungeonList";

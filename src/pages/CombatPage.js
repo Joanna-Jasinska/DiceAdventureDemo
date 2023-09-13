@@ -20,10 +20,10 @@ export const CombatPage = () => {
   const dungeonLoading = useSelector(selectDungeonLoading);
   const combatLoading = useSelector(selectLoading);
 
-  return dungeonLoading || combatLoading ? (
-    <Loader />
-  ) : inCombat === "summary" ? (
+  return inCombat === "summary" ? (
     <Navigate to="/summary" />
+  ) : dungeonLoading || combatLoading ? (
+    <Loader />
   ) : (
     <main
       style={{ width: "100%", boxSizing: "border-box", padding: "0.4em 0px" }}

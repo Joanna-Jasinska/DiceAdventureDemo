@@ -114,8 +114,9 @@ export const CombatNavigation = () => {
   // ⚙️💀☠️🩸❤️⚔️👍
 
   useEffect(() => {
-    if (enemyLife < 1 || life < 1) navigate("/return");
-  }, [life, enemyLife, navigate]);
+    if (inCombat !== "summary" && (enemyLife < 1 || life < 1))
+      navigate("/return");
+  }, [life, enemyLife, navigate, inCombat]);
 
   return (
     <header className={`header ${css.header}`}>

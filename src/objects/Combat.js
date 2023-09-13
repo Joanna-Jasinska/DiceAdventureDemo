@@ -1,18 +1,19 @@
-export const Combat=()=>{
+// export const Combat=()=>{
 
-    endTurn() {
-        
-        // apply all effects
-        // deal damage to player
-        // if player dead -> back to town
+// !!!AAA!!! move end turn here
+//     endTurn() {
 
-        // deal damage to enemy
-        // if player lives -> enemy dead 
-        // -> win fight -> go to summarypage
-        
-        // else
-        // clear enemy Body dices 
-        // reload all rolled dices -> roll them
-        // reset skill usages
-    },
-}
+//         // apply all effects
+//         // deal damage to player
+//         // if player dead -> back to town
+
+//         // deal damage to enemy
+//         // if player lives -> enemy dead
+//         // -> win fight -> go to summarypage
+
+//         // else
+//         // clear enemy Body dices
+//         // reload all rolled dices -> roll them
+//         // reset skill usages
+//     },
+// };

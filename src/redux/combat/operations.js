@@ -4,7 +4,7 @@ import { Dice } from "objects/Dice";
 export const willEndCombat = createAsyncThunk(
   "combat/willEndCombat",
   async (state, thunkAPI) => {
-    console.log(`dispatchng combat/willEndCombat`);
+    // console.log(`dispatchng combat/willEndCombat`);
     return state;
   }
 );
@@ -109,7 +109,7 @@ export const updateDice = createAsyncThunk(
 export const addDice = createAsyncThunk(
   "combat/addDice",
   async (item, thunkAPI) => {
-    const state = thunkAPI.getState();
+    // const state = thunkAPI.getState();
     // console.log(`Updating item.`);
     // console.table(item);
     return item;
@@ -120,7 +120,7 @@ export const addDice = createAsyncThunk(
 export const addRolledDice = createAsyncThunk(
   "combat/addRolledDice",
   async (item, thunkAPI) => {
-    const state = thunkAPI.getState();
+    // const state = thunkAPI.getState();
     // console.log(`Updating item.`);
     // console.table(item);
     return item;
@@ -176,4 +176,3 @@ export const enterSummary = createAsyncThunk(
     return true;
   }
 );
-

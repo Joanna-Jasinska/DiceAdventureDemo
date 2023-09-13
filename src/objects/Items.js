@@ -1,12 +1,13 @@
 import { getBaseEqById } from "data/eq";
 import { STARTING_EQ } from "data/settings";
 
-const ItemTemplate = {
-  lv: 1,
-  selected: false,
-};
+// const ItemTemplate = {
+//   lv: 1,
+//   selected: false,
+// };
 
-const levelNondiceStat = (piecee, lvv = 1) => {
+const levelNondiceStat = (piecee) => {
+  // !!!AAA!!! leveling nondice stat
   return [piecee];
 };
 const levelDiceStat = (piecee, lvv = 1) => {
@@ -105,7 +106,7 @@ const levelItem = (itemm, lvv) => {
   for (let i = 0; i < stats.length; i++) {
     const piece = JSON.parse(JSON.stringify(stats[i]));
     // console.log(`Item.js > levelItem checking item.stats[${i}] piece:`, piece);
-    const pieceId = ``;
+    // const pieceId = ``;
     if (piece.item === "dice") {
       leveledDices = leveledDices.concat(levelDiceStat(piece, lv));
       continue;

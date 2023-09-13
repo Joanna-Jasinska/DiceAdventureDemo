@@ -187,12 +187,10 @@ export const TutorialPage = () => {
         </span>
       </ContainerHorisontal>
       <ContainerHorisontal>
-        <a>
-          Place dices inside MIDDLE (squre-ish) section
-          <br /> of special boxes like this one - by clicking inside.
-          <br />
-          Some dices may not fit inside a particular box.
-        </a>
+        Place dices inside MIDDLE (squre-ish) section
+        <br /> of special boxes like this one - by clicking inside.
+        <br />
+        Some dices may not fit inside a particular box.
         <EnemyPiece p={exampleEPiece1} />
       </ContainerHorisontal>
       <ContainerHorisontal>
@@ -203,10 +201,7 @@ export const TutorialPage = () => {
         {getDiceTypeIcon("playerAttack")} your progress towards victory
       </ContainerHorisontal>
       <ContainerHorisontal>
-        <a>
-          Some boxes remain LOCKED until you filfill requirements of other
-          boxes.
-        </a>
+        Some boxes remain LOCKED until you filfill requirements of other boxes.
       </ContainerHorisontal>
       <ContainerHorisontal>
         RED are REQUIREMENTS you need to fulfill

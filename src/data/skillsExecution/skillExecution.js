@@ -1,6 +1,5 @@
-import { SKILL_EXECUTION } from "data/skillExecutions";
-import { getSkillById } from "../skills";
-import { deleteAllSelectedDices } from "redux/combat/operations";
+// import { SKILL_EXECUTION } from "data/skillExecutions";
+// import { getSkillById } from "../skills";
 import { getSkillExecById } from "data/eq";
 
 export const fetchSkillExecution = ({ itemId, state, usedDices }) => {

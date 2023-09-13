@@ -64,7 +64,7 @@ export const deleteAllPieceDices = createAsyncThunk(
   async (pieceId, thunkAPI) => {
     // return pieceId;
     const state = thunkAPI.getState().enemy;
-    const { body } = state;
+    // const { body } = state;
     const myBody = state.body.map((piece) => {
       if (piece.id === pieceId) {
         return { ...piece, dices: [] };

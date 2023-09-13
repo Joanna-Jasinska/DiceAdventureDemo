@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 import { Title } from "components/Title/Title";
 import { useCombat, useDungeon } from "hooks";
 import css from "./Page.module.css";
-import { Background } from "components/Background/Background";
+// import { Background } from "components/Background/Background";
 import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
 import { LevelUps } from "components/LevelUps/LevelUps";
@@ -33,12 +33,19 @@ export const SummaryPage = () => {
           style={{
             width: "100%",
             boxSizing: "border-box",
-            padding: "0.4em 0px",
+            // padding: "0.4em 0px",
             minHeight: "76vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            // backgroundColor: "red",
+            zIndex: "2",
+            position: "relative",
+            top: "-2rem",
           }}
         >
           {error ? <span className={css.error}>{error}</span> : ""}
-          <Background />
+          {/* <Background /> */}
           <Title title={`Summary`} />
           <div
             style={{

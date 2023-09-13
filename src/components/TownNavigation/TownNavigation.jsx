@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderNavBtn } from "../HeaderNavBtn/HeaderNavBtn";
-import { updateItem } from "redux/eq/operations";
 import { selectEq } from "redux/eq/selectors";
 import { Dungeon } from "objects/Dungeon";
 import { useDungeon } from "hooks";

@@ -1,5 +1,5 @@
 import { Dice } from "objects/Dice";
-import { addDice, addRolledDice, updateDice } from "redux/combat/operations";
+import { addRolledDice, updateDice } from "redux/combat/operations";
 
 function generateId(source = "createdBySkill") {
   const characters =
@@ -126,7 +126,6 @@ const Reroll = ({ params, state, usedDices }) => {
   if (validateInput({ dice: true, numDices, state, usedDices }) === false)
     return false;
   let dicesGained = [];
-  const diceArr = [];
   for (let i = 0; i < numDices; i++) {
     let dice = {
       ...rolledDiceTemplate,
@@ -160,7 +159,6 @@ const RerollMinusR = ({ params, state, usedDices }) => {
   if (validateInput({ dice: true, numDices, state, usedDices }) === false)
     return false;
   let dicesGained = [];
-  const diceArr = [];
   for (let i = 0; i < numDices; i++) {
     let dice = {
       ...rolledDiceTemplate,
@@ -194,7 +192,6 @@ const RerollMinus = ({ params, state, usedDices }) => {
   if (validateInput({ dice: true, numDices, state, usedDices }) === false)
     return false;
   let dicesGained = [];
-  const diceArr = [];
   for (let i = 0; i < numDices; i++) {
     let dice = {
       ...rolledDiceTemplate,
@@ -228,7 +225,6 @@ const RerollPlusR = ({ params, state, usedDices }) => {
   if (validateInput({ dice: true, numDices, state, usedDices }) === false)
     return false;
   let dicesGained = [];
-  const diceArr = [];
   for (let i = 0; i < numDices; i++) {
     let dice = {
       ...rolledDiceTemplate,
@@ -264,7 +260,6 @@ const RerollPlus = ({ params, state, usedDices }) => {
   if (validateInput({ dice: true, numDices, state, usedDices }) === false)
     return false;
   let dicesGained = [];
-  const diceArr = [];
   for (let i = 0; i < numDices; i++) {
     let dice = {
       ...rolledDiceTemplate,
@@ -459,10 +454,10 @@ const Keep = ({ params, state, usedDices }) => {
   console.log(`Dices kept`, keep);
   return keep.length > 0 ? keep : false;
 };
-const func = () => {
-  return [() => {}];
-};
 
+// const func = () => {
+//   return [() => {}];
+// };
 export const DICE_SEX = {
   false: () => false,
   Keep: Keep,

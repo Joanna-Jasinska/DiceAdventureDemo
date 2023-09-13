@@ -1,6 +1,6 @@
 import { getSkillEvalById } from "data/eq";
-import { SKILL_EVALUATION } from "../skillEvaluations";
-import { getSkillById } from "../skills";
+// import { SKILL_EVALUATION } from "../skillEvaluations";
+// import { getSkillById } from "../skills";
 
 const fetchSkillEvaluation = (id, state) => {
   // returns array of functions

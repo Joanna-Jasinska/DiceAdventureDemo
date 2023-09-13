@@ -135,6 +135,7 @@ export const Piece = {
         if (diceTypeMatches(dice.type, type)) {
           return true;
         }
+        return false;
       });
     }
     if (weaknessMatches) {
@@ -155,6 +156,7 @@ export const Piece = {
         if (diceTypeMatches(dice.type, type)) {
           return true;
         }
+        return false;
       });
     } else {
       typeMatches = true;
