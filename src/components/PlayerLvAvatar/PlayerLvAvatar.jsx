@@ -10,7 +10,7 @@ export const PlayerLvAvatar = ({ shrink = false }) => {
         Lv
       </div>
       <div className={css.avatarBox}>
-        <PlayerAvatar percent={Math.min(playerLv + 31, 100)} />
+        <PlayerAvatar percent={Math.min(playerLv + 62, 100)} />
       </div>
     </div>
   );
