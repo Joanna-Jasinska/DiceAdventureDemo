@@ -17,7 +17,6 @@ to do for presentation:
 - readme on github
 
 - if you leave dungeon with 0 gold it skips summary
-
 -------------------------------
 
 - move  the rest of items to its item file
