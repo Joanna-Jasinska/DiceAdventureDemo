@@ -48,9 +48,9 @@ const initialState = {
     ["ELEMENTALS|green|Mysterious Enemy"],
   ],
   background: {
-    icon: "🌲",
-    eventIcon: "🌲",
-    flavorIcon: "🌳",
+    icon: "🌳",
+    eventIcon: "🗻",
+    flavorIcon: "🌲",
     bgColor: "#3ea413",
   },
   selectedEnemyID: "ELEMENTALS|green|Mysterious Enemy",

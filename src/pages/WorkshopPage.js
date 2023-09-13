@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectGameError } from "redux/game/selectors";
-import css from "./../components/Phonebook/Phonebook.module.css";
+import css from "./Page.module.css";
 import { LevelUps } from "components/LevelUps/LevelUps";
 import { useGame } from "hooks/useGame";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";

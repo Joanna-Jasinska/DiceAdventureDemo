@@ -38,7 +38,7 @@ export const PMutatedRat = {
       },
       grow: {
         // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 4,
+        lvlsToRaiseMinSum: 2,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,
@@ -65,11 +65,11 @@ export const PMutatedRat = {
       requires: {
         // exactValues: false,
         // minDices: 1,
-        minSum: 3,
+        minSum: 4,
       },
       grow: {
         // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 3,
+        lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,
@@ -101,6 +101,37 @@ export const PMutatedRat = {
       grow: {
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 2,
+        // lvlsToRaiseMinDices: 12,
+        // lvlsToRaiseExactValues: 17,
+        // lvlsToRaiseMinValue: 35,
+      },
+    },
+    {
+      // priority: true, //priority, extra, keep, once
+      bodyPartIcon: "🐾",
+      bodyPartTypes: ["paws", "body"],
+      id: "piece|ANIMALS|purple|Mutated Rat|paws|2",
+      // weakness: ["physical"],
+      damages: {
+        damageToPlayer: 1,
+        // damageToEnemy: 1,
+        // effectsToPlayer: false,// effectsToEnemy: false,
+      },
+      allows: {
+        types: ["any"],
+        // minValue: 4,
+        // maxValue: 4,
+        // exactValues: ["even"],
+        maxDices: 2,
+      },
+      requires: {
+        // exactValues: false,
+        // minDices: 1,
+        minSum: 3,
+      },
+      grow: {
+        // duplicateAtLv: 32,
+        lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,

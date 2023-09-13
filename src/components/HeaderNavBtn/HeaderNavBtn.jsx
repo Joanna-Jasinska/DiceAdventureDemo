@@ -1,5 +1,5 @@
+// import { PropTypes } from "prop-types";
 import { NavLink, useLocation } from "react-router-dom";
-import { PropTypes } from "prop-types";
 import css from "./HeaderNavBtn.module.css";
 
 export const HeaderNavBtn = ({
@@ -42,7 +42,13 @@ export const HeaderNavBtn = ({
         `${css.navLink}  ${nav.isActive ? css.active : ""}  ${
           inactive ? css.inactive : ""
         } ${crossed ? css.crossed : ""} ${disabled ? css.disabled : ""} ${
-          warning ? css.warning : completed ? css.completed : recommended? css.recommended : ""
+          warning
+            ? css.warning
+            : completed
+            ? css.completed
+            : recommended
+            ? css.recommended
+            : ""
         } `
       }
       to={to}

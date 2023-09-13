@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectGameError } from "redux/game/selectors";
-import css from "./../components/Phonebook/Phonebook.module.css";
-import { Title } from "components/Phonebook/Title/Title";
+import css from "./Page.module.css";
+import { Title } from "components/Title/Title";
 
 // ------------------------------
 // removing all ersisted data:

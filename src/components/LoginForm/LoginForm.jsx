@@ -1,12 +1,12 @@
-import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/operations';
-import css from './../Phonebook/Phonebook.module.css';
 // import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
+import { logIn } from "redux/auth/operations";
+import css from "./../Phonebook/Phonebook.module.css";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     dispatch(

@@ -1,25 +1,21 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Title } from "components/Phonebook/Title/Title";
+import { useDispatch } from "react-redux";
+import { Title } from "components/Title/Title";
 import {
-  clearDungeon,
   getEnemyGold,
   levelupAndReloadDungeon,
-  resetPlayer,
 } from "redux/dungeon/operations";
 import { clearCombat } from "redux/combat/operations";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useCombat, useDungeon } from "hooks";
 import { useEnemy } from "hooks/useEnemy";
-import {
-  LvUpDungeonById,
-  gainFromDungeonSummary,
-  playerLvUp,
-} from "redux/game/operations";
+import { LvUpDungeonById, playerLvUp } from "redux/game/operations";
+import { Loader } from "components/Loader/Loader";
+import { Background } from "components/Background/Background";
 
 export const ReturnFromCombatPage = () => {
   const dispatch = useDispatch();
-  const { endCombat, inCombat } = useCombat();
+  const { inCombat } = useCombat();
   const { slotsDefeated, player, dungeonId } = useDungeon();
   const { life } = player;
   const { enemyLife } = useEnemy();
@@ -55,31 +51,15 @@ export const ReturnFromCombatPage = () => {
           clearCombat,
           () => {
             navigate("/summary");
-            // return resetPlayer();
           },
-          // gainFromDungeonSummary,
-          // clearDungeon,
         ]);
-        // navigate("/summary");
-        // dispatch(gainFromDungeonSummary()).then(() => {
-        //   dispatch(clearDungeon());
-        //   dispatch(clearCombat());
-        // });
       }
-      // });
       return;
     }
     if (dungeonVictory) {
-      // console.log(`dungeonVictory [${dungeonVictory}] Dungeon ID [${dungeonId}]`);
-      // gain spare levelup
-      // load dungeon without loosing level and gold streak
       dispatch(playerLvUp());
       dispatch(LvUpDungeonById(dungeonId));
       dispatch(levelupAndReloadDungeon());
-    } else {
-      // console.log(`Dungeon in progress, victory [${dungeonVictory}]: found`, [
-      //   ...Object.values(slotsDefeated),
-      // ]);
     }
   }, [dispatch, inCombat, dungeonVictory, enemyLife, life, dungeonId]);
 
@@ -89,7 +69,9 @@ export const ReturnFromCombatPage = () => {
     >
       {/* {error ? <span className={css.error}>{error}</span> : ""} */}
       <Navigate to="/town" />
-      <Title title="Picking up gold" />
+      <Background />
+      <Loader />
+      <Title title="Picking up gold.." />
     </main>
   );
 };

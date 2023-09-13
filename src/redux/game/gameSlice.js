@@ -12,7 +12,10 @@ import {
   remove10SpLvUps,
   gainSpLvUps,
 } from "./operations";
-import { PLAYER_STARTING_MAX_EQ_LV } from "data/settings";
+import {
+  PLAYER_STARTING_LEVELUPS,
+  PLAYER_STARTING_MAX_EQ_LV,
+} from "data/settings";
 
 const initialState = {
   error: null,
@@ -20,7 +23,7 @@ const initialState = {
   selectedDungeonId: "dungeon|2|",
   playerLv: 1,
   maxEqLv: PLAYER_STARTING_MAX_EQ_LV,
-  spareLvUps: 1,
+  spareLvUps: PLAYER_STARTING_LEVELUPS,
   gold: 200,
   currentDungeons: [
     "dungeon|1|1",

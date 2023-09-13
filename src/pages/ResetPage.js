@@ -1,24 +1,16 @@
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { Loader } from "components/Loader/Loader";
-// import { useRef } from "react";
-// import { selectError } from "redux/auth/selectors";
-import { Title } from "components/Phonebook/Title/Title";
+import { Title } from "components/Title/Title";
 import { resetEquipment } from "redux/eq/operations";
 import { clearDungeon } from "redux/dungeon/operations";
 import { Navigate } from "react-router-dom";
 import { clearCombat } from "redux/combat/operations";
 import { resetGame } from "redux/game/operations";
-// import { Loader } from "components/Loader/Loader";
 import { useGame } from "hooks/useGame";
-import css from "./../components/Phonebook/Phonebook.module.css";
-// import { selectLoading } from "redux/eq/selectors";
+import css from "./Page.module.css";
 export const ResetPage = () => {
   const dispatch = useDispatch();
   const { error } = useGame();
-  // const loading = useSelector(selectLoading);
-  // let redirect = true;
 
   useEffect(() => {
     console.log("Reseting game.");

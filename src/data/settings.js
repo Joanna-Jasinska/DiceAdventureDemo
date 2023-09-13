@@ -1,9 +1,10 @@
 export const PLAYER_BASE_LIFE = 1;
-export const PLAYER_STARTING_MAX_EQ_LV = 3;
-// export const PLAYER_EXTRA_LEVELS = 8;
+export const PLAYER_STARTING_MAX_EQ_LV = 2;
+export const PLAYER_STARTING_LEVELUPS = 2;
+export const LVLS_REQ_PER_MAX_EQ_LV = 3;
 
 export const STARTING_EQ = [
-  "Rusty Sword|SWORD SLASH +|",
+  "Rusty Sword|SWORD SLASH|",
   "Wooden Shield|SHIELD BASH +1|",
   "Torch|WAVE MENACINGLY|",
   "Scroll of Strength|INVOKE STRENGTH +1|",

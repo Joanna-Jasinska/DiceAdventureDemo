@@ -9,8 +9,8 @@ export const PCOrb = {
     filterColor: "#32005a4a",
     bgColor: "#dd6b00",
   },
-  life: 16,
-  maxLife: 16,
+  life: 15,
+  maxLife: 15,
   id: "ANIMATED|purple|Cursed Orb",
   body: [
     {
@@ -201,13 +201,13 @@ export const PCOrb = {
     },
     {
       extra: true, //priority, extra, keep, once
-      bodyPartIcon: "🔮",
+      bodyPartIcon: "✨",
       bodyPartTypes: ["body"],
-      id: "piece|ANIMATED|purple|Cursed Orb|body|4",
+      id: "piece|ANIMATED|purple|Cursed Orb|weapon|4",
       weakness: ["magic"],
       damages: {
-        damageToPlayer: 1,
-        damageToEnemy: 1,
+        damageToPlayer: 2,
+        // damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -224,7 +224,7 @@ export const PCOrb = {
       },
       grow: {
         // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 1,
+        lvlsToRaiseMinSum: 0.5,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,

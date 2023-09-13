@@ -6,7 +6,6 @@ export const AllySquare = ({
   name = "Ally",
   title = "",
   id,
-  eventId,
   bgTxtFront,
   bgTxtBack,
   bgColor,

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { selectGameError } from "redux/game/selectors";
@@ -12,7 +11,7 @@ import { PlayerAvatar } from "components/PlayerAvatar/PlayerAvatar";
 import { SkillList } from "components/SkillList/SkillList";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
 import { LevelUps } from "components/LevelUps/LevelUps";
-import css from "./../components/Phonebook/Phonebook.module.css";
+import css from "./Page.module.css";
 import { DungeonSquare } from "components/DungeonSquare/DungeonSquare";
 import { useGame } from "hooks/useGame";
 
@@ -25,7 +24,6 @@ export const DungeonPage = () => {
   const { inCombat } = useCombat();
   const levelUps = Math.max((lv || 0) - (startedLv || 0), 0);
 
-  // const n = getRandomNum(0,4);
   const beginBattleBySlot = (n) => {
     dispatch(engageEnemyBySlot(n))
       .then(() => {
@@ -69,7 +67,6 @@ export const DungeonPage = () => {
         // not engaged enemy
       });
   };
-  // <Navigate to="/combat" />;
   return (
     <>
       {inCombat ? (
@@ -88,11 +85,6 @@ export const DungeonPage = () => {
         >
           {error ? <span className={css.error}>{error}</span> : ""}
           <Background />
-          {/* <Title
-            title={`${name} ${eventName}${
-              inDungeon ? " entered." : " illegal breach. Go back!"
-            }`}
-          /> */}
 
           <div
             style={{

@@ -1,9 +1,8 @@
-import { PropTypes } from "prop-types";
+// import { PropTypes } from "prop-types";
 import css from "./BagOfGold.module.css";
 // import { useDungeon } from "hooks";
 
 export const BagOfGold = ({ gold }) => {
-  // const { goldEarned } = useDungeon();
   const goldEarned = 0;
   const goldDisplayed =
     !gold || typeof gold !== "number"

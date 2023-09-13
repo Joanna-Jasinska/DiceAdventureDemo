@@ -7,6 +7,7 @@ import css from "./Layout.module.css";
 import { Loader } from "components/Loader/Loader";
 import { CombatNavigation } from "components/CombatNavigation/CombatNavigation";
 import { DungeonNavigation } from "components/DungeonNavigation/DungeonNavigation";
+import { Background } from "components/Background/Background";
 
 export const Layout = () => {
   // const { inCombat } = false;
@@ -20,6 +21,7 @@ export const Layout = () => {
   return (
     <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 16px" }}>
       <div className={css.backLight} />
+      <Background />
       {location.pathname === "/reset" ? (
         ""
       ) : inCombat ? (

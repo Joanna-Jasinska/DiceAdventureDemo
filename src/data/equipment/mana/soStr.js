@@ -12,17 +12,17 @@ export const sofStr = {
     id: "Scroll of Strength|INVOKE STRENGTH +1|",
     displayCost: [{ value: "", type: "mana" }],
   },
-  statsTxT: "~ +1/3 per lv",
+  statsTxT: "~ +1 per lv",
   stats: [
     {
       item: "dice",
-      diceMax: 2,
+      diceMax: 1,
       // value: 1,
       type: "mana",
-      existSinceLv: 0,
-      duplicateAtLv: 10,
+      existSinceLv: 1,
+      duplicateAtLv: 9,
       // lvlsToRaiseValue: 4,
-      lvlsToRaiseDiceMax: 3,
+      lvlsToRaiseDiceMax: 1,
     },
   ],
 };

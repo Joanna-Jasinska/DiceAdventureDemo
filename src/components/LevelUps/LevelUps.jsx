@@ -1,6 +1,5 @@
-import { PropTypes } from "prop-types";
+// import { PropTypes } from "prop-types";
 import css from "./LevelUps.module.css";
-import { useDungeon } from "hooks";
 
 export const LevelUps = ({ lv }) => {
   // const { lv, startedLv } = useDungeon();

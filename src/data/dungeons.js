@@ -114,24 +114,25 @@ export const DUNGEONS = [
     enemies: [
       [
         "ANIMALS|purple|Mutated Rat",
-        "UNDEAD|purple|Skeleton Head",
+        // "UNDEAD|purple|Skeleton Head",
         //
       ],
       [
-        "UNDEAD|purple|Ghost",
-        "ANIMALS|purple|Bats",
+        "ANIMALS|purple|Mutated Rat",
+        // "UNDEAD|purple|Ghost",
+        // "ANIMALS|purple|Bats",
         //
       ],
       [
-        "HUMAN|purple|Cursed Soldier",
-        "UNDEAD|purple|Ghost Widow",
+        "ANIMALS|purple|Mutated Rat",
+        // "HUMAN|purple|Cursed Soldier",
+        // "UNDEAD|purple|Ghost Widow",
         //
       ],
     ],
     bosses: [
       //
       "ANIMATED|purple|Cursed Orb",
-      // "HUMAN|purple|Cursed King"
       //
     ],
     id: "dungeon|5|",

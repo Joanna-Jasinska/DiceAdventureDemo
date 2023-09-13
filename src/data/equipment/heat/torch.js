@@ -12,18 +12,18 @@ export const torch = {
     id: "Torch|WAVE MENACINGLY|",
     displayCost: [{ value: "", type: "heat" }],
   },
-  statsTxT: "~ +1/5 per lv",
+  statsTxT: "~ +1 per lv",
   stats: [
     // { item: "stats", type: "life", maxHp: -1 },
     {
       item: "dice",
-      diceMax: 3,
+      diceMax: 2,
       // value: undefined,
       type: "heat",
-      existSinceLv: -2,
-      duplicateAtLv: 85,
+      existSinceLv: 1,
+      duplicateAtLv: 14,
       // lvlsToRaiseValue: 3,
-      lvlsToRaiseDiceMax: 5,
+      lvlsToRaiseDiceMax: 1,
     },
   ],
 };

@@ -58,21 +58,10 @@ const getFrame = ({ value, type }) => {
       return `${style}${css.any}`;
   }
 };
-// const getColor = ({ value, diceMax = 6 }) => {
-//   //   console.log(`getting color ${value} / ${diceMax}`);
-//   if (!value || value === -1) return css.random;
-//   const percentage = (100 * value) / diceMax;
-//   if (percentage > 90) return css.full;
-//   if (percentage > 49) return css.half;
-//   return css.empty;
-// };
 
 export const DiceIcon = ({ value, diceMax, type }) => {
   return (
-    <div
-      className={`${css.dice} ${getFrame({ value, type })}`}
-      // data-text={`${diceMax}`}
-    >
+    <div className={`${css.dice} ${getFrame({ value, type })}`}>
       {value || diceMax || " "}{" "}
       <span className={css.icon}>{getDiceTypeIcon(type)}</span>
     </div>

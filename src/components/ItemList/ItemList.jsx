@@ -1,16 +1,7 @@
-import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { game } from "api/game";
 import { selectLoading, selectEq, selectFilters } from "redux/eq/selectors";
-// import { selectItems, selectFilters } from "redux/game/selectors";
 import { Item } from "components/Item/Item";
-import {
-  fetchEquipment,
-  deselectAllItems,
-  updateItem,
-  // refreshEq,
-} from "redux/eq/operations";
-import { setFilter } from "redux/filter/filterSlice";
+import { updateItem } from "redux/eq/operations";
 
 import css from "./ItemList.module.css";
 import { Loader } from "components/Loader/Loader";
@@ -26,7 +17,6 @@ export const ItemList = ({ filters }) => {
   // }, [dispatch]);
 
   const filterItems = (filters, items) => {
-    // return items;
     const filteredItems = items
       ? Array.isArray(items)
         ? [

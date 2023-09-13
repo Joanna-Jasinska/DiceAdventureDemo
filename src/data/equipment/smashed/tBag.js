@@ -12,18 +12,18 @@ export const tBag = {
     id: "Travel Bag|COOKING UTENSIL TOSS|",
     displayCost: [{ value: "", type: "physical" }],
   },
-  statsTxT: "~ +1/3 per lv",
+  statsTxT: "~ +1 per lv",
   stats: [
     { item: "stats", type: "life", maxHp: 6 },
     {
       item: "dice",
-      diceMax: 2,
+      diceMax: 1,
       // value: undefined,
       type: "smashed",
-      existSinceLv: 0,
+      existSinceLv: 1,
       duplicateAtLv: 51,
       // lvlsToRaiseValue: 3,
-      lvlsToRaiseDiceMax: 3,
+      lvlsToRaiseDiceMax: 1,
     },
   ],
 };

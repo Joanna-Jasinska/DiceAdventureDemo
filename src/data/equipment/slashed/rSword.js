@@ -3,29 +3,29 @@ import { PIECE_SEV } from "data/skillEvaluation/piece";
 import { DICE_SEX } from "data/skillsExecution/dice";
 
 export const rSword = {
-  id: "Rusty Sword|SWORD SLASH +|",
+  id: "Rusty Sword|SWORD SLASH|",
   name: "Rusty Sword",
   alt: "🗡️",
   skill: {
-    name: "SWORD SLASH +",
-    txt: "reroll 1 into ⚔️ of same or higher value",
-    id: "Rusty Sword|SWORD SLASH +|",
+    name: "SWORD SLASH",
+    txt: "transform into ⚔️ and reroll",
+    id: "Rusty Sword|SWORD SLASH|",
     displayCost: [
       { value: "", type: "slashed" },
       { value: "", type: "trait" },
     ],
   },
-  statsTxT: "~ +1/3 per lv",
+  statsTxT: "~ +1 per lv",
   stats: [
     {
       item: "dice",
-      diceMax: 3,
+      diceMax: 2,
       // value: undefined,
       type: "slashed",
-      existSinceLv: 0,
-      duplicateAtLv: 51,
+      existSinceLv: 1,
+      duplicateAtLv: 18,
       // lvlsToRaiseValue: 3,
-      lvlsToRaiseDiceMax: 3,
+      lvlsToRaiseDiceMax: 1,
     },
   ],
 };
@@ -58,7 +58,7 @@ export const rSword_ex = [
   ],
   [
     DICE_SEX,
-    "Reroll+ & Remove",
+    "Reroll",
     {
       value: 1, //1 dice to reroll
     },

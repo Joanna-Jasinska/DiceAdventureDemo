@@ -2,7 +2,7 @@
 import { Miniature } from "components/Miniature/Miniature";
 import css from "./WorkshopItem.module.css";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
-import { Title } from "components/Phonebook/Title/Title";
+import { Title } from "components/Title/Title";
 import { useDispatch } from "react-redux";
 import { itemLvUpx1, itemLvUpx10, resetItemLv } from "redux/eq/operations";
 import {
@@ -14,6 +14,7 @@ import {
 import { useEQ } from "hooks/useEQ";
 import { useGame } from "hooks/useGame";
 import { SkillSquare } from "components/SkillSquare/SkillSquare";
+import { StatIcon } from "components/StatIcon/StatIcon";
 
 export const WorkshopItem = ({
   name,
@@ -23,6 +24,7 @@ export const WorkshopItem = ({
   tags = [""],
   lv = 1,
   dices,
+  nondices,
   index,
   selected = false,
   // nondices,
@@ -143,6 +145,17 @@ export const WorkshopItem = ({
         </span>
       </div>
       <div className={css.iconBag}>
+        {(nondices ? nondices : []).map((el, index) => {
+          return (
+            <StatIcon
+              {...el}
+              // diceMax={el.diceMax}
+              // value={el.value}
+              // icon={el.type}
+              key={`${name}|${el.type}|${index}`}
+            />
+          );
+        })}
         {(dices ? dices : []).map((el, index) => {
           return (
             <DiceIcon

@@ -7,10 +7,13 @@ import { RouteBattle } from "./RouteBattle/RouteBattle";
 import { RouteTown } from "./RouteTown/RouteTown";
 import { useGame } from "hooks/useGame";
 import { setGameError } from "redux/game/operations";
+import WelcomePage from "pages/WelcomePage";
 // import { setError } from "redux/auth/slice";
 // import { useAuth } from "hooks";
 // import { refreshUser } from "redux/auth/operations";
 
+// const WelcomePage = lazy(() => import("../pages/WelcomePage"));
+const TutorialPage = lazy(() => import("../pages/TutorialPage"));
 const TownPage = lazy(() => import("../pages/TownPage"));
 const EQPage = lazy(() => import("../pages/EQPage"));
 const CombatPage = lazy(() => import("../pages/CombatPage"));
@@ -53,8 +56,9 @@ export const App = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<ResetPage />} />
+          <Route index element={<WelcomePage />} />
           <Route path="/reset" element={<ResetPage />} />
+          <Route path="/tutorial" element={<TutorialPage />} />
           <Route path="/bye" element={<ByePage />} />
           <Route
             path="/town"

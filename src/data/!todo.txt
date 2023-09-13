@@ -8,6 +8,16 @@
 +/later/- enemy body pieces sides should grow bigger not appear - or never shrink space taken
 
 
+-------------------------------
+to do for presentation:
+
+- add bye page (clearing data)
+- working github pages
+- fill dungeons with enemies
+- readme on github
+
+-------------------------------
+
 - move  the rest of items to its item file
 
 -------------------------------
@@ -48,8 +58,6 @@
 
 -------------------------------
 
-- welcome page with storyline
-- tutorial page with links
 - settings page
 
 -------------------------------

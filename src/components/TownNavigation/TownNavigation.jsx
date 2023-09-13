@@ -12,12 +12,16 @@ import {
 } from "redux/dungeon/operations";
 import css from "./TownNavigation.module.css";
 import { useGame } from "hooks/useGame";
+import { getDiceTypeIcon } from "data/icons";
+import { useLocation } from "react-router-dom";
 
 export const TownNavigation = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectEq);
   const { selectedDungeonId, currentDungeons } = useGame();
   const { readyToEnter } = useDungeon();
+  const location = useLocation();
+  const { pathname } = location;
   const selectedItems = [...items].filter((item) => {
     if (item.selected) return item.selected;
   });
@@ -77,36 +81,42 @@ export const TownNavigation = () => {
 
   return (
     <header className={`header ${css.header}`}>
-      <nav className={css.header}>
-        <div className={css.leftNav}>
-          <HeaderNavBtn to="/reset" display={"♻️"} />
-          <HeaderNavBtn to="/eq" display={`${selectedItems.length}/5`} />
-          <HeaderNavBtn to="/workshop" display={`🔨`} />
-          {/* <HeaderNavBtn to="/alchemy" display={`⚗️`} /> */}
-          <HeaderNavBtn
+      {pathname === "/" || pathname === "/tutorial" || pathname === "/bye" ? (
+        ""
+      ) : (
+        <nav className={css.header}>
+          <div className={css.leftNav}>
+            {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
+            <HeaderNavBtn to="/eq" display={`${selectedItems.length}/5`} />
+            <HeaderNavBtn to="/workshop" display={`🔨`} />
+            {/* <HeaderNavBtn to="/alchemy" display={`⚗️`} /> */}
+            {/* <HeaderNavBtn
             to="/-"
             display="✔️"
             crossed={true}
             onClick={deselectEQ}
-          />
-        </div>
-        <div className={css.rightNav}>
-          {(selectedItems.length > 0) & (selectedItems.length < 6) ? (
-            <HeaderNavBtn
-              to="/dungeon"
-              display="Go⚔️"
-              onClick={enterDungeon}
-              // inactive={true}
-              recommended={true}
-            />
-          ) : (
-            <HeaderNavBtn to="/eq" display={`PackEQ`} warning={true} />
-          )}
+          /> */}
+          </div>
+          <div className={css.rightNav}>
+            {(selectedItems.length > 0) & (selectedItems.length < 6) ? (
+              <HeaderNavBtn
+                to="/dungeon"
+                display={`Go${getDiceTypeIcon("playerAttack")}`}
+                // display={`Go${getDiceTypeIcon("playerAttack")}`}
+                onClick={enterDungeon}
+                // inactive={true}
+                recommended={true}
+                styles={{ whiteSpace: "nowrap" }}
+              />
+            ) : (
+              <HeaderNavBtn to="/eq" display={`PackEQ`} warning={true} />
+            )}
 
-          <HeaderNavBtn to="/town" display="Caravan" />
-          <HeaderNavBtn to="/quickBattle" display="Paths" />
-        </div>
-      </nav>
+            <HeaderNavBtn to="/quickBattle" display="Paths" />
+            <HeaderNavBtn to="/town" display="Caravan" />
+          </div>
+        </nav>
+      )}
     </header>
   );
 };

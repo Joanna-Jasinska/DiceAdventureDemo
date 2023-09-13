@@ -1,4 +1,4 @@
-import { PropTypes } from "prop-types";
+// import { PropTypes } from "prop-types";
 import css from "./EnemyPortrait.module.css";
 import { useEnemy } from "hooks/useEnemy";
 
@@ -16,19 +16,6 @@ export const EnemyPortrait = () => {
   const lifePercent = `-${Math.floor(
     ((enemyLife || 0) * 100) / (enemyMaxLife || 1)
   )}%`;
-  // {
-  //   //😬😠
-  //   //🦴🌳📿🌲
-  //   // 👹🟤🦂🐒🧸🦒
-  //   frontIcon = "🐺",
-  //   sideIcon = "🌿",
-  //   bgSideIcon = "🌲",
-  //   backIcon = "⚫️",
-  //   bgIcon = "🌳",
-
-  //   filterColor = "#005a124a",
-  //   bgColor = "#ddd900",
-  // }
   return (
     <figure className={`${css.miniature}`}>
       <div className={css.bloodCover} style={{ bottom: lifePercent }}></div>

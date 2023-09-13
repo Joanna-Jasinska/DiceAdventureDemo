@@ -7,9 +7,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  min-height: 48px;
-  padding-right: 24px;
-  padding-left: 24px;
+  min-height: 8.2rem;
+  /* padding-right: 24px;
+  padding-left: 24px; */
   padding-top: 0.3rem;
   padding-top: 0;
   padding-bottom: 0.3rem;
@@ -19,7 +19,7 @@
   /* border: var(--border); */
   /* border-radius: 0 0 var(--border-radius) var(--border-radius); */
   margin: 0 var(--margin-component);
-  /* background-color: #0000000d; */
+  /* background-color: #93fff490; */
   background-color: transparent;
   /* opacity: 60%; */
 }
@@ -44,6 +44,9 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  width: 30%;
+  /* background-color: var(--bg-gentle);
+  border-radius: 0 0 20px 20px; */
 }
 .rightNav {
   /* background-color: coral; */
@@ -53,10 +56,11 @@
   /* width: min-content; */
   flex-grow: 1;
   display: flex;
+  width: 33%;
   /* justify-content: flex-end; */
   justify-content: flex-start;
   flex-direction: row-reverse;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 
 .button {

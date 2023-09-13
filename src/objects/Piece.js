@@ -5,7 +5,9 @@ export const Piece = {
     const generateIcons = (attrName) => {
       const emojis = [];
       for (let i = 0; i < piece.damages[attrName]; i++) {
-        emojis.push(attrName === "damageToPlayer" ? "❤️" : "⚔️");
+        emojis.push(
+          attrName === "damageToPlayer" ? "❤️" : getDiceTypeIcon("playerAttack")
+        );
       }
       return emojis;
     };

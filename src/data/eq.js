@@ -1,5 +1,5 @@
 import { scrollOfArcaneMissles } from "./equipment/arcane/soAMissles";
-import { sofStr, sofStr_ev, sofStr_ex } from "./equipment/arcane/soStr";
+import { sofStr, sofStr_ev, sofStr_ex } from "./equipment/mana/soStr";
 import { torch, torch_ev, torch_ex } from "./equipment/heat/torch";
 import { kitchenKnives } from "./equipment/needle/kitchenKnives";
 import { luckyClover } from "./equipment/rainbow/luckyClover";
@@ -34,8 +34,8 @@ const EQ = {
   "Heavy Metal Shield|SHIELD BASH +2|": [hMShield, hMShield_ev, hMShield_ex],
   "Torch|WAVE MENACINGLY|": [torch, torch_ev, torch_ex],
   "Scroll of Strength|INVOKE STRENGTH +1|": [sofStr, sofStr_ev, sofStr_ex],
-  "Rusty Sword|SWORD SLASH +|": [rSword,rSword_ev,rSword_ex],
-  "Travel Bag|COOKING UTENSIL TOSS|": [tBag,tBag_ev,tBag_ex],
+  "Rusty Sword|SWORD SLASH|": [rSword, rSword_ev, rSword_ex],
+  "Travel Bag|COOKING UTENSIL TOSS|": [tBag, tBag_ev, tBag_ex],
   // "Leather Vest|THUMBLE|": leatherVest,
   // "Kitchen Knives|KNIFE THROW|": kitchenKnives,
   // "Scroll of Arcane Missles|INVOKE ARCANE|": scrollOfArcaneMissles,

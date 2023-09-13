@@ -2,7 +2,6 @@
 import { Miniature } from "components/Miniature/Miniature";
 import css from "./Item.module.css";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
-import { Title } from "components/Phonebook/Title/Title";
 import { StatIcon } from "components/StatIcon/StatIcon";
 import { SkillSquare } from "components/SkillSquare/SkillSquare";
 
@@ -19,7 +18,7 @@ export const Item = ({
   nondices,
   stats = [],
   skill = { name: "NO SKILL", txt: "-", id: "noskill" },
-  statsTxT,
+  // statsTxT,
 }) => {
   return (
     <div className={css.item} id={id}>
@@ -28,15 +27,7 @@ export const Item = ({
         alt={alt || name}
         bgTxtFront={alt}
         bgTxtBack={tags[0]}
-        children={
-          <>
-            {/* {`${skill.name}`}
-            <br />
-            {`${skill.txt}`}
-            <Title title={`${alt} ${name}`} /> */}
-            <SkillSquare skill={skill} />
-          </>
-        }
+        children={<SkillSquare skill={skill} />}
       />
       <div className={css.bar}>
         <button

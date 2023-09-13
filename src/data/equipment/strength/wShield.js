@@ -12,18 +12,18 @@ export const wShield = {
     id: "Wooden Shield|SHIELD BASH +1|",
     displayCost: [{ value: "", type: "strength" }],
   },
-  statsTxT: "~ +1/3 per lv",
+  statsTxT: "~ +1 per lv",
   stats: [
     { item: "stats", type: "life", maxHp: 8 },
     {
       item: "dice",
-      diceMax: 2,
+      diceMax: 1,
       // value: undefined,
       type: "strength",
-      existSinceLv: 0,
-      duplicateAtLv: 51,
+      existSinceLv: 1,
+      duplicateAtLv: 19,
       // lvlsToRaiseValue: 3,
-      lvlsToRaiseDiceMax: 3,
+      lvlsToRaiseDiceMax: 1,
     },
   ],
 };

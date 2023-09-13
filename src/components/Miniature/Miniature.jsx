@@ -2,9 +2,9 @@ import { PropTypes } from "prop-types";
 import css from "./Miniature.module.css";
 
 export const Miniature = ({
-  url,
-  alt = "😎",
-  title,
+  // url,
+  // alt = "😎",
+  // title,
   padding = false,
   bgTxtFront = "",
   bgTxtBack = "",
@@ -31,9 +31,9 @@ export const Miniature = ({
   );
 };
 Miniature.propTypes = {
-  url: PropTypes.string,
-  alt: PropTypes.string,
-  title: PropTypes.object,
+  bgTxtFront: PropTypes.string,
+  bgTxtBack: PropTypes.string,
+  bgColor: PropTypes.string,
   padding: PropTypes.bool,
-  bg: PropTypes.string,
+  // title: PropTypes.object,
 };

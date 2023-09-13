@@ -8,13 +8,6 @@ import css from "./DungeonList.module.css";
 export const DungeonList = () => {
   const { currentDungeons, selectedDungeonId, dungeonLevels } = useGame();
   const list = currentDungeons;
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   console.log(`selectedDungeonId: [${selectedDungeonId}]`);
-  //   // console.log(`game.currentDungeons: [${game.currentDungeons}]`);
-  //   // console.table(game);
-  // }, []);
 
   return (
     <div className={css.list}>

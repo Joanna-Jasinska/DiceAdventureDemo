@@ -22,9 +22,11 @@
   cursor: default;
   line-break: strict;
   word-break: keep-all;
+  /* white-space: nowrap; */
   /* height: min-content; */
   /* max-width: 16vw; */
   width: fit-content;
+  /* min-width: 3.8rem; */
   /* width: max-content; */
 }
 .navLink:hover:not(.inactive):not(.disabled) {
@@ -83,8 +85,9 @@
   /* transform: scale(0.9); */
   /* color: red; */
   /* background-color: #b5dc75 !important; */
-  background-color: #b5dc75;
-  background-color: #b3feee;
+  /* background-color: #b5dc75; */
+  /* background-color: #b3feee; */
+  background-color: #d9e8e4;
   /* color: greenyellow !important; */
   /* transform: scale(0.8) !important; */
 }

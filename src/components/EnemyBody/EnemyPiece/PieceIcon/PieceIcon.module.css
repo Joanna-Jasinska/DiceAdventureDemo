@@ -1,9 +1,13 @@
 .dice {
   z-index: 4;
   position: relative;
-  min-width: 0.7rem;
   /* max-width: 2rem; */
   height: 1rem;
+  /* min-width: 0.7rem; */
+  max-width: 20rem;
+  /* width: max-content; */
+  height: 1rem;
+
   color: black;
   font-weight: bold;
   border-radius: 4px;
@@ -20,9 +24,6 @@
 
   z-index: 4;
   position: relative;
-  min-width: 0.7rem;
-  max-width: 20rem;
-  height: 1rem;
   color: black;
   font-weight: bold;
   border-radius: 4px;

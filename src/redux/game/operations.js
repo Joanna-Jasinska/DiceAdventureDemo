@@ -1,5 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { STARTING_DUNGEONS } from "data/settings";
+import {
+  LVLS_REQ_PER_MAX_EQ_LV,
+  PLAYER_STARTING_MAX_EQ_LV,
+  STARTING_DUNGEONS,
+} from "data/settings";
 // import { getRandomNum } from "objects/Dice";
 
 //   moveCaravan,
@@ -21,7 +25,7 @@ export const playerLvUp = createAsyncThunk(
     const state = thunkAPI.getState();
     const playerLv = state.game.playerLv + 1;
     const spareLvUps = state.game.spareLvUps + 1;
-    const maxEqLv = Math.floor(playerLv / 5);
+    const maxEqLv = Math.floor(playerLv / LVLS_REQ_PER_MAX_EQ_LV);
     return { playerLv, spareLvUps, maxEqLv };
   }
 );

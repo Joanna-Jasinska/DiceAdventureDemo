@@ -61,21 +61,12 @@ export const WorkshopList = ({ filters }) => {
                   alt={`${el.alt}`}
                   itemId={`${el.itemId}`}
                   key={`${el.name}|${el.index}|${el.id}`}
-                  // key={`key|${index}`}
                   index={index}
                   selected={el.selected}
                   skill={el.skill}
                   statsTxT={el.statsTxT || ""}
-                  // toggleSelect={() =>
-                  //   dispatch(
-                  //     updateItem({
-                  //       ...el,
-                  //       selected: !el.selected,
-                  //     })
-                  //   )
-                  // }
-                  // stats={el ? (el.stats ? el.stats : el) : []}
                   dices={el.dices}
+                  nondices={el.nondices}
                   lv={el.lv}
                 />
               );

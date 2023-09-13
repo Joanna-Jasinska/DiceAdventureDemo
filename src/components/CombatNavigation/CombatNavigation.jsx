@@ -1,11 +1,8 @@
 import { HeaderNavBtn } from "../HeaderNavBtn/HeaderNavBtn";
-import { useSelector, useDispatch } from "react-redux";
-// import { selectItems } from "redux/game/selectors";
-// import { updateItem } from "redux/game/operations";
+import { useDispatch } from "react-redux";
 import {
   clearCombat,
   copyAllEnemyDicesToBag,
-  deselectAllDices,
   rollAllDices,
 } from "redux/combat/operations";
 import css from "./CombatNavigation.module.css";
@@ -19,8 +16,9 @@ import {
   damagePlayer,
   endTurnInDungeon,
 } from "redux/dungeon/operations";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { getDiceTypeIcon } from "data/icons";
 
 export const CombatNavigation = () => {
   const dispatch = useDispatch();
@@ -29,6 +27,9 @@ export const CombatNavigation = () => {
   const { body, gold, enemyLife } = useEnemy();
   const { inCombat } = useCombat();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { pathname } = location;
+
   // const deselectAll = (e) => {
   //   e.preventDefault();
   //   dispatch(deselectAllDices());
@@ -39,10 +40,10 @@ export const CombatNavigation = () => {
     dispatch(copyAllEnemyDicesToBag());
     dispatch(deleteAllBodyDices());
   };
-  const killEnemy = (e) => {
-    e.preventDefault();
-    dispatch(die());
-  };
+  // const killEnemy = (e) => {
+  //   e.preventDefault();
+  //   dispatch(die());
+  // };
   const exitDungeon = (e) => {
     e.preventDefault();
     dispatch(gainFromDungeonSummary()).then(() => {
@@ -100,35 +101,15 @@ export const CombatNavigation = () => {
     if (piece.damages.effectsToEnemy && piece.fulfilled)
       effToEnemy += `❗️❔x${piece.damages.effectsToEnemy}`;
   });
-  const negatives = `${negNum === 0 ? "" : "❤️x" + negNum}${
+  const negatives = `${negNum === 0 ? "" : "-" + negNum + "❤️"}${
     effToPlayer === "" ? "" : effToPlayer
   }`;
-  const positives = `${posNum === 0 ? "" : "⚔️x" + posNum}${
-    effToEnemy === "" ? "" : effToEnemy
-  }`;
-  // style={{
-  //   display: "flex",
-  //   flexWrap: "wrap",
-  //   gap: "0.4rem",
-  // }}
-  // const boxShadowWarning = getComputedStyle(
-  //   document.documentElement
-  // ).getPropertyValue("--box-shadow-warning");
-  // const boxShadowRecommended = getComputedStyle(
-  //   document.documentElement
-  // ).getPropertyValue("--box-shadow-recommended");
-  // const bgWarning = getComputedStyle(document.documentElement).getPropertyValue(
-  //   "--bg-warning"
-  // );
-  // const bgRecommended = getComputedStyle(
-  //   document.documentElement
-  // ).getPropertyValue("--bg-recommended");
-  // const endTurnBtnStyle =
-  //   negatives !== ""
-  //     ? { boxShadow: boxShadowWarning, backgroundColor: bgWarning }
-  //     : { boxShadow: boxShadowRecommended, backgroundColor: bgRecommended };
+  const positives = `${
+    posNum === 0 ? "" : getDiceTypeIcon("playerAttack") + "x" + posNum
+  }${effToEnemy === "" ? "" : effToEnemy}`;
+
   const endTurnIcon = negatives !== "" ? "❌" : "✔️"; //✔️❌
-  const endTurnDmg = negatives !== "" ? `${negatives}${positives}` : positives; //⚔️❤️
+  const endTurnDmg = negatives !== "" ? `${negatives} ${positives}` : positives; //⚔️❤️
   //   ✔️❌☠️
   // ⚙️💀☠️🩸❤️⚔️👍
 
@@ -138,11 +119,12 @@ export const CombatNavigation = () => {
 
   return (
     <header className={`header ${css.header}`}>
-      <EnemyPortrait />
-      {inCombat === "summary" ? (
+      {pathname === "/" || pathname === "/tutorial" || pathname === "/bye" ? (
+        ""
+      ) : inCombat === "summary" ? (
         <nav className={css.header}>
           <div className={css.leftNav}>
-            <HeaderNavBtn to="/reset" display={"♻️"} />
+            {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
             <HeaderNavBtn
               to="/-"
               display={`${life}❤️${maxLife}`}
@@ -160,21 +142,34 @@ export const CombatNavigation = () => {
       ) : (
         <nav className={css.header}>
           <div className={css.leftNav}>
-            <HeaderNavBtn to="/reset" display={"♻️"} />
             <HeaderNavBtn
               to="/-"
               display={`${life}❤️${maxLife}`}
+              styles={{ whiteSpace: "nowrap" }}
               onClick={nothing}
             />
-            <HeaderNavBtn to="/-" display={`💰${gold}`} onClick={nothing} />
+            <HeaderNavBtn
+              to="/-"
+              display={`${getDiceTypeIcon(
+                "playerAttack"
+              )}${enemyLife} 💰${gold}`}
+              styles={{ whiteSpace: "nowrap" }}
+              onClick={nothing}
+            />
+            <HeaderNavBtn
+              to="/-"
+              display="Dices Out 🎲⭯"
+              onClick={retrieveAllDices}
+            />
+            {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
             {/* <HeaderNavBtn
               to="/-"
               display="🎲"
               crossed={true}
               onClick={deselectAll}
             /> */}
-            <HeaderNavBtn to="/-" display="🎲⭯" onClick={retrieveAllDices} />
           </div>
+          <EnemyPortrait />
           <div className={css.rightNav}>
             <HeaderNavBtn
               to="/-"
@@ -185,12 +180,12 @@ export const CombatNavigation = () => {
               // styles={endTurnBtnStyle}
             />
             <HeaderNavBtn to="/summary" display="🏃Leave Path" />
-            <HeaderNavBtn
+            {/* <HeaderNavBtn
               to="/-"
               display="Win"
               onClick={killEnemy}
               inactive={true}
-            />
+            /> */}
           </div>
         </nav>
       )}

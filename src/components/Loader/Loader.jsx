@@ -1,7 +1,7 @@
-import { PropTypes } from 'prop-types';
-import css from './Loader.module.css';
+import { PropTypes } from "prop-types";
+import css from "./Loader.module.css";
 
-export const Loader = ({ small = false, txt = 'loading' }) => {
+export const Loader = ({ small = false, txt = "loading" }) => {
   return (
     <>
       {small === true ? (
@@ -12,9 +12,9 @@ export const Loader = ({ small = false, txt = 'loading' }) => {
         <div className={css.overlay}>
           <div
             className={`${css.loader} ${
-              txt === 'refreshingUser'
+              txt === "refreshingUser"
                 ? css.refreshingUser
-                : txt === 'logout'
+                : txt === "logout"
                 ? css.LoggingOut
                 : css.loading
             }`}
@@ -31,4 +31,5 @@ export const Loader = ({ small = false, txt = 'loading' }) => {
 
 Loader.propTypes = {
   small: PropTypes.bool,
+  txt: PropTypes.string,
 };

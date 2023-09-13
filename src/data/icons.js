@@ -25,6 +25,8 @@ export const diceTypeMatches = (diceType, mustMatchType) => {
 // 🟨🟩🟦🟧 ------------------⬜️🟪⬛️🟫
 export const ICONS = [
   { type: "default", icon: "❔", color: "#4d472d", id: "default" },
+  { type: "playerAttack", icon: "🤝", color: "#4d472d", id: "default" },
+  // ⚔️🤝
 
   { type: "any", mainType: "any", icon: " ", color: "#fff", id: "" },
 

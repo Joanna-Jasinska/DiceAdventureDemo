@@ -1,7 +1,6 @@
 // import { PropTypes } from 'prop-types';
 import { Miniature } from "components/Miniature/Miniature";
 import css from "./DungeonSquare.module.css";
-import { useGame } from "hooks/useGame";
 import { useDispatch } from "react-redux";
 import { setSelectDungeon } from "redux/game/operations";
 import { getDiceTypeIcon } from "data/icons";
@@ -52,7 +51,7 @@ export const DungeonSquare = ({
             type="button"
             onClick={selectSelf}
           >
-            {selected ? "⚔️" : "🠘"}
+            {selected ? getDiceTypeIcon("playerAttack") : "🠘"}
           </button>
         )}
         <span className={css.text}>
