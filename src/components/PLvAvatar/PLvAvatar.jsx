@@ -13,7 +13,8 @@ export const PLvAvatar = ({ shrink = false }) => {
         {/* <div className={css.lv}>{playerLv}</div> */}
         <div className={`${shrink ? css.noOverflow : ""}`}>
           <div className={`${css.avatarBox}`}>
-            <PlayerAvatar percent={Math.min(playerLv + 31, 100)} />
+            <PlayerAvatar percent={Math.min(playerLv + 62, 100)} />
+            {/* <PlayerAvatar percent={Math.min(playerLv + 31, 100)} /> */}
           </div>
         </div>
         <div className={css.lv} data-text={`${playerLv}`}>
