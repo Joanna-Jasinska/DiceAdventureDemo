@@ -121,13 +121,22 @@ export const TutorialPage = () => {
         Path
         <br /> There are 5 Paths to explore.
         <br />
-        To progress the game on selected Path choose GO.
+        To progress the game on selected Path choose Go.
         <br />
         Whenever you come back from a Path - you bring back gold and levelups
         you earned. There is nothing to loose.
         <br />
         To progress a path to next Level and gain a levelup you need to win all
         available adventures there.
+        <HeaderNavBtn
+          to="/dungeon"
+          display={`Go${getDiceTypeIcon("playerAttack")}`}
+          // display={`Go${getDiceTypeIcon("playerAttack")}`}
+          onClick={(e) => e.preventDefault()}
+          // inactive={true}
+          recommended={true}
+          styles={{ whiteSpace: "nowrap" }}
+        />
       </ContainerHorisontal>
       <ContainerHorisontal>
         Caravan
@@ -147,6 +156,11 @@ export const TutorialPage = () => {
         🔨.
         <br />
         Deleveling items costs a little bit of gold.
+        <HeaderNavBtn
+          to="/-"
+          display={`🔨`}
+          onClick={(e) => e.preventDefault()}
+        />
       </ContainerHorisontal>
       <ContainerHorisontal>
         Skills <br />

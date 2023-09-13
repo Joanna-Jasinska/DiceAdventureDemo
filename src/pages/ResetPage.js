@@ -23,7 +23,8 @@ export const ResetPage = () => {
   return (
     <main className={`${css.main}`}>
       {error ? <span className={css.error}>{error}</span> : ""}
-      <Navigate to="/town" />
+      {/* <Navigate to="/town" /> */}
+      <Navigate to="/workshop" />
       <Title title="Resetting game." />
     </main>
   );
