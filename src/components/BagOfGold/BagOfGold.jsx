@@ -2,14 +2,14 @@
 import css from "./BagOfGold.module.css";
 // import { useDungeon } from "hooks";
 
-export const BagOfGold = ({ gold }) => {
+export const BagOfGold = ({ gold, shrink=false }) => {
   const goldEarned = 0;
   const goldDisplayed =
     !gold || typeof gold !== "number"
       ? `${goldEarned}`.replace(/\B(?=(\d{3})+(?!\d))/g, " ")
       : `${gold}`.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   return (
-    <div className={`${css.miniature}`}>
+    <div className={`${css.miniature} ${shrink? css.shrink: ''}`}>
       <div className={`${css.imgFrame}`}>
         <div className={css.gold}>{goldDisplayed}</div>
         <div className={css.textBoxContainer}>

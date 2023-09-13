@@ -3,12 +3,12 @@ import { selectGameError } from "redux/game/selectors";
 import css from "./Page.module.css";
 import { LevelUps } from "components/LevelUps/LevelUps";
 import { useGame } from "hooks/useGame";
-import { BagOfGold } from "components/BagOfGold/BagOfGold";
+// import { BagOfGold } from "components/BagOfGold/BagOfGold";
 import { WorkshopList } from "components/WorkshopList/WorkshopList";
 
 export const WorkshopPage = () => {
   const error = useSelector(selectGameError);
-  const { gold, spareLvUps } = useGame();
+  const { spareLvUps } = useGame();
   return (
     <main
       style={{ width: "100%", boxSizing: "border-box", padding: "0.4em 0px" }}
@@ -23,7 +23,7 @@ export const WorkshopPage = () => {
         }}
       >
         {/* <PlayerAvatar /> */}
-        <BagOfGold gold={gold} />
+        {/* <BagOfGold gold={gold} /> */}
         <LevelUps lv={spareLvUps} />
       </div>
       <WorkshopList />

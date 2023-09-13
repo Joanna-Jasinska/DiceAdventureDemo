@@ -35,6 +35,7 @@
 }
 
 .leftNav {
+  position: relative;
   width: 100%;
 }
 .rightNav {

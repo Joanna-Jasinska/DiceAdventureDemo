@@ -1,6 +1,41 @@
 .avatar {
   position: relative;
   display: block;
+  box-sizing: border-box;
+  /* top: 0;
+  left: 0; */
+  /* width: min-content;
+  height: min-content; */
+  margin: 0;
+}
+.shrink {
+  /* position: relative; */
+  /* box-sizing: border-box; */
+  /* top: -0.6rem; */
+  margin: 0 0.16rem;
+
+  display: inline-block;
+  box-sizing: border-box;
+  height: 3rem;
+  width: 3rem;
+  line-height: 1.4rem;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background-color: blue;
+}
+.shrink .avatarBox {
+  /* display: none; */
+  position: absolute;
+  transform: scale(0.4);
+  line-height: 7rem;
+  width: 3rem;
+  height: 3rem;
+  /* top: -0.5rem; */
+  top: -0.9rem;
+  /* left: -0.8rem; */
+  left: -0.9rem;
+  /* overflow: hidden; */
 }
 .lv {
   z-index: 200;
@@ -19,6 +54,17 @@
   /* text-align: center; */
   overflow: hidden;
   font-weight: bold;
+}
+.shrink .lv {
+  position: relative;
+  overflow: visible;
+  box-sizing: border-box;
+  top: 0.4rem;
+  font-size: 1rem;
+  line-height: 1.4rem;
+  height: 2.7rem;
+  width: 3rem;
+  border-radius: var(--border-radius);
 }
 .lv::after {
   z-index: 1;
@@ -42,4 +88,10 @@
   color: var(--color);
   color: black;
   opacity: 100%;
+}
+.shrink .lv::after {
+  padding-top: 0.4rem;
+  font-size: 1.4rem;
+  /* height: 2.7rem;
+  width: 3rem; */
 }

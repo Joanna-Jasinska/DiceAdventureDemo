@@ -13,12 +13,16 @@ import css from "./TownNavigation.module.css";
 import { useGame } from "hooks/useGame";
 import { getDiceTypeIcon } from "data/icons";
 import { useLocation } from "react-router-dom";
+import { BagOfGold } from "components/BagOfGold/BagOfGold";
+import { PlayerLvAvatar } from "components/PlayerLvAvatar/PlayerLvAvatar";
+import { PLvAvatar } from "components/PLvAvatar/PLvAvatar";
 
 export const TownNavigation = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectEq);
   const { selectedDungeonId, currentDungeons } = useGame();
   const { readyToEnter } = useDungeon();
+  const { gold } = useGame();
   const location = useLocation();
   const { pathname } = location;
   const selectedItems = [...items].filter((item) => {
@@ -87,6 +91,9 @@ export const TownNavigation = () => {
         <nav className={css.header}>
           <div className={css.leftNav}>
             {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
+            {/* <PlayerLvAvatar shrink={true} /> */}
+            <PLvAvatar shrink={true} gold={"lv"} />
+            <BagOfGold shrink={true} gold={gold} />
             <HeaderNavBtn to="/eq" display={`${selectedItems.length}/5`} />
             <HeaderNavBtn to="/workshop" display={`🔨`} />
             {/* <HeaderNavBtn to="/alchemy" display={`⚗️`} /> */}

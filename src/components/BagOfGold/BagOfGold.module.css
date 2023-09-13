@@ -6,7 +6,6 @@
 }
 .miniature {
   position: relative;
-  display: flex;
   display: block;
   box-sizing: border-box;
   border-radius: 20px;
@@ -15,6 +14,15 @@
   max-width: 16rem;
   height: 7.1rem;
   margin: 0;
+}
+.shrink {
+  top: -0.6rem;
+  display: inline-block;
+  /* box-sizing: content-box; */
+  min-width: 3rem;
+  height: 3rem;
+  margin: 0 0.16rem;
+  border-radius: var(--border-radius);
 }
 .padding {
   padding: 0.8rem;
@@ -40,11 +48,16 @@
   /* background-color: #ff0000; */
   display: block;
   height: min-content;
+  box-sizing: border-box;
   text-align: right;
   max-height: 100%;
   max-width: 100%;
   font-size: 2.6rem;
   line-height: 2.3rem;
+}
+.shrink .gold {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
 }
 
 .textBoxContainer {
@@ -104,4 +117,11 @@
 
   /* background-color: aquamarine; */
   /* overflow: visible; */
+}
+.shrink .imgFrame {
+  /* height: 3rem; */
+  box-sizing: border-box;
+  padding-top: 0.34rem;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
 }
