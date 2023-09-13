@@ -121,7 +121,8 @@ export const TutorialPage = () => {
         Path
         <br /> There are 5 Paths to explore.
         <br />
-        To progress the game on selected Path choose Go.
+        To progress the game on selected Path choose{" "}
+        {`Go${getDiceTypeIcon("playerAttack")}`}.
         <br />
         Whenever you come back from a Path - you bring back gold and levelups
         you earned. There is nothing to loose.
