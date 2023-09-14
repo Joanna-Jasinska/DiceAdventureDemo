@@ -9,8 +9,8 @@ export const BSGolem = {
     filterColor: "#ff55004a",
     bgColor: "#0080cf",
   },
-  life: 15,
-  maxLife: 15,
+  life: 14,
+  maxLife: 14,
   id: "ELEMENTALS|black|Golem",
   body: [
     {
@@ -21,7 +21,7 @@ export const BSGolem = {
       weakness: ["elemental"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -176,7 +176,7 @@ export const BSGolem = {
       weakness: ["elemental"],
       damages: {
         // damageToPlayer: 1,
-        damageToEnemy: 2,
+        damageToEnemy: 3,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -206,7 +206,7 @@ export const BSGolem = {
       id: "piece|ELEMENTALS|black|Golem|weapon|4",
       weakness: ["elemental"],
       damages: {
-        damageToPlayer: 2,
+        damageToPlayer: 3,
         // damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

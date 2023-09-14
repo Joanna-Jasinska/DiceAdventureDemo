@@ -21,7 +21,7 @@ export const PMutatedRat = {
       weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -144,7 +144,7 @@ export const PMutatedRat = {
       id: "piece|ANIMALS|purple|Mutated Rat|head|2",
       weakness: ["physical"],
       damages: {
-        damageToPlayer: 1,
+        damageToPlayer: 2,
         damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

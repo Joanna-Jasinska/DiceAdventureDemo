@@ -9,8 +9,8 @@ export const GTreant = {
     filterColor: "#005a124a",
     bgColor: "#ddd900",
   },
-  life: 15,
-  maxLife: 15,
+  life: 14,
+  maxLife: 14,
   id: "ELEMENTALS|green|Treant",
   body: [
     {
@@ -21,7 +21,7 @@ export const GTreant = {
       weakness: ["elemental"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -176,7 +176,7 @@ export const GTreant = {
       weakness: ["elemental"],
       damages: {
         // damageToPlayer: 1,
-        damageToEnemy: 2,
+        damageToEnemy: 3,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -206,7 +206,7 @@ export const GTreant = {
       id: "piece|ELEMENTALS|green|Treant|weapon|4",
       weakness: ["elemental"],
       damages: {
-        damageToPlayer: 2,
+        damageToPlayer: 3,
         // damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

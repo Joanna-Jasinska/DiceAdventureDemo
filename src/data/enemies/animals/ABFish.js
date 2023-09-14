@@ -22,7 +22,7 @@ export const ABFish = {
       weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -145,7 +145,7 @@ export const ABFish = {
       id: "piece|ANIMALS|aqua|Blue Fish|head|2",
       weakness: ["physical"],
       damages: {
-        damageToPlayer: 1,
+        damageToPlayer: 2,
         damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

@@ -9,8 +9,8 @@ export const AToadK = {
     filterColor: "#00b7ff4a",
     bgColor: "#00ddc7",
   },
-  life: 4,
-  maxLife: 4,
+  life: 14,
+  maxLife: 14,
   id: "ANIMALS|aqua|Toad King",
   body: [
     {
@@ -21,7 +21,7 @@ export const AToadK = {
       weakness: ["trait"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -176,7 +176,7 @@ export const AToadK = {
       weakness: ["trait"],
       damages: {
         // damageToPlayer: 1,
-        damageToEnemy: 2,
+        damageToEnemy: 3,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -206,7 +206,7 @@ export const AToadK = {
       id: "piece|ANIMATED|purple|Cursed Orb|weapon|4",
       weakness: ["trait"],
       damages: {
-        damageToPlayer: 2,
+        damageToPlayer: 3,
         // damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

@@ -6,7 +6,7 @@ import css from "./Page.module.css";
 import { useCombat } from "hooks";
 import { EnemyBody } from "components/EnemyBody/EnemyBody";
 import { SkillList } from "components/SkillList/SkillList";
-import { Background } from "components/Background/Background";
+// import { Background } from "components/Background/Background";
 import { RolledDiceBag } from "components/RolledDiceBag/RolledDiceBag";
 import { selectEnemyLife } from "redux/enemy/selectors";
 import { selectLoading as selectDungeonLoading } from "redux/dungeon/selectors";
@@ -34,7 +34,7 @@ export const CombatPage = () => {
           <Navigate to="/return" />
         ) : (
           <>
-            <Background />
+            {/* <Background /> */}
             {/* <AAATester /> */}
             {/* <Title title={`Combat`} /> */}
             {/* <Title title={`Lv.${lv} ${dungeonName} ${dungeonEvName}`} /> */}

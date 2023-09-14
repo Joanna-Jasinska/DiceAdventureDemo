@@ -21,7 +21,7 @@ export const BPebbles = {
       weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -144,7 +144,7 @@ export const BPebbles = {
       id: "piece|BARRICADE|black|Pebbles|head|2",
       weakness: ["physical"],
       damages: {
-        damageToPlayer: 1,
+        damageToPlayer: 2,
         damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

@@ -9,8 +9,8 @@ export const PCOrb = {
     filterColor: "#32005a4a",
     bgColor: "#dd6b00",
   },
-  life: 15,
-  maxLife: 15,
+  life: 14,
+  maxLife: 14,
   id: "ANIMATED|purple|Cursed Orb",
   body: [
     {
@@ -21,7 +21,7 @@ export const PCOrb = {
       weakness: ["magic"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -176,7 +176,7 @@ export const PCOrb = {
       weakness: ["magic"],
       damages: {
         // damageToPlayer: 1,
-        damageToEnemy: 2,
+        damageToEnemy: 3,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -206,7 +206,7 @@ export const PCOrb = {
       id: "piece|ANIMATED|purple|Cursed Orb|weapon|4",
       weakness: ["magic"],
       damages: {
-        damageToPlayer: 2,
+        damageToPlayer: 3,
         // damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

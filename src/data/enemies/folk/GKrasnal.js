@@ -21,7 +21,7 @@ export const GKrasnal = {
       weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -144,7 +144,7 @@ export const GKrasnal = {
       id: "piece|FOLK|green|Krasnal|head|2",
       weakness: ["physical"],
       damages: {
-        damageToPlayer: 1,
+        damageToPlayer: 2,
         damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

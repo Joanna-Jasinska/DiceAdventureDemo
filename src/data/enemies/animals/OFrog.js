@@ -21,7 +21,7 @@ export const OFrog = {
       weakness: ["trait"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -49,7 +49,7 @@ export const OFrog = {
       bodyPartIcon: "🐸",
       bodyPartTypes: ["head", "body"],
       id: "piece|ANIMALS|orange|Frog|head|1",
-      // weakness: ["trait"],
+      // weakness: ["physical"],
       damages: {
         damageToPlayer: 2,
         // damageToEnemy: 1,
@@ -65,11 +65,11 @@ export const OFrog = {
       requires: {
         // exactValues: false,
         // minDices: 1,
-        minSum: 3,
+        minSum: 4,
       },
       grow: {
         // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 3,
+        lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,
@@ -80,7 +80,7 @@ export const OFrog = {
       bodyPartIcon: "🟢",
       bodyPartTypes: ["torso", "body"],
       id: "piece|ANIMALS|orange|Frog|torso|1",
-      // weakness: ["trait"],
+      // weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
         damageToEnemy: 1,
@@ -107,13 +107,44 @@ export const OFrog = {
       },
     },
     {
+      // priority: true, //priority, extra, keep, once
+      bodyPartIcon: "🐸",
+      bodyPartTypes: ["paws", "body"],
+      id: "piece|ANIMALS|orange|Frog|paws|2",
+      // weakness: ["physical"],
+      damages: {
+        damageToPlayer: 1,
+        // damageToEnemy: 1,
+        // effectsToPlayer: false,// effectsToEnemy: false,
+      },
+      allows: {
+        types: ["any"],
+        // minValue: 4,
+        // maxValue: 4,
+        // exactValues: ["even"],
+        maxDices: 2,
+      },
+      requires: {
+        // exactValues: false,
+        // minDices: 1,
+        minSum: 3,
+      },
+      grow: {
+        // duplicateAtLv: 32,
+        lvlsToRaiseMinSum: 1,
+        // lvlsToRaiseMinDices: 12,
+        // lvlsToRaiseExactValues: 17,
+        // lvlsToRaiseMinValue: 35,
+      },
+    },
+    {
       extra: true, //priority, extra, keep, once
       bodyPartIcon: "🐸",
       bodyPartTypes: ["head", "body"],
       id: "piece|ANIMALS|orange|Frog|head|2",
       weakness: ["trait"],
       damages: {
-        damageToPlayer: 1,
+        damageToPlayer: 2,
         damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

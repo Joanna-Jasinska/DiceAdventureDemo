@@ -10,8 +10,8 @@ export const OSlime = {
     filterColor: "#ff91004a",
     bgColor: "#0c7800",
   },
-  life: 15,
-  maxLife: 15,
+  life: 14,
+  maxLife: 14,
   id: "ELEMENTALS|orange|Slime",
   body: [
     {
@@ -22,7 +22,7 @@ export const OSlime = {
       weakness: ["magic"],
       damages: {
         // damageToPlayer: 1,
-        // damageToEnemy: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -177,7 +177,7 @@ export const OSlime = {
       weakness: ["magic"],
       damages: {
         // damageToPlayer: 1,
-        damageToEnemy: 2,
+        damageToEnemy: 3,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -207,7 +207,7 @@ export const OSlime = {
       id: "piece|ELEMENTALS|orange|Slime|weapon|4",
       weakness: ["magic"],
       damages: {
-        damageToPlayer: 2,
+        damageToPlayer: 3,
         // damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },

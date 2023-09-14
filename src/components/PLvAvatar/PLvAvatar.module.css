@@ -116,17 +116,17 @@
   font-size: 0.8rem;
   font-weight: bold;
 }
-/* .lvLabel::after {
+.lvLabel::after {
   z-index: -1;
   content: "";
   position: absolute;
   top: -200%;
   left: -100%;
-  background-color: #fbffe15c;
+  background-color: #fbffe18d;
   height: 5rem;
   width: 3rem;
   width: 6rem;
-} */
+}
 .lv::after {
   z-index: 1;
   content: attr(data-text);
@@ -156,7 +156,7 @@
   font-size: 1.4rem;
   /* background-color: #ecefd58c; */
   background-color: #fffde5a2;
-  background-color: #fffde5bc;
+  background-color: #fffde5d1;
   /* height: 2.7rem;
   width: 3rem; */
 }
