@@ -22,7 +22,7 @@ import { getDiceTypeIcon } from "data/icons";
 
 export const CombatNavigation = () => {
   const dispatch = useDispatch();
-  const { player } = useDungeon();
+  const { player, goldEarned } = useDungeon();
   const { life, maxLife } = player;
   const { body, gold, enemyLife } = useEnemy();
   const { inCombat } = useCombat();
@@ -51,6 +51,7 @@ export const CombatNavigation = () => {
       dispatch(clearCombat());
     });
   };
+
   const nothing = (e) => {
     e.preventDefault();
   };
@@ -180,7 +181,11 @@ export const CombatNavigation = () => {
               recommended={negatives === ""}
               // styles={endTurnBtnStyle}
             />
-            <HeaderNavBtn to="/summary" display="🏃Leave Path" />
+            <HeaderNavBtn
+              to="/summary"
+              display="🏃Leave Path"
+              onClick={goldEarned < 1 ? exitDungeon : () => {}}
+            />
             {/* <HeaderNavBtn
               to="/-"
               display="Win"

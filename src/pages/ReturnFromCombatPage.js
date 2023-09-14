@@ -17,7 +17,7 @@ import css from "./Page.module.css";
 export const ReturnFromCombatPage = () => {
   const dispatch = useDispatch();
   const { inCombat } = useCombat();
-  const { slotsDefeated, player, dungeonId } = useDungeon();
+  const { slotsDefeated, player, dungeonId, goldEarned } = useDungeon();
   const { life } = player;
   const { enemyLife } = useEnemy();
   const navigate = useNavigate();
@@ -27,10 +27,10 @@ export const ReturnFromCombatPage = () => {
   // const error = useSelector(selectError);
   // const loading = useSelector(selectLoading);
 
-  useEffect(() => {
-    console.log(` ReturnFromCombatPage rendering START`);
-    return () => console.log(` ReturnFromCombatPage rendering END`);
-  }, []);
+  // useEffect(() => {
+  //   console.log(` ReturnFromCombatPage rendering START`);
+  //   return () => console.log(` ReturnFromCombatPage rendering END`);
+  // }, []);
 
   useEffect(() => {
     if (inCombat && (enemyLife < 1 || life < 1)) {
@@ -70,6 +70,7 @@ export const ReturnFromCombatPage = () => {
     life,
     dungeonId,
     navigate,
+    goldEarned,
   ]);
 
   return (

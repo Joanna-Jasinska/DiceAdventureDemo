@@ -4,26 +4,30 @@
 -/later/- Item.js leveling stats dices of item gives them unnecessary ||| in their id
 -/later/- dungeon slice operations startDungeonById:
  should load player statuses depending on eq
-?/later/- workshop items paying gold for leveling ?
-+/later/- enemy body pieces sides should grow bigger not appear - or never shrink space taken
+-/later/- animations
+-/later/- fix plvavatar and playerlvavatar to each have separate role or be one component
 
 
 -------------------------------
 to do for presentation:
 
 - add bye page (clearing data)
-- working github pages
-- fill dungeons with enemies
 - readme on github
 
-- fix button at tutorial - cannot be clicked in middle
 
-- if you leave dungeon with 0 gold it skips summary
+- if you leave dungeon combat with 0 gold it skips summary
+- make enemies different 
+
 -------------------------------
+
+- add 'double gold gained' suqre at dungeon page
+- item to buy cost 100 + 10x dungeonLv gold
 
 - move  the rest of items to its item file
 
+
 -------------------------------
+
 
 - data eq placed in folder and separate files
 
@@ -35,6 +39,9 @@ to do for presentation:
 
 - workshop item -10 button onClick does nothing
 
+-------------------------------
+- dungeon victory animations ?
+- enemy defeat animations ?
 -------------------------------
 
 - allies working at all

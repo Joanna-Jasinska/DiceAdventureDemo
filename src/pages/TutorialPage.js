@@ -125,10 +125,13 @@ export const TutorialPage = () => {
         {`Go${getDiceTypeIcon("playerAttack")}`}.
         <br />
         Whenever you come back from a Path - you bring back gold and levelups
-        you earned. There is nothing to loose.
+        you earned.
         <br />
         To progress a path to next Level and gain a levelup you need to win all
         available adventures there.
+        <br />
+        Once you progress path to next level all gold you will be earning since
+        then is doubled - until you leave path and go back to caravan.
         <HeaderNavBtn
           to="/dungeon"
           display={`Go${getDiceTypeIcon("playerAttack")}`}
@@ -154,9 +157,9 @@ export const TutorialPage = () => {
         When on the Path you must have 1-5 items equipped with you.
         <br />
         All equipment can be leveled up and down as you please at the caravan
-        🔨.
+        🔨, however deleveling items costs a little bit of gold.
         <br />
-        Deleveling items costs a little bit of gold.
+        Once you get an item it is Yours forever.
         <HeaderNavBtn
           to="/-"
           display={`🔨`}

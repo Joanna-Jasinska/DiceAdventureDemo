@@ -12,6 +12,7 @@ export const BSGolem = {
   life: 14,
   maxLife: 14,
   id: "ELEMENTALS|black|Golem",
+  gold: 20,
   body: [
     {
       priority: true, //priority, extra, keep, once
