@@ -28,9 +28,9 @@ export const ABFish = {
       allows: {
         types: ["any"],
         // minValue: 4,
-        // maxValue: 4,
+        maxValue: 7,
         // exactValues: ["even"],
-        maxDices: 2,
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -81,7 +81,7 @@ export const ABFish = {
       bodyPartIcon: "🐟",
       bodyPartTypes: ["torso", "body"],
       id: "piece|ANIMALS|aqua|Blue Fish|torso|1",
-      // weakness: ["physical"],
+      weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
         damageToEnemy: 1,
@@ -90,7 +90,7 @@ export const ABFish = {
       allows: {
         // types: ["any"],
         // minValue: 4,
-        // maxValue: 4,
+        maxValue: 4,
         // exactValues: ["even"],
         // maxDices: false,
       },
@@ -121,9 +121,9 @@ export const ABFish = {
       allows: {
         types: ["any"],
         // minValue: 4,
-        // maxValue: 4,
+        maxValue: 6,
         // exactValues: ["even"],
-        maxDices: 2,
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -152,9 +152,9 @@ export const ABFish = {
       allows: {
         types: ["any"],
         // minValue: 4,
-        // maxValue: 4,
+        maxValue: 5,
         // exactValues: ["even"],
-        maxDices: 2,
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,

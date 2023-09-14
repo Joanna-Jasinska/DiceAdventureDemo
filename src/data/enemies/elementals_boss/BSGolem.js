@@ -27,7 +27,7 @@ export const BSGolem = {
       },
       allows: {
         types: ["any"],
-        // minValue: 4,
+        minValue: 1,
         // maxValue: 4,
         // exactValues: ["even"],
         maxDices: 2,
@@ -42,7 +42,7 @@ export const BSGolem = {
         lvlsToRaiseMinSum: 3,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
-        // lvlsToRaiseMinValue: 35,
+        lvlsToRaiseMinValue: 4,
       },
     },
     {
@@ -58,7 +58,7 @@ export const BSGolem = {
       },
       allows: {
         types: ["any"],
-        // minValue: 4,
+        // minValue: 1,
         // maxValue: 4,
         // exactValues: ["even"],
         maxDices: 1,
@@ -73,7 +73,7 @@ export const BSGolem = {
         lvlsToRaiseMinSum: 3,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
-        // lvlsToRaiseMinValue: 35,
+        // lvlsToRaiseMinValue: 3,
       },
     },
     {
@@ -182,10 +182,10 @@ export const BSGolem = {
       },
       allows: {
         types: ["any"],
-        // minValue: 4,
+        minValue: 1,
         // maxValue: 4,
         // exactValues: ["even"],
-        maxDices: 2,
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -197,7 +197,7 @@ export const BSGolem = {
         lvlsToRaiseMinSum: 2,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
-        // lvlsToRaiseMinValue: 35,
+        lvlsToRaiseMinValue: 2.4,
       },
     },
     {
@@ -213,7 +213,7 @@ export const BSGolem = {
       },
       allows: {
         types: ["any"],
-        // minValue: 4,
+        minValue: 2,
         // maxValue: 4,
         // exactValues: ["even"],
         maxDices: 2,
@@ -228,7 +228,7 @@ export const BSGolem = {
         lvlsToRaiseMinSum: 0.5,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
-        // lvlsToRaiseMinValue: 35,
+        lvlsToRaiseMinValue: 1,
       },
     },
   ],

@@ -15,7 +15,7 @@ export const BPebbles = {
   body: [
     {
       priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐾",
+      bodyPartIcon: "🌑",
       bodyPartTypes: ["paws", "body"],
       id: "piece|BARRICADE|black|Pebbles|paws|1",
       weakness: ["physical"],
@@ -26,7 +26,7 @@ export const BPebbles = {
       },
       allows: {
         types: ["any"],
-        // minValue: 4,
+        minValue: 1,
         // maxValue: 4,
         // exactValues: ["even"],
         maxDices: 2,
@@ -41,12 +41,12 @@ export const BPebbles = {
         lvlsToRaiseMinSum: 2,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
-        // lvlsToRaiseMinValue: 35,
+        lvlsToRaiseMinValue: 2,
       },
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐭",
+      bodyPartIcon: "🌑",
       bodyPartTypes: ["head", "body"],
       id: "piece|BARRICADE|black|Pebbles|head|1",
       // weakness: ["physical"],
@@ -108,7 +108,7 @@ export const BPebbles = {
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐾",
+      bodyPartIcon: "🌑",
       bodyPartTypes: ["paws", "body"],
       id: "piece|BARRICADE|black|Pebbles|paws|2",
       // weakness: ["physical"],
@@ -139,7 +139,7 @@ export const BPebbles = {
     },
     {
       extra: true, //priority, extra, keep, once
-      bodyPartIcon: "🐭",
+      bodyPartIcon: "🌿",
       bodyPartTypes: ["head", "body"],
       id: "piece|BARRICADE|black|Pebbles|head|2",
       weakness: ["physical"],
@@ -150,10 +150,10 @@ export const BPebbles = {
       },
       allows: {
         types: ["any"],
-        // minValue: 4,
+        minValue: 2,
         // maxValue: 4,
         // exactValues: ["even"],
-        maxDices: 2,
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -165,7 +165,7 @@ export const BPebbles = {
         lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
-        // lvlsToRaiseMinValue: 35,
+        lvlsToRaiseMinValue: 1.6,
       },
     },
   ],

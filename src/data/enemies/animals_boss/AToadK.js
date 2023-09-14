@@ -28,9 +28,9 @@ export const AToadK = {
       allows: {
         types: ["any"],
         // minValue: 4,
-        // maxValue: 4,
+        maxValue: 10,
         // exactValues: ["even"],
-        maxDices: 2,
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -59,9 +59,9 @@ export const AToadK = {
       allows: {
         types: ["any"],
         // minValue: 4,
-        // maxValue: 4,
+        maxValue: 8,
         // exactValues: ["even"],
-        maxDices: 1,
+        // maxDices: 1,
       },
       requires: {
         // exactValues: false,
@@ -112,7 +112,7 @@ export const AToadK = {
       bodyPartIcon: "🟢",
       bodyPartTypes: ["body"],
       id: "piece|ANIMATED|purple|Cursed Orb|body|1",
-      // weakness: ["trait"],
+      weakness: ["trait"],
       damages: {
         // damageToPlayer: 1,
         damageToEnemy: 2,
@@ -121,7 +121,7 @@ export const AToadK = {
       allows: {
         // types: ["any"],
         // minValue: 4,
-        // maxValue: 4,
+        maxValue: 5,
         // exactValues: ["even"],
         // maxDices: false,
       },
@@ -183,9 +183,9 @@ export const AToadK = {
       allows: {
         types: ["any"],
         // minValue: 4,
-        // maxValue: 4,
+        maxValue: 3,
         // exactValues: ["even"],
-        maxDices: 2,
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -214,9 +214,9 @@ export const AToadK = {
       allows: {
         types: ["any"],
         // minValue: 4,
-        // maxValue: 4,
+        maxValue: 4,
         // exactValues: ["even"],
-        maxDices: 2,
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,

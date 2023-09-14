@@ -15,8 +15,8 @@ to do for presentation:
 - readme on github
 
 
-- if you leave dungeon combat with 0 gold it skips summary
 - make enemies different 
+- make new items purchasable
 
 -------------------------------
 
@@ -95,7 +95,6 @@ to do for presentation:
 -------------------------------
 cleaning, remove:
 
-- phonebook related stuff - components, redux, pages, hooks
 - redux combat selectDice
 - objects Dice select, deselect
 
