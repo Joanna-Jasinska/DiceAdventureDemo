@@ -47,7 +47,7 @@ export const Piece = {
     if (reqAmount > 0) {
       // allows exact values
       allow.push({
-        value: `x${reqAmount}+`,
+        value: `x${reqAmount}`,
         required: true,
       });
       showAllows = true;

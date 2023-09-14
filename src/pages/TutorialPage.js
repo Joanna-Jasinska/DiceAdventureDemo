@@ -7,6 +7,7 @@ import { getDiceTypeIcon } from "data/icons";
 import { PieceIcon } from "components/EnemyBody/EnemyPiece/PieceIcon/PieceIcon";
 import { Piece } from "objects/Piece";
 import css from "./Page.module.css";
+import { Item } from "components/Item/Item";
 
 export const TutorialPage = () => {
   const exampleEPiece1 = {
@@ -73,6 +74,48 @@ export const TutorialPage = () => {
       maxDices: 4,
     },
     requires: {},
+  };
+  const exapleItem = {
+    itemId: "Rusty Sword|SWORD SLASH|",
+    name: "Item name",
+    lv: "(Lv)",
+    alt: "🗡️",
+    skill: {
+      name: "SKILL NAME",
+      txt: "What the skill does",
+      id: "Rusty Sword|SWORD SLASH|",
+      displayCost: [
+        { value: "(1)", type: "slashed" },
+        { value: "(1)", type: "strength" },
+      ],
+    },
+    statsTxT: "~ +1 per lv",
+    dices: [
+      {
+        item: "dice",
+        type: "heat",
+        diceMax: "(2)",
+        // diceMax: 3,
+        id: "Rusty Sword|SWORD SLASH|||last|dice|0",
+      },
+      {
+        item: "dice",
+        type: "arcane",
+        diceMax: "(2)",
+        // diceMax: 3,
+        id: "Rusty Sword|SWORD SLASH|||last|dice|0",
+      },
+      {
+        item: "dice",
+        type: "slashed",
+        diceMax: "(2)",
+        // diceMax: 3,
+        id: "Rusty Sword|SWORD SLASH|||last|dice|0",
+      },
+    ],
+    nondices: [],
+    // selected: true,
+    index: 0,
   };
   // const error = useSelector(selectGameError);
   return (
@@ -143,11 +186,11 @@ export const TutorialPage = () => {
         />
       </ContainerHorisontal>
       <ContainerHorisontal>
+        (Caravan moving added in future)
+        <br />
         Caravan
         <br />
         When the Caravan is ready, MOVE the caravan to discover new paths.
-        <br />
-        (Caravan moving added in future)
       </ContainerHorisontal>
       <h4 id="tutorial">Equipment and Skills</h4>
       <ContainerHorisontal>
@@ -174,7 +217,10 @@ export const TutorialPage = () => {
         <br /> When Skill is ready to activate - it will glow with green aura.
         <br /> To activate skill first select exactly as many dices as the skill
         requires
-        <br /> - then click on the Skill.
+        <br /> - then click on the Skill. <br />
+        <br /> (1) dices that can be used for this skill.
+        <br /> (2) dices that you get each turn when this item is equipped.
+        <Item {...exapleItem} />
       </ContainerHorisontal>
       <h4 id="path">When on the Path</h4>
       <ContainerHorisontal>
@@ -250,32 +296,26 @@ export const TutorialPage = () => {
       <ContainerHorisontal>
         <PieceIcon
           {...{ value: "x4", required: true }}
-          key={`sumRequirements`}
+          key={`x4Requirements`}
         />
         amount of dices inside
         <br />
         example: 4x needs four dices inside
       </ContainerHorisontal>
       <ContainerHorisontal>
-        <PieceIcon
-          {...{ value: "2+", allowed: true }}
-          key={`sumRequirements`}
-        />
+        <PieceIcon {...{ value: "2+", allowed: true }} key={`2+Requirements`} />
         minimum value of dice <br />
         example: with 2+ only dices with value 2 or higher can be placed inside
       </ContainerHorisontal>
       <ContainerHorisontal>
-        <PieceIcon
-          {...{ value: "-5", allowed: true }}
-          key={`sumRequirements`}
-        />
+        <PieceIcon {...{ value: "-5", allowed: true }} key={`-5Requirements`} />
         maximum value of dice <br />
         example: with -5 only dices with value 5 or lower can be placed inside
       </ContainerHorisontal>
       <ContainerHorisontal>
         <PieceIcon
           {...{ value: "3-6", allowed: true }}
-          key={`sumRequirements`}
+          key={`3-6Requirements`}
         />
         minimum and maximum together
         <br />
@@ -285,10 +325,23 @@ export const TutorialPage = () => {
       <ContainerHorisontal>
         <PieceIcon
           {...{ value: "-2x", allowed: true }}
-          key={`sumRequirements`}
+          key={`-2xRequirements`}
         />
         maximum amount of dices <br />
         example: with -2x only two dices (or less) can be inside at the time
+      </ContainerHorisontal>
+      <ContainerHorisontal>
+        <PieceIcon
+          {...{ value: "even", allowed: true }}
+          key={`evenRequirements`}
+        />
+        <PieceIcon
+          {...{ value: "odd", allowed: true }}
+          key={`oddRequirements`}
+        />
+        only even / odd dices <br />
+        example: with even - only dices with even value like 2, 4, 6, 8, etc can
+        be placed inside
       </ContainerHorisontal>
     </main>
   );
