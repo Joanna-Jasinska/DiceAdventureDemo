@@ -60,8 +60,8 @@ export const PCOrb = {
         types: ["any"],
         // minValue: 4,
         // maxValue: 4,
-        // exactValues: ["even"],
-        maxDices: 1,
+        exactValues: ["odd"],
+        // maxDices: 1,
       },
       requires: {
         // exactValues: false,
@@ -143,7 +143,7 @@ export const PCOrb = {
       bodyPartIcon: "🔮",
       bodyPartTypes: ["body"],
       id: "piece|ANIMATED|purple|Cursed Orb|body|2",
-      // weakness: ["magic"],
+      weakness: ["magic"],
       damages: {
         damageToPlayer: 1,
         damageToEnemy: 1,
@@ -153,7 +153,7 @@ export const PCOrb = {
         // types: ["any"],
         // minValue: 4,
         // maxValue: 4,
-        // exactValues: ["even"],
+        exactValues: ["odd"],
         // maxDices: false,
       },
       requires: {
@@ -184,8 +184,8 @@ export const PCOrb = {
         types: ["any"],
         // minValue: 4,
         // maxValue: 4,
-        // exactValues: ["even"],
-        maxDices: 2,
+        exactValues: ["even"],
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -215,8 +215,8 @@ export const PCOrb = {
         types: ["any"],
         // minValue: 4,
         // maxValue: 4,
-        // exactValues: ["even"],
-        maxDices: 2,
+        exactValues: ["odd"],
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,

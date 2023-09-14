@@ -28,8 +28,8 @@ export const PMutatedRat = {
         types: ["any"],
         // minValue: 4,
         // maxValue: 4,
-        // exactValues: ["even"],
-        maxDices: 2,
+        exactValues: ["even"],
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -121,8 +121,8 @@ export const PMutatedRat = {
         types: ["any"],
         // minValue: 4,
         // maxValue: 4,
-        // exactValues: ["even"],
-        maxDices: 2,
+        exactValues: ["even"],
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -152,8 +152,8 @@ export const PMutatedRat = {
         types: ["any"],
         // minValue: 4,
         // maxValue: 4,
-        // exactValues: ["even"],
-        maxDices: 2,
+        exactValues: ["odd"],
+        // maxDices: 2,
       },
       requires: {
         // exactValues: false,

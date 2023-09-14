@@ -4,6 +4,8 @@
   /* background-color: #b5ff547b; */
   display: flex;
   flex-wrap: wrap;
+  /* align-items: center; */
+  justify-content: center;
   gap: 3px;
   padding: 12px;
   /* box-shadow: var(--box-shadow-inset-dark); */
