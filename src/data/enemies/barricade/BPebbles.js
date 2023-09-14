@@ -1,23 +1,23 @@
-export const PMutatedRat = {
-  name: "Mutated Rat",
+export const BPebbles = {
+  name: "Pebbles", //🗻🌑🌿🍃🌾🌷💣•°👀🌲🌳
   portrait: {
-    frontIcon: "🐭",
-    sideIcon: "",
-    bgSideIcon: "🧱",
-    backIcon: "⚫️",
-    bgIcon: "🕳️",
-    filterColor: "#32005a4a",
-    bgColor: "#dd6b00",
+    frontIcon: "🌿",
+    sideIcon: "🌳",
+    bgSideIcon: "🌑",
+    backIcon: "",
+    bgIcon: "⚫️",
+    filterColor: "#ff55004a",
+    bgColor: "#0080cf",
   },
   life: 3,
   maxLife: 3,
-  id: "ANIMALS|purple|Mutated Rat",
+  id: "BARRICADE|black|Pebbles",
   body: [
     {
       priority: true, //priority, extra, keep, once
       bodyPartIcon: "🐾",
       bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|paws|1",
+      id: "piece|BARRICADE|black|Pebbles|paws|1",
       weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
@@ -48,7 +48,7 @@ export const PMutatedRat = {
       // priority: true, //priority, extra, keep, once
       bodyPartIcon: "🐭",
       bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|head|1",
+      id: "piece|BARRICADE|black|Pebbles|head|1",
       // weakness: ["physical"],
       damages: {
         damageToPlayer: 2,
@@ -79,7 +79,7 @@ export const PMutatedRat = {
       // priority: true, //priority, extra, keep, once
       bodyPartIcon: "⚫️",
       bodyPartTypes: ["torso", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|torso|1",
+      id: "piece|BARRICADE|black|Pebbles|torso|1",
       // weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
@@ -110,7 +110,7 @@ export const PMutatedRat = {
       // priority: true, //priority, extra, keep, once
       bodyPartIcon: "🐾",
       bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|paws|2",
+      id: "piece|BARRICADE|black|Pebbles|paws|2",
       // weakness: ["physical"],
       damages: {
         damageToPlayer: 1,
@@ -141,7 +141,7 @@ export const PMutatedRat = {
       extra: true, //priority, extra, keep, once
       bodyPartIcon: "🐭",
       bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|head|2",
+      id: "piece|BARRICADE|black|Pebbles|head|2",
       weakness: ["physical"],
       damages: {
         damageToPlayer: 1,

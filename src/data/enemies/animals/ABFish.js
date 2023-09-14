@@ -1,23 +1,24 @@
-export const PMutatedRat = {
-  name: "Mutated Rat",
+export const ABFish = {
+  name: "Blue Fish", //⛲️🌿💦🌊💧🐟➰🐬👽🐳🐋🦈🐊🐸🐢🟢⚜️｡ﾟ
   portrait: {
-    frontIcon: "🐭",
-    sideIcon: "",
-    bgSideIcon: "🧱",
-    backIcon: "⚫️",
-    bgIcon: "🕳️",
-    filterColor: "#32005a4a",
-    bgColor: "#dd6b00",
+    //⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆
+    frontIcon: "🐟", //👑
+    sideIcon: "ﾟ", //🤍✖️🐈🗝️
+    bgSideIcon: "_｡", //🧱🪑🟢🦇🕍
+    backIcon: "ﾟ", //🏹⛓⚔️❕❔💂🧝‍🧙🦹🧙🏻‍♀️🌙🙏⚜️
+    bgIcon: "ﾟ", //🗻🎚️⛆🏮
+    filterColor: "#00b7ff4a",
+    bgColor: "#00ddc7",
   },
   life: 3,
   maxLife: 3,
-  id: "ANIMALS|purple|Mutated Rat",
+  id: "ANIMALS|aqua|Blue Fish",
   body: [
     {
       priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐾",
+      bodyPartIcon: "➰",
       bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|paws|1",
+      id: "piece|ANIMALS|aqua|Blue Fish|paws|1",
       weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
@@ -46,9 +47,9 @@ export const PMutatedRat = {
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐭",
+      bodyPartIcon: "🐟",
       bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|head|1",
+      id: "piece|ANIMALS|aqua|Blue Fish|head|1",
       // weakness: ["physical"],
       damages: {
         damageToPlayer: 2,
@@ -77,9 +78,9 @@ export const PMutatedRat = {
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "⚫️",
+      bodyPartIcon: "🐟",
       bodyPartTypes: ["torso", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|torso|1",
+      id: "piece|ANIMALS|aqua|Blue Fish|torso|1",
       // weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
@@ -108,9 +109,9 @@ export const PMutatedRat = {
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐾",
+      bodyPartIcon: "🐟",
       bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|paws|2",
+      id: "piece|ANIMALS|aqua|Blue Fish|paws|2",
       // weakness: ["physical"],
       damages: {
         damageToPlayer: 1,
@@ -139,9 +140,9 @@ export const PMutatedRat = {
     },
     {
       extra: true, //priority, extra, keep, once
-      bodyPartIcon: "🐭",
+      bodyPartIcon: "🐟",
       bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|head|2",
+      id: "piece|ANIMALS|aqua|Blue Fish|head|2",
       weakness: ["physical"],
       damages: {
         damageToPlayer: 1,

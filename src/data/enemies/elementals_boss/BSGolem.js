@@ -1,24 +1,24 @@
-export const PMutatedRat = {
-  name: "Mutated Rat",
+export const BSGolem = {
+  name: "Golem", //🧊💢♨️🎇🌑👀⭕️🔺🔸🛋️☁️
   portrait: {
-    frontIcon: "🐭",
-    sideIcon: "",
-    bgSideIcon: "🧱",
-    backIcon: "⚫️",
-    bgIcon: "🕳️",
-    filterColor: "#32005a4a",
-    bgColor: "#dd6b00",
+    frontIcon: "👀",
+    sideIcon: "🌑",
+    bgSideIcon: "💣",
+    backIcon: "",
+    bgIcon: "🌑",
+    filterColor: "#ff55004a",
+    bgColor: "#0080cf",
   },
-  life: 3,
-  maxLife: 3,
-  id: "ANIMALS|purple|Mutated Rat",
+  life: 15,
+  maxLife: 15,
+  id: "ELEMENTALS|black|Golem",
   body: [
     {
       priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐾",
-      bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|paws|1",
-      weakness: ["physical"],
+      bodyPartIcon: "🌑",
+      bodyPartTypes: ["weapon"],
+      id: "piece|ELEMENTALS|black|Golem|weapon|1",
+      weakness: ["elemental"],
       damages: {
         // damageToPlayer: 1,
         // damageToEnemy: 1,
@@ -38,7 +38,38 @@ export const PMutatedRat = {
       },
       grow: {
         // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 2,
+        lvlsToRaiseMinSum: 3,
+        // lvlsToRaiseMinDices: 12,
+        // lvlsToRaiseExactValues: 17,
+        // lvlsToRaiseMinValue: 35,
+      },
+    },
+    {
+      priority: true, //priority, extra, keep, once
+      bodyPartIcon: "🌑",
+      bodyPartTypes: ["weapon"],
+      id: "piece|ELEMENTALS|black|Golem|weapon|2",
+      weakness: ["elemental"],
+      damages: {
+        damageToPlayer: 1,
+        // damageToEnemy: 1,
+        // effectsToPlayer: false,// effectsToEnemy: false,
+      },
+      allows: {
+        types: ["any"],
+        // minValue: 4,
+        // maxValue: 4,
+        // exactValues: ["even"],
+        maxDices: 1,
+      },
+      requires: {
+        // exactValues: false,
+        // minDices: 1,
+        minSum: 2,
+      },
+      grow: {
+        // duplicateAtLv: 32,
+        lvlsToRaiseMinSum: 3,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,
@@ -46,10 +77,10 @@ export const PMutatedRat = {
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐭",
-      bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|head|1",
-      // weakness: ["physical"],
+      bodyPartIcon: "🌑",
+      bodyPartTypes: ["weapon"],
+      id: "piece|ELEMENTALS|black|Golem|weapon|3",
+      // weakness: ["elemental"],
       damages: {
         damageToPlayer: 2,
         // damageToEnemy: 1,
@@ -65,38 +96,7 @@ export const PMutatedRat = {
       requires: {
         // exactValues: false,
         // minDices: 1,
-        minSum: 4,
-      },
-      grow: {
-        // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 1,
-        // lvlsToRaiseMinDices: 12,
-        // lvlsToRaiseExactValues: 17,
-        // lvlsToRaiseMinValue: 35,
-      },
-    },
-    {
-      // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "⚫️",
-      bodyPartTypes: ["torso", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|torso|1",
-      // weakness: ["physical"],
-      damages: {
-        // damageToPlayer: 1,
-        damageToEnemy: 1,
-        // effectsToPlayer: false,// effectsToEnemy: false,
-      },
-      allows: {
-        // types: ["any"],
-        // minValue: 4,
-        // maxValue: 4,
-        // exactValues: ["even"],
-        // maxDices: false,
-      },
-      requires: {
-        // exactValues: false,
-        // minDices: 1,
-        minSum: 2,
+        minSum: 3,
       },
       grow: {
         // duplicateAtLv: 32,
@@ -108,21 +108,21 @@ export const PMutatedRat = {
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐾",
-      bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|paws|2",
-      // weakness: ["physical"],
+      bodyPartIcon: "👀",
+      bodyPartTypes: ["body"],
+      id: "piece|ELEMENTALS|black|Golem|body|1",
+      // weakness: ["elemental"],
       damages: {
-        damageToPlayer: 1,
-        // damageToEnemy: 1,
+        // damageToPlayer: 1,
+        damageToEnemy: 2,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
-        types: ["any"],
+        // types: ["any"],
         // minValue: 4,
         // maxValue: 4,
         // exactValues: ["even"],
-        maxDices: 2,
+        // maxDices: false,
       },
       requires: {
         // exactValues: false,
@@ -138,14 +138,45 @@ export const PMutatedRat = {
       },
     },
     {
-      extra: true, //priority, extra, keep, once
-      bodyPartIcon: "🐭",
-      bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|head|2",
-      weakness: ["physical"],
+      // priority: true, //priority, extra, keep, once
+      bodyPartIcon: "👀",
+      bodyPartTypes: ["body"],
+      id: "piece|ELEMENTALS|black|Golem|body|2",
+      // weakness: ["elemental"],
       damages: {
         damageToPlayer: 1,
         damageToEnemy: 1,
+        // effectsToPlayer: false,// effectsToEnemy: false,
+      },
+      allows: {
+        // types: ["any"],
+        // minValue: 4,
+        // maxValue: 4,
+        // exactValues: ["even"],
+        // maxDices: false,
+      },
+      requires: {
+        // exactValues: false,
+        // minDices: 1,
+        minSum: 1,
+      },
+      grow: {
+        // duplicateAtLv: 32,
+        lvlsToRaiseMinSum: 1,
+        // lvlsToRaiseMinDices: 12,
+        // lvlsToRaiseExactValues: 17,
+        // lvlsToRaiseMinValue: 35,
+      },
+    },
+    {
+      extra: true, //priority, extra, keep, once
+      bodyPartIcon: "👀",
+      bodyPartTypes: ["body"],
+      id: "piece|ELEMENTALS|black|Golem|body|3",
+      weakness: ["elemental"],
+      damages: {
+        // damageToPlayer: 1,
+        damageToEnemy: 2,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -162,7 +193,38 @@ export const PMutatedRat = {
       },
       grow: {
         // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 1,
+        lvlsToRaiseMinSum: 2,
+        // lvlsToRaiseMinDices: 12,
+        // lvlsToRaiseExactValues: 17,
+        // lvlsToRaiseMinValue: 35,
+      },
+    },
+    {
+      extra: true, //priority, extra, keep, once
+      bodyPartIcon: "🌑",
+      bodyPartTypes: ["body"],
+      id: "piece|ELEMENTALS|black|Golem|weapon|4",
+      weakness: ["elemental"],
+      damages: {
+        damageToPlayer: 2,
+        // damageToEnemy: 1,
+        // effectsToPlayer: false,// effectsToEnemy: false,
+      },
+      allows: {
+        types: ["any"],
+        // minValue: 4,
+        // maxValue: 4,
+        // exactValues: ["even"],
+        maxDices: 2,
+      },
+      requires: {
+        // exactValues: false,
+        // minDices: 1,
+        minSum: 1,
+      },
+      grow: {
+        // duplicateAtLv: 32,
+        lvlsToRaiseMinSum: 0.5,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,

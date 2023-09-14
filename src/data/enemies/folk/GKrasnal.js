@@ -1,23 +1,23 @@
-export const PMutatedRat = {
-  name: "Mutated Rat",
+export const GKrasnal = {
+  name: "Krasnal",
   portrait: {
-    frontIcon: "🐭",
-    sideIcon: "",
-    bgSideIcon: "🧱",
-    backIcon: "⚫️",
-    bgIcon: "🕳️",
-    filterColor: "#32005a4a",
-    bgColor: "#dd6b00",
+    frontIcon: "🌰", //🔺🩸
+    sideIcon: "🌳", //🌿🌲
+    bgSideIcon: "🌳",
+    backIcon: "",
+    bgIcon: "🙇", //🧙🌲
+    filterColor: "#005a124a",
+    bgColor: "#ddd900",
   },
   life: 3,
   maxLife: 3,
-  id: "ANIMALS|purple|Mutated Rat",
+  id: "FOLK|green|Krasnal",
   body: [
     {
       priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐾",
+      bodyPartIcon: "🌲",
       bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|paws|1",
+      id: "piece|FOLK|green|Krasnal|paws|1",
       weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
@@ -46,9 +46,9 @@ export const PMutatedRat = {
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐭",
+      bodyPartIcon: "🌰",
       bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|head|1",
+      id: "piece|FOLK|green|Krasnal|head|1",
       // weakness: ["physical"],
       damages: {
         damageToPlayer: 2,
@@ -77,9 +77,9 @@ export const PMutatedRat = {
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "⚫️",
+      bodyPartIcon: "👣",
       bodyPartTypes: ["torso", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|torso|1",
+      id: "piece|FOLK|green|Krasnal|torso|1",
       // weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
@@ -108,9 +108,9 @@ export const PMutatedRat = {
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐾",
+      bodyPartIcon: "👣",
       bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|paws|2",
+      id: "piece|FOLK|green|Krasnal|paws|2",
       // weakness: ["physical"],
       damages: {
         damageToPlayer: 1,
@@ -139,9 +139,9 @@ export const PMutatedRat = {
     },
     {
       extra: true, //priority, extra, keep, once
-      bodyPartIcon: "🐭",
+      bodyPartIcon: "🙇",
       bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|purple|Mutated Rat|head|2",
+      id: "piece|FOLK|green|Krasnal|head|2",
       weakness: ["physical"],
       damages: {
         damageToPlayer: 1,

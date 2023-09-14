@@ -33,7 +33,7 @@ const initialState = {
     boss: false,
     0: false,
     1: false,
-    2: false,
+    2: true,
   },
   error: null,
   isLoading: false,

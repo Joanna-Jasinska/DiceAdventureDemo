@@ -1,11 +1,19 @@
 import { PMutatedRat } from "./enemies/animals/PMutatedRat";
-import { PCursedKing } from "./enemies/human/boss/PCursedKing";
+import { PCursedKing } from "./enemies/human_boss/PCursedKing";
 import { PSkeletonHead } from "./enemies/undead/PSkeletonHead";
 import { PCursedSoldier } from "./enemies/human/PCursedSoldier";
 import { PGhost } from "./enemies/undead/PGhost";
 import { PBats } from "./enemies/animals/PBats";
 import { PGhostWidow } from "./enemies/undead/PGhostWidow";
-import { PCOrb } from "./enemies/animated/PCOrb";
+import { PCOrb } from "./enemies/animated_boss/PCOrb";
+import { GKrasnal } from "./enemies/folk/GKrasnal";
+import { GTreant } from "./enemies/elementals_boss/GTreant";
+import { BPebbles } from "./enemies/barricade/BPebbles";
+import { BSGolem } from "./enemies/elementals_boss/BSGolem";
+import { AToadK } from "./enemies/animals_boss/AToadK";
+import { ABFish } from "./enemies/animals/ABFish";
+import { OFrog } from "./enemies/animals/OFrog";
+import { OSlime } from "./enemies/elementals_boss/OSlime";
 
 const template = {};
 
@@ -16,6 +24,14 @@ export const getEnemy = (id) => {
 
 const ENEMIES = {
   0: PMutatedRat,
+  "ELEMENTALS|orange|Slime": OSlime,
+  "ANIMALS|orange|Frog": OFrog,
+  "ANIMALS|aqua|Blue Fish": ABFish,
+  "ANIMALS|aqua|Toad King": AToadK,
+  "ELEMENTALS|black|Golem": BSGolem,
+  "BARRICADE|black|Pebbles": BPebbles,
+  "ELEMENTALS|green|Treant": GTreant,
+  "FOLK|green|Krasnal": GKrasnal,
   // "PURGATORY|purple|Demon": PDemon,
   "ANIMALS|purple|Mutated Rat": PMutatedRat,
   "ANIMALS|purple|Bats": PBats,

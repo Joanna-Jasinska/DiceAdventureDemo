@@ -121,14 +121,14 @@ export const DungeonPage = () => {
                 disabled={slotsDefeated[1]}
                 recommended={!slotsDefeated[1]}
               />
-              <HeaderNavBtn
+              {/* <HeaderNavBtn
                 to="/combat"
                 display={`${bg.flavorIcon}`}
                 onClick={() => beginBattleBySlot(2)}
                 completed={slotsDefeated[2]}
                 disabled={slotsDefeated[2]}
                 recommended={!slotsDefeated[2]}
-              />
+              /> */}
               <HeaderNavBtn
                 to="/combat"
                 display="Boss ☠️"

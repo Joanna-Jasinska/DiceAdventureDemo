@@ -26,13 +26,17 @@ export const DUNGEONS = [
       bgColor: "#413e20",
       flavorIcon: "🗻",
     },
-    weakness: ["elemental", "magic"],
-    bosses: [],
-    enemies: [[""], [], []],
     // ally: {},
     // lvStarted: 1,
     // lvReached: 2,
     // gold: 100,
+    weakness: ["elemental", "magic"],
+    bosses: ["ELEMENTALS|black|Golem"],
+    enemies: [
+      ["BARRICADE|black|Pebbles"],
+      ["BARRICADE|black|Pebbles"],
+      ["BARRICADE|black|Pebbles"],
+    ],
   },
   {
     name: "Wild Forests",
@@ -46,34 +50,16 @@ export const DUNGEONS = [
       bgColor: "#3ea413",
     },
     weakness: ["elemental", "physical"],
-    bosses: ["ANIMALS|green|Elder Wolf"],
+    bosses: ["ELEMENTALS|green|Treant"],
     enemies: [
-      [
-        "ELEMENTALS|green|Dryad",
-        "ELEMENTALS|green|Dryad",
-        // "ANIMALS|green|Giant Spider",
-        "GOBLINS|green|Surprised Goblin",
-        // "GOBLINS|green|Surprised Goblin",
-        // "GOBLINS|green|Surprised Goblin",
-      ],
-      [
-        "GOBLINS|green|Angry Goblin",
-        "GOBLINS|green|Angry Goblin",
-        "GOBLINS|green|Angry Goblin",
-        // "ANIMALS|green|Elder Badger",
-        // "ELEMENTALS|green|Treant",
-      ],
-      [
-        "GOBLINS|green|Goblin Shaman",
-        // "ANIMALS|green|Fat Boar",
-        "ANIMALS|green|Old Wolf",
-        "ANIMALS|green|Old Wolf",
-      ],
+      ["FOLK|green|Krasnal"],
+      ["FOLK|green|Krasnal"],
+      ["FOLK|green|Krasnal"],
     ],
   },
   {
     background: {
-      icon: "🗾",
+      icon: "〰", //🗾
       eventIcon: "🌾",
       bgColor: "#ff6128",
       flavorIcon: "🌾",
@@ -83,8 +69,12 @@ export const DUNGEONS = [
     id: "dungeon|3|",
     eventId: "dungeon|3|3",
     weakness: ["magic", "trait"],
-    bosses: [],
-    enemies: [[], [], []],
+    bosses: ["ELEMENTALS|orange|Slime"],
+    enemies: [
+      ["ANIMALS|orange|Frog"],
+      ["ANIMALS|orange|Frog"],
+      ["ANIMALS|orange|Frog"],
+    ],
   },
   {
     background: {
@@ -98,8 +88,12 @@ export const DUNGEONS = [
     id: "dungeon|4|",
     eventId: "dungeon|4|4",
     weakness: ["trait", "physical"],
-    bosses: [],
-    enemies: [[], [], []],
+    bosses: ["ANIMALS|aqua|Toad King"],
+    enemies: [
+      ["ANIMALS|aqua|Blue Fish"],
+      ["ANIMALS|aqua|Blue Fish"],
+      ["ANIMALS|aqua|Blue Fish"],
+    ],
   },
   {
     background: {
@@ -115,26 +109,19 @@ export const DUNGEONS = [
       [
         "ANIMALS|purple|Mutated Rat",
         // "UNDEAD|purple|Skeleton Head",
-        //
       ],
       [
         "ANIMALS|purple|Mutated Rat",
         // "UNDEAD|purple|Ghost",
         // "ANIMALS|purple|Bats",
-        //
       ],
       [
         "ANIMALS|purple|Mutated Rat",
         // "HUMAN|purple|Cursed Soldier",
         // "UNDEAD|purple|Ghost Widow",
-        //
       ],
     ],
-    bosses: [
-      //
-      "ANIMATED|purple|Cursed Orb",
-      //
-    ],
+    bosses: ["ANIMATED|purple|Cursed Orb"],
     id: "dungeon|5|",
     eventId: "dungeon|5|5",
   },
