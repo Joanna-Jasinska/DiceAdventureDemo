@@ -339,7 +339,7 @@ export const TutorialPage = () => {
           {...{ value: "odd", allowed: true }}
           key={`oddRequirements`}
         />
-        only even / odd dices <br />
+        only even / odd values <br />
         example: with even - only dices with even value like 2, 4, 6, 8, etc can
         be placed inside
       </ContainerHorisontal>
