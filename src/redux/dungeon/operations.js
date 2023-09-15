@@ -178,6 +178,7 @@ export const useDungeonItemSkill = createAsyncThunk(
     if (currentUses < 1) {
       return thunkAPI.rejectWithValue("This item is already used up.");
     }
-    return { ...found, currentUses: found.currentUses - 1 };
+    const index = state.dungeon.items.indexOf(found);
+    return { ...found, currentUses: found.currentUses - 1, index: index };
   }
 );

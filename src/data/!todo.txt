@@ -14,8 +14,9 @@ to do for presentation:
 - add bye page (clearing data)
 - readme on github
 
+- make quest and questList components on caravan page
+- use  getWizardQuests(allyLv = 1, caravanLv = 1, dungeonLevels)
 
-- make enemies different 
 - make new items purchasable
 
 -------------------------------

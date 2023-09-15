@@ -12,6 +12,7 @@ export const STARTING_EQ = [
   // -----------------not used:
   // "Heavy Metal Shield|SHIELD BASH +2|",
   // -----------------given to ally:
+  // "Bunny Familiar|BUNNY MAGIC|",
   // -----------------not done:
   // "Kitchen Knives|KNIFE THROW|",
   // "Scroll of Arcane Missles|INVOKE ARCANE|",

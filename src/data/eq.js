@@ -9,6 +9,7 @@ import {
 } from "./equipment/strength/hMShield";
 import { wShield, wShield_ex, wShield_ev } from "./equipment/strength/wShield";
 import { leatherVest } from "./equipment/trait/leatherVest";
+import { bunnyF, bunnyF_ev, bunnyF_ex } from "./equipment/rainbow/bunnyF";
 
 export const getBaseEqById = (eid) => {
   const found = EQ[eid];
@@ -25,6 +26,7 @@ export const getSkillExecById = (eid) => {
 
 const EQ = {
   0: [leatherVest, [], []],
+  "Bunny Familiar|BUNNY MAGIC|": [bunnyF,bunnyF_ev,bunnyF_ex],
   "Wooden Shield|SHIELD BASH +1|": [wShield, wShield_ev, wShield_ex],
   "Heavy Metal Shield|SHIELD BASH +2|": [hMShield, hMShield_ev, hMShield_ex],
   "Torch|WAVE MENACINGLY|": [torch, torch_ev, torch_ex],
