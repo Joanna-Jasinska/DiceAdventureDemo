@@ -11,6 +11,7 @@ import {
   remove1SpLvUp,
   remove10SpLvUps,
   gainSpLvUps,
+  lvUpAlly,
 } from "./operations";
 import {
   PLAYER_STARTING_LEVELUPS,
@@ -39,6 +40,13 @@ const initialState = {
     "dungeon|3|": 1,
     "dungeon|4|": 1,
     "dungeon|5|": 1,
+  },
+  allies: {
+    wizard: { lv: 0 },
+    barbarian: { lv: 0 },
+    aristocrat: { lv: 0 },
+    rogue: { lv: 0 },
+    hunter: { lv: 0 },
   },
 };
 const handleRejected = (state, action) => {
@@ -88,6 +96,14 @@ const gameSlice = createSlice({
       // state.playerLv = action.payload.playerLv;
       // state.spareLvUps = action.payload.spareLvUps;
       state.maxEqLv = action.payload.maxEqLv + PLAYER_STARTING_MAX_EQ_LV;
+    },
+
+    [lvUpAlly.pending]: handlePending,
+    [lvUpAlly.rejected]: handleRejected,
+    [lvUpAlly.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.allies[action.payload].lv = state.allies[action.payload].lv + 1;
     },
 
     [LvUpDungeonById.pending]: handlePending,

@@ -31,6 +31,21 @@ export const updateItem = createAsyncThunk(
     return item;
   }
 );
+export const unlockItem = createAsyncThunk(
+  "equipment/unlockItem",
+  async (itemId, thunkAPI) => {
+    const state = thunkAPI.getState();
+    return {
+      ...JSON.parse(
+        JSON.stringify({
+          ...Items.getItemById({ id: itemId }),
+          selected: true,
+          index: state.equipment.all.length,
+        })
+      ),
+    };
+  }
+);
 
 export const resetItemLv = createAsyncThunk(
   "equipment/resetItemLv",

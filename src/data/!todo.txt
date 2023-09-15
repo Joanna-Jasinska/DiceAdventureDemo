@@ -15,7 +15,8 @@ to do for presentation:
 - readme on github
 
 - make quest and questList components on caravan page
-- use  getWizardQuests(allyLv = 1, caravanLv = 1, dungeonLevels)
+- use  
+
 
 - make new items purchasable
 

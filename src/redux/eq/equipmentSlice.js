@@ -6,6 +6,7 @@ import {
   itemLvUpx10,
   itemLvUpx1,
   resetItemLv,
+  unlockItem,
 } from "./operations";
 
 const initialState = {
@@ -80,6 +81,14 @@ const equipmentSlice = createSlice({
         ...state.all[action.payload.index],
         ...action.payload,
       };
+    },
+
+    [unlockItem.pending]: handlePending,
+    [unlockItem.rejected]: handleRejected,
+    [unlockItem.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.all = [...state.all, action.payload];
     },
 
     [resetItemLv.pending]: handlePending,

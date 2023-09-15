@@ -10,3 +10,4 @@ export const selectMaxEqLv = (state) => state.game.maxEqLv;
 export const selectSpareLvUps = (state) => state.game.spareLvUps;
 export const selectGold = (state) => state.game.gold;
 export const selectSelectedDungeonId = (state) => state.game.selectedDungeonId;
+export const selectAllies = (state) => state.game.allies;

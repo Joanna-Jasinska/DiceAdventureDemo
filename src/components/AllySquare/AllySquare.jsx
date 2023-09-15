@@ -9,6 +9,7 @@ export const AllySquare = ({
   bgTxtFront,
   bgTxtBack,
   bgColor,
+  lv = 1,
 }) => {
   return (
     <div className={css.item} id={id}>
@@ -19,9 +20,8 @@ export const AllySquare = ({
         bgColor={bgColor}
       />
       <div className={css.bar}>
-        <div className={css.title}>
-          <span>{title}</span>
-        </div>
+        <div className={css.subtitle}>Friendship</div>
+        <span className={css.level}>{lv}</span>
         <span className={css.text}>
           <span className={css.name}>{`${name}`}</span>
         </span>

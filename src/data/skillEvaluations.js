@@ -47,32 +47,6 @@ export const SKILL_EVALUATION = {
       },
     ],
   ],
-  "1|PIECE|dexterity": [
-    [OTHER_SEV, "NUMDICES", { value: 1 }],
-    [
-      PIECE_SEV,
-      "PIECE",
-      {
-        obj: {
-          allows: { types: ["dexterity"] },
-          requires: { minDices: 1, maxDices: 1 },
-        },
-      },
-    ],
-  ],
-  "1|PIECE|needle": [
-    [OTHER_SEV, "NUMDICES", { value: 1 }],
-    [
-      PIECE_SEV,
-      "PIECE",
-      {
-        obj: {
-          allows: { types: ["needle"] },
-          requires: { minDices: 1, maxDices: 1 },
-        },
-      },
-    ],
-  ],
   "1|PIECE|mana": [
     [OTHER_SEV, "NUMDICES", { value: 1 }],
     [
@@ -95,19 +69,6 @@ export const SKILL_EVALUATION = {
         obj: {
           allows: { types: ["speed", "dexterity", "strength"] },
           requires: { minDices: 1, maxDices: 1 },
-        },
-      },
-    ],
-  ],
-  "2|PIECE|speed/wits/poison": [
-    [OTHER_SEV, "NUMDICES", { value: 2 }],
-    [
-      PIECE_SEV,
-      "PIECE",
-      {
-        obj: {
-          allows: { types: ["speed", "wits", "poison"] },
-          requires: { minDices: 2, maxDices: 2 },
         },
       },
     ],

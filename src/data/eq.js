@@ -8,8 +8,11 @@ import {
   hMShield_ex,
 } from "./equipment/strength/hMShield";
 import { wShield, wShield_ex, wShield_ev } from "./equipment/strength/wShield";
-import { leatherVest } from "./equipment/trait/leatherVest";
+import { lVest, lVest_ev, lVest_ex } from "./equipment/dexterity/lVest";
 import { bunnyF, bunnyF_ev, bunnyF_ex } from "./equipment/rainbow/bunnyF";
+import { voIrop, voIrop_ev, voIrop_ex } from "./equipment/poison/voIrop";
+import { kKnives, kKnives_ev, kKnives_ex } from "./equipment/needle/kKnives";
+import { rope, rope_ev, rope_ex } from "./equipment/wits/rope";
 
 export const getBaseEqById = (eid) => {
   const found = EQ[eid];
@@ -25,16 +28,19 @@ export const getSkillExecById = (eid) => {
 };
 
 const EQ = {
-  0: [leatherVest, [], []],
-  "Bunny Familiar|BUNNY MAGIC|": [bunnyF,bunnyF_ev,bunnyF_ex],
+  0: [lVest, lVest_ev, lVest_ex],
+  "Rope|CLEVER USE|": [rope, rope_ev, rope_ex],
+  "Leather Vest|THUMBLE -2|": [lVest, lVest_ev, lVest_ex],
+  "Vial of Iroposion|MIX POISON|": [voIrop, voIrop_ev, voIrop_ex],
+  "Bunny Familiar|BUNNY MAGIC|": [bunnyF, bunnyF_ev, bunnyF_ex],
   "Wooden Shield|SHIELD BASH +1|": [wShield, wShield_ev, wShield_ex],
   "Heavy Metal Shield|SHIELD BASH +2|": [hMShield, hMShield_ev, hMShield_ex],
   "Torch|WAVE MENACINGLY|": [torch, torch_ev, torch_ex],
   "Scroll of Strength|INVOKE STRENGTH +1|": [sofStr, sofStr_ev, sofStr_ex],
   "Rusty Sword|SWORD SLASH|": [rSword, rSword_ev, rSword_ex],
   "Travel Bag|COOKING UTENSIL TOSS|": [tBag, tBag_ev, tBag_ex],
+  "Kitchen Knives|KNIFE THROW|": [kKnives, kKnives_ev, kKnives_ex],
   // "Leather Vest|THUMBLE|": leatherVest,
-  // "Kitchen Knives|KNIFE THROW|": kitchenKnives,
   // "Scroll of Arcane Missles|INVOKE ARCANE|": scrollOfArcaneMissles,
   // "Lucky Clover|LUCKY ROLL|": luckyClover,
 };
@@ -74,74 +80,6 @@ const EQ = {
 //         duplicateAtLv: 10,
 //         // lvlsToRaiseValue: 3,
 //         lvlsToRaiseDiceMax: 6,
-//       },
-//     ],
-//   },
-//   {
-//     id: "Legacy Sword|COMBO SLASH|",
-//     name: "Legacy Sword",
-//     alt: "🗡️",
-//     skill: {
-//       name: "COMBO SLASH",
-//       txt: "change 1 into ⚔️ of same value+1",
-//       id: "Legacy Sword|COMBO SLASH|",
-//       displayCost: [
-//         { value: "", type: "speed" },
-//         { value: "", type: "strength" },
-//         { value: "", type: "dexterity" },
-//       ],
-//     },
-//     statsTxT: "~ +1/3 per lv",
-//     stats: [
-//       {
-//         item: "dice",
-//         diceMax: 8,
-//         // value: undefined,
-//         type: "slashed",
-//         existSinceLv: 0,
-//         duplicateAtLv: 12,
-//         // lvlsToRaiseValue: 3,
-//         lvlsToRaiseDiceMax: 3,
-//       },
-//       {
-//         item: "dice",
-//         diceMax: 4,
-//         // value: undefined,
-//         type: "speed",
-//         existSinceLv: 5,
-//         duplicateAtLv: 10,
-//         // lvlsToRaiseValue: 3,
-//         // lvlsToRaiseDiceMax: 10,
-//       },
-//     ],
-//   },
-
-//   {
-//     id: "Vial of Iroposion|MIX POISON|",
-//     name: "Vial of Iroposion",
-//     alt: "🧪",
-//     skill: {
-//       name: "MIX POISON",
-//       txt: "put 2 to create 1💚 with combined value",
-//       id: "Vial of Iroposion|MIX POISON|",
-//       displayCost: [
-//         { value: "", type: "speed" },
-//         { value: "", type: "wits" },
-//         { value: "", type: "poison" },
-//       ],
-//     },
-//     statsTxT: "~ +1/4 per lv",
-//     stats: [
-//       { item: "stats", type: "life", maxHp: -1 },
-//       {
-//         item: "dice",
-//         diceMax: 5,
-//         // value: undefined,
-//         type: "poison",
-//         existSinceLv: -1,
-//         duplicateAtLv: 64,
-//         // lvlsToRaiseValue: 3,
-//         lvlsToRaiseDiceMax: 4,
 //       },
 //     ],
 //   },
@@ -317,33 +255,6 @@ const EQ = {
 //   //   statsTxT: "Per 5 levels: [ +1d6 mana ] ",
 //   //   lv: 1,
 //   // },
-
-//   {
-//     name: "Test Bag of nothing and nothingness",
-//     id: "Test Bag of nothing and nothingness||",
-//     stats: [
-//       { item: "stats", type: "life", maxHp: 20 },
-//       {
-//         item: "dice",
-//         diceMax: 20,
-//         value: 20,
-//         type: "stamina",
-//       },
-//       {
-//         item: "dice",
-//         diceMax: 20,
-//         value: 12,
-//         type: "stamina",
-//       },
-//       {
-//         item: "dice",
-//         diceMax: 20,
-//         value: 1,
-//         type: "stamina",
-//       },
-//     ],
-//     lv: 1,
-//   },
 
 //   {
 //     selected: true,

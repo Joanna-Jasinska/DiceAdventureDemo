@@ -7,22 +7,31 @@
   border-radius: 20px;
   margin: 3px;
   width: max-content;
-  width: 8.5rem;
-  width: 7.6rem;
+  /* width: 8.5rem; */
+  width: 7.7rem;
   display: inline-block;
+  margin-top: 4rem;
 }
 
 .bar {
   border-radius: 20px 20px 0 0;
+  /* overflow: hidden; */
   position: absolute;
+  /* height: 4.2em; */
   height: 4.2rem;
+  box-shadow: #ffffffa3 0 2px 1px 0px;
   box-shadow: #ffffffbb 0 2px 1px 0px;
+  /* min-height: 4em; */
+  /* height: min-content; */
   top: 0;
   left: 0;
   width: 120px;
+  /* background-color: #ffffff42; */
+  background-color: #ffffffa3;
   background-color: #ffffffbb;
   text-align: left;
   z-index: 2;
+  /* overflow: hidden; */
   overflow: visible;
 }
 .iconBag {
@@ -44,25 +53,73 @@
   border-radius: 0 0 20px 20px;
   /* background-color: red; */
 }
-.button {
+.selectButton {
   overflow: visible;
   position: absolute;
-  top: 0px;
-  right: -4px;
+  /* top: 0px;
+  right: -4px; */
   /* right: 0.8rem; */
   margin: 0px 4px 1px 0px;
-  width: 3rem;
-  height: 2.4rem;
+  padding: 0;
+  width: 2rem;
+  height: 2.1rem;
   /* display: inline; */
   justify-content: center;
   border: transparent;
   border-radius: 0 20px;
-  font-size: 2.4rem;
+  /* font-size: 2.4rem; */
+  font-size: 1.3rem;
   line-height: 2rem;
   /* overflow: hidden; */
   z-index: 4;
   cursor: pointer;
   transition: 250ms;
+  opacity: 30%;
+}
+.buy {
+  top: 0px;
+  /* right: -4px; */
+  left: 1.8rem;
+  width: 5.7rem;
+  background-color: #7effe1;
+  background-color: #9fff5bbb;
+  background-color: #ffef5bbb;
+  box-shadow: -1px 0px 6px 2px #cfa900;
+  overflow: hidden;
+}
+.locked {
+  top: 0px;
+  /* right: -4px; */
+  left: 1.8rem;
+  width: 5.7rem;
+  font-size: 0.9rem;
+  line-height: 1rem;
+  text-wrap: wrap;
+  word-break: normal;
+  text-align: center;
+  white-space: pre;
+  background-color: #7effe1;
+  background-color: #9fff5bbb;
+  background-color: #a9bc90bb;
+  /* box-shadow: -1px 0px 6px 2px #cfa900; */
+  overflow: hidden;
+}
+.selectButton:hover,
+.selectButton:focus,
+.selectButton:active {
+  /* z-index: 400; */
+  /* transform: scale(1.2); */
+  opacity: 100%;
+  color: var(--color);
+  /* color: inherit; */
+}
+.delevel:hover,
+.delevel:focus,
+.delevel:active {
+  /* transform: scale(1.2); */
+  opacity: 100%;
+  color: #cfb7b7;
+  /* color: inherit; */
 }
 
 .selected {
@@ -76,81 +133,36 @@
 }
 .level {
   position: absolute;
-  top: 0.8rem;
-  left: -0.5rem;
+  top: 2px;
   left: 0px;
-  height: 1rem;
   height: 2rem;
-  width: 6.5rem;
+  width: 1.2rem;
   overflow: hidden;
   font-size: 1.6em;
   text-align: center;
   display: block;
   margin: 0px 0.5rem;
   z-index: 3;
-  /* background-color: red; */
+  /* background-color: purple; */
 }
 .name {
   min-width: 120px;
   position: absolute;
-  bottom: -0.6rem;
+  bottom: -0.06rem;
   display: block;
-  color: #000000a0;
+  /* background-color: red; */
+  /* color: #000000a0; */
+  /* margin-top: 1rem;
+  margin: 0 auto; */
+  /* min-height: 1em;
+  max-height: 2em; */
   height: 1.73rem;
+  /* background-color: aqua; */
   text-align: center;
+  /* padding-bottom: 6px; */
   font-weight: bold;
   z-index: 3;
   line-height: 0.84rem;
   text-align: center;
   overflow: hidden;
-}
-
-.title {
-  left: 2px;
-  width: 116px;
-  height: 3.16em;
-  padding: 4px;
-  display: flex;
-  z-index: 10;
-  position: absolute;
-  box-sizing: border-box;
-  overflow: hidden;
-  flex-flow: row-reverse;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-items: flex-end;
-  align-items: flex-start;
-  column-gap: 3px;
-  border-radius: 0 0 20px 20px;
-  color: #000000b1;
-  /* background-color: red; */
-}
-.title > span {
-  height: min-content;
-  text-align: center;
-  line-height: 0.9rem;
-  font-size: 0.8rem;
-}
-.subtitle {
-  left: 2px;
-  width: 116px;
-  height: 3.16em;
-  padding: 0.1rem;
-  display: flex;
-  z-index: 10;
-  position: absolute;
-  box-sizing: border-box;
-  overflow: hidden;
-  flex-flow: row-reverse;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-items: flex-end;
-  align-items: flex-start;
-  column-gap: 3px;
-  font-size: 0.7rem;
-  border-radius: 0 0 20px 20px;
-  color: #000000b1;
-  /* background-color: red; */
 }

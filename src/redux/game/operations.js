@@ -36,6 +36,16 @@ export const LvUpDungeonById = createAsyncThunk(
   }
 );
 
+export const lvUpAlly = createAsyncThunk(
+  "game/lvUpAlly",
+  async (allyType, thunkAPI) => {
+    // const state = thunkAPI.getState().game;
+    // const { dungeonLevels } = state;
+    // return { ...dungeonLevels, [id]: dungeonLevels[id] + 1 };
+    return allyType;
+  }
+);
+
 export const gainSpLvUps = createAsyncThunk(
   "game/gainSpLvUps",
   async (num, thunkAPI) => {
@@ -87,7 +97,7 @@ export const gainFromDungeonSummary = createAsyncThunk(
     return { gold: gold + goldEarned };
   }
 );
-export const payGold = createAsyncThunk("game/addGold", async (g, thunkAPI) => {
+export const payGold = createAsyncThunk("game/payGold", async (g, thunkAPI) => {
   const state = thunkAPI.getState().game;
   const { gold } = state;
   if (gold - g < 0) thunkAPI.rejectWithValue("Not enough gold.");

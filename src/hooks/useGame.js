@@ -11,6 +11,7 @@ import {
   selectPossibleDungeons,
   selectSpareLvUps,
   selectSelectedDungeonId,
+  selectAllies,
 } from "redux/game/selectors";
 
 // import { selectLoading as sEqLoading } from "redux/eq/selectors";
@@ -30,6 +31,7 @@ export const useGame = () => {
   const spareLvUps = useSelector(selectSpareLvUps);
   const gold = useSelector(selectGold);
   const selectedDungeonId = useSelector(selectSelectedDungeonId);
+  const allies = useSelector(selectAllies);
 
   // const eqLoading = useSelector(sEqLoading);
   // const combatLoading = useSelector(sCombatLoading);
@@ -52,5 +54,6 @@ export const useGame = () => {
     maxEqLv,
     spareLvUps,
     gold,
+    allies,
   };
 };
