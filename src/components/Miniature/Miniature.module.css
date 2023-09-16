@@ -31,13 +31,9 @@
   height: 1rem;
   height: 100%;
   transform: translateX(-50%);
-  border-radius: 20px 20px 0 0;
+  /* border-radius: 20px 20px 0 0; */
   border-radius: 20px;
-  /* background-color: #00000017;
-  box-shadow: #00000017 0 -3px 3px 6px; */
-  /* background-color: #ff0000; */
   background-color: #000000;
-  /* box-shadow: #000000 0 -2px 3px 0px; */
   opacity: 0%;
 }
 .miniature::after {
@@ -53,22 +49,19 @@
   /* border-radius: 20px 20px 0 0; */
   /* background-color: #c300ff93; */
 }
-.extended {
-  /* padding: 0; */
-  /* box-sizing: content-box; */
-  /* height: 10rem; */
-  /* background-color: #ff000049; */
-}
+/* .extended {
+  padding: 0;
+  box-sizing: content-box;
+  height: 10rem;
+  background-color: #ff000049;
+} */
 .extension {
   z-index: 0;
   box-sizing: border-box;
-  /* box-sizing: content-box; */
   position: absolute;
   padding: 0;
   top: -4rem;
   height: fit-content;
-  /* height: 4rem; */
-  /* overflow: hidden; */
   /* background-color: #b7ff0091; */
 }
 .extension > div {
@@ -90,10 +83,8 @@
 .textBoxFront {
   z-index: 2;
   position: absolute;
-  left: -0.2rem;
   left: 0.7rem;
   /* bottom: 2rem; */
-  top: -2rem;
   top: -1.8rem;
   font-size: 8rem;
   color: #000;
@@ -132,50 +123,6 @@
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12),
     inset 0px -2px 4px -1px #ad8fb93e, inset 0px -4px 5px 0px #ad8fb926,
     inset 0px -1px 10px 0px #ad8fb918, 0px 0px 4px 1px #000;
-
-  /* background: radial-gradient(
-      ellipse closest-side at 25% 76%,
-      #3500463a 8%,
-      #c300ff00 130%
-    ),
-    radial-gradient(
-      ellipse closest-side at 79% 22%,
-      #3500463a 8%,
-      #c300ff00 90%
-    ),
-    radial-gradient(
-      ellipse closest-side at 67% 40%,
-      #3500463a 2%,
-      #c300ff00 35%
-    ),
-    radial-gradient(
-      ellipse closest-side at 80% 30%,
-      #f7dfff3e 15%,
-      #c300ff00 80%
-    ),
-    radial-gradient(
-      ellipse closest-side at 58% 49%,
-      #f7dfff1e 8%,
-      #c300ff00 30%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at 30% 86%,
-      #db6dff3e 2%,
-      #ffffff00 30%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at 80% 20%,
-      #db6dff3e 2%,
-      #ffffff00 30%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at 20% 10%,
-      #9a27c023 2%,
-      #ffffff00 20%
-    ),
-    conic-gradient(#1a1a1a27, #8400ff3c, #1a1a1a27, #8400ff3c, #1a1a1a27); */
-
-  /* background-color: #aa9eae; */
 }
 .figcaption {
   z-index: 20;

@@ -8,13 +8,11 @@
   height: 1rem;
   margin: 0;
   color: black;
-  font-weight: bold;
   border-radius: 4px;
   display: flex;
-  padding: 2px 3px 0px 6px;
   padding: 2px 1px 0px 7px;
-  line-height: 1.3rem;
   line-height: 1.2rem;
+  font-weight: bold;
   font-size: 1rem;
 }
 .dice::after {
@@ -108,17 +106,6 @@
   height: 1rem;
   left: -1px;
   top: 3px;
-  box-shadow: inset #fccc2e 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #f1c994 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #f4e98b 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #fcff5a 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ffba5a 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ff945a 0px 0px 2px 1px;
-  background-color: #fcff5a;
-  background-color: #d8b382;
-  background-color: #ffcb1f;
-  background-color: #fc2e2e;
-  background-color: #fc3c2e;
   box-shadow: #3636368d 0px 0px 1px 1px, inset #fcff5a 0px 0px 2px 1px;
   background-color: #ffcb1f;
 }
@@ -132,21 +119,6 @@
   height: 1rem;
   left: -1px;
   top: 3px;
-  box-shadow: inset #fccc2e 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #f1c994 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #f4e98b 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #7ffff0 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #b9ffea 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ffdad1 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #fffdef 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ffbfef 0px 0px 2px 1px;
-  background-color: #fcff5a;
-  background-color: #d8b382;
-  background-color: #2ec5fc;
-  background-color: #3dcbff;
-  background-color: #ea8aff;
-  background-color: #ff6bf0;
-  background-color: #ff55ee;
   box-shadow: #3636368d 0px 0px 1px 1px, inset #b9ffea 0px 0px 2px 1px;
   background-color: #52d5f6;
 }
@@ -159,24 +131,6 @@
   height: 1rem;
   left: -1px;
   top: 3px;
-  box-shadow: inset #e24533 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #e0967f 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ff9b85 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ffd25f 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ffba5a 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ffba5a 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ff805a 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ff5a5a 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #fffdef 0px 0px 2px 1px;
-  background-color: #e24533;
-  background-color: #c37d75;
-  background-color: #ff805a;
-  background-color: #fc2eda;
-  background-color: #fc2e2e;
-  background-color: #fc952e;
-  background-color: #bba8cc;
-  background-color: #aaa8cc;
-  background-color: #91ead8;
   box-shadow: #3636368d 0px 0px 1px 1px, inset #ffe9bd 0px 0px 2px 1px;
   background-color: #ff79ba;
 }
@@ -189,28 +143,6 @@
   height: 1rem;
   left: -1px;
   top: 3px;
-  box-shadow: inset #fccc2e 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #f1c994 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #f4e98b 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #fcff5a 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #e45aff 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #9fff5a 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #daff62 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #ffba5a 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #fffdef 0px 0px 2px 1px;
-  box-shadow: #3636368d 0px 0px 1px 1px, inset #fcff5a 0px 0px 2px 1px;
-  background-color: #fcff5a;
-  background-color: #d8b382;
-  background-color: #fccc2e;
-  background-color: #d32efc;
-  background-color: #ddfc2e;
-  background-color: #87fc2e;
-  background-color: #67cf19;
-  background-color: #fc2eda;
-  background-color: #fc2e2e;
-  background-color: #bba8cc;
-  background-color: #ea8aff;
-  background-color: #ffcb1f;
   box-shadow: #3636368d 0px 0px 1px 1px, inset #f6ff00 0px 0px 2px 1px;
   background-color: #799e00;
 }
@@ -223,14 +155,12 @@
   height: 1rem;
   left: -1px;
   top: 3px;
-  background-color: #ea8aff;
-  background-color: #ffcb1f;
   /* box-shadow: #3636368d 0px 0px 1px 1px, inset #fffdef 0px 0px 2px 1px; */
   box-shadow: #3636368d 0px 0px 1px 1px, inset #ffffffe6 0px 0px 1px 1px,
     inset #ff00f2 -1px -2px 2px -1px, inset #ffee00 2px -1px 2px -1px,
     inset #4dff00 1px 2px 2px -1px, inset #00d9ff -2px 1px 2px -1px,
     inset #001d1439 0px 0px 2px 1px;
-  background-color: #bba8cc;
+  /* background-color: #bba8cc; */
   background-color: #c9c6bd;
 }
 .notRolled::before {
