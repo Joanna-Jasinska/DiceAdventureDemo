@@ -8,6 +8,9 @@
   --box-shadow-recommended: -1px -1px 2px 0px #6f6f6f8e,
     1px 1px 3px 0px #2d2d2da9, 0px 0px 16px 0px #7eff22,
     #3636368d 0px 0px 1px 1px;
+  /* --box-shadow-recommended-glow: -1px -1px 2px 0px #6f6f6f8e,
+    1px 1px 3px 0px #2d2d2da9, 0px 0px 16px 4px #94ff22,
+    #3636368d 0px 0px 1px 1px; */
   --box-shadow-detailed: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12),
     inset 0px -2px 4px -1px #ad8fb93e, inset 0px -4px 5px 0px #ad8fb926,
@@ -33,6 +36,7 @@
   /* --bg-highlighted-solid: #d5f7ec; */
   --bg-highlighted-solid: #e5ffbd;
   --bg-recommended: #baff79;
+  /* --bg-recommended-glow: #d7ff96; */
   --bg-warning: #ffbc79;
   /* --bg-outline: #d5f4ff; */
   --bg-outline: #00344c78;

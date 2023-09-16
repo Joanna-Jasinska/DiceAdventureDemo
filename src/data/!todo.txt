@@ -13,6 +13,10 @@ to do for presentation:
 
 - WHEN WINNING DUNGEON MOVE TO NEXT DUNGEON
 
+- CHANGE GO ICON TO SELECTED DUNGEON
+
+- STARTING NEW GAME JUMPS TO PAGE >> ?
+
 
 - after purchasing item quest doesnt vanish
 

@@ -14,7 +14,18 @@
   line-height: 1.2rem;
   font-weight: bold;
   font-size: 1rem;
+  /* animation-duration: 1s;
+  animation-delay: 1s;
+  animation: rotate 1s normal; */
 }
+/* @keyframes rotate {
+  0% {
+    transform: scale(0.01) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+} */
 .dice::after {
   z-index: -1;
   content: "";

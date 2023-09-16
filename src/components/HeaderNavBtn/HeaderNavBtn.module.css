@@ -98,6 +98,7 @@
   background-color: var(--bg-warning);
   box-shadow: var(--box-shadow-warning);
   color: #210000;
+  animation: shakeSometimes 8s infinite;
   /* opacity: 0.7; */
 }
 .recommended {
@@ -106,4 +107,39 @@
   box-shadow: var(--box-shadow-recommended);
   /* color: #4f0000; */
   /* opacity: 0.7; */
+  animation: shakeSometimes 8s infinite;
+}
+
+@keyframes shakeSometimes {
+  /* 0% {
+    box-shadow: var(--box-shadow-recommended);
+  } */
+  80% {
+    /* box-shadow: var(--box-shadow-recommended); */
+    /* background-color: var(--bg-recommended); */
+    transform: scale(1);
+  }
+  85% {
+    /* box-shadow: var(--box-shadow-recommended-glow); */
+    /* background-color: var(--bg-recommended-glow); */
+    transform: scale(1.02) rotate(20deg);
+  }
+  90% {
+    /* box-shadow: var(--box-shadow-recommended); */
+    /* background-color: var(--bg-recommended); */
+    transform: scale(1) rotate(-20deg);
+  }
+  95% {
+    /* box-shadow: var(--box-shadow-recommended-glow); */
+    /* background-color: var(--bg-recommended-glow); */
+    transform: scale(1.02 rotate(-20deg));
+  }
+  100% {
+    /* box-shadow: var(--box-shadow-recommended); */
+    /* background-color: var(--bg-recommended); */
+    transform: scale(1);
+  }
+  /* 100% {
+    box-shadow: var(--box-shadow-recommended);
+  } */
 }

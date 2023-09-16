@@ -65,7 +65,7 @@
   /* display: inline; */
   justify-content: center;
   border: transparent;
-  border-radius: 0 20px;
+  border-radius: 0 1.2rem;
   /* font-size: 2.4rem; */
   font-size: 1.3rem;
   line-height: 2rem;
@@ -78,13 +78,45 @@
 .buy {
   top: 0px;
   /* right: -4px; */
-  left: 1.8rem;
-  width: 5.7rem;
+  /* left: 1.8rem; */
+  left: 0;
+  /* width: 5.7rem; */
+  width: 7.5rem;
   background-color: #7effe1;
   background-color: #9fff5bbb;
-  background-color: #ffef5bbb;
+  /* background-color: #ffef5bbb; */
+  background-color: #ffef5d;
   box-shadow: -1px 0px 6px 2px #cfa900;
+  animation: glow 1.8s infinite;
+  /* transition: ease-out 2s; */
+  border-radius: 1.2rem;
   overflow: hidden;
+  opacity: 100%;
+}
+.buy:hover,
+.buy:focus,
+.buy:active {
+  /* transform: scale(1.1); */
+  /* background-color: #fff384; */
+  /* animation: none; */
+  animation-play-state: paused;
+  /* transition: ease-out 2s; */
+  transform: scale(1.1);
+  box-shadow: -1px 0px 7px 5px #e5bb00;
+}
+@keyframes glow {
+  0% {
+    box-shadow: -1px 0px 6px 2px #cfa900;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: -1px 0px 9px 5px #ebc000;
+    transform: scale(1.1);
+  }
+  100% {
+    box-shadow: -1px 0px 6px 2px #cfa900;
+    transform: scale(1);
+  }
 }
 .locked {
   top: 0px;
@@ -102,6 +134,7 @@
   background-color: #a9bc90bb;
   /* box-shadow: -1px 0px 6px 2px #cfa900; */
   overflow: hidden;
+  opacity: 30%;
 }
 .selectButton:hover,
 .selectButton:focus,
