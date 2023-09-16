@@ -8,7 +8,8 @@ export const torch = {
   alt: "🥢",
   skill: {
     name: "WAVE MENACINGLY",
-    txt: "change value to half of maximum, create 🕒 of 1-10 value",
+    txt: "create 🕒 of same or lower value, changes 🔥 to maximum/2",
+    // txt: "change value to half of maximum, create 🕒 of 1-10 value",
     id: "Torch|WAVE MENACINGLY|",
     displayCost: [{ value: "", type: "heat" }],
   },
@@ -42,7 +43,51 @@ export const torch_ev = [
   ],
 ];
 export const torch_ex = [
-  // "1|VALUE|half|CREATE|speed|1-10":
+  [
+    DICE_SEX,
+    "Acc into 1 Dice",
+    {
+      value: 1,
+      obj: {
+        type: "speed",
+        // diceMax: 1,
+        // value: 1,
+      },
+    },
+  ],
+  [
+    DICE_SEX,
+    "Value Manipulation Array",
+    {
+      value: 1,
+      obj: {
+        // setTo: ["diceMax"],
+        // multiplyBy: [10],
+        // divideBy: [3],
+        // add: [1],
+        extraCopies: [1],
+      },
+    },
+  ],
+  [
+    DICE_SEX,
+    "Acc into 1 Dice",
+    {
+      value: 1,
+      obj: {
+        type: "heat",
+        // diceMax: 1,
+        // value: 1,
+      },
+    },
+  ],
+  [
+    DICE_SEX,
+    "Reroll-",
+    {
+      value: 1, //1 dice to reroll
+    },
+  ],
   [
     DICE_SEX,
     "Value Manipulation Array",
@@ -63,17 +108,25 @@ export const torch_ex = [
       value: 1,
     },
   ],
-  [
-    DICE_SEX,
-    "Create",
-    {
-      value: 1,
-      // arr:[1,"max"],
-      obj: {
-        type: "speed",
-        diceMax: 10,
-        // value: 1,
-      },
-    },
-  ],
+  // [
+  //   DICE_SEX,
+  //   "Keep",
+  //   {
+  //     value: 1,
+  //   },
+  // ],
+  // -----------------
+  // [
+  //   DICE_SEX,
+  //   "Create",
+  //   {
+  //     value: 1,
+  //     // arr:[1,"max"],
+  //     obj: {
+  //       type: "speed",
+  //       diceMax: 10,
+  //       // value: 1,
+  //     },
+  //   },
+  // ],
 ];

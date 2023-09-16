@@ -11,6 +11,9 @@
 -------------------------------
 to do for presentation:
 
+
+- after purchasing item quest doesnt vanish
+
 - add bye page (clearing data)
 - readme on github
 

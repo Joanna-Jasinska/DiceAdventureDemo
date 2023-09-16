@@ -50,9 +50,9 @@ export const Quest = {
         return [];
     }
     const questLevels = Object.keys(collection);
-    let checkingLv = allyLv;
+    let checkingLv;
     let checked = 0;
-    let iteration = 0;
+    let iteration = allyLv;
     let filtered = [];
     while (
       iteration < questLevels[questLevels.length - 1] &&
@@ -76,7 +76,7 @@ export const Quest = {
           locked,
           index: iteration,
           cost,
-          ally: "wizard",
+          ally: allyType,
         });
         checked = checked + 1;
       }
@@ -84,37 +84,37 @@ export const Quest = {
     }
     return filtered.length > 0 ? filtered : [];
   },
-  getAvailableQuests(allyLv = 1, caravanLv = 1, dungeonLevels, amount = 1) {
+  getAvailableQuests(allies, caravanLv = 1, dungeonLevels, amount = 1) {
     const wizard = this.getAllyQuests(
-      allyLv,
+      allies["wizard"].lv,
       caravanLv,
       dungeonLevels,
       amount,
       "wizard"
     );
     const barbarian = this.getAllyQuests(
-      allyLv,
+      allies["barbarian"].lv,
       caravanLv,
       dungeonLevels,
       amount,
       "barbarian"
     );
     const aristocrat = this.getAllyQuests(
-      allyLv,
+      allies["aristocrat"].lv,
       caravanLv,
       dungeonLevels,
       amount,
       "aristocrat"
     );
     const hunter = this.getAllyQuests(
-      allyLv,
+      allies["hunter"].lv,
       caravanLv,
       dungeonLevels,
       amount,
       "hunter"
     );
     const rogue = this.getAllyQuests(
-      allyLv,
+      allies["rogue"].lv,
       caravanLv,
       dungeonLevels,
       amount,

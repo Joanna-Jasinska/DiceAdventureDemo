@@ -10,11 +10,7 @@ export const QuestList = () => {
   // const extraFilters = useSelector(selectFilters);
   // const items = useSelector(selectEq);
   const { dungeonLevels, allies } = useGame();
-  const wizardQuests = Quest.getAvailableQuests(
-    allies["wizard"].lv,
-    1,
-    dungeonLevels
-  );
+  const wizardQuests = Quest.getAvailableQuests(allies, 1, dungeonLevels);
   const quests = [...(wizardQuests ? wizardQuests : [])];
   // const wizardQuests=getWizardQuests(allyLv = 1, caravanLv = 1, dungeonLevels)
 

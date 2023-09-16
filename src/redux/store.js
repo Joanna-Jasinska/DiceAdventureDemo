@@ -51,6 +51,7 @@ const gamePersistConfig = {
     "maxEqLv",
     "spareLvUps",
     "gold",
+    "allies",
   ],
 };
 

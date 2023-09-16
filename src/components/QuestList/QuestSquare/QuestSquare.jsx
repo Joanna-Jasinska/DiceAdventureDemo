@@ -46,8 +46,10 @@ export const QuestSquare = ({ item, locked, cost, ally }) => {
     // remove gold
     // get item
     dispatch(payGold(cost)).then((result) => {
-      if (typeof result.payload !== "string") dispatch(lvUpAlly(ally));
-      dispatch(unlockItem(itemId));
+      if (typeof result.payload !== "string") {
+        dispatch(lvUpAlly(ally));
+        dispatch(unlockItem(itemId));
+      }
     });
   };
 
