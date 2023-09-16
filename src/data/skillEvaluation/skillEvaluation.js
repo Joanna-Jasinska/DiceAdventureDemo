@@ -30,6 +30,6 @@ export const fetchSkillEvaluations = ({ itemId, state }) => {
   // const sequence = fetchSkillEvaluation(evaluationId, state);
   const sequence = fetchSkillEvaluation(itemId, state);
   if (sequence.length < 1) return false;
-  console.log(`Skill evaluations for:`, itemId, sequence);
+  // console.log(`Skill evaluations for:`, itemId, sequence);
   return sequence;
 };

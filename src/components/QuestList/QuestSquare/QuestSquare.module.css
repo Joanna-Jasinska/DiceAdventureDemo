@@ -31,7 +31,6 @@
   background-color: #ffffffbb;
   text-align: left;
   z-index: 2;
-  /* overflow: hidden; */
   overflow: visible;
 }
 .iconBag {

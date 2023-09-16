@@ -36,7 +36,7 @@ const initialState = {
   possibleDungeons: [],
   dungeonLevels: {
     "dungeon|1|": 1,
-    "dungeon|2|": 1,
+    "dungeon|2|": 0,
     "dungeon|3|": 1,
     "dungeon|4|": 1,
     "dungeon|5|": 1,
@@ -75,6 +75,7 @@ const gameSlice = createSlice({
       state.maxEqLv = initialState.maxEqLv;
       state.spareLvUps = initialState.spareLvUps;
       state.gold = initialState.gold;
+      state.allies = initialState.allies;
       state.error = null;
       state.isLoading = false;
     },

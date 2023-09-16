@@ -96,7 +96,7 @@ export const GKrasnal = {
       requires: {
         // exactValues: false,
         // minDices: 1,
-        minSum: 2,
+        minSum: 1,
       },
       grow: {
         // duplicateAtLv: 32,
@@ -130,6 +130,7 @@ export const GKrasnal = {
         minSum: 3,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,

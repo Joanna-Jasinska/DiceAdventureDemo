@@ -11,6 +11,8 @@
 -------------------------------
 to do for presentation:
 
+- WHEN WINNING DUNGEON MOVE TO NEXT DUNGEON
+
 
 - after purchasing item quest doesnt vanish
 

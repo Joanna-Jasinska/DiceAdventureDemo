@@ -221,13 +221,19 @@ export const Piece = {
   levelupPiece(piecee) {
     const piece = JSON.parse(JSON.stringify(piecee));
     const pieceArray = [];
-    const lv = piece.lv || 0;
     const grow = piece.grow ? piece.grow : false;
+    const existsSinceLv = grow ? piece.grow.existsSinceLv || 0 : 0;
+    const lv =
+      piece.lv !== undefined && piece.lv >= existsSinceLv
+        ? piece.lv - existsSinceLv
+        : false;
+    console.log(`piece lv[${piece.lv}] existsSinceLv[${existsSinceLv}]`, piece);
+    console.log(`[${piece.lv !== false}] && [${piece.lv >= existsSinceLv}] `);
     const r = piece.requires ? piece.requires : false;
     let spilloverLv = lv;
     const maxLv = grow.duplicateAtLv || false;
     let iteration = 1;
-    while (r && maxLv && spilloverLv > maxLv) {
+    while (lv !== false && r && maxLv && spilloverLv > maxLv) {
       // make maxed dice  --------------------------------------------------
       let currentPiece = JSON.parse(JSON.stringify({ ...piece }));
       let a = currentPiece.allows ? currentPiece.allows : false;
@@ -268,7 +274,7 @@ export const Piece = {
       iteration += 1;
       spilloverLv = spilloverLv - grow.duplicateAtLv;
     }
-    if (spilloverLv > 0) {
+    if (lv !== false && spilloverLv > -1) {
       // make not full dice  ----------------------------------------------
       let currentPiece = JSON.parse(JSON.stringify({ ...piece }));
       let a = currentPiece.allows ? currentPiece.allows : false;

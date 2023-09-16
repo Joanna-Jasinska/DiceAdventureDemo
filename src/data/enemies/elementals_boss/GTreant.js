@@ -38,6 +38,7 @@ export const GTreant = {
         minSum: 2,
       },
       grow: {
+        // existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 3,
         // lvlsToRaiseMinDices: 12,
@@ -69,6 +70,7 @@ export const GTreant = {
         minSum: 2,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 3,
         // lvlsToRaiseMinDices: 12,
@@ -224,6 +226,7 @@ export const GTreant = {
         minSum: 1,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 0.5,
         // lvlsToRaiseMinDices: 12,
