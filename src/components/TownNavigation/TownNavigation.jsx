@@ -14,7 +14,7 @@ import { getDiceTypeIcon } from "data/icons";
 import { useLocation } from "react-router-dom";
 import { BagOfGold } from "components/BagOfGold/BagOfGold";
 import { PLvAvatar } from "components/PLvAvatar/PLvAvatar";
-import { LevelUps } from "components/LevelUps/LevelUps";
+// import { LevelUps } from "components/LevelUps/LevelUps";
 
 export const TownNavigation = () => {
   const dispatch = useDispatch();
@@ -91,9 +91,13 @@ export const TownNavigation = () => {
           {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
           <PLvAvatar shrink={true} gold={"lv"} />
           <BagOfGold shrink={true} gold={gold} />
-          <LevelUps shrink={true} lv={spareLvUps} />
+          {/* <LevelUps shrink={true} lv={spareLvUps} /> */}
           <HeaderNavBtn to="/eq" display={`${selectedItems.length}/5`} />
-          <HeaderNavBtn to="/workshop" display={`🔨`} />
+          <HeaderNavBtn
+            to="/workshop"
+            display={spareLvUps > 0 ? `🔨${spareLvUps}` : `🔨`}
+            recommended={spareLvUps > 0}
+          />
           {/* <HeaderNavBtn to="/alchemy" display={`⚗️`} /> */}
           {/* <HeaderNavBtn
             to="/-"
