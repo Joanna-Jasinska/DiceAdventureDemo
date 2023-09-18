@@ -13,6 +13,7 @@ import { bunnyF, bunnyF_ev, bunnyF_ex } from "./equipment/rainbow/bunnyF";
 import { voIrop, voIrop_ev, voIrop_ex } from "./equipment/poison/voIrop";
 import { kKnives, kKnives_ev, kKnives_ex } from "./equipment/needle/kKnives";
 import { rope, rope_ev, rope_ex } from "./equipment/wits/rope";
+import { katana, katana_ev, katana_ex } from "./equipment/slashed/katana";
 
 export const getBaseEqById = (eid) => {
   const found = EQ[eid];
@@ -29,6 +30,7 @@ export const getSkillExecById = (eid) => {
 
 const EQ = {
   0: [lVest, lVest_ev, lVest_ex],
+  "Katana|SWORD SLASH ++1|": [katana, katana_ev, katana_ex],
   "Rope|CLEVER USE|": [rope, rope_ev, rope_ex],
   "Leather Vest|THUMBLE -2|": [lVest, lVest_ev, lVest_ex],
   "Vial of Iroposion|MIX POISON|": [voIrop, voIrop_ev, voIrop_ex],
@@ -40,7 +42,6 @@ const EQ = {
   "Rusty Sword|SWORD SLASH|": [rSword, rSword_ev, rSword_ex],
   "Travel Bag|COOKING UTENSIL TOSS|": [tBag, tBag_ev, tBag_ex],
   "Kitchen Knives|KNIFE THROW|": [kKnives, kKnives_ev, kKnives_ex],
-  // "Leather Vest|THUMBLE|": leatherVest,
   // "Scroll of Arcane Missles|INVOKE ARCANE|": scrollOfArcaneMissles,
   // "Lucky Clover|LUCKY ROLL|": luckyClover,
 };

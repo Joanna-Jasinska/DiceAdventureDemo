@@ -5,8 +5,8 @@ export const PLAYER_STARTING_MAX_EQ_LV = 2; //2
 export const PLAYER_STARTING_LEVELUPS = 0;
 export const LVLS_REQ_PER_MAX_EQ_LV = 3;
 export const PATHS_AMOUNT = 3;
-export const ITEM_BASE_COST=90;
-export const ITEM_PER_LV_COST=10;
+export const ITEM_BASE_COST = 90;
+export const ITEM_PER_LV_COST = 10;
 
 export const STARTING_EQ = [
   "Rusty Sword|SWORD SLASH|",
@@ -16,6 +16,7 @@ export const STARTING_EQ = [
   // -----------------not used:
   // "Heavy Metal Shield|SHIELD BASH +2|",
   // -----------------given to ally:
+  // "Katana|SWORD SLASH ++1|",
   // "Wooden Shield|SHIELD BASH +1|",
   // "Rope|CLEVER USE|",
   // "Leather Vest|THUMBLE -2|",
