@@ -1,7 +1,12 @@
+import { JOURNEY } from "./journey";
+
 export const PLAYER_BASE_LIFE = 1;
 export const PLAYER_STARTING_MAX_EQ_LV = 2; //2
 export const PLAYER_STARTING_LEVELUPS = 0;
 export const LVLS_REQ_PER_MAX_EQ_LV = 3;
+export const PATHS_AMOUNT = 3;
+export const ITEM_BASE_COST=90;
+export const ITEM_PER_LV_COST=10;
 
 export const STARTING_EQ = [
   "Rusty Sword|SWORD SLASH|",
@@ -30,15 +35,11 @@ export const STARTING_EQ = [
   // "Fairy Advisor|ADVISE|",
 ];
 
-export const STARTING_DUNGEONS = [
-  "dungeon|1|1",
-  "dungeon|2|2",
-  "dungeon|3|3",
-  "dungeon|4|4",
-  "dungeon|5|5",
-  //   //   "dungeon|2|2",
-  //   //   "dungeon|2|2",
-  //   //   "dungeon|2|2",
-  //   //   "dungeon|2|2",
-  //   //   "dungeon|2|2",
-];
+export const STARTING_DUNGEONS = [...JOURNEY.slice(0, PATHS_AMOUNT)];
+export const STARTING_DUNGEON_LEVELS = {
+  Valley: 0,
+  Forest: 0,
+  Mountain: 1,
+  Island: 2,
+  Castle: 2,
+};

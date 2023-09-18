@@ -224,6 +224,7 @@ export const BSGolem = {
         minSum: 1,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 0.5,
         // lvlsToRaiseMinDices: 12,

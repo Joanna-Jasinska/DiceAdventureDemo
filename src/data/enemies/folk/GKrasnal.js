@@ -34,11 +34,11 @@ export const GKrasnal = {
       requires: {
         // exactValues: false,
         // minDices: 1,
-        minSum: 2,
+        minSum: 3,
       },
       grow: {
         // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 2,
+        lvlsToRaiseMinSum: 1.5,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,
@@ -65,11 +65,11 @@ export const GKrasnal = {
       requires: {
         // exactValues: false,
         // minDices: 1,
-        minSum: 4,
+        minSum: 3,
       },
       grow: {
         // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 1,
+        lvlsToRaiseMinSum: 1.2,
         // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,

@@ -81,7 +81,8 @@ export const App = () => {
             element={
               <RouteBattle
                 // redirectTo="/quickBattle"
-                redirectTo="/workshop"
+                redirectTo="/town"
+                // redirectTo="/workshop"
                 component={<DungeonPage />}
               />
             }

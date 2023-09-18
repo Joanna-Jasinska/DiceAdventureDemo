@@ -14,6 +14,7 @@ export const DungeonSquare = ({
   background,
   lv = -1,
   weakness = false,
+  index,
   // eventId,
   // lvStarted,
   // lvReached,
@@ -26,7 +27,7 @@ export const DungeonSquare = ({
 
   const selectSelf = () => {
     if (!selected) {
-      dispatch(setSelectDungeon(id));
+      dispatch(setSelectDungeon(index));
     }
   };
   return (
@@ -56,7 +57,7 @@ export const DungeonSquare = ({
         )}
         <span className={css.text}>
           <span className={css.level}>{`${lv} `}</span>
-          <span className={css.name}>{`${name} ${eventName}`}</span>
+          <span className={css.name}>{`${name}\n${eventName}`}</span>
         </span>
       </div>
       <div className={css.iconBag}>

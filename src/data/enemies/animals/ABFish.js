@@ -69,6 +69,7 @@ export const ABFish = {
         minSum: 4,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,

@@ -68,6 +68,7 @@ export const PBats = {
         minSum: 3,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 3,
         // lvlsToRaiseMinDices: 12,

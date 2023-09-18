@@ -37,6 +37,7 @@
   /* color: #fff; */
   background-color: var(--bg-highlighted-solid);
   transform: scale(1.1);
+  animation-play-state: paused;
 }
 .disabled {
   cursor: not-allowed;

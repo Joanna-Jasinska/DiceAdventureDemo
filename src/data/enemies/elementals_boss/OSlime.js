@@ -225,6 +225,7 @@ export const OSlime = {
         // minSum: 1,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         // lvlsToRaiseMinSum: 0.5,
         lvlsToRaiseMinDices: 1.5,

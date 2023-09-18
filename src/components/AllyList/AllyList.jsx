@@ -7,7 +7,7 @@ import { useGame } from "hooks/useGame";
 export const AllyList = ({ id, list = ALLIES }) => {
   const displayed = id ? [{ ...getAlly(id), type: "" }] : [...list];
   const { allies } = useGame();
-  console.log(`displayed`, displayed);
+  // console.log(`displayed`, displayed);
   return (
     <div className={css.list}>
       {displayed.length < 1

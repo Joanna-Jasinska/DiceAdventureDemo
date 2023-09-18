@@ -6,16 +6,24 @@
  should load player statuses depending on eq
 -/later/- animations
 -/later/- fix plvavatar and playerlvavatar to each have separate role or be one component
-
+- if there is no more journey - current paths should be saved on persist store 
+   -> and loaded up - unless - more journeys are added
 
 -------------------------------
 to do for presentation:
 
-- WHEN WINNING DUNGEON MOVE TO NEXT DUNGEON
+- remove currentDungeons from game slice and persist store
+
+- every time you beat dungeon the caravan moves and 1 path is added and 1 excuded
+- road.js listing paths
+- when winning dungeon you are moved to dungeon of same slot after caravan moves
+
+adjut enemies to lv0 for dungeon other than forest
 
 - CHANGE GO ICON TO SELECTED DUNGEON
 
 - STARTING NEW GAME JUMPS TO PAGE >> ?
+- new game with only 1 ally ?
 
 
 - after purchasing item quest doesnt vanish

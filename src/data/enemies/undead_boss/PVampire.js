@@ -130,6 +130,7 @@ export const PVampire = {
         minSum: 1,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,

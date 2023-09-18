@@ -126,4 +126,5 @@
   line-height: 0.84rem;
   text-align: center;
   overflow: hidden;
+  white-space: pre;
 }

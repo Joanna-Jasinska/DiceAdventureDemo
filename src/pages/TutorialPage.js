@@ -162,7 +162,7 @@ export const TutorialPage = () => {
       <h4 id="tutorial">Tutorial</h4>
       <ContainerHorisontal>
         Path
-        <br /> There are 5 Paths to explore.
+        <br /> There are 3 Paths to explore.
         <br />
         To progress the game on selected Path choose{" "}
         {`Go${getDiceTypeIcon("playerAttack")}`}.
@@ -173,8 +173,8 @@ export const TutorialPage = () => {
         To progress a path to next Level and gain a levelup you need to win all
         available adventures there.
         <br />
-        Once you progress path to next level all gold you will be earning since
-        then is doubled - until you leave path and go back to caravan.
+        Once you progress path to next level caravan will move on. Last path
+        will be gone and a new path will open.
         <HeaderNavBtn
           to="/dungeon"
           display={`Go${getDiceTypeIcon("playerAttack")}`}
@@ -186,11 +186,12 @@ export const TutorialPage = () => {
         />
       </ContainerHorisontal>
       <ContainerHorisontal>
-        (Caravan moving added in future)
-        <br />
         Caravan
+        <br /> People at the caravan can give you items if you help them out on
+        paths they require and give them gold needed to craft those items.
         <br />
-        When the Caravan is ready, MOVE the caravan to discover new paths.
+        (Added in future) In future friendship Level will grant extra benefits
+        to help You on the journey.
       </ContainerHorisontal>
       <h4 id="tutorial">Equipment and Skills</h4>
       <ContainerHorisontal>

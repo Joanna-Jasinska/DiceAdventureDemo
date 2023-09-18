@@ -1,132 +1,29 @@
+import { f001 } from "./dungeons/forests/f001";
+import { i001 } from "./dungeons/islands/i001";
+import { m001 } from "./dungeons/mountain/m001";
+import { v000 } from "./dungeons/valley/v000";
+import { v001 } from "./dungeons/valley/v001";
+
 export const getDungeon = (eid) => {
-  const found = DUNGEONS.find((d) => d.eventId === eid);
+  const found = DUNGEONS[eid];
   return found ? found : DUNGEONS[0];
 };
-
-// export const getBasicDungeons = () => {
-//   // return [
-//   //   "dungeon|2|2",
-//   //   "dungeon|2|2",
-//   //   "dungeon|2|2",
-//   //   "dungeon|2|2",
-//   //   "dungeon|2|2",
-//   // ];
-//   return [...DUNGEONS.slice(0, 5).map((d) => d.eventId)];
+// export const getDungeon = (eid) => {
+//   const found = DUNGEONS.find((d) => d.eventId === eid);
+//   return found ? found : DUNGEONS[0];
 // };
 
-export const DUNGEONS = [
-  {
-    name: "Black Mountain",
-    eventName: "",
-    id: "dungeon|1|",
-    eventId: "dungeon|1|1",
-    background: {
-      icon: "🗻",
-      eventIcon: "🌋",
-      bgColor: "#413e20",
-      flavorIcon: "🗻",
-    },
-    // ally: {},
-    // lvStarted: 1,
-    // lvReached: 2,
-    // gold: 100,
-    weakness: ["elemental", "magic"],
-    bosses: ["ELEMENTALS|black|Golem"],
-    enemies: [
-      ["BARRICADE|black|Pebbles"],
-      ["BARRICADE|black|Pebbles"],
-      ["BARRICADE|black|Pebbles"],
-    ],
-  },
-  {
-    name: "Wild Forests",
-    eventName: "",
-    id: "dungeon|2|",
-    eventId: "dungeon|2|2",
-    background: {
-      icon: "🌲",
-      eventIcon: "🌲",
-      flavorIcon: "🌳",
-      bgColor: "#3ea413",
-    },
-    weakness: ["elemental", "physical"],
-    bosses: ["ELEMENTALS|green|Treant"],
-    enemies: [
-      ["FOLK|green|Krasnal"],
-      ["FOLK|green|Krasnal"],
-      ["FOLK|green|Krasnal"],
-    ],
-  },
-  {
-    background: {
-      icon: "〰", //🗾
-      eventIcon: "🌾",
-      bgColor: "#ff6128",
-      flavorIcon: "🌾",
-    },
-    name: "Lost Valley",
-    eventName: "",
-    id: "dungeon|3|",
-    eventId: "dungeon|3|3",
-    weakness: ["magic", "trait"],
-    bosses: ["ELEMENTALS|orange|Slime"],
-    enemies: [
-      ["ANIMALS|orange|Frog"],
-      ["ANIMALS|orange|Frog"],
-      ["ANIMALS|orange|Frog"],
-    ],
-  },
-  {
-    background: {
-      icon: "🌅",
-      eventIcon: "🌴",
-      bgColor: "#78ddff",
-      flavorIcon: "🐟",
-    },
-    name: "Remote Islands",
-    eventName: "",
-    id: "dungeon|4|",
-    eventId: "dungeon|4|4",
-    weakness: ["trait", "physical"],
-    bosses: ["ANIMALS|aqua|Toad King"],
-    enemies: [
-      ["ANIMALS|aqua|Blue Fish"],
-      ["ANIMALS|aqua|Blue Fish"],
-      ["ANIMALS|aqua|Blue Fish"],
-    ],
-  },
-  {
-    background: {
-      icon: "🏰",
-      eventIcon: "🏰",
-      bgColor: "#a856ff",
-      flavorIcon: "🕳️",
-    },
-    name: "Cursed Castle",
-    eventName: "",
-    weakness: ["physical", "magic"],
-    enemies: [
-      [
-        "ANIMALS|purple|Mutated Rat",
-        // "UNDEAD|purple|Skeleton Head",
-      ],
-      [
-        "ANIMALS|purple|Mutated Rat",
-        // "UNDEAD|purple|Ghost",
-        // "ANIMALS|purple|Bats",
-      ],
-      [
-        "ANIMALS|purple|Mutated Rat",
-        // "HUMAN|purple|Cursed Soldier",
-        // "UNDEAD|purple|Ghost Widow",
-      ],
-    ],
-    bosses: ["ANIMATED|purple|Cursed Orb"],
-    id: "dungeon|5|",
-    eventId: "dungeon|5|5",
-  },
+export const DUNGEONS = {
+  0: v000,
+  "Valley|v000|Lost Valley|Lost Road": v000,
+  "Forest|f001|Wild Forests|Acorn Forest": f001,
+  "Valley|v001|Lost Valley|Overgrown Path": v001,
+  "Mountain|m001|Black Mountain|Barricaded Path": m001,
+  "Island|i001|Remote Islands|": i001,
+};
 
-  {
+/*
+ {
     icon: "🌋",
     eventIcon: "",
     bgColor: "#413e20",
@@ -431,4 +328,4 @@ export const DUNGEONS = [
     bosses: [],
     id: "dungeon|1|obelisk",
   },
-];
+*/

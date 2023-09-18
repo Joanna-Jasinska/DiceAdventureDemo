@@ -4,23 +4,24 @@ import { QUESTS_BARBARIAN } from "data/allies/barbarian";
 import { QUESTS_ROGUE } from "data/allies/rogue";
 import { QUESTS_HUNTER } from "data/allies/hunter";
 import { QUESTS_ARISTOCRAT } from "data/allies/aristocrat";
+import { ITEM_BASE_COST, ITEM_PER_LV_COST } from "data/settings";
 
-const getDungeonShortName = (id) => {
-  switch (id) {
-    case "dungeon|1|":
-      return "Mountain";
-    case "dungeon|2|":
-      return "Forest";
-    case "dungeon|3|":
-      return "Valley";
-    case "dungeon|4|":
-      return "Island";
-    case "dungeon|5|":
-      return "Castle";
-    default:
-      return "Forest";
-  }
-};
+// const getDungeonShortName = (id) => {
+//   switch (id) {
+//     case "dungeon|1|":
+//       return "Mountain";
+//     case "dungeon|2|":
+//       return "Forest";
+//     case "dungeon|3|":
+//       return "Valley";
+//     case "dungeon|4|":
+//       return "Island";
+//     case "dungeon|5|":
+//       return "Castle";
+//     default:
+//       return "Forest";
+//   }
+// };
 export const Quest = {
   getAllyQuests(
     allyLv = 1,
@@ -64,12 +65,14 @@ export const Quest = {
         const reqCaravan = Math.floor((checkingLv || 0) / 3);
         let locked = false;
         if (dungeonLevels[q.dungeon] < checkingLv) {
-          locked = `Reach Lv ${checkingLv}\n${getDungeonShortName(q.dungeon)}`;
+          locked = `Reach Lv ${checkingLv}\n${q.dungeon}`;
         }
         if (caravanLv < reqCaravan) {
           locked = `Move cravan\nto unlock`;
         }
-        const cost = 150 + (checkingLv >= 0 ? checkingLv * 10 : 0);
+        const cost =
+          ITEM_BASE_COST +
+          (checkingLv >= 0 ? checkingLv * ITEM_PER_LV_COST : 0);
         filtered.push({
           dungeon: q.dungeon,
           item: Items.getItemById({ id: q.item }),

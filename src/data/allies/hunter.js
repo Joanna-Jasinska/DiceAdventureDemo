@@ -1,8 +1,8 @@
 // hunter🧝🏻 weapons, utility, beasts, food
-
+//"Valley"
 export const QUESTS_HUNTER = {
-  3: {
+  2: {
     item: "Rope|CLEVER USE|",
-    dungeon: "dungeon|3|",
+    dungeon: "Valley",
   },
 };

@@ -16,31 +16,21 @@ import {
 import {
   PLAYER_STARTING_LEVELUPS,
   PLAYER_STARTING_MAX_EQ_LV,
+  STARTING_DUNGEONS,
+  STARTING_DUNGEON_LEVELS,
 } from "data/settings";
 
 const initialState = {
   error: null,
   isLoading: false,
-  selectedDungeonId: "dungeon|2|",
+  selectedDungeonId: 0,
   playerLv: 1,
   maxEqLv: PLAYER_STARTING_MAX_EQ_LV,
   spareLvUps: PLAYER_STARTING_LEVELUPS,
   gold: 200,
-  currentDungeons: [
-    "dungeon|1|1",
-    "dungeon|2|2",
-    "dungeon|3|3",
-    "dungeon|4|4",
-    "dungeon|5|5",
-  ],
+  currentDungeons: [...STARTING_DUNGEONS],
   possibleDungeons: [],
-  dungeonLevels: {
-    "dungeon|1|": 1,
-    "dungeon|2|": 0,
-    "dungeon|3|": 1,
-    "dungeon|4|": 1,
-    "dungeon|5|": 1,
-  },
+  dungeonLevels: { ...STARTING_DUNGEON_LEVELS },
   allies: {
     wizard: { lv: 0 },
     barbarian: { lv: 0 },
@@ -65,7 +55,7 @@ const gameSlice = createSlice({
     [resetGame.rejected]: handleRejected,
     [resetGame.fulfilled](state, action) {
       // state.currentDungeons = initialState.currentDungeons;
-      state.currentDungeons = action.payload;
+      state.currentDungeons = initialState.currentDungeons;
       // needs to be fixed to generate all possible dungeon list
       state.possibleDungeons = initialState.possibleDungeons;
       // state.possibleDungeons = action.payload.possibleDungeons;
@@ -97,6 +87,7 @@ const gameSlice = createSlice({
       // state.playerLv = action.payload.playerLv;
       // state.spareLvUps = action.payload.spareLvUps;
       state.maxEqLv = action.payload.maxEqLv + PLAYER_STARTING_MAX_EQ_LV;
+      state.currentDungeons = action.payload.currentDungeons;
     },
 
     [lvUpAlly.pending]: handlePending,

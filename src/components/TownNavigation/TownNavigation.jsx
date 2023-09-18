@@ -8,6 +8,7 @@ import {
   packEquipment,
   getReadyToEnter,
   startDungeonById,
+  startSelectedDungeon,
 } from "redux/dungeon/operations";
 import css from "./TownNavigation.module.css";
 import { useGame } from "hooks/useGame";
@@ -73,12 +74,11 @@ export const TownNavigation = () => {
   useEffect(() => {
     if (readyToEnter) {
       dispatch(
-        startDungeonById(
-          Dungeon.getEventIdFromSelectedCurrentDungeon(
-            selectedDungeonId,
-            currentDungeons
-          )
-        )
+        startSelectedDungeon()
+        // Dungeon.getEventIdFromSelectedCurrentDungeon(
+        //   selectedDungeonId,
+        //   currentDungeons
+        // )
       );
       dispatch(packEquipment());
     }

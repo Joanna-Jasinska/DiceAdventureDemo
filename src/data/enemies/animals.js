@@ -1,6 +1,5 @@
 //
 export const ANIMALS = [
-  
   {
     name: "Old Wolf",
     portrait: {
@@ -259,23 +258,6 @@ export const ANIMALS = [
     life: 9,
     maxLife: 10,
     id: "ANIMALS|green|Elder Badger",
-    body: [],
-    status: [],
-  },
-  {
-    name: "Giant Spider",
-    portrait: {
-      frontIcon: "",
-      sideIcon: "🌳",
-      bgSideIcon: "🕸",
-      backIcon: "🕷",
-      bgIcon: "🌳",
-      filterColor: "#005a124a",
-      bgColor: "#ddd900",
-    },
-    life: 9,
-    maxLife: 10,
-    id: "ANIMALS|green|Giant Spider",
     body: [],
     status: [],
   },

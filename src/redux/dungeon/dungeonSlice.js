@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   clearDungeon,
   packEquipment,
-  startDungeonById,
+  // startDungeonById,
+  // startDungeonByIndex,
+  startSelectedDungeon,
   levelupAndReloadDungeon,
   getReadyToEnter,
   setLv,
@@ -150,9 +152,12 @@ const dungeonSlice = createSlice({
       state.readyToEnter = true;
     },
 
-    [startDungeonById.pending]: handlePending,
-    [startDungeonById.rejected]: handleRejected,
-    [startDungeonById.fulfilled](state, action) {
+    // [startDungeonByIndex.pending]: handlePending,
+    // [startDungeonByIndex.rejected]: handleRejected,
+    // [startDungeonByIndex.fulfilled](state, action) {
+    [startSelectedDungeon.pending]: handlePending,
+    [startSelectedDungeon.rejected]: handleRejected,
+    [startSelectedDungeon.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.name = action.payload.name;
@@ -170,6 +175,26 @@ const dungeonSlice = createSlice({
       state.startedLv = action.payload.lv;
       state.id = action.payload.id;
     },
+    // [startDungeonById.pending]: handlePending,
+    // [startDungeonById.rejected]: handleRejected,
+    // [startDungeonById.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.name = action.payload.name;
+    //   state.eventName = action.payload.eventName;
+    //   state.background = action.payload.background;
+    //   state.items = action.payload.items;
+    //   state.enemies = action.payload.enemies;
+    //   state.bosses = action.payload.bosses;
+    //   state.ally = action.payload.ally;
+    //   state.inDungeon = true;
+    //   state.readyToEnter = false;
+    //   state.player = action.payload.player;
+    //   state.slotsDefeated = initialState.slotsDefeated;
+    //   state.lv = action.payload.lv;
+    //   state.startedLv = action.payload.lv;
+    //   state.id = action.payload.id;
+    // },
 
     [damagePlayer.pending]: handlePending,
     [damagePlayer.rejected]: handleRejected,
@@ -213,6 +238,12 @@ const dungeonSlice = createSlice({
         maxLife: state.player.maxLife,
         status: action.payload.player.status,
       };
+      state.name = action.payload.name;
+      state.eventName = action.payload.eventName;
+      state.background = action.payload.background;
+      state.enemies = action.payload.enemies;
+      state.bosses = action.payload.bosses;
+      state.ally = action.payload.ally;
       state.lv = state.lv + 1;
       state.slotsDefeated = initialState.slotsDefeated;
     },

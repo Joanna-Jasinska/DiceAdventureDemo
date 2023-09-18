@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getDungeon } from "data/dungeons";
 import { getRandomNum } from "objects/Dice";
 import { PLAYER_BASE_LIFE } from "data/settings";
+import { Dungeon } from "objects/Dungeon";
 
 export const clearDungeon = createAsyncThunk(
   "dungeon/clear",
@@ -20,16 +21,19 @@ export const setLv = createAsyncThunk("dungeon/setLv", async (lv, thunkAPI) => {
   return lv;
 });
 
-export const startDungeonById = createAsyncThunk(
+export const startSelectedDungeon = createAsyncThunk(
   "dungeon/startSelected",
-  async (id, thunkAPI) => {
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const index = state.game.selectedDungeonId;
+    const playerLv = state.game.playerLv;
+    const id = Dungeon.getCurrentDungeons(playerLv)[index];
     const myDungeon = getDungeon(id);
     const myPlayer = {
       life: 1,
       maxLife: 1,
       status: {},
     };
-    const state = thunkAPI.getState();
     const myLv = state.game.dungeonLevels[myDungeon.id] || 0;
     return {
       ...myDungeon,
@@ -40,18 +44,64 @@ export const startDungeonById = createAsyncThunk(
     };
   }
 );
+// export const startDungeonByIndex = createAsyncThunk(
+//   "dungeon/startSelected",
+//   async (i, thunkAPI) => {
+//     const id = Dungeon.getCurrentDungeons(playerLv)[i];
+//     const myDungeon = getDungeon(id);
+//     const myPlayer = {
+//       life: 1,
+//       maxLife: 1,
+//       status: {},
+//     };
+//     const state = thunkAPI.getState();
+//     const myLv = state.game.dungeonLevels[myDungeon.id] || 0;
+//     return {
+//       ...myDungeon,
+//       player: myPlayer,
+//       startedLv: myLv,
+//       lv: myLv,
+//       goldEarned: 0,
+//     };
+//   }
+// );
+// export const startDungeonById = createAsyncThunk(
+//   "dungeon/startSelected",
+//   async (id, thunkAPI) => {
+//     const myDungeon = getDungeon(id);
+//     const myPlayer = {
+//       life: 1,
+//       maxLife: 1,
+//       status: {},
+//     };
+//     const state = thunkAPI.getState();
+//     const myLv = state.game.dungeonLevels[myDungeon.id] || 0;
+//     return {
+//       ...myDungeon,
+//       player: myPlayer,
+//       startedLv: myLv,
+//       lv: myLv,
+//       goldEarned: 0,
+//     };
+//   }
+// );
 
 export const levelupAndReloadDungeon = createAsyncThunk(
   "dungeon/levelupAndReload",
   async (_, thunkAPI) => {
-    // const state = thunkAPI.getState();
+    const state = thunkAPI.getState();
     // const id = state.dungeon.id;
     // const myDungeon = getDungeon(id);
     // could clear player status
+    const playerLv = state.game.playerLv + 1;
+    const index = state.game.selectedDungeonId;
+    const id = Dungeon.getCurrentDungeons(playerLv)[index];
+    const myDungeon = getDungeon(id);
     const myPlayer = {
       status: {},
     };
     return {
+      ...myDungeon,
       player: myPlayer,
       // lv: myLv,
       // startedLv: myLv,

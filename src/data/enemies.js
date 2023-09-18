@@ -14,6 +14,11 @@ import { AToadK } from "./enemies/animals_boss/AToadK";
 import { ABFish } from "./enemies/animals/ABFish";
 import { OFrog } from "./enemies/animals/OFrog";
 import { OSlime } from "./enemies/elementals_boss/OSlime";
+import { OSeedling } from "./enemies/elementals/OSeedling";
+import { ODoggie } from "./enemies/animals/ODoggie";
+import { OLantern } from "./enemies/barricade_boss/OLantern";
+import { OOBushes } from "./enemies/barricade/OOBushes";
+import { GPSpider } from "./enemies/animals/GPSpider";
 
 const template = {};
 
@@ -24,6 +29,11 @@ export const getEnemy = (id) => {
 
 const ENEMIES = {
   0: PMutatedRat,
+  "ANIMALS|green|Poisonous Spider": GPSpider,
+  "BARRICADE|orange|Overgrown Bushes": OOBushes,
+  "ELEMENTALS|orange|Lantern": OLantern,
+  "ANIMALS|orange|Doggie": ODoggie,
+  "ELEMENTAL|orange|Seedling": OSeedling,
   "ELEMENTALS|orange|Slime": OSlime,
   "ANIMALS|orange|Frog": OFrog,
   "ANIMALS|aqua|Blue Fish": ABFish,

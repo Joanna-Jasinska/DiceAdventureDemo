@@ -4,10 +4,15 @@ import { useGame } from "hooks/useGame";
 // import { Loader } from "components/Loader/Loader";
 
 import css from "./DungeonList.module.css";
+import { TravelCount } from "components/TravelCount/TravelCount";
+import { JOURNEY } from "data/journey";
+import { PATHS_AMOUNT } from "data/settings";
+import { Dungeon } from "objects/Dungeon";
 
 export const DungeonList = () => {
-  const { currentDungeons, selectedDungeonId, dungeonLevels } = useGame();
-  const list = currentDungeons;
+  const { selectedDungeonId, dungeonLevels, playerLv } = useGame();
+  const list = Dungeon.getCurrentDungeons(playerLv);
+  // const list = currentDungeons;
 
   return (
     <div className={css.list}>
@@ -15,18 +20,20 @@ export const DungeonList = () => {
         ? ""
         : list.map((id, index) => {
             const dungeon = getDungeon(id);
-            const isSelected = dungeon.id === selectedDungeonId ? true : false;
+            const isSelected = index === selectedDungeonId ? true : false;
             return (
               <DungeonSquare
                 {...{
                   ...dungeon,
                   selected: isSelected,
                   lv: dungeonLevels[dungeon.id],
+                  index: index,
                   key: `dungeon|${index}|${dungeon.id}|${dungeon.eventId}`,
                 }}
               />
             );
           })}
+      <TravelCount count={`${playerLv - 1}`} />
     </div>
   );
 };

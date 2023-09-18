@@ -68,6 +68,7 @@ export const OFrog = {
         minSum: 3,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 1.2,
         // lvlsToRaiseMinDices: 2.5,

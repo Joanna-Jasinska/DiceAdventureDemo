@@ -1,11 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { LVLS_REQ_PER_MAX_EQ_LV, STARTING_DUNGEONS } from "data/settings";
+import { JOURNEY } from "data/journey";
+import {
+  LVLS_REQ_PER_MAX_EQ_LV,
+  PATHS_AMOUNT,
+  STARTING_DUNGEONS,
+} from "data/settings";
 // import { getRandomNum } from "objects/Dice";
 
 //   moveCaravan,
 
 export const resetGame = createAsyncThunk("game/reset", async (_, thunkAPI) => {
-  return [...STARTING_DUNGEONS];
+  return true;
 });
 
 export const setGameError = createAsyncThunk(
@@ -22,7 +27,10 @@ export const playerLvUp = createAsyncThunk(
     const playerLv = state.game.playerLv + 1;
     const spareLvUps = state.game.spareLvUps + 1;
     const maxEqLv = Math.floor(playerLv / LVLS_REQ_PER_MAX_EQ_LV);
-    return { playerLv, spareLvUps, maxEqLv };
+    const currentDungeons = [
+      ...JOURNEY.slice(playerLv, PATHS_AMOUNT + playerLv),
+    ];
+    return { playerLv, spareLvUps, maxEqLv, currentDungeons };
   }
 );
 
