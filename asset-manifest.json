@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DiceAdventureDemo/static/css/main.d62bedf6.css",
-    "main.js": "/DiceAdventureDemo/static/js/main.3b2e014d.js",
+    "main.css": "/DiceAdventureDemo/static/css/main.e393fb9e.css",
+    "main.js": "/DiceAdventureDemo/static/js/main.fc7899e8.js",
     "static/css/374.96b26d09.chunk.css": "/DiceAdventureDemo/static/css/374.96b26d09.chunk.css",
     "static/js/374.d313b616.chunk.js": "/DiceAdventureDemo/static/js/374.d313b616.chunk.js",
     "static/css/793.29068951.chunk.css": "/DiceAdventureDemo/static/css/793.29068951.chunk.css",
@@ -13,11 +13,11 @@
     "static/css/786.8e53967e.chunk.css": "/DiceAdventureDemo/static/css/786.8e53967e.chunk.css",
     "static/js/786.40a5db28.chunk.js": "/DiceAdventureDemo/static/js/786.40a5db28.chunk.js",
     "static/js/869.acb29e19.chunk.js": "/DiceAdventureDemo/static/js/869.acb29e19.chunk.js",
-    "static/css/311.955f3b25.chunk.css": "/DiceAdventureDemo/static/css/311.955f3b25.chunk.css",
-    "static/js/311.a4129ad2.chunk.js": "/DiceAdventureDemo/static/js/311.a4129ad2.chunk.js",
+    "static/css/311.f391e2ec.chunk.css": "/DiceAdventureDemo/static/css/311.f391e2ec.chunk.css",
+    "static/js/311.738da4e4.chunk.js": "/DiceAdventureDemo/static/js/311.738da4e4.chunk.js",
     "static/js/762.76bc079e.chunk.js": "/DiceAdventureDemo/static/js/762.76bc079e.chunk.js",
-    "static/css/161.b5437673.chunk.css": "/DiceAdventureDemo/static/css/161.b5437673.chunk.css",
-    "static/js/161.ea4501f5.chunk.js": "/DiceAdventureDemo/static/js/161.ea4501f5.chunk.js",
+    "static/css/161.ff2eff05.chunk.css": "/DiceAdventureDemo/static/css/161.ff2eff05.chunk.css",
+    "static/js/161.bafe5dd5.chunk.js": "/DiceAdventureDemo/static/js/161.bafe5dd5.chunk.js",
     "static/js/27.7c71e28f.chunk.js": "/DiceAdventureDemo/static/js/27.7c71e28f.chunk.js",
     "static/css/971.8af35b60.chunk.css": "/DiceAdventureDemo/static/css/971.8af35b60.chunk.css",
     "static/js/971.e1e57ca6.chunk.js": "/DiceAdventureDemo/static/js/971.e1e57ca6.chunk.js",
@@ -25,8 +25,8 @@
     "static/js/219.496278f3.chunk.js": "/DiceAdventureDemo/static/js/219.496278f3.chunk.js",
     "static/js/915.d360a64c.chunk.js": "/DiceAdventureDemo/static/js/915.d360a64c.chunk.js",
     "index.html": "/DiceAdventureDemo/index.html",
-    "main.d62bedf6.css.map": "/DiceAdventureDemo/static/css/main.d62bedf6.css.map",
-    "main.3b2e014d.js.map": "/DiceAdventureDemo/static/js/main.3b2e014d.js.map",
+    "main.e393fb9e.css.map": "/DiceAdventureDemo/static/css/main.e393fb9e.css.map",
+    "main.fc7899e8.js.map": "/DiceAdventureDemo/static/js/main.fc7899e8.js.map",
     "374.96b26d09.chunk.css.map": "/DiceAdventureDemo/static/css/374.96b26d09.chunk.css.map",
     "374.d313b616.chunk.js.map": "/DiceAdventureDemo/static/js/374.d313b616.chunk.js.map",
     "793.29068951.chunk.css.map": "/DiceAdventureDemo/static/css/793.29068951.chunk.css.map",
@@ -38,11 +38,11 @@
     "786.8e53967e.chunk.css.map": "/DiceAdventureDemo/static/css/786.8e53967e.chunk.css.map",
     "786.40a5db28.chunk.js.map": "/DiceAdventureDemo/static/js/786.40a5db28.chunk.js.map",
     "869.acb29e19.chunk.js.map": "/DiceAdventureDemo/static/js/869.acb29e19.chunk.js.map",
-    "311.955f3b25.chunk.css.map": "/DiceAdventureDemo/static/css/311.955f3b25.chunk.css.map",
-    "311.a4129ad2.chunk.js.map": "/DiceAdventureDemo/static/js/311.a4129ad2.chunk.js.map",
+    "311.f391e2ec.chunk.css.map": "/DiceAdventureDemo/static/css/311.f391e2ec.chunk.css.map",
+    "311.738da4e4.chunk.js.map": "/DiceAdventureDemo/static/js/311.738da4e4.chunk.js.map",
     "762.76bc079e.chunk.js.map": "/DiceAdventureDemo/static/js/762.76bc079e.chunk.js.map",
-    "161.b5437673.chunk.css.map": "/DiceAdventureDemo/static/css/161.b5437673.chunk.css.map",
-    "161.ea4501f5.chunk.js.map": "/DiceAdventureDemo/static/js/161.ea4501f5.chunk.js.map",
+    "161.ff2eff05.chunk.css.map": "/DiceAdventureDemo/static/css/161.ff2eff05.chunk.css.map",
+    "161.bafe5dd5.chunk.js.map": "/DiceAdventureDemo/static/js/161.bafe5dd5.chunk.js.map",
     "27.7c71e28f.chunk.js.map": "/DiceAdventureDemo/static/js/27.7c71e28f.chunk.js.map",
     "971.8af35b60.chunk.css.map": "/DiceAdventureDemo/static/css/971.8af35b60.chunk.css.map",
     "971.e1e57ca6.chunk.js.map": "/DiceAdventureDemo/static/js/971.e1e57ca6.chunk.js.map",
@@ -51,7 +51,7 @@
     "915.d360a64c.chunk.js.map": "/DiceAdventureDemo/static/js/915.d360a64c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d62bedf6.css",
-    "static/js/main.3b2e014d.js"
+    "static/css/main.e393fb9e.css",
+    "static/js/main.fc7899e8.js"
   ]
 }
