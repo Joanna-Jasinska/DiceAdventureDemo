@@ -17,21 +17,6 @@ export const SKILL_EXECUTION = {
       },
     ],
   ],
-  // txt: "change into one of 🔥❄️⚡ at random",
-  "1|RANDOM|HEAT/ICE/SHOCK|": [
-    [
-      DICE_SEX,
-      "Change to Random Array",
-      {
-        value: 1,
-        obj: {
-          type: ["heat", "ice", "shock"],
-          // diceMax: [],
-          // value: [],
-        },
-      },
-    ],
-  ],
   // txt: " reroll 1 for same or higher value ",
   "1|REROLL+|": [
     [

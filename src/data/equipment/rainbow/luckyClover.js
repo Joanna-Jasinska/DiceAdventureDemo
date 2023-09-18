@@ -13,13 +13,13 @@ export const luckyClover = {
     { item: "stats", type: "life", maxHp: 7 },
     {
       item: "dice",
-      diceMax: 4,
-      value: 2,
+      diceMax: 3,
+      value: 1,
       type: "rainbow",
       existSinceLv: 1,
-      duplicateAtLv: 80,
-      lvlsToRaiseValue: 4,
-      lvlsToRaiseDiceMax: 5,
+      duplicateAtLv: 18,
+      lvlsToRaiseValue: 1,
+      lvlsToRaiseDiceMax: 1,
     },
   ],
 };

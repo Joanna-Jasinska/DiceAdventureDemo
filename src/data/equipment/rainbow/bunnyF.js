@@ -12,7 +12,7 @@ export const bunnyF = {
     id: "Bunny Familiar|BUNNY MAGIC|",
     displayCost: [{ value: "", type: "rainbow" }],
   },
-  statsTxT: "~ +1/4 per lv",
+  statsTxT: "~ +1 per lv",
   stats: [
     { item: "stats", type: "life", maxHp: 2 },
     {
@@ -21,7 +21,7 @@ export const bunnyF = {
       // value: 2,
       type: "rainbow",
       existSinceLv: 1,
-      duplicateAtLv: 6,
+      duplicateAtLv: 7,
       // lvlsToRaiseValue: 4,
       lvlsToRaiseDiceMax: 1,
     },

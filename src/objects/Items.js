@@ -10,16 +10,19 @@ const levelNondiceStat = (piecee) => {
   // !!!AAA!!! leveling nondice stat
   return [piecee];
 };
-const levelDiceStat = (piecee, lvv = 1) => {
+const levelDiceStat = (piecee, lvv = 0) => {
   const piece = JSON.parse(JSON.stringify(piecee));
   // console.log(
   //   `ITEM.JS LEVELDICESTAT PIECE.ID [${piece.id}] piece given`,
   //   piece
   // );
-  const lv = lvv || piece.lv || 1;
-  const existSinceLv = piece.existSinceLv || 0;
+  const existSinceLv =
+    piece.existSinceLv !== undefined ? piece.existSinceLv : 1;
+  let lv = lvv || piece.lv || 0;
   const pieceArray = [];
-  if (!!piece.existSinceLv && piece.existSinceLv > lv) return pieceArray;
+  // lv = lv - existSinceLv;
+  console.log(`levelDiceStat existSinceLv [${existSinceLv}] lv[${lv}]`);
+  if (existSinceLv > lv) return pieceArray;
   const diceTemplate = {
     item: "dice",
     type: piece.type,
@@ -35,7 +38,7 @@ const levelDiceStat = (piecee, lvv = 1) => {
     value,
     diceMax,
   } = piece;
-  let spilloverLv = lv - existSinceLv + 1;
+  let spilloverLv = lv - existSinceLv;
   const maxLv = duplicateAtLv || false;
   let iteration = 1;
   while (maxLv && spilloverLv > maxLv) {
@@ -60,7 +63,7 @@ const levelDiceStat = (piecee, lvv = 1) => {
     iteration += 1;
     spilloverLv = spilloverLv - duplicateAtLv;
   }
-  if (spilloverLv > 0) {
+  if (spilloverLv > 0 || lv === existSinceLv) {
     // make not full dice  ----------------------------------------------
     let currentPiece = { ...JSON.parse(JSON.stringify(diceTemplate)) };
     if (lvlsToRaiseDiceMax) {

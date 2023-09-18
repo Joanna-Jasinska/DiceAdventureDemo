@@ -21,7 +21,7 @@ export const tBag = {
       // value: undefined,
       type: "smashed",
       existSinceLv: 1,
-      duplicateAtLv: 51,
+      duplicateAtLv: 19,
       // lvlsToRaiseValue: 3,
       lvlsToRaiseDiceMax: 1,
     },

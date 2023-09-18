@@ -19,6 +19,8 @@ import {
   soAMiss1_ev,
   soAMiss1_ex,
 } from "./equipment/arcane/soAMiss1";
+import { oBroom, oBroom_ev, oBroom_ex } from "./equipment/smashed/oBroom";
+import { sGloves, sGloves_ev, sGloves_ex } from "./equipment/shock/sGloves";
 
 export const getBaseEqById = (eid) => {
   const found = EQ[eid];
@@ -35,6 +37,8 @@ export const getSkillExecById = (eid) => {
 
 const EQ = {
   0: [lVest, lVest_ev, lVest_ex],
+  "Spark Gloves|STATIC SPREAD|": [sGloves,sGloves_ev,sGloves_ex],
+  "Old Broom|WITCH'S BROOM|": [oBroom,oBroom_ev,oBroom_ex],
   "SoArcane Missles|INVOKE ARCANE|": [soAMiss1, soAMiss1_ev, soAMiss1_ex],
   "Katana|SWORD SLASH ++1|": [katana, katana_ev, katana_ex],
   "Rope|CLEVER USE|": [rope, rope_ev, rope_ex],
@@ -87,42 +91,6 @@ const EQ = {
 //         duplicateAtLv: 10,
 //         // lvlsToRaiseValue: 3,
 //         lvlsToRaiseDiceMax: 6,
-//       },
-//     ],
-//   },
-
-//   {
-//     id: "Old Broom|WITCH'S BROOM|",
-//     name: "Old Broom",
-//     alt: "🧹",
-//     skill: {
-//       name: "WITCH'S BROOM",
-//       txt: "change into one of 🔥❄️⚡ at random",
-//       id: "Old Broom|WITCH'S BROOM|",
-//       displayCost: [{ value: "", type: "mana" }],
-//     },
-//     statsTxT: "~ +1/2 per lv",
-//     stats: [
-//       { item: "stats", type: "life", maxHp: 2 },
-//       {
-//         item: "dice",
-//         diceMax: 10,
-//         // value: undefined,
-//         type: "smashed",
-//         existSinceLv: 1,
-//         duplicateAtLv: 60,
-//         // lvlsToRaiseValue: 3,
-//         lvlsToRaiseDiceMax: 3,
-//       },
-//       {
-//         item: "dice",
-//         diceMax: 2,
-//         // value: undefined,
-//         type: "mana",
-//         existSinceLv: 2,
-//         duplicateAtLv: 90,
-//         // lvlsToRaiseValue: 3,
-//         lvlsToRaiseDiceMax: 5,
 //       },
 //     ],
 //   },

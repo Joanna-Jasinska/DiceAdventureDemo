@@ -1,8 +1,12 @@
 // rogue 🦹‍♀️ weapons, poisons
 //"Island"
 export const QUESTS_ROGUE = {
-  3: {
+  2: {
     item: "Vial of Iroposion|MIX POISON|",
+    dungeon: "Valley",
+  },
+  3: {
+    item: "Spark Gloves|STATIC SPREAD|",
     dungeon: "Island",
   },
 };

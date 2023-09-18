@@ -21,7 +21,7 @@ export const rope = {
       // value: 2,
       type: "wits",
       existSinceLv: 1,
-      duplicateAtLv: 20,
+      duplicateAtLv: 19,
       // lvlsToRaiseValue: 4,
       lvlsToRaiseDiceMax: 1,
     },

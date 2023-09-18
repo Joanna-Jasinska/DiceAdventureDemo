@@ -13,18 +13,18 @@ export const hMShield = {
     id: "Heavy Metal Shield|SHIELD BASH +2|",
     displayCost: [{ value: "", type: "strength" }],
   },
-  statsTxT: "~ +1/3 per lv",
+  statsTxT: "~ +1 per lv",
   stats: [
     { item: "stats", type: "life", maxHp: 5 },
     {
       item: "dice",
-      diceMax: 7,
+      diceMax: 2,
       // value: undefined,
       type: "strength",
       existSinceLv: 0,
-      duplicateAtLv: 39,
+      duplicateAtLv: 18,
       // lvlsToRaiseValue: 3,
-      lvlsToRaiseDiceMax: 3,
+      lvlsToRaiseDiceMax: 1,
     },
   ],
 };

@@ -2,25 +2,26 @@ import { OTHER_SEV } from "data/skillEvaluation/other";
 import { PIECE_SEV } from "data/skillEvaluation/piece";
 import { DICE_SEX } from "data/skillsExecution/dice";
 
-export const kKnives = {
-  id: "Kitchen Knives|KNIFE THROW|",
-  name: "Kitchen Knives",
-  alt: "🔪",
+export const oBroom = {
+  id: "Old Broom|WITCH'S BROOM|",
+  name: "Old Broom",
+  alt: "🧹",
   skill: {
-    name: "KNIFE THROW",
-    txt: "reroll into [1] or [max value]",
-    id: "Kitchen Knives|KNIFE THROW|",
-    displayCost: [{ value: "", type: "needle" }],
+    name: "WITCH'S BROOM",
+    txt: "reroll and change into one of 🔥❄️⚡ at random",
+    id: "Old Broom|WITCH'S BROOM|",
+    displayCost: [{ value: "", type: "mana" }],
   },
   statsTxT: "~ +1 per lv",
   stats: [
+    { item: "stats", type: "life", maxHp: 2 },
     {
       item: "dice",
       diceMax: 1,
       // value: undefined,
-      type: "needle",
+      type: "smashed",
       existSinceLv: 1,
-      duplicateAtLv: 14,
+      duplicateAtLv: 30,
       // lvlsToRaiseValue: 3,
       lvlsToRaiseDiceMax: 1.5,
     },
@@ -28,50 +29,52 @@ export const kKnives = {
       item: "dice",
       diceMax: 1,
       // value: undefined,
-      type: "needle",
+      type: "mana",
       existSinceLv: 2,
-      duplicateAtLv: 17,
+      duplicateAtLv: 40,
       // lvlsToRaiseValue: 3,
       lvlsToRaiseDiceMax: 3,
     },
   ],
 };
-export const kKnives_ev = [
+export const oBroom_ev = [
   [OTHER_SEV, "NUMDICES", { value: 1 }],
   [
     PIECE_SEV,
     "PIECE",
     {
       obj: {
-        allows: { types: ["needle"] },
+        allows: { types: ["mana"] },
         requires: { minDices: 1, maxDices: 1 },
       },
     },
   ],
 ];
-export const kKnives_ex = [
-  [
-    DICE_SEX,
-    "Acc into 1 Dice",
-    {
-      value: 1,
-      obj: {
-        type: "needle",
-        // diceMax: 1,
-        // value: -2,
-      },
-    },
-  ],
+export const oBroom_ex = [
   [
     DICE_SEX,
     "Change to Random Array",
     {
       value: 1,
       obj: {
-        // type: ["heat", "ice", "shock"],
+        type: ["heat", "ice", "shock"],
         // diceMax: [],
-        value: [1, "diceMax"],
+        // value: [],
       },
+    },
+  ],
+  [
+    DICE_SEX,
+    "Reroll",
+    {
+      value: 1, //1 dice to reroll
+    },
+  ],
+  [
+    DICE_SEX,
+    "Keep",
+    {
+      value: 1,
     },
   ],
 ];

@@ -59,7 +59,7 @@ const ChangeToRandom = ({ params, state, usedDices }) => {
   //   },
   let diceArr = [];
   for (let i = 0; i < numDices; i++) {
-    let dice = { ...usedDices[i] };
+    let dice = { ...usedDices.shift() };
     console.log(`dice.js > ChangeToRandom > will be changing dice`, dice);
     // let sumDice = { ...diceTemplate, ...dice };
     const newDiceMax = getRandomSlot(diceRange.diceMax);
@@ -83,11 +83,13 @@ const ChangeToRandom = ({ params, state, usedDices }) => {
       dice.type = getRandomSlot(diceRange.type);
     if (dice.value === undefined) dice.value = Dice.roll(dice);
     diceArr.push({ ...dice });
+    usedDices.unshift({ ...dice });
   }
   // return [() => {}];
-  return [
-    ...diceArr.map((dice) => () => updateDice({ ...dice, selected: false })),
-  ]; //!!!
+  const newDices = [
+    ...diceArr.map((dice) => () => updateDice({ ...dice, selected: true })),
+  ];
+  return newDices; //!!!
 };
 const Create = ({ params, state }) => {
   // returns dispatch that will add 1 dice to combat rolledDices
