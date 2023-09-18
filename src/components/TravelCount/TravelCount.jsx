@@ -14,6 +14,7 @@ export const TravelCount = ({ count }) => {
         <div className={css.count}>{travels}</div>
         <div className={css.textBoxContainer}>
           <div className={css.textBoxBack}>🏃</div>
+          <div className={css.textBoxSide}>🔚</div>
           <div className={css.bgColorFront}>🐪</div>
         </div>
       </div>

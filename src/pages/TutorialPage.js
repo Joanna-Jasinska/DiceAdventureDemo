@@ -8,6 +8,7 @@ import { PieceIcon } from "components/EnemyBody/EnemyPiece/PieceIcon/PieceIcon";
 import { Piece } from "objects/Piece";
 import css from "./Page.module.css";
 import { Item } from "components/Item/Item";
+import { QuestSquare } from "components/QuestList/QuestSquare/QuestSquare";
 
 export const TutorialPage = () => {
   const exampleEPiece1 = {
@@ -117,6 +118,36 @@ export const TutorialPage = () => {
     // selected: true,
     index: 0,
   };
+  const exampleQuest = {
+    item: {
+      name: "Prize Item",
+      id: "Bunny Familiar|BUNNY MAGIC|",
+      alt: "🐇",
+      skill: {
+        name: "SKILL NAME",
+        txt: "Prize Skill",
+        id: "Bunny Familiar|BUNNY MAGIC|",
+        displayCost: [{ value: "", type: "rainbow" }],
+      },
+      statsTxT: "~ +1/4 per lv",
+      stats: [
+        { item: "stats", type: "life", maxHp: 2 },
+        {
+          item: "dice",
+          diceMax: 1,
+          // value: 2,
+          type: "rainbow",
+          existSinceLv: 1,
+          duplicateAtLv: 6,
+          // lvlsToRaiseValue: 4,
+          lvlsToRaiseDiceMax: 1,
+        },
+      ],
+    },
+    locked: "Quest\nRequirements",
+    cost: 150,
+    ally: "wizard",
+  };
   // const error = useSelector(selectGameError);
   return (
     <main className={`${css.main} ${css.center}`}>
@@ -130,10 +161,9 @@ export const TutorialPage = () => {
         recommended={true}
       />
       <Title title="Dice Adventure Demo" />
-
       <h4 id="story">Introduction</h4>
       <ContainerHorisontal>
-        Rajavi believe that salvation will be found at the end of world.
+        Rajavi believe that salvation will be found at 🔚 the end of world.
       </ContainerHorisontal>
       <ContainerHorisontal>
         So their home is a caravan constantly moving towards neverchanging
@@ -151,6 +181,7 @@ export const TutorialPage = () => {
         everything to make sure nothing stands on the way of Rajavi caravan on
         their way to salvation.
       </ContainerHorisontal>
+      So.. Let's go to the "end" 😆!
       <h4 id="notice">Notice</h4>
       <ContainerHorisontal>
         Game is stored on your local browser data of THIS specific device.{" "}
@@ -167,10 +198,10 @@ export const TutorialPage = () => {
         To progress the game on selected Path choose{" "}
         {`Go${getDiceTypeIcon("playerAttack")}`}.
         <br />
-        Whenever you come back from a Path - you bring back gold and levelups
+        Whenever you come back from a Path - you bring back gold and upgrades
         you earned.
         <br />
-        To progress a path to next Level and gain a levelup you need to win all
+        To progress a path to next Level and gain an upgrade you need to win all
         available adventures there.
         <br />
         Once you progress path to next level caravan will move on. Last path
@@ -187,11 +218,17 @@ export const TutorialPage = () => {
       </ContainerHorisontal>
       <ContainerHorisontal>
         Caravan
-        <br /> People at the caravan can give you items if you help them out on
-        paths they require and give them gold needed to craft those items.
+        <br /> People at the caravan will offer quests.
         <br />
-        (Added in future) In future friendship Level will grant extra benefits
-        to help You on the journey.
+        Quests require You to progress certain paths.
+        <br />
+        Once you complete quest you can trade gold for new item.
+        <br />
+        Trading at the caravan will raise friendship Level which grants extra
+        benefits to help You on the journey.
+        <br />
+        (Friendship benefits added in future)
+        <QuestSquare {...exampleQuest} />
       </ContainerHorisontal>
       <h4 id="tutorial">Equipment and Skills</h4>
       <ContainerHorisontal>
@@ -200,8 +237,11 @@ export const TutorialPage = () => {
         <br />
         When on the Path you must have 1-5 items equipped with you.
         <br />
-        All equipment can be leveled up and down as you please at the caravan
-        🔨, however deleveling items costs a little bit of gold.
+        All equipment can be leveled up and down freely at the 🔨.
+        <br />
+        Leveling item costs upgrades.
+        <br />
+        Deleveling item fully refunds upgrades but costs gold.
         <br />
         Once you get an item it is Yours forever.
         <HeaderNavBtn
@@ -219,6 +259,8 @@ export const TutorialPage = () => {
         <br /> To activate skill first select exactly as many dices as the skill
         requires
         <br /> - then click on the Skill. <br />
+        <br /> (+) click here to equip this item.
+        <br /> (✔️) item is equipped.
         <br /> (1) dices that can be used for this skill.
         <br /> (2) dices that you get each turn when this item is equipped.
         <Item {...exapleItem} />

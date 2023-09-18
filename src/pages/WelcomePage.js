@@ -13,6 +13,9 @@ export const WelcomePage = () => {
       {/* {error ? <span className={css.error}>{error}</span> : ""} */}
       Welcome to
       <Title title="Dice Adventure Demo" />
+      Let's go to the end 😆!
+      <br />
+      <br />
       {inDungeon ? (
         <HeaderNavBtn
           to="/combat"
