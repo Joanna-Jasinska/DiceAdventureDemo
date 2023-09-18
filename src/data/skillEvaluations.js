@@ -34,19 +34,6 @@ export const SKILL_EVALUATION = {
       },
     ],
   ],
-  "1|PIECE|magic": [
-    [OTHER_SEV, "NUMDICES", { value: 1 }],
-    [
-      PIECE_SEV,
-      "PIECE",
-      {
-        obj: {
-          allows: { types: ["magic"] },
-          requires: { minDices: 1, maxDices: 1 },
-        },
-      },
-    ],
-  ],
   "1|PIECE|mana": [
     [OTHER_SEV, "NUMDICES", { value: 1 }],
     [

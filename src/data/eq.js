@@ -14,6 +14,11 @@ import { voIrop, voIrop_ev, voIrop_ex } from "./equipment/poison/voIrop";
 import { kKnives, kKnives_ev, kKnives_ex } from "./equipment/needle/kKnives";
 import { rope, rope_ev, rope_ex } from "./equipment/wits/rope";
 import { katana, katana_ev, katana_ex } from "./equipment/slashed/katana";
+import {
+  soAMiss1,
+  soAMiss1_ev,
+  soAMiss1_ex,
+} from "./equipment/arcane/soAMiss1";
 
 export const getBaseEqById = (eid) => {
   const found = EQ[eid];
@@ -30,6 +35,7 @@ export const getSkillExecById = (eid) => {
 
 const EQ = {
   0: [lVest, lVest_ev, lVest_ex],
+  "SoArcane Missles|INVOKE ARCANE|": [soAMiss1, soAMiss1_ev, soAMiss1_ex],
   "Katana|SWORD SLASH ++1|": [katana, katana_ev, katana_ex],
   "Rope|CLEVER USE|": [rope, rope_ev, rope_ex],
   "Leather Vest|THUMBLE -2|": [lVest, lVest_ev, lVest_ex],

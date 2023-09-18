@@ -42,22 +42,6 @@ export const SKILL_EXECUTION = {
       },
     ],
   ],
-  // txt: "change 💪 into 🔨+1",
-  // "1|ACC|SMASHED|+1": [
-  //   [
-  //     DICE_SEX,
-  //     "Acc into 1 Dice & Remove",
-  //     {
-  //       value: 1,
-  //       obj: {
-  //         type: "smashed",
-  //         diceMax: 1,
-  //         value: 1,
-  //       },
-  //     },
-  //   ],
-  // ],
-  // txt: "change 1 into ⚔️ of same value+1",
   "1|ACC|SLASHED|+1": [
     [
       DICE_SEX,
@@ -93,61 +77,6 @@ export const SKILL_EXECUTION = {
         },
       },
     ],
-  ],
-  // txt: "divide 1 into 3 ✨ dices - rerolled to same or lower value",
-  "1|VALUE|/3|ACC|(ACC|reroll-)x3": [
-    [
-      DICE_SEX,
-      "Acc into 1 Dice",
-      {
-        value: 1,
-        obj: {
-          type: "arcane",
-          // diceMax: 1,
-          // value: -2,
-        },
-      },
-    ],
-    [
-      DICE_SEX,
-      "Value Manipulation Array",
-      {
-        value: 1,
-        obj: {
-          // setTo: ["diceMax"],
-          // multiplyBy: [10],
-          divideBy: [3],
-          // add: [1],
-          extraCopies: [2],
-        },
-      },
-    ],
-    [
-      DICE_SEX,
-      "Reroll-",
-      {
-        value: 3, //1 dice to reroll
-      },
-    ],
-    // [
-    //   DICE_SEX,
-    //   "Reroll+ & Remove",
-    //   {
-    //     value: 1, //1 dice to reroll
-    //   },
-    // ],
-    // [
-    //   DICE_SEX,
-    //   "Acc into 1 Dice & Remove",
-    //   {
-    //     value: 1,
-    //     obj: {
-    //       // type: "any",
-    //       // diceMax: 1,
-    //       // value: -2,
-    //     },
-    //   },
-    // ],
   ],
   //
 };

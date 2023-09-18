@@ -3,8 +3,12 @@
   --box-shadow: -1px -1px 2px 0px #6f6f6f8e, 1px 1px 3px 0px #2d2d2da9;
   --box-shadow-selected: -1px -1px 2px 0px #6f6f6f8e, 1px 1px 3px 0px #2d2d2da9,
     0px 0px 4px 5px #fcffe5, #3636368d 0px 0px 1px 1px;
-  --box-shadow-selected-item: 0px 0px 2px 3px #e0ff66, 0px 0px 3px 4px #81ff19,
-    0px 0px 0px 5px #000000, 0px 0px 3px 5px #000000;
+  /* --box-shadow-selected-item: 0px 0px 2px 3px #e0ff66, 0px 0px 3px 4px #81ff19,
+    0px 0px 0px 5px #000000, 0px 0px 3px 5px #000000; */
+  /* --box-shadow-selected-item: 0px 0px 3px 4px #88e14d, 0px 0px 0px 7px #b6ef66,
+    0px 0px 1px 7px #356800; */
+  --box-shadow-selected-item: 0px 0px 5px 4px #88e14d, 0px 0px 5px 8px #b6ef66,
+    0px 0px 8px 6px #ffffff;
   --box-shadow-warning: -1px -1px 2px 0px #6f6f6f8e, 1px 1px 3px 0px #2d2d2da9,
     0px 0px 16px 0px #ff6822, #3636368d 0px 0px 1px 1px;
   --box-shadow-recommended: -1px -1px 2px 0px #6f6f6f8e,

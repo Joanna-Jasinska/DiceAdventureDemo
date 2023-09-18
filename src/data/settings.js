@@ -16,6 +16,7 @@ export const STARTING_EQ = [
   // -----------------not used:
   // "Heavy Metal Shield|SHIELD BASH +2|",
   // -----------------given to ally:
+  // "SoArcane Missles|INVOKE ARCANE|",
   // "Katana|SWORD SLASH ++1|",
   // "Wooden Shield|SHIELD BASH +1|",
   // "Rope|CLEVER USE|",
