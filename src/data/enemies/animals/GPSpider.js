@@ -68,6 +68,7 @@ export const GPSpider = {
         minSum: 4,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,
@@ -130,7 +131,7 @@ export const GPSpider = {
         minSum: 3,
       },
       grow: {
-        existsSinceLv: 1,
+        existsSinceLv: 0,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,

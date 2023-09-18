@@ -68,7 +68,7 @@ export const ODoggie = {
         minSum: 3,
       },
       grow: {
-        existsSinceLv: 1,
+        existsSinceLv: 2,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 1.2,
         // lvlsToRaiseMinDices: 2.5,
@@ -162,6 +162,7 @@ export const ODoggie = {
         // minSum: 1,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         // lvlsToRaiseMinSum: 1,
         lvlsToRaiseMinDices: 2,

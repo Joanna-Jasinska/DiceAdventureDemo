@@ -1,6 +1,10 @@
 // wizard🧙 spells, familiars, potions
 //"Castle"
 export const QUESTS_WIZARD = {
+  1: {
+    item: "Scroll of Strength|INVOKE STRENGTH +1|",
+    dungeon: "Castle",
+  },
   2: {
     item: "Old Broom|WITCH'S BROOM|",
     dungeon: "Forest",

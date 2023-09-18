@@ -5,8 +5,8 @@ export const PLAYER_STARTING_MAX_EQ_LV = 2; //2
 export const PLAYER_STARTING_LEVELUPS = 0; //0
 export const LVLS_REQ_PER_MAX_EQ_LV = 3;
 export const PATHS_AMOUNT = 3;
-export const ITEM_BASE_COST = 90;
-export const ITEM_PER_LV_COST = 10;
+export const ITEM_BASE_COST = 50;
+export const ITEM_PER_LV_COST = 5;
 export const STARTING_DUNGEON_LEVELS = {
   Valley: 0,
   Forest: 0,
@@ -19,7 +19,7 @@ export const STARTING_DUNGEONS = [...JOURNEY.slice(0, PATHS_AMOUNT)];
 export const STARTING_EQ = [
   "Rusty Sword|SWORD SLASH|",
   "Torch|WAVE MENACINGLY|",
-  "Scroll of Strength|INVOKE STRENGTH +1|",
+  // "Scroll of Strength|INVOKE STRENGTH +1|",
   "Travel Bag|COOKING UTENSIL TOSS|",
   // -----------------not used:
   // "Heavy Metal Shield|SHIELD BASH +2|",

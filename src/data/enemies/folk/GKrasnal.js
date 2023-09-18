@@ -68,6 +68,7 @@ export const GKrasnal = {
         minSum: 3,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 1.2,
         // lvlsToRaiseMinDices: 12,
@@ -130,7 +131,7 @@ export const GKrasnal = {
         minSum: 3,
       },
       grow: {
-        existsSinceLv: 1,
+        existsSinceLv: 2,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 1,
         // lvlsToRaiseMinDices: 12,

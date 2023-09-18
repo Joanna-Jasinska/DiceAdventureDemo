@@ -71,6 +71,7 @@ export const OLantern = {
         // minSum: 2,
       },
       grow: {
+        // existsSinceLv: 1,
         // duplicateAtLv: 32,
         // lvlsToRaiseMinSum: 3,
         lvlsToRaiseMinDices: 4,
@@ -102,6 +103,7 @@ export const OLantern = {
         minSum: 3,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
         lvlsToRaiseMinSum: 0.9,
         // lvlsToRaiseMinDices: 12,
@@ -226,7 +228,7 @@ export const OLantern = {
         // minSum: 1,
       },
       grow: {
-        existsSinceLv: 1,
+        existsSinceLv: 2,
         // duplicateAtLv: 32,
         // lvlsToRaiseMinSum: 0.5,
         lvlsToRaiseMinDices: 1.5,
