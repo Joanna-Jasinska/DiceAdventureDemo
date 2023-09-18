@@ -3,7 +3,6 @@ import { JOURNEY } from "data/journey";
 import {
   LVLS_REQ_PER_MAX_EQ_LV,
   PATHS_AMOUNT,
-  STARTING_DUNGEONS,
 } from "data/settings";
 // import { getRandomNum } from "objects/Dice";
 

@@ -5,8 +5,6 @@ import { useGame } from "hooks/useGame";
 
 import css from "./DungeonList.module.css";
 import { TravelCount } from "components/TravelCount/TravelCount";
-import { JOURNEY } from "data/journey";
-import { PATHS_AMOUNT } from "data/settings";
 import { Dungeon } from "objects/Dungeon";
 
 export const DungeonList = () => {

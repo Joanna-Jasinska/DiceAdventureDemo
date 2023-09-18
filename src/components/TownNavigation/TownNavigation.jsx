@@ -2,12 +2,10 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderNavBtn } from "../HeaderNavBtn/HeaderNavBtn";
 import { selectEq } from "redux/eq/selectors";
-import { Dungeon } from "objects/Dungeon";
 import { useDungeon } from "hooks";
 import {
   packEquipment,
   getReadyToEnter,
-  startDungeonById,
   startSelectedDungeon,
 } from "redux/dungeon/operations";
 import css from "./TownNavigation.module.css";
