@@ -65,7 +65,7 @@ export const WorkshopItem = ({
   };
 
   return (
-    <div className={css.item} id={itemId}>
+    <div className={`${css.item} ${selected ? css.selected : ""}`} id={itemId}>
       <Miniature
         url={icon}
         alt={alt || name}

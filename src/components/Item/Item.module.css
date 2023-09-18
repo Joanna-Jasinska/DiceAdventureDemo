@@ -77,6 +77,21 @@
   box-shadow: -1px 0px 14px 6px #7ae621;
   /* box-shadow: 1px 1px 1px red; */
 }
+.selectedItem::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -4rem;
+  width: 7.5rem;
+  height: 11.5rem;
+  border-radius: var(--border-radius);
+  /* background-color: #c3ff91; */
+  background-color: #c3ff919e;
+  /* box-shadow: 0px 0px 2px 3px #cfff66, 0px 0px 3px 4px #81ff19; */
+  box-shadow: var(--box-shadow-selected-item);
+  /* box-shadow: -1px 0px 14px 6px #7ae621; */
+  /* box-shadow: 1px 1px 1px red; */
+}
 .text {
   margin: 2px 4px;
   display: inline;

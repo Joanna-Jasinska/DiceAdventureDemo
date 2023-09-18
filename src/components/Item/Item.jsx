@@ -21,7 +21,7 @@ export const Item = ({
   // statsTxT,
 }) => {
   return (
-    <div className={css.item} id={id}>
+    <div className={`${css.item} ${selected ? css.selectedItem : ""}`} id={id}>
       <Miniature
         url={icon}
         alt={alt || name}
