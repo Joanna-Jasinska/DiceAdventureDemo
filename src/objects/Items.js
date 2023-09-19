@@ -1,5 +1,5 @@
 import { getBaseEqById } from "data/eq";
-import { STARTING_EQ } from "data/settings";
+import { ITEMS_STARTING_LV, STARTING_EQ } from "data/settings";
 
 // const ItemTemplate = {
 //   lv: 1,
@@ -156,7 +156,9 @@ export const Items = {
       //   found
       // );
       startingEq.push({
-        ...JSON.parse(JSON.stringify(this.getItemById({ id: eqId }))),
+        ...JSON.parse(
+          JSON.stringify(this.getItemById({ id: eqId, lv: ITEMS_STARTING_LV }))
+        ),
         selected: true,
       });
     });

@@ -14,7 +14,7 @@ export const tBag = {
   },
   statsTxT: "~ +1 per lv",
   stats: [
-    { item: "stats", type: "life", maxHp: 6 },
+    { item: "stats", type: "life", maxHp: 4 },
     {
       item: "dice",
       diceMax: 1,

@@ -11,7 +11,11 @@
 -------------------------------
 to do for presentation:
 
-- workshop item -10 button onClick does nothing
+
+!- more item uses somehow 
+ - allies
+ - enchants
+ - upgrades
 
 - CHANGE GO ICON TO SELECTED DUNGEON
 
@@ -19,6 +23,8 @@ to do for presentation:
 - readme on github
 
 -------------------------------
+
+- fix randomity of dungeons past planned journey
 
 - STARTING NEW GAME JUMPS TO PAGE >> ?
 - new game with only 1 ally ?

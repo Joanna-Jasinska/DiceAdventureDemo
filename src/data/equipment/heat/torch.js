@@ -18,7 +18,7 @@ export const torch = {
     // { item: "stats", type: "life", maxHp: -1 },
     {
       item: "dice",
-      diceMax: 2,
+      diceMax: 1,
       // value: undefined,
       type: "heat",
       existSinceLv: 1,

@@ -21,6 +21,18 @@ import {
 } from "./equipment/arcane/soAMiss1";
 import { oBroom, oBroom_ev, oBroom_ex } from "./equipment/smashed/oBroom";
 import { sGloves, sGloves_ev, sGloves_ex } from "./equipment/shock/sGloves";
+import { cShoes, cShoes_ev, cShoes_ex } from "./equipment/speed/cShoes";
+import { cWizard1, cWizard1_ev, cWizard1_ex } from "./equipment/mana/cWizard1";
+import {
+  cDoofus1,
+  cDoofus1_ev,
+  cDoofus1_ex,
+} from "./equipment/strength/cDoofus1";
+import {
+  cHandy1,
+  cHandy1_ev,
+  cHandy1_ex,
+} from "./equipment/perception/cHandy1";
 
 export const getBaseEqById = (eid) => {
   const found = EQ[eid];
@@ -37,8 +49,12 @@ export const getSkillExecById = (eid) => {
 
 const EQ = {
   0: [lVest, lVest_ev, lVest_ex],
-  "Spark Gloves|STATIC SPREAD|": [sGloves,sGloves_ev,sGloves_ex],
-  "Old Broom|WITCH'S BROOM|": [oBroom,oBroom_ev,oBroom_ex],
+  "Caravan Handyman|I'LL FIX THIS|": [cHandy1, cHandy1_ev, cHandy1_ex],
+  "Caravan Doofus|DO SOMETHING|": [cDoofus1, cDoofus1_ev, cDoofus1_ex],
+  "Caravan Wizard|INVOKE ICECREAM|": [cWizard1, cWizard1_ev, cWizard1_ex],
+  "Comfy Shoes|HURRY UP|": [cShoes, cShoes_ev, cShoes_ex],
+  "Spark Gloves|STATIC SPREAD|": [sGloves, sGloves_ev, sGloves_ex],
+  "Old Broom|WITCH'S BROOM|": [oBroom, oBroom_ev, oBroom_ex],
   "SoArcane Missles|INVOKE ARCANE|": [soAMiss1, soAMiss1_ev, soAMiss1_ex],
   "Katana|SWORD SLASH ++1|": [katana, katana_ev, katana_ex],
   "Rope|CLEVER USE|": [rope, rope_ev, rope_ex],

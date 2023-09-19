@@ -120,7 +120,7 @@ const Create = ({ params, state }) => {
   if (sumDice.value > sumDice.diceMax) sumDice.value = sumDice.diceMax;
   return [() => addRolledDice({ ...sumDice, selected: false })];
 };
-const Reroll = ({ params, state, usedDices }) => {
+const RerollR = ({ params, state, usedDices }) => {
   // returns dispatch that will add 1 dice to combat rolledDices
   // which is accumulation of [params.value] amount of dices + dice [params.obj]
   // then removes all used dices from [state.usedDices]
@@ -146,7 +146,41 @@ const Reroll = ({ params, state, usedDices }) => {
     // dicesGained.push(() => updateDice({ ...rolledDice, selected: false }));
   }
   if (dicesGained.length > 0) {
-    usedDices.unshift(dicesGained);
+    // usedDices.unshift(dicesGained);
+    return [
+      ...dicesGained.map((d) => () => updateDice({ ...d, selected: false })),
+    ];
+  }
+  return false;
+};
+const Reroll = ({ params, state, usedDices }) => {
+  //
+  console.log(`Reroll usedDices`, { ...usedDices });
+  const numDices = params.value !== undefined ? params.value : false;
+  if (validateInput({ dice: true, numDices, state, usedDices }) === false)
+    return false;
+  let dicesGained = [];
+  for (let i = 0; i < numDices; i++) {
+    let dice = {
+      ...rolledDiceTemplate,
+      id: generateId("Reroll"),
+      ...usedDices.shift(),
+    };
+    // const maxValue = dice.value;
+    let rolledDice = Dice.roll({
+      ...diceTemplate,
+      id: generateId("Reroll"),
+      ...dice,
+      value: undefined,
+    });
+    // rolledDice.value = Math.min(rolledDice.value, maxValue);
+    dicesGained.push(rolledDice);
+    // dicesGained.push(() => updateDice({ ...rolledDice, selected: false }));
+  }
+  if (dicesGained.length > 0) {
+    // usedDices.unshift(dicesGained);
+    dicesGained.forEach((dice) => usedDices.unshift({ ...dice }));
+    console.log(`Reroll, dicesGained, usedDices`, dicesGained, usedDices);
     return [
       ...dicesGained.map((d) => () => updateDice({ ...d, selected: false })),
     ];
@@ -290,6 +324,10 @@ const RerollPlus = ({ params, state, usedDices }) => {
   return false;
 };
 const ValueManipulation = ({ params, state, usedDices }) => {
+  // console.log(
+  //   `Value manipulation - before usedDices[${[...usedDices].length}]`,
+  //   [...usedDices]
+  // );
   // returns dispatch that will deselect and change value of x dices of combat rolledDices
   // !!!AAA!!! not done
   const numDices = params.value !== undefined ? params.value : false;
@@ -352,10 +390,10 @@ const ValueManipulation = ({ params, state, usedDices }) => {
   //   `data/skillExecution/ DICE > ValueManipulation, resulting dices:`,
   //   diceArr
   // );
-  usedDices.unshift(...diceArr);
+  diceArr.forEach((dice) => usedDices.unshift({ ...dice }));
   console.log(
     `Value manipulation, functions[${funcArr.length}] - new usedDices`,
-    usedDices
+    [...usedDices]
   );
   return funcArr.length > 0 ? funcArr : false;
 };
@@ -453,7 +491,7 @@ const Keep = ({ params, state, usedDices }) => {
     keep.push(() => updateDice({ ...dice, selected: false }));
     console.log(`Dice to keep`, dice);
   }
-  console.log(`Dices kept`, keep);
+  console.log(`Dices kept, usedDices`, keep, usedDices);
   return keep.length > 0 ? keep : false;
 };
 
@@ -466,6 +504,7 @@ export const DICE_SEX = {
   "Acc into 1 Dice & Remove": AccR,
   "Acc into 1 Dice": Acc,
   "Change to Random Array": ChangeToRandom,
+  "Reroll & Remove": RerollR,
   Reroll: Reroll,
   "Reroll+ & Remove": RerollPlusR,
   "Reroll+": RerollPlus,
