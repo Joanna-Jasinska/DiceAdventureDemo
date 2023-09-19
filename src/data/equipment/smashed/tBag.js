@@ -17,7 +17,7 @@ export const tBag = {
     { item: "stats", type: "life", maxHp: 4 },
     {
       item: "dice",
-      diceMax: 1,
+      diceMax: 2,
       // value: undefined,
       type: "smashed",
       existSinceLv: 1,

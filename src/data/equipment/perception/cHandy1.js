@@ -18,7 +18,7 @@ export const cHandy1 = {
   },
   statsTxT: "~ +1 per lv",
   stats: [
-    { item: "stats", type: "life", maxHp: 2 },
+    { item: "stats", type: "life", maxHp: 1 },
     {
       item: "dice",
       diceMax: 1,
