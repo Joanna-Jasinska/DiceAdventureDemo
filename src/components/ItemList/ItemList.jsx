@@ -13,6 +13,7 @@ function sort(a, b) {
   const bFavorite = b.favorite !== undefined ? b.favorite : false;
   if (aSelected === bSelected) {
     if (aFavorite === bFavorite) {
+      if (aSelected === true || aFavorite === true) return 0;
       return (a.lv - b.lv) * -1;
     }
     return a.favorite ? -1 : 1;
