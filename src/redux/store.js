@@ -52,6 +52,7 @@ const gamePersistConfig = {
     "spareLvUps",
     "gold",
     "allies",
+    "journey",
   ],
 };
 

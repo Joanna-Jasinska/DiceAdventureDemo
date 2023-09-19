@@ -20,7 +20,7 @@ export const sofStr = {
       // value: 1,
       type: "mana",
       existSinceLv: 1,
-      duplicateAtLv: 10,
+      duplicateAtLv: 11,
       // lvlsToRaiseValue: 4,
       lvlsToRaiseDiceMax: 1,
     },

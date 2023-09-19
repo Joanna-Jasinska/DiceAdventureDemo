@@ -63,6 +63,19 @@ export const resetItemLv = createAsyncThunk(
     ];
   }
 );
+export const itemLvDownx10 = createAsyncThunk(
+  "equipment/itemLvDown_x10",
+  async ({ index, itemId, lv, selected }, thunkAPI) => {
+    const state = thunkAPI.getState().equipment.all;
+    if (!state || state[index].lv < 11) {
+      return thunkAPI.rejectWithValue("Item Lv too low.");
+    }
+    // return { index, levels: state[index].lv - 1 };
+    const deleveledItem = await Items.getItemById({ id: itemId, lv: lv - 10 });
+    // console.log(`equipment/resetItemLv > DELEVELED ITEM `, deleveledItem);
+    return [{ ...deleveledItem, index: index, selected: selected }, 10];
+  }
+);
 
 export const itemLvUpx1 = createAsyncThunk(
   "equipment/itemLvUp_x1",
@@ -75,7 +88,7 @@ export const itemLvUpx1 = createAsyncThunk(
 export const itemLvUpx10 = createAsyncThunk(
   "equipment/itemLvUp_x10",
   async ({ index, itemId, lv, selected }, thunkAPI) => {
-    const leveledItem = await Items.getItemById({ id: itemId, L: lv + 10 });
+    const leveledItem = await Items.getItemById({ id: itemId, lv: lv + 10 });
     return { ...leveledItem, index: index, selected: selected };
   }
 );

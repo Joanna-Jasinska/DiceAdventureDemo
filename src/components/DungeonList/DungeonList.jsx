@@ -6,10 +6,11 @@ import { useGame } from "hooks/useGame";
 import css from "./DungeonList.module.css";
 import { TravelCount } from "components/TravelCount/TravelCount";
 import { Dungeon } from "objects/Dungeon";
+import { JOURNEY } from "data/journey";
 
 export const DungeonList = () => {
-  const { selectedDungeonId, dungeonLevels, playerLv } = useGame();
-  const list = Dungeon.getCurrentDungeons(playerLv);
+  const { selectedDungeonId, dungeonLevels, journey } = useGame();
+  const list = Dungeon.getCurrentDungeons(journey);
   // const list = currentDungeons;
 
   return (
@@ -31,7 +32,7 @@ export const DungeonList = () => {
               />
             );
           })}
-      <TravelCount count={`${playerLv - 1}`} />
+      <TravelCount count={`${journey} /${JOURNEY.length}`} />
     </div>
   );
 };

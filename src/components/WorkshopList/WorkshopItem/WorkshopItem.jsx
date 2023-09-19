@@ -3,7 +3,12 @@ import { Miniature } from "components/Miniature/Miniature";
 import css from "./WorkshopItem.module.css";
 import { DiceIcon } from "components/DiceIcon/DiceIcon";
 import { useDispatch } from "react-redux";
-import { itemLvUpx1, itemLvUpx10, resetItemLv } from "redux/eq/operations";
+import {
+  itemLvDownx10,
+  itemLvUpx1,
+  itemLvUpx10,
+  resetItemLv,
+} from "redux/eq/operations";
 import {
   gainSpLvUps,
   payGold,
@@ -49,18 +54,20 @@ export const WorkshopItem = ({
   };
   const delevel10 = (e) => {
     e.preventDefault();
-    // dispatch(resetItemLv({ index, itemId, selected })).then((result) => {
-    //   if (typeof result.payload !== "string")
-    //     dispatch(gainSpLvUps(result.payload[1]));
-    //     dispatch(payGold(result.payload[1]));
-    // });
+    dispatch(itemLvDownx10({ index, itemId, lv, selected })).then((result) => {
+      if (typeof result.payload !== "string") {
+        dispatch(gainSpLvUps(result.payload[1]));
+        dispatch(payGold(result.payload[1]));
+      }
+    });
   };
   const resetLvTo1 = (e) => {
     e.preventDefault();
     dispatch(resetItemLv({ index, itemId, selected })).then((result) => {
-      if (typeof result.payload !== "string")
+      if (typeof result.payload !== "string") {
         dispatch(gainSpLvUps(result.payload[1]));
-      dispatch(payGold(result.payload[1]));
+        dispatch(payGold(result.payload[1]));
+      }
     });
   };
 

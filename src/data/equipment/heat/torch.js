@@ -22,7 +22,7 @@ export const torch = {
       // value: undefined,
       type: "heat",
       existSinceLv: 1,
-      duplicateAtLv: 15,
+      duplicateAtLv: 16,
       // lvlsToRaiseValue: 3,
       lvlsToRaiseDiceMax: 1,
     },

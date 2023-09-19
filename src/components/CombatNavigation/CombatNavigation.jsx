@@ -119,82 +119,76 @@ export const CombatNavigation = () => {
       navigate("/return");
   }, [life, enemyLife, navigate, inCombat]);
 
-  return (
+  return pathname === "/" || pathname === "/tutorial" || pathname === "/bye" ? (
+    ""
+  ) : inCombat === "summary" ? (
     <header className={`header ${css.header}`}>
-      {pathname === "/" || pathname === "/tutorial" || pathname === "/bye" ? (
-        ""
-      ) : inCombat === "summary" ? (
-        <nav className={css.header}>
-          <div className={css.leftNav}>
-            {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
-            <HeaderNavBtn
-              to="/-"
-              display={`${life}❤️${maxLife}`}
-              onClick={nothing}
-            />
-          </div>
-          <div className={css.rightNav}>
-            <HeaderNavBtn
-              to="/-"
-              display="🏃Leave Path"
-              onClick={exitDungeon}
-            />
-          </div>
-        </nav>
-      ) : (
-        <nav className={css.header}>
-          <div className={css.leftNav}>
-            <HeaderNavBtn
-              to="/-"
-              display={`${life}❤️${maxLife}`}
-              styles={{ whiteSpace: "nowrap" }}
-              onClick={nothing}
-            />
-            <HeaderNavBtn
-              to="/-"
-              display={`${getDiceTypeIcon(
-                "playerAttack"
-              )}${enemyLife} 💰${gold}`}
-              styles={{ whiteSpace: "nowrap" }}
-              onClick={nothing}
-            />
-            <HeaderNavBtn
-              to="/-"
-              display="Dices Out 🎲⭯"
-              onClick={retrieveAllDices}
-            />
-            {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
-            {/* <HeaderNavBtn
+      <nav className={css.header}>
+        <div className={css.leftNav}>
+          {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
+          <HeaderNavBtn
+            to="/-"
+            display={`${life}❤️${maxLife}`}
+            onClick={nothing}
+          />
+        </div>
+        <div className={css.rightNav}>
+          <HeaderNavBtn to="/-" display="🏃Leave Path" onClick={exitDungeon} />
+        </div>
+      </nav>
+    </header>
+  ) : (
+    <header className={`header ${css.header}`}>
+      <nav className={css.header}>
+        <div className={css.leftNav}>
+          <HeaderNavBtn
+            to="/-"
+            display={`${life}❤️${maxLife}`}
+            styles={{ whiteSpace: "nowrap" }}
+            onClick={nothing}
+          />
+          <HeaderNavBtn
+            to="/-"
+            display={`${getDiceTypeIcon("playerAttack")}${enemyLife} 💰${gold}`}
+            styles={{ whiteSpace: "nowrap" }}
+            onClick={nothing}
+          />
+          <HeaderNavBtn
+            to="/-"
+            display="Dices Out 🎲⭯"
+            onClick={retrieveAllDices}
+          />
+          {/* <HeaderNavBtn to="/reset" display={"♻️"} /> */}
+          {/* <HeaderNavBtn
               to="/-"
               display="🎲"
               crossed={true}
               onClick={deselectAll}
             /> */}
-          </div>
-          <EnemyPortrait />
-          <div className={css.rightNav}>
-            <HeaderNavBtn
-              to="/-"
-              display={`${endTurnIcon} End Turn ${endTurnDmg}`}
-              onClick={endTurn}
-              warning={negatives !== ""}
-              recommended={negatives === ""}
-              // styles={endTurnBtnStyle}
-            />
-            <HeaderNavBtn
-              to="/summary"
-              display="🏃Leave Path"
-              onClick={goldEarned < 1 ? exitDungeon : () => {}}
-            />
-            {/* <HeaderNavBtn
+        </div>
+        <EnemyPortrait />
+        <div className={css.rightNav}>
+          <HeaderNavBtn
+            to="/-"
+            display={`${endTurnIcon} End Turn ${endTurnDmg}`}
+            onClick={endTurn}
+            warning={negatives !== ""}
+            recommended={negatives === ""}
+            // styles={endTurnBtnStyle}
+          />
+          <HeaderNavBtn
+            to="/summary"
+            display="🏃Leave Path"
+            onClick={goldEarned < 1 ? exitDungeon : () => {}}
+          />
+          {/* <HeaderNavBtn
               to="/-"
               display="Win"
               onClick={killEnemy}
               inactive={true}
             /> */}
-          </div>
-        </nav>
-      )}
+        </div>
+      </nav>
     </header>
   );
 };

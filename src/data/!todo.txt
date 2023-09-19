@@ -1,5 +1,4 @@
 -/later/- objects Enemy, objects Piece -- finishing evaluation
--/later/- make piece requirements visible in game --in a better way
 -/later/- do something about game slice resetGame not having isLoading=true at pending
 -/later/- Item.js leveling stats dices of item gives them unnecessary ||| in their id
 -/later/- dungeon slice operations startDungeonById:
@@ -12,51 +11,28 @@
 -------------------------------
 to do for presentation:
 
-- remove currentDungeons from game slice and persist store
-
-- every time you beat dungeon the caravan moves and 1 path is added and 1 excuded
-- road.js listing paths
-- when winning dungeon you are moved to dungeon of same slot after caravan moves
-
-adjut enemies to lv0 for dungeon other than forest
+- workshop item -10 button onClick does nothing
 
 - CHANGE GO ICON TO SELECTED DUNGEON
-
-- STARTING NEW GAME JUMPS TO PAGE >> ?
-- new game with only 1 ally ?
-
-
-- after purchasing item quest doesnt vanish
 
 - add bye page (clearing data)
 - readme on github
 
-- make quest and questList components on caravan page
-- use  
-
-
-- make new items purchasable
-
 -------------------------------
 
-- add 'double gold gained' suqre at dungeon page
-- item to buy cost 100 + 10x dungeonLv gold
+- STARTING NEW GAME JUMPS TO PAGE >> ?
+- new game with only 1 ally ?
+- add 'double gold gained' square at dungeon page
 
 - move  the rest of items to its item file
 
-
 -------------------------------
 
 
-- data eq placed in folder and separate files
-
 - workshop page - workshop navigation ?
-
-- equipment list sorted by lv
 - equipment page - equipment navigation ?
 - equipment list with filters
 
-- workshop item -10 button onClick does nothing
 
 -------------------------------
 - dungeon victory animations ?
@@ -65,7 +41,6 @@ adjut enemies to lv0 for dungeon other than forest
 
 - allies working at all
 - AllyPage
-- allies can sell items
 - AllySquare can be used at specific dungeon type - up till friendship lv
 - AllySquare has friewnship dices
 - AllySquare has skill
@@ -114,6 +89,7 @@ adjut enemies to lv0 for dungeon other than forest
 -------------------------------
 cleaning, remove:
 
+- remove currentDungeons from game slice and persist store
 - redux combat selectDice
 - objects Dice select, deselect
 

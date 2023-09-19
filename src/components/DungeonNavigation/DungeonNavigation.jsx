@@ -25,29 +25,23 @@ export const DungeonNavigation = () => {
     });
   };
 
-  return (
+  return pathname === "/" || pathname === "/tutorial" || pathname === "/bye" ? (
+   ''
+  ) : (
     <header className={`header ${css.header}`}>
-      {pathname === "/" || pathname === "/tutorial" || pathname === "/bye" ? (
-        ""
-      ) : (
-        <nav className={css.header}>
-          <div className={css.leftNav}>
-            <HeaderNavBtn
-              to="/-"
-              display={`${life}❤️${maxLife}`}
-              styles={{ whiteSpace: "nowrap" }}
-              onClick={nothing}
-            />
-          </div>
-          <div className={css.rightNav}>
-            <HeaderNavBtn
-              to="/-"
-              display="🏃Leave Path"
-              onClick={exitDungeon}
-            />
-          </div>
-        </nav>
-      )}
+      <nav className={css.header}>
+        <div className={css.leftNav}>
+          <HeaderNavBtn
+            to="/-"
+            display={`${life}❤️${maxLife}`}
+            styles={{ whiteSpace: "nowrap" }}
+            onClick={nothing}
+          />
+        </div>
+        <div className={css.rightNav}>
+          <HeaderNavBtn to="/-" display="🏃Leave Path" onClick={exitDungeon} />
+        </div>
+      </nav>{" "}
     </header>
   );
 };

@@ -23,6 +23,9 @@
   background-color: transparent;
   /* opacity: 60%; */
 }
+.hide {
+  height: 1rem;
+}
 /* .header:focus,
 .header:hover,
 .header:active {

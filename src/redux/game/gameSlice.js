@@ -19,12 +19,14 @@ import {
   STARTING_DUNGEONS,
   STARTING_DUNGEON_LEVELS,
 } from "data/settings";
+import { JOURNEY } from "data/journey";
 
 const initialState = {
   error: null,
   isLoading: false,
   selectedDungeonId: 0,
   playerLv: 1,
+  journey: 0,
   maxEqLv: PLAYER_STARTING_MAX_EQ_LV,
   spareLvUps: PLAYER_STARTING_LEVELUPS,
   gold: 200,
@@ -68,6 +70,7 @@ const gameSlice = createSlice({
       state.allies = initialState.allies;
       state.error = null;
       state.isLoading = false;
+      state.journey = initialState.journey;
     },
 
     [setGameError.pending]: handlePending,
@@ -83,6 +86,9 @@ const gameSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.playerLv = state.playerLv + 1;
+      if (state.journey < JOURNEY.length) {
+        state.journey = state.journey + 1;
+      }
       state.spareLvUps = state.spareLvUps + 1;
       // state.playerLv = action.payload.playerLv;
       // state.spareLvUps = action.payload.spareLvUps;

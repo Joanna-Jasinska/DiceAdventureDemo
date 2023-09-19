@@ -24,10 +24,11 @@ export const playerLvUp = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const playerLv = state.game.playerLv + 1;
+    const journey = state.game.journey + 1;
     const spareLvUps = state.game.spareLvUps + 1;
     const maxEqLv = Math.floor(playerLv / LVLS_REQ_PER_MAX_EQ_LV);
     const currentDungeons = [
-      ...JOURNEY.slice(playerLv, PATHS_AMOUNT + playerLv),
+      ...JOURNEY.slice(journey, PATHS_AMOUNT + journey),
     ];
     return { playerLv, spareLvUps, maxEqLv, currentDungeons };
   }
