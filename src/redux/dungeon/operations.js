@@ -3,6 +3,7 @@ import { getDungeon } from "data/dungeons";
 import { getRandomNum } from "objects/Dice";
 import { PLAYER_BASE_LIFE } from "data/settings";
 import { Dungeon } from "objects/Dungeon";
+import { JOURNEY } from "data/journey";
 
 export const clearDungeon = createAsyncThunk(
   "dungeon/clear",
@@ -26,8 +27,9 @@ export const startSelectedDungeon = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const index = state.game.selectedDungeonId;
-    const playerLv = state.game.playerLv;
-    const id = Dungeon.getCurrentDungeons(playerLv)[index];
+    // const playerLv = state.game.playerLv;
+    const journey = state.game.journey;
+    const id = Dungeon.getCurrentDungeons(journey)[index];
     const myDungeon = getDungeon(id);
     const myPlayer = {
       life: 1,
@@ -93,9 +95,11 @@ export const levelupAndReloadDungeon = createAsyncThunk(
     // const id = state.dungeon.id;
     // const myDungeon = getDungeon(id);
     // could clear player status
-    const playerLv = state.game.playerLv + 1;
+    // const playerLv = state.game.playerLv + 1;
+    const journey = state.game.journey;
+    const newJourney = JOURNEY.length > journey ? journey + 1 : journey;
     const index = state.game.selectedDungeonId;
-    const id = Dungeon.getCurrentDungeons(playerLv)[index];
+    const id = Dungeon.getCurrentDungeons(newJourney)[index];
     const myDungeon = getDungeon(id);
     const myPlayer = {
       status: {},
