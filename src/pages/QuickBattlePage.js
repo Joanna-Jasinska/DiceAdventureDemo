@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectGameError } from "redux/game/selectors";
 import { ItemList } from "components/ItemList/ItemList";
+// import { WorkshopList } from "components/WorkshopList/WorkshopList";
 import { DungeonList } from "components/DungeonList/DungeonList";
 import css from "./Page.module.css";
 export const QuickBattlePage = () => {
@@ -11,6 +12,7 @@ export const QuickBattlePage = () => {
       {error ? <span className={css.error}>{error}</span> : ""}
       <DungeonList />
       <ItemList filters={{ selected: true }} />
+      {/* <WorkshopList filters={{ selected: true }} /> */}
     </main>
   );
 };

@@ -11,6 +11,9 @@
 -------------------------------
 to do for presentation:
 
+! paths item list deselecting is buggy
+(filters are done wrong)
+
 ! next dungeon loads one level too high
 
 !- more item uses somehow 

@@ -76,13 +76,16 @@ export const ItemList = ({ filters }) => {
                     selected={el.selected}
                     skill={el.skill}
                     statsTxT={el.statsTxT || ""}
-                    toggleSelect={() =>
-                      dispatch(
-                        updateItem({
-                          ...el,
-                          selected: !el.selected,
-                        })
-                      )
+                    toggleSelect={
+                      filters && filters.selected
+                        ? () => {}
+                        : () =>
+                            dispatch(
+                              updateItem({
+                                ...el,
+                                selected: !el.selected,
+                              })
+                            )
                     }
                     // stats={el ? (el.stats ? el.stats : el) : []}
                     dices={el.dices}
