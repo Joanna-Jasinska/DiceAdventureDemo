@@ -1,6 +1,7 @@
-import { f001 } from "./dungeons/forests/f001";
-import { i001 } from "./dungeons/islands/i001";
-import { m001 } from "./dungeons/mountain/m001";
+import { c001 } from "./dungeons/castle/c001rats";
+import { f001 } from "./dungeons/forests/f001acorn";
+import { i001 } from "./dungeons/islands/i001frog";
+import { m001 } from "./dungeons/mountain/m001barricaded";
 import { v000 } from "./dungeons/valley/v000";
 import { v001 } from "./dungeons/valley/v001";
 
@@ -19,7 +20,8 @@ export const DUNGEONS = {
   "Forest|f001|Wild Forests|Acorn Forest": f001,
   "Valley|v001|Lost Valley|Overgrown Path": v001,
   "Mountain|m001|Black Mountain|Barricaded Path": m001,
-  "Island|i001|Remote Islands|": i001,
+  "Island|i001|Remote Islands|Of Frog King": i001,
+  "Castle|c001|Cursed Castle|Rat Infested": c001,
 };
 
 /*

@@ -7,6 +7,9 @@ export const c001 = {
   },
   name: "Cursed Castle",
   eventName: "",
+  id: "Castle",
+  eventId: "Castle|c001|Cursed Castle|",
+  bosses: ["ANIMATED|purple|Cursed Orb"],
   weakness: ["physical", "magic"],
   enemies: [
     [
@@ -24,7 +27,4 @@ export const c001 = {
       // "UNDEAD|purple|Ghost Widow",
     ],
   ],
-  bosses: ["ANIMATED|purple|Cursed Orb"],
-  id: "dungeon|5|",
-  eventId: "dungeon|5|5",
 };

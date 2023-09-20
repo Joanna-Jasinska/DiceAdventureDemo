@@ -3,14 +3,14 @@ import { PIECE_SEV } from "data/skillEvaluation/piece";
 import { DICE_SEX } from "data/skillsExecution/dice";
 
 export const torch = {
-  id: "Torch|WAVE MENACINGLY|",
+  id: "Torch|TORCH WAVE|",
   name: "Torch",
   alt: "🥢",
   skill: {
-    name: "WAVE MENACINGLY",
+    name: "TORCH WAVE",
     txt: "create 🕒 of same or lower value, changes 🔥 to maximum/2",
     // txt: "change value to half of maximum, create 🕒 of 1-10 value",
-    id: "Torch|WAVE MENACINGLY|",
+    id: "Torch|TORCH WAVE|",
     displayCost: [{ value: "", type: "heat" }],
   },
   statsTxT: "~ +1 per lv",

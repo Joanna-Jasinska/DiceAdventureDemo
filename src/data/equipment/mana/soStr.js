@@ -19,7 +19,7 @@ export const sofStr = {
       diceMax: 1,
       // value: 1,
       type: "mana",
-      existSinceLv: 1,
+      existSinceLv: 0,
       duplicateAtLv: 11,
       // lvlsToRaiseValue: 4,
       lvlsToRaiseDiceMax: 1,

@@ -22,7 +22,7 @@ export const rSword = {
       diceMax: 2,
       // value: undefined,
       type: "slashed",
-      existSinceLv: 1,
+      existSinceLv: 0,
       duplicateAtLv: 18,
       // lvlsToRaiseValue: 3,
       lvlsToRaiseDiceMax: 1,

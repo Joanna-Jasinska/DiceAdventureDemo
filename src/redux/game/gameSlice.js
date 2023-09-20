@@ -86,8 +86,8 @@ const gameSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.playerLv = state.playerLv + 1;
-      if (state.journey < JOURNEY.length) {
-        state.journey = state.journey + 1;
+      if (state.journey !== action.payload.journey) {
+        state.journey = action.payload.journey;
       }
       state.spareLvUps = state.spareLvUps + 1;
       // state.playerLv = action.payload.playerLv;

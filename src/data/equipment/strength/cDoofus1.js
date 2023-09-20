@@ -23,7 +23,7 @@ export const cDoofus1 = {
       diceMax: 1,
       // value: 3,
       type: "strength",
-      existSinceLv: 2,
+      existSinceLv: 1,
       duplicateAtLv: 30,
       // lvlsToRaiseValue: 3,
       lvlsToRaiseDiceMax: 1,

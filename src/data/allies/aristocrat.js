@@ -1,8 +1,8 @@
 // aristocrat 🧝‍♀️ artifacts, armor, medicine
-//"Forest"
+//"Forest" //alt: Island
 export const QUESTS_ARISTOCRAT = {
   0: {
-    item: "Caravan Doofus|DO SOMETHING|",
+    item: "Comfy Shoes|HURRY UP|",
     dungeon: "Forest",
   },
   1: {
@@ -13,4 +13,16 @@ export const QUESTS_ARISTOCRAT = {
     item: "Leather Vest|THUMBLE -2|",
     dungeon: "Forest",
   },
+  // 4: {
+  //   item: "",
+  //   dungeon: "Forest",
+  // },
+  // 5: {
+  //   item: "",
+  //   dungeon: "Island",
+  // },
+  // 6: {
+  //   item: "",
+  //   dungeon: "Forest",
+  // },
 };

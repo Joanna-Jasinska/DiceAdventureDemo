@@ -244,7 +244,9 @@ const dungeonSlice = createSlice({
       state.enemies = action.payload.enemies;
       state.bosses = action.payload.bosses;
       state.ally = action.payload.ally;
-      state.lv = state.lv + 1;
+      // !!!AAA!!! must load new level
+      state.lv = action.payload.lv;
+      // state.lv = state.lv + 1;
       state.slotsDefeated = initialState.slotsDefeated;
     },
 

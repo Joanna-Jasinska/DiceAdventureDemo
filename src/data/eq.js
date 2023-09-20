@@ -33,6 +33,11 @@ import {
   cHandy1_ev,
   cHandy1_ex,
 } from "./equipment/perception/cHandy1";
+import {
+  lPackage,
+  lPackage_ev,
+  lPackage_ex,
+} from "./equipment/stamina/lPackage";
 
 export const getBaseEqById = (eid) => {
   const found = EQ[eid];
@@ -49,6 +54,7 @@ export const getSkillExecById = (eid) => {
 
 const EQ = {
   0: [lVest, lVest_ev, lVest_ex],
+  "Lunch Package|PREPARE LUNCH|": [lPackage, lPackage_ev, lPackage_ex],
   "Caravan Handyman|I'LL FIX THIS|": [cHandy1, cHandy1_ev, cHandy1_ex],
   "Caravan Doofus|DO SOMETHING|": [cDoofus1, cDoofus1_ev, cDoofus1_ex],
   "Caravan Wizard|INVOKE ICECREAM|": [cWizard1, cWizard1_ev, cWizard1_ex],
@@ -63,10 +69,10 @@ const EQ = {
   "Bunny Familiar|BUNNY MAGIC|": [bunnyF, bunnyF_ev, bunnyF_ex],
   "Wooden Shield|SHIELD BASH +1|": [wShield, wShield_ev, wShield_ex],
   "Heavy Metal Shield|SHIELD BASH +2|": [hMShield, hMShield_ev, hMShield_ex],
-  "Torch|WAVE MENACINGLY|": [torch, torch_ev, torch_ex],
+  "Torch|TORCH WAVE|": [torch, torch_ev, torch_ex],
   "Scroll of Strength|INVOKE STRENGTH +1|": [sofStr, sofStr_ev, sofStr_ex],
   "Rusty Sword|SWORD SLASH|": [rSword, rSword_ev, rSword_ex],
-  "Travel Bag|COOKING UTENSIL TOSS|": [tBag, tBag_ev, tBag_ex],
+  "Travel Bag|BAG TOSS|": [tBag, tBag_ev, tBag_ex],
   "Kitchen Knives|KNIFE THROW|": [kKnives, kKnives_ev, kKnives_ex],
   // "Scroll of Arcane Missles|INVOKE ARCANE|": scrollOfArcaneMissles,
   // "Lucky Clover|LUCKY ROLL|": luckyClover,

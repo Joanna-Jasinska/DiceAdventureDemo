@@ -8,7 +8,7 @@ export const voIrop = {
   alt: "🧪",
   skill: {
     name: "MIX POISON",
-    txt: "put 2 to create 1💚 with combined value",
+    txt: "put 2 to get💚 with combined value +1",
     id: "Vial of Iroposion|MIX POISON|",
     displayCost: [
       { value: "", type: "speed" },
@@ -24,7 +24,7 @@ export const voIrop = {
       diceMax: 1,
       // value: 1,
       type: "wits",
-      existSinceLv: 2,
+      existSinceLv: 1,
       duplicateAtLv: 59,
       // lvlsToRaiseValue: 3,
       lvlsToRaiseDiceMax: 3,
@@ -34,7 +34,7 @@ export const voIrop = {
       diceMax: 2,
       // value: 1,
       type: "poison",
-      existSinceLv: 1,
+      existSinceLv: 0,
       duplicateAtLv: 10,
       // lvlsToRaiseValue: 3,
       lvlsToRaiseDiceMax: 1.5,
@@ -69,7 +69,7 @@ export const voIrop_ex = [
       obj: {
         type: "poison",
         // diceMax: 8,
-        // value: 1,
+        value: 1,
       },
     },
   ],

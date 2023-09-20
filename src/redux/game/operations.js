@@ -1,9 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { JOURNEY } from "data/journey";
-import {
-  LVLS_REQ_PER_MAX_EQ_LV,
-  PATHS_AMOUNT,
-} from "data/settings";
+import { LVLS_REQ_PER_MAX_EQ_LV, PATHS_AMOUNT } from "data/settings";
 // import { getRandomNum } from "objects/Dice";
 
 //   moveCaravan,
@@ -24,13 +21,20 @@ export const playerLvUp = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const playerLv = state.game.playerLv + 1;
-    const journey = state.game.journey + 1;
+    const journey = state.game.journey || 0;
+    const newJourney = JOURNEY.length > journey ? journey + 1 : journey;
     const spareLvUps = state.game.spareLvUps + 1;
     const maxEqLv = Math.floor(playerLv / LVLS_REQ_PER_MAX_EQ_LV);
     const currentDungeons = [
-      ...JOURNEY.slice(journey, PATHS_AMOUNT + journey),
+      ...JOURNEY.slice(newJourney, PATHS_AMOUNT + newJourney),
     ];
-    return { playerLv, spareLvUps, maxEqLv, currentDungeons };
+    return {
+      playerLv,
+      spareLvUps,
+      maxEqLv,
+      currentDungeons,
+      journey: newJourney,
+    };
   }
 );
 

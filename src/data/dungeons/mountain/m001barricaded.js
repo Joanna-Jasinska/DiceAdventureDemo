@@ -5,7 +5,7 @@ export const m001 = {
   eventId: "Mountain|m001|Black Mountain|Barricaded Path",
   background: {
     icon: "🗻",
-    eventIcon: "🌋",
+    eventIcon: "🌑", //🌋
     bgColor: "#413e20",
     flavorIcon: "🗻",
   },

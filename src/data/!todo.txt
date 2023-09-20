@@ -11,8 +11,17 @@
 -------------------------------
 to do for presentation:
 
+- dungeon slice -+started level doesnt work anymore - need diff tracking for dungeon combo
+- bosses must damage unless completely filled->last field must damage player
+
+- nazwy skilli przedmiotow dungeonow maja miec margines
+
+! when continuing fight to next dungeon - dungeon level doesnt load properly
+
 ! paths item list deselecting is buggy
 (filters are done wrong)
+
+-lv7 against mountain2/isle2 - loosing
 
 
 !- more item uses somehow 

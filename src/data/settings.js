@@ -11,24 +11,25 @@ export const ITEM_PER_LV_COST = 5;
 export const STARTING_DUNGEON_LEVELS = {
   Valley: 0,
   Forest: 0,
-  Mountain: 1,
-  Island: 2,
-  Castle: 2,
+  Mountain: 0, //1
+  Island: 0, //2
+  Castle: 0, //2
 };
 export const STARTING_DUNGEONS = [...JOURNEY.slice(0, PATHS_AMOUNT)];
 
 export const STARTING_EQ = [
   "Rusty Sword|SWORD SLASH|",
-  "Comfy Shoes|HURRY UP|",
-  "Travel Bag|COOKING UTENSIL TOSS|",
-  // "Caravan Doofus|DO SOMETHING|",
+  "Lunch Package|PREPARE LUNCH|",
+  "Caravan Doofus|DO SOMETHING|",
   "Caravan Handyman|I'LL FIX THIS|",
   // -----------------not used:
   // "Heavy Metal Shield|SHIELD BASH +2|",
   // -----------------given to ally:
+  // "Travel Bag|BAG TOSS|",
+  // "Comfy Shoes|HURRY UP|",
   // "Caravan Wizard|INVOKE ICECREAM|",
   // "Scroll of Strength|INVOKE STRENGTH +1|",
-  // "Torch|WAVE MENACINGLY|",
+  // "Torch|TORCH WAVE|",
   // "Spark Gloves|STATIC SPREAD|",
   // "Old Broom|WITCH'S BROOM|",
   // "SoArcane Missles|INVOKE ARCANE|",

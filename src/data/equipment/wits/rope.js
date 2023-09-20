@@ -20,7 +20,7 @@ export const rope = {
       diceMax: 1,
       // value: 2,
       type: "wits",
-      existSinceLv: 1,
+      existSinceLv: 0,
       duplicateAtLv: 19,
       // lvlsToRaiseValue: 4,
       lvlsToRaiseDiceMax: 1,

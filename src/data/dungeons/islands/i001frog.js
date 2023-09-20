@@ -5,10 +5,10 @@ export const i001 = {
     bgColor: "#78ddff",
     flavorIcon: "🐟",
   },
-  name: "Remote Islands",
-  eventName: "",
+  name: "Silent Island",
+  eventName: "Of Frog King",
   id: "Island",
-  eventId: "Island|i001|Remote Islands|",
+  eventId: "Island|i001|Remote Islands|Of Frog King",
   weakness: ["trait", "physical"],
   bosses: ["ANIMALS|aqua|Toad King"],
   enemies: [

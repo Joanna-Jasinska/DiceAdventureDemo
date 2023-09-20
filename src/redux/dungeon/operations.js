@@ -96,18 +96,22 @@ export const levelupAndReloadDungeon = createAsyncThunk(
     // const myDungeon = getDungeon(id);
     // could clear player status
     // const playerLv = state.game.playerLv + 1;
+    //!!!AAA!!! started level doesnt work anymore - need diff tracking :)
+    //!!!AAA!!! must load new dungeon but levelup old
+    // instead it levels up first entered dungeon
     const journey = state.game.journey;
     const newJourney = JOURNEY.length > journey ? journey + 1 : journey;
     const index = state.game.selectedDungeonId;
-    const id = Dungeon.getCurrentDungeons(newJourney)[index];
-    const myDungeon = getDungeon(id);
+    const fid = Dungeon.getCurrentDungeons(newJourney)[index];
+    const myDungeon = getDungeon(fid);
+    const myLv = state.game.dungeonLevels[myDungeon.id] || 0;
     const myPlayer = {
       status: {},
     };
     return {
       ...myDungeon,
       player: myPlayer,
-      // lv: myLv,
+      lv: myLv,
       // startedLv: myLv,
       // goldEarned: 0,
     };
