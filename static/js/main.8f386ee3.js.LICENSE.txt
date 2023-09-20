@@ -111,3 +111,7 @@
  */
 
 //!!!
+
+//!!!AAA!!! must load new dungeon but levelup old
+
+//!!!AAA!!! started level doesnt work anymore - need diff tracking :)
