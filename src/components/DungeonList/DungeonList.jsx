@@ -32,7 +32,7 @@ export const DungeonList = () => {
               />
             );
           })}
-      <TravelCount count={`${journey} /${JOURNEY.length}`} />
+      <TravelCount count={`${journey} /${JOURNEY.length-5}`} />
     </div>
   );
 };

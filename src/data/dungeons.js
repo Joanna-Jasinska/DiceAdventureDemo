@@ -2,8 +2,13 @@ import { c001 } from "./dungeons/castle/c001rats";
 import { f001 } from "./dungeons/forests/f001acorn";
 import { i001 } from "./dungeons/islands/i001frog";
 import { m001 } from "./dungeons/mountain/m001barricaded";
-import { v000 } from "./dungeons/valley/v000";
-import { v001 } from "./dungeons/valley/v001";
+import { v002 } from "./dungeons/valley/v002road";
+import { v001 } from "./dungeons/valley/v001path";
+import { v000 } from "./dungeons/valley/v000maze";
+import { m000 } from "./dungeons/mountain/m000maze";
+import { c000 } from "./dungeons/castle/c000maze";
+import { i000 } from "./dungeons/islands/i000maze";
+import { f000 } from "./dungeons/forests/f000maze";
 
 export const getDungeon = (eid) => {
   const found = DUNGEONS[eid];
@@ -16,9 +21,14 @@ export const getDungeon = (eid) => {
 
 export const DUNGEONS = {
   0: v000,
-  "Valley|v000|Lost Valley|Lost Road": v000,
-  "Forest|f001|Wild Forests|Acorn Forest": f001,
+  "Valley|v000|Lost Valley|Endless Maze": v000,
+  "Island|i000|Remote Islands|Endless Maze": i000,
+  "Forest|f000|Wild Forests|Endless Maze": f000,
+  "Mountain|m000|Black Mountain|Endless Maze": m000,
+  "Castle|c000|Cursed Castle|Endless Maze": c000,
   "Valley|v001|Lost Valley|Overgrown Path": v001,
+  "Valley|v002|Lost Valley|Lost Road": v002,
+  "Forest|f001|Wild Forests|Acorn Forest": f001,
   "Mountain|m001|Black Mountain|Barricaded Path": m001,
   "Island|i001|Remote Islands|Of Frog King": i001,
   "Castle|c001|Cursed Castle|Rat Infested": c001,

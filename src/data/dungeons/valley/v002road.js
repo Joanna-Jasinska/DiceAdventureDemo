@@ -1,4 +1,4 @@
-export const v000 = {
+export const v002 = {
   background: {
     icon: "🌾", //🗾🐕〰
     eventIcon: "🐕",
@@ -8,7 +8,7 @@ export const v000 = {
   name: "Some Valley",
   eventName: "Lost Road",
   id: "Valley",
-  eventId: "Valley|v000|Lost Valley|Lost Road",
+  eventId: "Valley|v002|Lost Valley|Lost Road",
   weakness: ["magic", "trait"],
   bosses: ["ELEMENTALS|orange|Lantern"],
   enemies: [

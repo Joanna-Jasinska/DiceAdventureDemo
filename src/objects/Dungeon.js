@@ -17,11 +17,13 @@ export const Dungeon = {
     );
   },
 
-  getCurrentDungeons(playerLv) {
-    const paths = [...JOURNEY.slice(playerLv, PATHS_AMOUNT + playerLv)];
-    while (paths.length < PATHS_AMOUNT) {
-      paths.push(JOURNEY[getRandomNum(0, JOURNEY.length - 1)]);
-    }
+  getCurrentDungeons(journey) {
+    const pathsAmount =
+      journey + PATHS_AMOUNT <= JOURNEY.length - 5 ? PATHS_AMOUNT : 5;
+    const paths = [...JOURNEY.slice(journey, pathsAmount + journey)];
+    // while (paths.length < pathsAmount) {
+    //   paths.push(JOURNEY[getRandomNum(0, JOURNEY.length - 1)]);
+    // }
     return paths;
   },
 };

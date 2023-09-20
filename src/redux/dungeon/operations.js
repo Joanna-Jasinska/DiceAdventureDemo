@@ -100,7 +100,7 @@ export const levelupAndReloadDungeon = createAsyncThunk(
     //!!!AAA!!! must load new dungeon but levelup old
     // instead it levels up first entered dungeon
     const journey = state.game.journey;
-    const newJourney = JOURNEY.length > journey ? journey + 1 : journey;
+    const newJourney = JOURNEY.length-5 > journey ? journey + 1 : journey;
     const index = state.game.selectedDungeonId;
     const fid = Dungeon.getCurrentDungeons(newJourney)[index];
     const myDungeon = getDungeon(fid);
