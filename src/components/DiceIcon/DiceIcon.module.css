@@ -193,5 +193,5 @@
   opacity: 70%;
 }
 .notRolled::before {
-  border-radius: -1px 22px 22px 42px;
+  border-radius: 0px 22px 22px 42px;
 }
