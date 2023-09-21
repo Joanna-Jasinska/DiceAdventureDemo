@@ -71,7 +71,11 @@ export const DungeonPage = () => {
     <>
       {inCombat ? (
         <Navigate to="/combat" />
-      ) : !slotsDefeated.some((slot) => slot === "false") ? (
+      ) : [...Object.values(slotsDefeated)].some((slot) => slot === "false") ? (
+        // `[${[
+        //   ...Object.values(slotsDefeated),
+        //   [...Object.values(slotsDefeated)].some((slot) => slot === "false"),
+        // ].join("/")}]`
         <Navigate to="/return" />
       ) : (
         <main className={`${css.main} ${css.padding0}`}>
