@@ -71,6 +71,8 @@ export const DungeonPage = () => {
     <>
       {inCombat ? (
         <Navigate to="/combat" />
+      ) : !slotsDefeated.some((slot) => slot === "false") ? (
+        <Navigate to="/return" />
       ) : (
         <main className={`${css.main} ${css.padding0}`}>
           {error ? <span className={css.error}>{error}</span> : ""}

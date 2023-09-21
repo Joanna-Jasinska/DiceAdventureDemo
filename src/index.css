@@ -56,6 +56,7 @@
   --scale-medium: scale(1.1);
   --scale-small: scale(1.04);
   --scale-shrink: scale(0.82);
+  --dice-icon-opacity: 80%; /* 38% */
 }
 body {
   margin: 0;

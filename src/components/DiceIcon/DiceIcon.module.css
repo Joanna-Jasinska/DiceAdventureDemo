@@ -26,20 +26,6 @@
     transform: scale(1) rotate(360deg);
   }
 } */
-.dice::after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  left: 8px;
-  top: 11px;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: #fff 0px 0px 5px 5px;
-  /* background-color: #ff0000d0; */
-  opacity: 45%;
-}
 .dice::before {
   border-radius: 3px;
 }
@@ -50,7 +36,7 @@
   left: -3px;
   top: 1px;
   border-radius: 4px;
-  opacity: 38%;
+  opacity: var(--dice-icon-opacity);
   overflow: hidden;
   font-size: 0.7rem;
 }
@@ -174,6 +160,38 @@
   /* background-color: #bba8cc; */
   background-color: #c9c6bd;
 }
+.dice::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: #fff -1px 0px 3px 2px;
+  width: 2%;
+  height: 60%;
+  left: 0.65rem;
+  top: 0.38rem;
+  opacity: 100%;
+  transition: ease-in-out 300ms;
+}
+.physical::after {
+  background-color: #fff8a7;
+  box-shadow: #fff8a7 -1px 0px 3px 2px;
+}
+.magic::after {
+  background-color: #b9ffea;
+  box-shadow: #b9ffea -1px 0px 3px 2px;
+  /* box-shadow: #bc0000 0px 0px 5px 5px; */
+}
+.elemental::after {
+  background-color: #ffe9bd;
+  box-shadow: #ffe9bd -1px 0px 3px 2px;
+}
+.trait::after {
+  background-color: #c2e54e;
+  box-shadow: #c2e54e -1px 0px 3px 2px;
+  opacity: 70%;
+}
 .notRolled::before {
-  border-radius: 0px 22px 22px 42px;
+  border-radius: -1px 22px 22px 42px;
 }
