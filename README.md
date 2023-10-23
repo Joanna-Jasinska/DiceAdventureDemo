@@ -10,4 +10,5 @@ Long story short i just wanted to play it and see how much i could do within a l
 
 -------------------
 npm i
+
 npm start
