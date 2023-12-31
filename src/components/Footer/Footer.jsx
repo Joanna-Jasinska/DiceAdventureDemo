@@ -18,6 +18,16 @@ export const Footer = () => {
           // warning={true}
           // recommended={true}
         />
+        <a
+          className={css.link}
+          href="https://github.com/Joanna-Jasinska/DiceAdventureDemo"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="GitHub - Dice Adventure Demo"
+          accesskey="g"
+        >
+          Github
+        </a>
       </div>
     </footer>
   );

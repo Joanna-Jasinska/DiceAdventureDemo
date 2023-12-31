@@ -1,4 +1,5 @@
 const enemies = [
+  "ANIMALS|purple|Cheese Mouse",
   "ANIMALS|purple|Mutated Rat",
   // "UNDEAD|purple|Skeleton Head",
   // "UNDEAD|purple|Ghost",

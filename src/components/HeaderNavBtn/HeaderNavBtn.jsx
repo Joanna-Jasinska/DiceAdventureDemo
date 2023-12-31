@@ -13,6 +13,7 @@ export const HeaderNavBtn = ({
   recommended = false,
   disabled = false,
   styles = false,
+  title,
 }) => {
   const location = useLocation();
   const isHereAlready = !inactive && location.state && location.pathname === to;
@@ -57,6 +58,9 @@ export const HeaderNavBtn = ({
         if (!disabled) onClick(e);
       }}
       style={styles ? styles : {}}
+      title={
+        title ? title : display || to[0].toUpperCase() + "" + `${to}`.slice(1)
+      }
     >
       {display || to[0].toUpperCase() + "" + `${to}`.slice(1)}
     </NavLink>

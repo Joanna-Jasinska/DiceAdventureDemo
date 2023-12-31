@@ -1,24 +1,24 @@
-export const ODoggie = {
-  name: "Doggie", //⛲️🌿💦🌊💧🐟➰🐬👽🐳🐋🦈🐊🐸🐢🟢⚜️
+export const BWHawk = {
+  name: "Wounded Hawk", //🗻🌑🌿🍃🌾🌷💣•°👀🌲🌳🦅⚫️
   portrait: {
-    frontIcon: "", //👑
-    sideIcon: "🌾", //🤍✖️🐈🗝️
-    bgSideIcon: "", //🧱🪑🟢🦇🕍
-    backIcon: "🐕", //🏹⛓⚔️❕❔💂🧝‍🧙🦹🧙🏻‍♀️🌙🙏⚜️
-    bgIcon: "🌾", //🗻🎚️⛆🏮🌾
-    filterColor: "#ff91004a",
-    bgColor: "#0c7800",
+    frontIcon: "",
+    sideIcon: "⚫️",
+    bgSideIcon: "🌑",
+    backIcon: "",
+    bgIcon: "🦅",
+    filterColor: "#ff55004a",
+    bgColor: "#0080cf",
   },
   life: 3,
   maxLife: 3,
-  id: "ANIMALS|orange|Doggie",
+  id: "ANIMALS|black|Wounded Hawk",
   body: [
     {
-      priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐾",
+      // priority: true, //priority, extra, keep, once
+      bodyPartIcon: "🌑",
       bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|orange|Doggie|paws|1",
-      weakness: ["trait"],
+      id: "piece|ANIMALS|black|Wounded Hawk|paws|1",
+      weakness: ["physical"],
       damages: {
         // damageToPlayer: 1,
         damageToEnemy: 1,
@@ -26,33 +26,65 @@ export const ODoggie = {
       },
       allows: {
         types: ["any"],
-        // minValue: 4,
-        maxValue: 6,
+        minValue: 1,
+        // maxValue: 4,
         // exactValues: ["even"],
-        // maxDices: 2,
+        maxDices: 2,
       },
       requires: {
         // exactValues: false,
-        minDices: 1,
-        // minSum: 2,
+        // minDices: 1,
+        minSum: 2,
       },
       grow: {
         // duplicateAtLv: 32,
-        // lvlsToRaiseMinSum: 4,
-        lvlsToRaiseMinDices: 4,
+        lvlsToRaiseMinSum: 2,
+        // lvlsToRaiseMinDices: 12,
+        // lvlsToRaiseExactValues: 17,
+        lvlsToRaiseMinValue: 2,
+      },
+    },
+    {
+      // priority: true, //priority, extra, keep, once
+      bodyPartIcon: "🌑",
+      bodyPartTypes: ["head", "body"],
+      id: "piece|ANIMALS|black|Wounded Hawk|head|1",
+      // weakness: ["physical"],
+      damages: {
+        damageToPlayer: 1,
+        // damageToEnemy: 1,
+        // effectsToPlayer: false,// effectsToEnemy: false,
+      },
+      allows: {
+        // types: ["any"],
+        // minValue: 4,
+        // maxValue: 4,
+        // exactValues: ["even"],
+        // maxDices: false,
+      },
+      requires: {
+        // exactValues: false,
+        // minDices: 1,
+        minSum: 4,
+      },
+      grow: {
+        existsSinceLv: 2,
+        // duplicateAtLv: 32,
+        lvlsToRaiseMinSum: 1,
+        // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,
       },
     },
     {
       // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐕",
-      bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|orange|Doggie|head|1",
-      // weakness: ["trait"],
+      bodyPartIcon: "⚫️",
+      bodyPartTypes: ["torso", "body"],
+      id: "piece|ANIMALS|black|Wounded Hawk|torso|1",
+      // weakness: ["physical"],
       damages: {
-        damageToPlayer: 2,
-        // damageToEnemy: 1,
+        // damageToPlayer: 1,
+        damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -65,59 +97,26 @@ export const ODoggie = {
       requires: {
         exactValues: [2],
         // minDices: 1,
-        // minSum: 3,
-      },
-      grow: {
-        existsSinceLv: 2,
-        // duplicateAtLv: 32,
-        // lvlsToRaiseMinSum: 1.2,
-        // lvlsToRaiseMinDices: 2.5,
-        // lvlsToRaiseExactValues: 17,
-        lvlsToRaiseExactValue0: 1.3,
-        // lvlsToRaiseMinValue: 35,
-      },
-    },
-    {
-      // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐕",
-      bodyPartTypes: ["torso", "body"],
-      id: "piece|ANIMALS|orange|Doggie|torso|1",
-      weakness: ["trait"],
-      damages: {
-        damageToPlayer: 1,
-        // damageToEnemy: 1,
-        // effectsToPlayer: false,// effectsToEnemy: false,
-      },
-      allows: {
-        // types: ["any"],
-        // minValue: 4,
-        maxValue: 5,
-        // exactValues: ["even"],
-        // maxDices: false,
-      },
-      requires: {
-        // exactValues: false,
-        minDices: 1,
         // minSum: 2,
       },
       grow: {
-        existsSinceLv: 1,
         // duplicateAtLv: 32,
         // lvlsToRaiseMinSum: 2,
-        lvlsToRaiseMinDices: 3,
+        // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
+        lvlsToRaiseExactValue0: 1.2,
         // lvlsToRaiseMinValue: 35,
       },
     },
     {
-      // priority: true, //priority, extra, keep, once
-      bodyPartIcon: "🐕",
+      extra: true, //priority, extra, keep, once
+      bodyPartIcon: "🌑",
       bodyPartTypes: ["paws", "body"],
-      id: "piece|ANIMALS|orange|Doggie|paws|2",
-      // weakness: ["trait"],
+      id: "piece|ANIMALS|black|Wounded Hawk|paws|2",
+      weakness: ["physical"],
       damages: {
-        // damageToPlayer: 1,
-        damageToEnemy: 1,
+        damageToPlayer: 2,
+        // damageToEnemy: 1,
         // effectsToPlayer: false,// effectsToEnemy: false,
       },
       allows: {
@@ -125,7 +124,7 @@ export const ODoggie = {
         // minValue: 4,
         // maxValue: 4,
         // exactValues: ["even"],
-        // maxDices: 2,
+        maxDices: 2,
       },
       requires: {
         // exactValues: false,
@@ -133,19 +132,20 @@ export const ODoggie = {
         minSum: 3,
       },
       grow: {
+        existsSinceLv: 1,
         // duplicateAtLv: 32,
-        lvlsToRaiseMinSum: 0.9,
-        // lvlsToRaiseMinDices: 3.5,
+        lvlsToRaiseMinSum: 1,
+        // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
         // lvlsToRaiseMinValue: 35,
       },
     },
     {
       extra: true, //priority, extra, keep, once
-      bodyPartIcon: "🐸",
+      bodyPartIcon: "🦅",
       bodyPartTypes: ["head", "body"],
-      id: "piece|ANIMALS|orange|Doggie|head|2",
-      weakness: ["trait"],
+      id: "piece|ANIMALS|black|Wounded Hawk|head|2",
+      weakness: ["physical"],
       damages: {
         damageToPlayer: 2,
         damageToEnemy: 1,
@@ -153,23 +153,22 @@ export const ODoggie = {
       },
       allows: {
         types: ["any"],
-        // minValue: 4,
-        maxValue: 4,
+        minValue: 2,
+        // maxValue: 4,
         // exactValues: ["even"],
         // maxDices: 2,
       },
       requires: {
         // exactValues: false,
-        minDices: 1,
-        // minSum: 1,
+        // minDices: 1,
+        minSum: 1,
       },
       grow: {
-        // existsSinceLv: 1,
         // duplicateAtLv: 32,
-        // lvlsToRaiseMinSum: 1,
-        lvlsToRaiseMinDices: 2,
+        lvlsToRaiseMinSum: 1,
+        // lvlsToRaiseMinDices: 12,
         // lvlsToRaiseExactValues: 17,
-        // lvlsToRaiseMinValue: 35,
+        lvlsToRaiseMinValue: 1.6,
       },
     },
   ],

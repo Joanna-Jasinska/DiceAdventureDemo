@@ -12,7 +12,7 @@ export const c001 = {
   bosses: ["ANIMATED|purple|Cursed Orb"],
   weakness: ["physical", "magic"],
   enemies: [
-    ["ANIMALS|purple|Mutated Rat"],
+    ["ANIMALS|purple|Cheese Mouse"],
     ["ANIMALS|purple|Mutated Rat"],
     ["ANIMALS|purple|Mutated Rat"],
   ],

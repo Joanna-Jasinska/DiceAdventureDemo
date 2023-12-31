@@ -1,5 +1,6 @@
 const enemies = [
   "BARRICADE|black|Pebbles",
+  "ANIMALS|black|Wounded Hawk",
   //
 ];
 export const m000 = {

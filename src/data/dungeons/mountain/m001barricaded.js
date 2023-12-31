@@ -17,7 +17,7 @@ export const m001 = {
   bosses: ["ELEMENTALS|black|Golem"],
   enemies: [
     ["BARRICADE|black|Pebbles"],
-    ["BARRICADE|black|Pebbles"],
+    ["ANIMALS|black|Wounded Hawk"],
     ["BARRICADE|black|Pebbles"],
   ],
 };

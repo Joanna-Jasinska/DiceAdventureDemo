@@ -19,6 +19,9 @@ import { ODoggie } from "./enemies/animals/ODoggie";
 import { OLantern } from "./enemies/barricade_boss/OLantern";
 import { OOBushes } from "./enemies/barricade/OOBushes";
 import { GPSpider } from "./enemies/animals/GPSpider";
+import { AOFrogfolk } from "./enemies/folk/AOFrogfolk";
+import { PCMouse } from "./enemies/animals/PCMouse";
+import { BWHawk } from "./enemies/animals/BWHawk";
 
 const template = {};
 
@@ -29,6 +32,9 @@ export const getEnemy = (id) => {
 
 const ENEMIES = {
   0: PMutatedRat,
+  "ANIMALS|black|Wounded Hawk": BWHawk,
+  "ANIMALS|purple|Cheese Mouse": PCMouse,
+  "ANIMALS|aqua|Old Frogfolk": AOFrogfolk,
   "ANIMALS|green|Poisonous Spider": GPSpider,
   "BARRICADE|orange|Overgrown Bushes": OOBushes,
   "ELEMENTALS|orange|Lantern": OLantern,

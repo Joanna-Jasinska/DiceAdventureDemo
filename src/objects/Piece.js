@@ -118,7 +118,45 @@ export const Piece = {
       return { ...piece, fulfilled: false };
     if (piece.requires.exactValues) {
       // !!!AAA!!! check if fulfilled when requiring exact values
-      return { ...piece, fulfilled: true };
+      // let matched = true;
+      // let i = piece.requires.exactValues.length - 1;
+      let checkingArr = [...piece.requires.exactValues];
+      while (checkingArr.length > 0) {
+        const reqValue = checkingArr.pop();
+        const reqAmount = checkingArr.filter((v) => v === reqValue).length + 1;
+
+        if (
+          reqValue === "even" &&
+          piece.dices.reduce(
+            (total, dice) => (dice.value % 2 === 0 ? total + 1 : total),
+            0
+          ) < reqAmount
+        ) {
+          // console.log(`--------------Dice REQ----"even"-------`);
+          return { ...piece, fulfilled: false };
+        }
+        if (
+          reqValue === "odd" &&
+          piece.dices.reduce(
+            (total, dice) => (dice.value % 2 === 1 ? total + 1 : total),
+            0
+          ) < reqAmount
+        ) {
+          // console.log(`--------------Dice REQ----"even"-------`);
+          return { ...piece, fulfilled: false };
+        }
+        if (
+          typeof reqValue === "number" &&
+          piece.dices.reduce(
+            (total, dice) => (dice.value === reqValue ? total + 1 : total),
+            0
+          ) < reqAmount
+        ) {
+          console.log(`--------------Dice REQ----"[${reqValue}"-------`);
+          return { ...piece, fulfilled: false };
+        }
+        checkingArr = [...checkingArr.filter((r) => r !== reqValue)];
+      }
     }
     return { ...piece, fulfilled: true };
     // return fulfilled;
@@ -262,6 +300,11 @@ export const Piece = {
             currentPiece.requires.exactValues[0]
           );
         }
+      }
+      if (r.exactValues && grow.lvlsToRaiseExactValue0) {
+        const extraAmount = Math.floor(maxLv / grow.lvlsToRaiseExactValue0);
+        currentPiece.requires.exactValues[0] =
+          currentPiece.requires.exactValues[0] + extraAmount;
       }
       // --------------------------------------------------
       currentPiece.id = `${currentPiece.id}|iteration|${iteration}`;

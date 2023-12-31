@@ -13,7 +13,7 @@ export const i001 = {
   bosses: ["ANIMALS|aqua|Toad King"],
   enemies: [
     ["ANIMALS|aqua|Blue Fish"],
-    ["ANIMALS|aqua|Blue Fish"],
+    ["ANIMALS|aqua|Old Frogfolk"],
     ["ANIMALS|aqua|Blue Fish"],
   ],
 };
