@@ -1,6 +1,7 @@
 const enemies = [
   "ANIMALS|aqua|Blue Fish",
   "ANIMALS|aqua|Old Frogfolk",
+  "ANIMALS|aqua|Count Fish",
   //
 ];
 export const i000 = {

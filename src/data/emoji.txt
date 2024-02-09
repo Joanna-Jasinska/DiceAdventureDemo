@@ -46,10 +46,15 @@ places
 🕋 ⛩ 🛤 🛣 🗾 🎑 🏞 🌅 🌄 🌠 🎇 🎆 🌇 🌆 🏙 🌃 🌌 🌉 🌁
 
 🏰 cursed castle (overtaken by wizard or vampire with vast dungeon, cursed soldiers, traps)
-🌲 wild forests (vild magical beasts, verewolves, druids)
+-go even or odd
+🌲 wild forests (wild magical beasts, verewolves, druids)
+-bit of everything, use many dices
 🗿 forgotten valley (old battleground and cult place, zombies, ghouls, cultists)
+-go extreme min or max values
 🏝 mermaid island (merfolk)
+-high value dices disallowed, get precise values
 🏔 black mountain (elementals, giants, goblins)
+-roll big values, use few dices
 
 ppl
 🧙‍♀️ 🧙🧛‍♀️🧝🧜‍♂️ 🧚‍♀️🧜‍♀️🧟🧞‍♀️ 🧞💂🦹‍♀️🕵️

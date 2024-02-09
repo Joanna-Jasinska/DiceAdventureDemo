@@ -13,6 +13,8 @@ to do for presentation:
 
 - ADDING TITLE popup TO ALL HEADER NAV BTN
 
+- make  PMimic  to give extra gold on last body part
+
 - dungeon slice -+started level doesnt work anymore - need diff tracking for dungeon combo
 - bosses must damage unless completely filled->last field must damage player
 

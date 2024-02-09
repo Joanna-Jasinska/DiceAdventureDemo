@@ -6,15 +6,20 @@ export const Piece = {
       const emojis = [];
       for (let i = 0; i < piece.damages[attrName]; i++) {
         emojis.push(
-          attrName === "damageToPlayer" ? "❤️" : getDiceTypeIcon("playerAttack")
+          attrName === "damageToPlayer"
+            ? "❤️"
+            : attrName === "gold"
+            ? "💰"
+            : getDiceTypeIcon("playerAttack")
         );
       }
       return emojis;
     };
     const pDmg = generateIcons("damageToPlayer");
     const eDmg = generateIcons("damageToEnemy");
+    const gold = generateIcons("gold");
 
-    const dIcons = [...[...pDmg], ...eDmg];
+    const dIcons = [...[...pDmg], ...eDmg, ...[...gold]];
     // const dIcons = [...(piece.priority ? ["🛡️", ...pDmg] : [...pDmg]), ...eDmg];
     return dIcons.length > 0 ? dIcons : false;
   },

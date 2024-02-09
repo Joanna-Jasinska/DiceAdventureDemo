@@ -22,6 +22,8 @@ import { GPSpider } from "./enemies/animals/GPSpider";
 import { AOFrogfolk } from "./enemies/folk/AOFrogfolk";
 import { PCMouse } from "./enemies/animals/PCMouse";
 import { BWHawk } from "./enemies/animals/BWHawk";
+import { ACFish } from "./enemies/animals/ACFish";
+import { PMimic } from "./enemies/animated/PMimic";
 
 const template = {};
 
@@ -32,6 +34,8 @@ export const getEnemy = (id) => {
 
 const ENEMIES = {
   0: PMutatedRat,
+  "ANIMATED|purple|Mimic": PMimic,
+  "ANIMALS|aqua|Count Fish": ACFish,
   "ANIMALS|black|Wounded Hawk": BWHawk,
   "ANIMALS|purple|Cheese Mouse": PCMouse,
   "ANIMALS|aqua|Old Frogfolk": AOFrogfolk,
